@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the FirebaseConnectionProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+declare var firebase;
 @Injectable()
 export class FirebaseConnectionProvider {
+authnticate = firebase.auth()
 
   constructor() {
     console.log('Hello FirebaseConnectionProvider Provider');
   }
-
+login(email,password){
+  return new Promise((accept,reject) =>{
+    this.authnticate.signInWithEmailAndPassword(email, password).then(() =>{
+      accept("Success")
+    }, Error =>{
+      reject(Error.message)
+    })
+  })
+}
 }
