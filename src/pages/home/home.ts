@@ -22,7 +22,7 @@ export class HomePage {
     const modal = this.modalCtrl.create(MoreInfoPage);
     modal.present();
   }
-=======
+
   Users = {} as User;
 
 
