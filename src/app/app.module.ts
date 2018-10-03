@@ -27,7 +27,7 @@ import { LoginPage } from '../pages/login/login';
     TabsPage,
     BusinessHomePage,
     RegisterBusinessPage,
-    MoreInfoPage
+    MoreInfoPage,
     LoginPage
 
   ],
@@ -44,7 +44,7 @@ import { LoginPage } from '../pages/login/login';
     TabsPage,
     BusinessHomePage,
     RegisterBusinessPage,
-    MoreInfoPage
+    MoreInfoPage,
     LoginPage
 
   ],
