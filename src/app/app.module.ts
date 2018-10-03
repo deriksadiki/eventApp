@@ -13,6 +13,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseConnectionProvider } from '../providers/firebase-connection/firebase-connection';
 import { BusinessHomePage } from '../pages/business/business-home/business-home';
 import { RegisterBusinessPage } from '../pages/business/register-business/register-business';
+import { LoginPage } from '../pages/login/login';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { RegisterBusinessPage } from '../pages/business/register-business/regist
     HomePage,
     TabsPage,
     BusinessHomePage,
-    RegisterBusinessPage
+    RegisterBusinessPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { RegisterBusinessPage } from '../pages/business/register-business/regist
     HomePage,
     TabsPage,
     BusinessHomePage,
-    RegisterBusinessPage
+    RegisterBusinessPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
