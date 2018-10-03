@@ -1,23 +1,27 @@
 page-home {
+
     .image{
         height: 330px;
     }
+
     .card{
         border-radius: 5%;
         background-color: rgb(226, 234, 241)
     }
+
     .btn{
     //    position: relative;
     //    right: 6%;
     //    top: 20px;
     height: 1%;
     }
-  
+
     h2{
         position: relative;
         bottom: 20px;
         font-weight: 100;
     }
+
     .head{
        color: purple;
     }
@@ -25,3 +29,4 @@ page-home {
         font-weight: 100;
     }
 }
+
