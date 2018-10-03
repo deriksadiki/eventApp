@@ -19,7 +19,7 @@ export class RegisterBusinessPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterBusinessPage');
+
   }
 
 }
