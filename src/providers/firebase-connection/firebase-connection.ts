@@ -3,8 +3,6 @@ import { Injectable } from '@angular/core';
 declare var firebase;
 @Injectable()
 export class FirebaseConnectionProvider {
-authnticate = firebase.auth()
-
   database = firebase.database();
   authenticate = firebase.auth();
 
@@ -45,13 +43,18 @@ authnticate = firebase.auth()
       })
     })
   }
+  
 login(email,password){
   return new Promise((accept,reject) =>{
-    this.authnticate.signInWithEmailAndPassword(email, password).then(() =>{
+    this.authenticate.signInWithEmailAndPassword(email, password).then(() =>{
       accept("Success")
     }, Error =>{
-      reject(Error.message)
+      reject(Error.message);
+      console.log(Error.message);
     })
   })
+}
+forgotUserPassword(email:any){
+  return this.authenticate.sendPasswordResetEmail(email);
 }
 }
