@@ -1,18 +1,36 @@
 import { Component } from '@angular/core';
+
+import { ModalController } from 'ionic-angular';
+import { MoreInfoPage } from '../more-info/more-info';
+
 import { NavController, AlertController } from 'ionic-angular';
 import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { LoginPage } from '../login/login';
+
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider) {
+  
+  constructor(public navCtrl: NavController,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider , public modalCtrl: ModalController){
 
   }
+
+<<<<<<< HEAD
+  constructor(public navCtrl: NavController,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider) {
+=======
+  moreinfo=function() {
+    const modal = this.modalCtrl.create(MoreInfoPage);
+    modal.present();
+  }
+=======
+  Users = {} as User;
+
+>>>>>>> d4911ca36a12788050fac4891e2bb4bfb0a86fac
+
 
 
   // reg(){
@@ -60,5 +78,6 @@ export class HomePage {
   //      })
   //   }
   // }
+
 
 }
