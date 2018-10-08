@@ -61,10 +61,6 @@ login(email,password){
   })
 }
 
-forgotPassword(email:any){
-  return this.authenticate.sendPasswordResetEmail(email);
-}
-
 getAlldata(){
 return new Promise ((accept,reject) => {
 this.fetch.length = 0;

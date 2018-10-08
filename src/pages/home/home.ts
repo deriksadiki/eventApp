@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { MoreInfoPage } from '../more-info/more-info';
 
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, NavParams} from 'ionic-angular';
 import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { LoginPage } from '../login/login';
@@ -19,7 +19,7 @@ export class HomePage {
 
   Users = {} as User;
   plus;
-  constructor(public navCtrl: NavController,public navParams: NavParams,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider , public modalCtrl: ModalController){
+  constructor(public navCtrl: NavController,public navParams: NavParams ,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider){
 
   }
   ionViewDidLoad() {
@@ -31,7 +31,7 @@ export class HomePage {
      }
 
 viewMore(i){
- console.log(i)
+this.navCtrl.push(MoreInfoPage, {events:i});
 }
 back(){
   this.navCtrl.push(LoginPage);
