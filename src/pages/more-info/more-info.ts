@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
+import { AboutPage } from '../about/about';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @IonicPage()
 @Component({
@@ -8,20 +11,34 @@ import { FirebaseConnectionProvider } from '../../providers/firebase-connection/
   templateUrl: 'more-info.html',
 })
 export class MoreInfoPage {
-fetching = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider) {
+event = new Array();
+plus;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
   }
 
-  ionViewDidLoad() {
- var user = this.navParams.get('user');
-this.firebaseService.getAlldata().then((data:any) =>{
-  this.fetching = data;
-   console.log(this.fetching);
- });
+ionViewDidLoad() {
+  this.event.push(this.navParams.get('events'))
+  console.log(this.event )
   }
 
-
-  Terminate(){
-    this.view.dismiss();
+  navigate = function(i){
+    this.launchNavigator.navigate(i);
   }
+
+  share(i){
+  var location = 'at ' + this.event[0].location + ', this event was shared from event finder app, please download the app to get more information like this' 
+    this.socialSharing.share(this.event[0].eventName,this.event[0].eventDesc,this.event[0].img, location ) .then(() => {
+      // Success!
+    }).catch(() => {
+      // Error!
+    });
+  }
+
+  going(){
+    this.firebaseService.going(this.event[0].key,this.event[0].hostname,this.event[0].going )
+  }
+text(){
+  console.log('text');
+}
 }
