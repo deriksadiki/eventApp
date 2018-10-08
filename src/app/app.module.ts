@@ -15,6 +15,11 @@ import { BusinessHomePage } from '../pages/business/business-home/business-home'
 import { RegisterBusinessPage } from '../pages/business/register-business/register-business';
 import { ViewPage } from '../pages/view/view';
 
+import { MoreInfoPage } from '../pages/more-info/more-info';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register'
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +29,15 @@ import { ViewPage } from '../pages/view/view';
     TabsPage,
     BusinessHomePage,
     RegisterBusinessPage,
+<<<<<<< HEAD
     ViewPage
+=======
+    MoreInfoPage,
+    LoginPage,
+    RegisterPage
+
+
+>>>>>>> 7f1550802b05ff565ed1e487df4bdf578fd0458f
   ],
   imports: [
     BrowserModule,
@@ -39,7 +52,16 @@ import { ViewPage } from '../pages/view/view';
     TabsPage,
     BusinessHomePage,
     RegisterBusinessPage,
+<<<<<<< HEAD
     ViewPage
+=======
+    MoreInfoPage,
+
+    LoginPage,
+    RegisterPage
+
+
+>>>>>>> 7f1550802b05ff565ed1e487df4bdf578fd0458f
   ],
   providers: [
     StatusBar,

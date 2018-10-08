@@ -1,3 +1,59 @@
 page-about {
 
+    .img{
+        // background-image:linear-gradient(rgba(172, 166, 166, 0.418),rgba(172, 166, 166, 0.418)), url('../../assets/imgs/video.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        }
+    
+
+    .icon{
+        color: #7a4579;
+        font-size: 2em;
+        position: relative;
+        bottom: 30px;
+    }
+
+    .btn{
+        position: relative;
+     //    right: 6%;
+        top: 20px;
+        height: 1%;
+     }
+
+     .card{
+        // border-radius: 5%;
+        // padding-left: 10%;
+        // width: 90%;
+        // margin-left: 10%;
+        background-color: #ffffff00;
+    }
+
+    .head{
+        font-size: 1.5em;
+        font-weight: 100;
+         
+     }
+
+     .item{
+         background-color: #fffdfb00;
+         color: white;
+         
+     }
+
+
+     h2{
+         color: #7a4579;
+     }
+
+
+     p{
+         color: rgb(255, 255, 255);
+     }
+
+     
+    
+
 }
