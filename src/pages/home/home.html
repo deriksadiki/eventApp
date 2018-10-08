@@ -1,94 +1,38 @@
-<ion-header>
 
-  <ion-navbar color="nav">
-    <ion-title align="center">Home</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-header >
+  <ion-toolbar color="nav">
+    <ion-title>Upcoming Events</ion-title>
+  </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="img">
+  
+  
+    <ion-card class="card" *ngFor="let a of fetching;let i of index;">
+        <ion-card-header class="head">
 
-<ion-content padding class="theme">
+            {{i.eventName}}
+          </ion-card-header>
+  
+      <img class="image" src="{{i.img}}">
+      <ion-card-content>
+        <ion-card-title>
+          {{a.eventDesc}}
+          </ion-card-title>
+        <p>
+          {{a.location}}
+        </p>
+        <br>
+       <div align="left">
+        <button ion-button color="nav" clear (click)="viewMore(i)">View more</button>
 
-
-  <ion-card class="card">
-    <ion-card-header class="head">
-      Range Records entertainment
-    </ion-card-header>
-
-    <img class="image" src="../../assets/imgs/IMG-20181002-WA0011.jpg">
-    <ion-card-content>
-      <ion-card-title>
-        Sejesong Pub & Lounge
-      </ion-card-title>
-      <p>
-        Pimville Klipspruit
-      </p>
-      <br>
-      <div align="left">
-        <button ion-button color="primary" clear (click)="moreinfo()">VIEWMORE</button>
       </div>
-      <h2 align="right">06 October 2018</h2>
-
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      Spring Fiesta
-    </ion-card-header>
-
-    <img class="image" src="../../assets/imgs/Spring-Fi.jpg">
-    <ion-card-content>
-      <ion-card-title>
-        Wild Waters Complex
-      </ion-card-title>
-      <p>
-        Ekhuruleni
-      </p>
-      <br>
-      <button ion-button color="dark" clear (click)="moreinfo(a)">View more</button>
-      <h2 align="right">06 October 2018</h2>
-    </ion-card-content>
-  </ion-card>
-
-
-  <ion-card>
-    <ion-card-header>
-      Soweto's 1st Birthday
-    </ion-card-header>
-    <img class="image" src="../../assets/imgs/Thumbnail.jpg">
-    <ion-card-content>
-      <ion-card-title>
-        ICON Soweto
-      </ion-card-title>
-      <p>
-        Pimville Zone 7
-      </p>
-      <br>
-      <button ion-button color="nav" clear (click)="moreinfo()"> View more</button>
-      <h2 align="right">25 November 2018</h2>
-
-    </ion-card-content>
-  </ion-card>
-
-
-
-  <ion-card>
-    <ion-card-header>
-      Fashion & Arts fair
-    </ion-card-header>
-    <img class="image" src="../../assets/imgs/arts.jpg">
-    <ion-card-content>
-      <ion-card-title>
-        Ekhuruleni
-      </ion-card-title>
-      <p>
-        Venue and more info to be revealed !
-      </p>
-      <br>
-      <button ion-button clear color="nav" (click)="moreinfo()">View more</button>
-      <h2 align="right">10 November 2018</h2>
-
-    </ion-card-content>
-  </ion-card>
-
+        <h2 align="right">{{i.date}}</h2>
+  
+      </ion-card-content>
+    </ion-card>
+ 
+  </ion-content>
+>>>>>>> 8d1c08a376162e9b2793ef65560c0b9fa90de9ef
 
 </ion-content>

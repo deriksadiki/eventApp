@@ -1,7 +1,9 @@
 page-home {
+
     .img{
          background-color: rgb(240, 240, 240);
     }
+
     .image{
         height: 330px;
     }
@@ -18,10 +20,14 @@ page-home {
     .head{
        font-size: 1.5em;
        font-weight: 100;
-    //    background-color: rgba(0, 0, 0, 0.692);
-       color: black;
+       background-color: rgba(0, 0, 0, 0.692);
+       color: white;
+
     }
+
+
     p{
         font-weight: 100;
     }
+ 
 }

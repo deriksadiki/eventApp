@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-
+import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
+import { AboutPage } from '../about/about';
 
 @IonicPage()
 @Component({
@@ -8,17 +9,13 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'more-info.html',
 })
 export class MoreInfoPage {
- 
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
+event = new Array();
+plus;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MoreInfoPage');
+ionViewDidLoad() {
+  this.event.push(this.navParams.get('events'))
+  console.log(this.event )
   }
-
-  close(){
-    this.view.dismiss();
-  }
-
 }

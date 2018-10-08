@@ -1,71 +1,63 @@
 <ion-header>
-
-  <ion-navbar color="nav">
-    <ion-title>MoreInfo</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding class="theme">
-  <ion-card>
-    <ion-item class="header">
-      <h2>
-        <b>Event Name</b>
-      </h2>
-    </ion-item>
-
-    <div align="center" padding>
-      <img src="../../assets/imgs/eventpic.jpg">
+    <div class="nav">
+      
+      <ion-navbar color="trans">
+      
+        </ion-navbar>
+      
+    
+      <ion-grid class="dash" align="center">
+        <ion-row>
+          <ion-col>
+              <!-- <ion-icon class="icons" name="thumbs-up"></ion-icon> -->
+            <button class="button" ion-button color="light" outline>Going</button>
+          </ion-col>
+    
+          <ion-col>
+            <button class="button" ion-button color="light" outline>Interested</button>
+          </ion-col>
+    
+          <ion-col>
+              <!-- <ion-icon class="icons" name="thumbs-down"></ion-icon> -->
+            <button class="button" ion-button color="light" outline>Not Interested</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
     </div>
-    <ion-grid>
+    </ion-header>
+    
+    <ion-content padding class="color">
+      <div *ngFor="let i of event">
+    
+      <h1>{{i.eventName}}</h1>
+      <h3>{{i.eventDesc}}</h3>
+    
+      <!-- <img class="img" src="../../assets/imgs/Spring-Fi.jpg"> -->
+    
+    <ion-grid align="center" class="things">
       <ion-row>
-        <ion-col class="options">
-          <button class="option" ion-button color="nav">Going</button>
-        </ion-col>
-        <ion-col class="options">
-          <button class="option" ion-button color="nav">Maybe</button>
-        </ion-col>
         <ion-col>
-          <button class="option" ion-button color="nav">Not-interested</button>
+          <img src="{{i.img}}"><br>
+          {{i.startTIme}} till {{i.endTIme}}
+        </ion-col>
+    
+        <ion-col>
+          <img src="../../assets/imgs/calendar.png"><br>
+          {{i.date}}
         </ion-col>
       </ion-row>
     </ion-grid>
+    
+    <h2>Location</h2>
+    <p>{{i.location}}</p>
+    <div align="center">
+      <button class="btn" ion-button color="dark"><ion-icon name="compass"></ion-icon></button>
+    </div>
+  </div>
+    </ion-content>
+    
 
-    <br>
-
-    <ion-card-content>
-      <div class="descr">
-        <p>Description</p>
-      </div>
-      <br>
 
 
-      <ion-row>
-        <ion-col>
-          <ion-label icon-start small>
-            <ion-icon name="md-time"></ion-icon>
-            <b>Start: 6 PM</b>
-          </ion-label>
-        </ion-col>
-
-        <ion-col>
-          <ion-label icon-start small>
-            <ion-icon name="md-time"></ion-icon>
-            <b>Till: 6 AM</b>
-          </ion-label>
-        </ion-col>
-      </ion-row>
-      <ion-col>
-        <ion-item>
-
-          <ion-label>
-            <ion-icon name="md-pin"></ion-icon>
-            <b> Venue: Place</b>
-          </ion-label>
-
-        </ion-item>
-      </ion-col>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+  

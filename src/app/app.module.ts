@@ -17,6 +17,8 @@ import { RegisterBusinessPage } from '../pages/business/register-business/regist
 import { MoreInfoPage } from '../pages/more-info/more-info';
 import { LoginPage } from '../pages/login/login';
 import { CommentsPage } from '../pages/comments/comments';
+import { RegisterPage } from '../pages/register/register'
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CommentsPage } from '../pages/comments/comments';
     RegisterBusinessPage,
     MoreInfoPage,
     LoginPage,
-    CommentsPage
+    CommentsPage,
+    RegisterPage
+
 
   ],
   imports: [
@@ -47,7 +51,10 @@ import { CommentsPage } from '../pages/comments/comments';
     RegisterBusinessPage,
     MoreInfoPage,
     LoginPage,
-    CommentsPage
+    CommentsPage,
+    RegisterPage
+
+
 
   ],
   providers: [
