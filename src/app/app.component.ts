@@ -11,7 +11,7 @@ import {LoginPage} from '../pages/login/login';
 
 // import { HomePage } from '../pages/home/home';
 import { MoreInfoPage } from '../pages/more-info/more-info';
-import { LoginPage } from '../pages/login/login'
+
 
 
 @Component({

@@ -61,10 +61,6 @@ login(email,password){
   })
 }
 
-forgotPassword(email:any){
-  return this.authenticate.sendPasswordResetEmail(email);
-}
-
 getAlldata(){
 return new Promise ((accept,reject) => {
 this.fetch.length = 0;
@@ -75,7 +71,7 @@ this.database.ref('events/').on('value', (data: any) => {
     var k = userIDs[i];
     var y = 'events/' + k;
     console.log(y)
-    
+
     this.database.ref(y).on('value', (data2:any) =>{
       var events = data2.val();
       console.log(events);
@@ -84,13 +80,13 @@ this.database.ref('events/').on('value', (data: any) => {
         var k = keys[a];
         let obj = {
           date: events[k].date,
-          endTime: events[k].endTime,
+          endTIme: events[k].endTIme,
           eventDesc: events[k].eventDesc,
           eventName: events[k].eventName,
           fee: events[k].fee,
           img: events[k].img,
           location: events[k].location,
-          startTime: events[k].startTime
+          startTIme: events[k].startTIme
         }
         this.fetch.push(obj)
       }
@@ -104,5 +100,4 @@ this.database.ref('events/').on('value', (data: any) => {
 })
   })
 }
-
 }
