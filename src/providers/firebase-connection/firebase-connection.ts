@@ -3,14 +3,12 @@ import { Injectable } from '@angular/core';
 declare var firebase;
 @Injectable()
 export class FirebaseConnectionProvider {
-authnticate = firebase.auth()
-
   database = firebase.database();
   authenticate = firebase.auth();
 
   dbRef;
   currentUserID;
-
+  fetch = new Array();
   constructor() {
   }
 
@@ -45,13 +43,61 @@ authnticate = firebase.auth()
       })
     })
   }
+
+  forgotPassword(email:any){
+    return this.authenticate.sendPasswordResetEmail(email);
+  }
+
+  
+
 login(email,password){
   return new Promise((accept,reject) =>{
-    this.authnticate.signInWithEmailAndPassword(email, password).then(() =>{
+    this.authenticate.signInWithEmailAndPassword(email, password).then(() =>{
       accept("Success")
     }, Error =>{
-      reject(Error.message)
+      reject(Error.message);
+      console.log(Error.message);
     })
+  })
+}
+
+getAlldata(){
+return new Promise ((accept,reject) => {
+this.fetch.length = 0;
+this.database.ref('events/').on('value', (data: any) => {
+  var users = data.val();
+  var userIDs = Object.keys(users);
+  for(var i = 0; i < userIDs.length;i++){
+    var k = userIDs[i];
+    var y = 'events/' + k;
+    console.log(y)
+
+    this.database.ref(y).on('value', (data2:any) =>{
+      var events = data2.val();
+      console.log(events);
+      var keys = Object.keys(events);
+      for(var a = 0;a < keys.length;a++){
+        var k = keys[a];
+        let obj = {
+          date: events[k].date,
+          endTIme: events[k].endTIme,
+          eventDesc: events[k].eventDesc,
+          eventName: events[k].eventName,
+          fee: events[k].fee,
+          img: events[k].img,
+          location: events[k].location,
+          startTIme: events[k].startTIme
+        }
+        this.fetch.push(obj)
+      }
+      accept(this.fetch);
+      console.log(this.fetch)
+    })
+  }
+
+}, Error => {
+  reject(Error.message);
+})
   })
 }
 }

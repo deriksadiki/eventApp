@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+
+import { MoreInfoPage } from '../more-info/more-info';
+
+import { NavController, AlertController, NavParams} from 'ionic-angular';
 import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
+import { LoginPage } from '../login/login';
+
+
 
 @Component({
   selector: 'page-home',
@@ -9,11 +15,28 @@ import { FirebaseConnectionProvider } from '../../providers/firebase-connection/
 })
 export class HomePage {
 
-  Users = {} as User;
+  fetching = [];
 
-  constructor(public navCtrl: NavController,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider) {
+  Users = {} as User;
+  plus;
+  constructor(public navCtrl: NavController,public navParams: NavParams ,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider){
 
   }
+  ionViewDidLoad() {
+    var user = this.navParams.get('user');
+    this.firebaseService.getAlldata().then((data:any) => {
+      this.fetching = data;
+      console.log(data);
+    });
+     }
+
+viewMore(i){
+this.navCtrl.push(MoreInfoPage, {events:i});
+}
+back(){
+  this.navCtrl.push(LoginPage);
+}
+
 
   // reg(){
   //   if(this.Users.email == undefined && this.Users.password && this.Users.userName == undefined){
@@ -60,5 +83,6 @@ export class HomePage {
   //      })
   //   }
   // }
+
 
 }
