@@ -7,7 +7,7 @@ page-login {
         // padding:3px;
         font-weight: 100;
         font-size: 1.3em;
-        color: white;
+        color: black;
     }
     .item{
         background-color: rgba(255, 255, 255, 0.171);
@@ -24,5 +24,12 @@ page-login {
   .list{
     position: relative;
     top: 8%;
+}
+.back{
+    background-color:  #7a4579;
+}
+.image{
+    position: relative;
+    top: 40px;
 }
 }

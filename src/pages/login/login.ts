@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import {login} from '../../Modals/login';
+import { HomePage } from '../home/home';
 
 
  
@@ -26,6 +27,7 @@ export class LoginPage {
           buttons: ['OK']
         });
         alert.present();
+        this.navCtrl.push(HomePage);
     }, Error =>{
       if (this.logging.email == undefined && this.logging.password == undefined){
         const alert = this.alertCtrl.create({
@@ -88,7 +90,7 @@ export class LoginPage {
             });
             loader.present();
   
-            this.firebaseService.forgotUserPassword(data.recoverEmail).then(() =>{
+            this.firebaseService.forgotPassword(data.recoverEmail).then(() =>{
               // add toast
               loader.dismiss().then(() => {
               //show pop up

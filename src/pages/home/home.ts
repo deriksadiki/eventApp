@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ModalController } from 'ionic-angular';
+import { ModalController, NavParams } from 'ionic-angular';
 import { MoreInfoPage } from '../more-info/more-info';
 
 import { NavController, AlertController } from 'ionic-angular';
@@ -14,25 +14,26 @@ import { LoginPage } from '../login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  
-  constructor(public navCtrl: NavController,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider , public modalCtrl: ModalController){
-
-  }
-
-<<<<<<< HEAD
-  constructor(public navCtrl: NavController,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider) {
-=======
-  moreinfo=function() {
-    const modal = this.modalCtrl.create(MoreInfoPage);
-    modal.present();
-  }
-=======
+  fetching = [];
   Users = {} as User;
+  constructor(public navCtrl: NavController,public navParams: NavParams,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider , public modalCtrl: ModalController){
 
->>>>>>> d4911ca36a12788050fac4891e2bb4bfb0a86fac
+  }
+  ionViewDidLoad() {
+    // var user = this.navParams.get('user');
+    // this.firebaseService.getAlldata(user).then((data:any) => {
+    //   this.fetching = data;
+    //   console.log(data);
+    // });
+     }
 
-
-
+viewMore(){
+  const modal = this.modalCtrl.create(MoreInfoPage);
+  modal.present();
+}
+back(){
+  this.navCtrl.push(LoginPage);
+}
   // reg(){
   //   if(this.Users.email == undefined && this.Users.password && this.Users.userName == undefined){
   //     const alert = this.alertCtrl.create({
