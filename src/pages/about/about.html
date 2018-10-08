@@ -8,64 +8,20 @@
 
 <ion-content padding>
 
-    <ion-card class="card">
+    <ion-card *ngFor="let i of fetching;let a of index;">
         <ion-card-header>
-            Range Records entertainment
+        {{i.eventName}}
+        <br>
         </ion-card-header>
         <ion-card-content>
-          <h2>Sejesong Pub</h2>
-          <p>Klipspruit Mokoena Str <br>
-             Sat 6 Oct 2018
-             <br> 2pm till late</p>
+          <h3>{{i.location}}<br>
+          {{i.date}}
+             <br> start @ {{i.startTIme}} till {{i.endTIme}}</h3>
                 </ion-card-content>
         <button class="btn" ion-button color="nav" clear>View more</button>
         <div align="right">
         <ion-icon class="icon" name="trash"></ion-icon>
       </div>
       </ion-card>
-
-      <ion-card>
-          <ion-card-header>
-              Spring Fiesta
-          </ion-card-header>
-          <ion-card-content>
-              <h2>Wild Waters Complex</h2>
-              <p> Ekhuruleni<br>
-                  Sat 6 Oct 2018 <br>
-                  2pm till 2am</p>
-            </ion-card-content>
-          <button class="btn" ion-button color="nav" clear>View more</button>
-          <div align="right">
-              <ion-icon class="icon" name="trash"></ion-icon>
-            </div>
-        </ion-card>
-
-        <ion-card>
-            <ion-card-header>
-              Header
-            </ion-card-header>
-            <ion-card-content>
-              The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-            </ion-card-content>
-            <button class="btn" ion-button color="nav" clear>View more</button>
-            <div align="right">
-                <ion-icon class="icon" name="trash"></ion-icon>
-              </div>
-          </ion-card>
-
-          <ion-card>
-              <ion-card-header>
-                Header
-              </ion-card-header>
-              <ion-card-content>
-                The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-              </ion-card-content>
-              <button class="btn" ion-button color="nav" clear>View more</button>
-              <div align="right">
-                  <ion-icon class="icon" name="trash"></ion-icon>
-                </div>
-            </ion-card>
-            
-            
-
+      
 </ion-content>

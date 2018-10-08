@@ -1,8 +1,8 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>MoreInfo</ion-title>
-    <ion-buttons end>
+    <ion-title>More Information</ion-title>
+    <ion-buttons start>
         <button ion-button round color= "danger"(click)="Terminate()"> <ion-icon name="md-close"></ion-icon>
         </button>
       </ion-buttons>
@@ -12,19 +12,19 @@
 
 
 <ion-content padding>
-  <ion-card>
+  <ion-card *ngFor="let i of fetching;let i of index;">
     <ion-item>
       <h2>
-        <b>Event Name</b>
+        <b>{{i.eventName}}</b>
       </h2>
     </ion-item>
 
     <div  align="center">
-    <img src="../../assets/imgs/eventpic.jpg">
+    <img src="{{i.img}}">
 </div>
     <br>
     <ion-row>
-      <button ion-button color="primary" clear>Going</button>
+      <button ion-button color="primary" clear (click)="next()">Going</button>
       <button ion-button clear>Maybe</button>
       <button ion-button color="primary" clear>Not-interested</button>
     </ion-row>
@@ -32,34 +32,44 @@
 
     <ion-card-content>
 <div class="descr">
-      <p>Description</p>
+      <p>{{i.eventDesc}}</p>
    </div>   
-      <br>
-      <div class="descr">
-      <p>Line-Up</p>
-      </div>
+        <br>
+      <ion-item>
+        <ion-label icon-start small>
+          <ion-icon name="md-pin"></ion-icon>
+          <b> Venue: {{i.location}}</b>
+        </ion-label>
+      </ion-item>
       <br>
 
       <ion-row>
         <ion-col>
           <ion-label icon-start small>
             <ion-icon name="md-time"></ion-icon>
-            <b>Start: 6 PM</b>
+            <b>Start: {{i.startTIme}}</b>
           </ion-label>
         </ion-col>
 
         <ion-col>
           <ion-label icon-start small>
             <ion-icon name="md-time"></ion-icon>
-            <b>Till: 6 AM</b>
+            <b>Till: {{i.endTIme}}</b>
           </ion-label>
         </ion-col>
-      </ion-row>
 
-      <ion-item>
+      <ion-col>
+        <ion-label icon-start small>
+          <ion-icon name="md-time"></ion-icon>
+          <b>Date: {{i.date}}</b>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+    
+    <ion-item>
         <ion-label>
-          <ion-icon name="md-pin"></ion-icon>
-          <b> Venue: Place</b>
+          <ion-icon name="md-cash"></ion-icon>
+          <b> Fee: {{i.fee}}</b>
         </ion-label>
       </ion-item>
 

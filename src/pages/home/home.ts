@@ -9,6 +9,7 @@ import { FirebaseConnectionProvider } from '../../providers/firebase-connection/
 import { LoginPage } from '../login/login';
 
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -16,24 +17,26 @@ import { LoginPage } from '../login/login';
 export class HomePage {
   fetching = [];
   Users = {} as User;
+  plus;
   constructor(public navCtrl: NavController,public navParams: NavParams,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider , public modalCtrl: ModalController){
 
   }
   ionViewDidLoad() {
-    // var user = this.navParams.get('user');
-    // this.firebaseService.getAlldata(user).then((data:any) => {
-    //   this.fetching = data;
-    //   console.log(data);
-    // });
+    var user = this.navParams.get('user');
+    this.firebaseService.getAlldata().then((data:any) => {
+      this.fetching = data;
+      console.log(data);
+    });
      }
 
-viewMore(){
-  const modal = this.modalCtrl.create(MoreInfoPage);
-  modal.present();
+viewMore(i){
+ console.log(i)
 }
 back(){
   this.navCtrl.push(LoginPage);
 }
+
+
   // reg(){
   //   if(this.Users.email == undefined && this.Users.password && this.Users.userName == undefined){
   //     const alert = this.alertCtrl.create({
