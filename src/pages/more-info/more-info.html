@@ -6,23 +6,14 @@
     </ion-navbar>
   
 
-  <ion-grid class="dash" align="center">
-    <ion-row>
-      <ion-col>
-          <!-- <ion-icon class="icons" name="thumbs-up"></ion-icon> -->
-        <button ion-button color="light" outline>Going</button>
-      </ion-col>
 
-      <ion-col>
-        <button ion-button color="light" outline>Interested</button>
-      </ion-col>
-
-      <ion-col>
-          <!-- <ion-icon class="icons" name="thumbs-down"></ion-icon> -->
-        <button ion-button color="light" outline>Not Interested</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-navbar>
+    <ion-title>MoreInfo</ion-title>
+    <ion-buttons end>
+        <button ion-button round color= "danger"(click)="Terminate()"> <ion-icon name="md-close"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
 
 </div>
 </ion-header>

@@ -1,37 +1,36 @@
-<ion-header>
-
-    <ion-navbar color="nav">
-      <ion-title>Home</ion-title>
-    </ion-navbar>
+<ion-header color="nav">
+      <ion-title>Upcoming Events</ion-title>
   </ion-header>
   
-  <ion-content padding class="img">
+  <ion-content class="img">
   
   
-    <ion-card class="card">
+    <ion-card class="card" *ngFor="let i of fetching;let i of index;">
         <ion-card-header class="head">
-            Soweto's 1st Birthday
+
+            {{i.eventName}}
           </ion-card-header>
   
-      
-      <img class="image" src="../../assets/imgs/Thumbnail.jpg">
+      <img class="image" src="{{i.imgURL}}">
       <ion-card-content>
-        <ion-card-title class="title">
-            ICON Soweto
-          
+        <ion-card-title>
+          {{i.eventDesc}}
           </ion-card-title>
         <p>
-         Pimville Zone 7
+          {{i.location}}
         </p>
         <br>
        <div align="left">
-        <button class="btn" ion-button color="col" clear (click)="moreinfo()">View more</button>
+        <button ion-button color="nav" clear (click)="viewMore()">View more</button>
+
       </div>
-        <h2 align="right">06 October 2018</h2>
+        <h2 align="right">{{i.date}}</h2>
   
       </ion-card-content>
     </ion-card>
   
+
+
     <ion-card>
         <ion-card-header class="head">
             Spring Fiesta
@@ -42,11 +41,15 @@
         <ion-card-title>
           Wild Waters Complex
           </ion-card-title>
-        <p>
+        <p>\
+
+          
           Ekhuruleni
         </p>
         <br>
-        <button class="btn" ion-button color="col" clear (click)="moreinfo()">View more</button>
+
+        <button ion-button color="nav" clear class="textcontents" (click)="viewMore()">View more</button>
+
         <h2 align="right">06 October 2018</h2>
       </ion-card-content>
     </ion-card>
@@ -65,7 +68,8 @@
             Pimville Klipspruit
         </p>
         <br>
-        <button class="btn" ion-button color="col" clear (click)="moreinfo()"> View more</button>
+
+        <button ion-button color="nav" clear (click)="viewMore()"> View more</button>
         <h2 align="right">25 November 2018</h2>
   
       </ion-card-content>
@@ -86,12 +90,11 @@
           Venue and more info to be revealed !
         </p>
         <br>
-        <button class="btn" ion-button clear color="col" (click)="moreinfo()">View more</button>
+
+        <button ion-button clear color="nav" (click)="viewMore()">View More</button>
         <h2 align="right">10 November 2018</h2>
   
       </ion-card-content>
     </ion-card>
-  
-    
   </ion-content>
 

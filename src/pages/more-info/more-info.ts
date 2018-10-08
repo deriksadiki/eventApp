@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-
+import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 
 @IonicPage()
 @Component({
@@ -8,16 +8,20 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'more-info.html',
 })
 export class MoreInfoPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
+fetching = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MoreInfoPage');
+ var user = this.navParams.get('user');
+this.firebaseService.getAlldata().then((data:any) =>{
+  this.fetching = data;
+   console.log(this.fetching);
+ });
   }
 
-  close(){
+
+  Terminate(){
     this.view.dismiss();
   }
-
 }

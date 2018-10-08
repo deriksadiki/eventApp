@@ -3,7 +3,9 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import {login} from '../../Modals/login';
 import { HomePage } from '../home/home';
+
 import { RegisterPage } from '../register/register';
+
 
 
  
@@ -63,8 +65,66 @@ export class LoginPage {
       }
     })
   }
+
 reg(){
   this.navCtrl.push(RegisterPage);
+
+
+  ForgotPassword(){
+    const prompt = this.alertCtrl.create({
+      title: 'Enter Your Email',
+      message: "A new password will be sent to your email",
+      inputs: [
+        {
+          name: 'recoverEmail',
+          placeholder: 'you@example.com'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Submit',
+          handler: data => {
+  
+            const loader = this.loadingCtrl.create({
+              content: "Please wait.. resetting your password",
+              duration: 2000
+            });
+            loader.present();
+  
+            this.firebaseService.forgotPassword(data.recoverEmail).then(() =>{
+              // add toast
+              loader.dismiss().then(() => {
+              //show pop up
+              let alert = this.alertCtrl.create({
+              title: 'Check your email',
+              subTitle: 'Password reset succesful',
+              buttons: ['OK']
+              });
+                alert.present();
+              })
+            },error =>{ 
+              loader.dismiss().then(() => {
+              let alert = this.alertCtrl.create({
+              title: 'Error resseting password',
+              subTitle:error.message,
+              buttons: ['OK']
+              });
+              alert.present();
+            })
+            });
+          }
+        }
+      ]
+    });
+    prompt.present();
+    }
+
 }
   ForgotPassword(){
     const prompt = this.alertCtrl.create({
