@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { ModalController, NavParams } from 'ionic-angular';
 import { MoreInfoPage } from '../more-info/more-info';
 
 import { NavController, AlertController } from 'ionic-angular';
@@ -15,7 +14,9 @@ import { LoginPage } from '../login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
+
   fetching = [];
+
   Users = {} as User;
   plus;
   constructor(public navCtrl: NavController,public navParams: NavParams,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider , public modalCtrl: ModalController){

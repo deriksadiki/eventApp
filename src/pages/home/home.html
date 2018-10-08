@@ -9,7 +9,12 @@
   
     <ion-card class="card" *ngFor="let a of fetching;let i of index;">
         <ion-card-header class="head">
+<<<<<<< HEAD
             {{a.eventName}}
+=======
+
+            {{i.eventName}}
+>>>>>>> 5d79c2fd63167817b4638843dd819e0b61e6c780
           </ion-card-header>
   
       <img class="image" src="{{i.img}}">
@@ -22,7 +27,12 @@
         </p>
         <br>
        <div align="left">
+<<<<<<< HEAD
         <button ion-button color="nav" clear (click)="viewMore(i)">View more</button>
+=======
+        <button ion-button color="nav" clear (click)="viewMore()">View more</button>
+
+>>>>>>> 5d79c2fd63167817b4638843dd819e0b61e6c780
       </div>
         <h2 align="right">{{i.date}}</h2>
   
@@ -31,6 +41,74 @@
   
 
 
+<<<<<<< HEAD
   
+=======
+    <ion-card>
+        <ion-card-header class="head">
+            Spring Fiesta
+          </ion-card-header>
+          
+      <img class="image" src="../../assets/imgs/Spring-Fi.jpg">
+      <ion-card-content>
+        <ion-card-title>
+          Wild Waters Complex
+          </ion-card-title>
+        <p>\
+
+          
+          Ekhuruleni
+        </p>
+        <br>
+
+        <button ion-button color="nav" clear class="textcontents" (click)="viewMore()">View more</button>
+
+        <h2 align="right">06 October 2018</h2>
+      </ion-card-content>
+    </ion-card>
+  
+  
+    <ion-card>
+      <ion-card-header class="head">
+        Range Records entertainment
+          </ion-card-header>
+          <img class="image" src="../../assets/imgs/IMG-20181002-WA0011.jpg">
+      <ion-card-content>
+        <ion-card-title>
+            Sejesong Pub & Lounge
+          </ion-card-title>
+        <p>
+            Pimville Klipspruit
+        </p>
+        <br>
+
+        <button ion-button color="nav" clear (click)="viewMore()"> View more</button>
+        <h2 align="right">25 November 2018</h2>
+  
+      </ion-card-content>
+    </ion-card>
+  
+  
+  
+    <ion-card>
+        <ion-card-header class="head">
+            Fashion & Arts fair
+          </ion-card-header>
+      <img class="image" src="../../assets/imgs/arts.jpg">
+      <ion-card-content>
+        <ion-card-title>
+          Ekhuruleni
+          </ion-card-title>
+        <p>
+          Venue and more info to be revealed !
+        </p>
+        <br>
+
+        <button ion-button clear color="nav" (click)="viewMore()">View More</button>
+        <h2 align="right">10 November 2018</h2>
+  
+      </ion-card-content>
+    </ion-card>
+>>>>>>> 5d79c2fd63167817b4638843dd819e0b61e6c780
   </ion-content>
 

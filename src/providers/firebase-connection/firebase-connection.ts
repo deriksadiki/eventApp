@@ -43,7 +43,13 @@ export class FirebaseConnectionProvider {
       })
     })
   }
+
+  forgotPassword(email:any){
+    return this.authenticate.sendPasswordResetEmail(email);
+  }
+
   
+
 login(email,password){
   return new Promise((accept,reject) =>{
     this.authenticate.signInWithEmailAndPassword(email, password).then(() =>{
