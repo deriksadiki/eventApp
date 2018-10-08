@@ -1,3 +1,70 @@
 page-login {
 
+    
+    .btn{
+        width: 80%;
+        position: relative;
+        // left: 10%;
+        top: 110px;
+        padding:6%;
+        font-weight: 100;
+        font-size: 1.5em;
+        color: #7a4579;
+ 
+        }
+    .btn2{
+        width: 80%;
+        position: relative;
+        left: 10%;
+        top: 140px;
+        // padding:3px;
+        font-weight: 100;
+        font-size: 1.3em;
+        color: whitesmoke;
+    }
+    .logo{
+        position: relative;
+        top: 10%;
+    }
+    p{
+        color: white;
+        font-weight: 100;
+        position: relative;
+        // bottom: 7%;
+        top: 14%;
+        text-align: center;
+
+    }
+    .item{
+        background-color: rgba(255, 255, 255, 0.171);
+        color: rgb(255, 255, 255);
+        width: 80%;
+        position: relative;
+        // left: 2%;
+        top: 80px;
+        border-radius: 30px;
+        padding-left: 7%;
+        font-size: 1.3em;
+        font-weight: 100;
+        padding: 1.5%;
+  }
+  .list{
+    position: relative;
+    top: 8%;
+}
+.back{
+    background-color:  #7a4579;
+}
+.image{
+    position: relative;
+    top: 40px;
+}
+
+h1{
+    color: white;
+    font-weight: 100;
+    text-align: center;
+    margin-top: 130px;
+    font-size: 3em;
+}
 }

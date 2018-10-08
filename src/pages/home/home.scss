@@ -1,20 +1,24 @@
 page-home {
 
+    .img{
+         background-color: rgb(240, 240, 240);
+    }
+
     .image{
         height: 330px;
     }
 
     .card{
-        border-radius: 5%;
-        background-color: rgb(226, 234, 241)
+        // border-radius: 5%;
+        background-color: rgb(255, 255, 255)
     }
 
-    .btn{
-    //    position: relative;
-    //    right: 6%;
-    //    top: 20px;
-    height: 1%;
-    }
+    // .btn{
+    // //    position: relative;
+    // //    right: 6%;
+    // //    top: 20px;
+    // height: 1%;
+    // }
 
     h2{
         position: relative;
@@ -23,8 +27,14 @@ page-home {
     }
 
     .head{
-       color: purple;
+       font-size: 1.5em;
+       font-weight: 100;
+       background-color: rgba(0, 0, 0, 0.692);
+       color: white;
+
     }
+
+
     p{
         font-weight: 100;
     }

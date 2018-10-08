@@ -45,6 +45,9 @@ authnticate = firebase.auth()
       })
     })
   }
+  forgotPassword(email:any){
+    return this.authenticate.sendPasswordResetEmail(email);
+  }
 login(email,password){
   return new Promise((accept,reject) =>{
     this.authnticate.signInWithEmailAndPassword(email, password).then(() =>{
