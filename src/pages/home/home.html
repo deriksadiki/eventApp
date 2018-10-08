@@ -7,6 +7,7 @@
   
     <ion-card class="card" *ngFor="let i of fetching;let i of index;">
         <ion-card-header class="head">
+
             {{i.eventName}}
           </ion-card-header>
   
@@ -21,6 +22,7 @@
         <br>
        <div align="left">
         <button ion-button color="nav" clear (click)="viewMore()">View more</button>
+
       </div>
         <h2 align="right">{{i.date}}</h2>
   
@@ -30,7 +32,7 @@
 
 
     <ion-card>
-        <ion-card-header>
+        <ion-card-header class="head">
             Spring Fiesta
           </ion-card-header>
           
@@ -45,25 +47,28 @@
           Ekhuruleni
         </p>
         <br>
+
         <button ion-button color="nav" clear class="textcontents" (click)="viewMore()">View more</button>
+
         <h2 align="right">06 October 2018</h2>
       </ion-card-content>
     </ion-card>
   
   
     <ion-card>
-      <ion-card-header>
-            Soweto's 1st Birthday
+      <ion-card-header class="head">
+        Range Records entertainment
           </ion-card-header>
-      <img class="image" src="../../assets/imgs/Thumbnail.jpg">
+          <img class="image" src="../../assets/imgs/IMG-20181002-WA0011.jpg">
       <ion-card-content>
         <ion-card-title>
-          ICON Soweto
+            Sejesong Pub & Lounge
           </ion-card-title>
         <p>
-         Pimville Zone 7
+            Pimville Klipspruit
         </p>
         <br>
+
         <button ion-button color="nav" clear (click)="viewMore()"> View more</button>
         <h2 align="right">25 November 2018</h2>
   
@@ -73,7 +78,7 @@
   
   
     <ion-card>
-        <ion-card-header>
+        <ion-card-header class="head">
             Fashion & Arts fair
           </ion-card-header>
       <img class="image" src="../../assets/imgs/arts.jpg">
@@ -85,6 +90,7 @@
           Venue and more info to be revealed !
         </p>
         <br>
+
         <button ion-button clear color="nav" (click)="viewMore()">View More</button>
         <h2 align="right">10 November 2018</h2>
   
