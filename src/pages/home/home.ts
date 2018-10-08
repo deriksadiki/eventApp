@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ModalController } from 'ionic-angular';
+
 import { MoreInfoPage } from '../more-info/more-info';
 
 import { NavController, AlertController } from 'ionic-angular';
@@ -13,19 +13,17 @@ import { FirebaseConnectionProvider } from '../../providers/firebase-connection/
   templateUrl: 'home.html'
 })
 export class HomePage {
-  
-  constructor(public navCtrl: NavController,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider , public modalCtrl: ModalController){
+
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private firebaseService: FirebaseConnectionProvider) {
 
   }
 
-  moreinfo=function() {
-    const modal = this.modalCtrl.create(MoreInfoPage);
-    modal.present();
-  }
-=======
   Users = {} as User;
 
-
+  moreinfo(){
+    this.navCtrl.push(MoreInfoPage);
+    
+  }
 
   // reg(){
   //   if(this.Users.email == undefined && this.Users.password && this.Users.userName == undefined){

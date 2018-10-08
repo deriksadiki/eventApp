@@ -8,6 +8,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'more-info.html',
 })
 export class MoreInfoPage {
+ 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
   }

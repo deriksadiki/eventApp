@@ -1,44 +1,45 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="nav">
     <ion-title>MoreInfo</ion-title>
-    <ion-buttons end>
-        <button ion-button round color= "danger"(click)="close()"> <ion-icon name="md-close"></ion-icon>
-        </button>
-      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="theme">
   <ion-card>
-    <ion-item>
+    <ion-item class="header">
       <h2>
         <b>Event Name</b>
       </h2>
     </ion-item>
 
-    <div  align="center">
-    <img src="../../assets/imgs/eventpic.jpg">
-</div>
-    <br>
-    <ion-row>
-      <button ion-button color="primary" clear>Going</button>
-      <button ion-button clear>Maybe</button>
-      <button ion-button color="primary" clear>Not-interested</button>
-    </ion-row>
+    <div align="center" padding>
+      <img src="../../assets/imgs/eventpic.jpg">
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="options">
+          <button class="option" ion-button color="nav">Going</button>
+        </ion-col>
+        <ion-col class="options">
+          <button class="option" ion-button color="nav">Maybe</button>
+        </ion-col>
+        <ion-col>
+          <button class="option" ion-button color="nav">Not-interested</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
     <br>
 
     <ion-card-content>
-<div class="descr">
-      <p>Description</p>
-   </div>   
-      <br>
       <div class="descr">
-      <p>Line-Up</p>
+        <p>Description</p>
       </div>
       <br>
+
 
       <ion-row>
         <ion-col>
@@ -55,14 +56,16 @@
           </ion-label>
         </ion-col>
       </ion-row>
+      <ion-col>
+        <ion-item>
 
-      <ion-item>
-        <ion-label>
-          <ion-icon name="md-pin"></ion-icon>
-          <b> Venue: Place</b>
-        </ion-label>
-      </ion-item>
+          <ion-label>
+            <ion-icon name="md-pin"></ion-icon>
+            <b> Venue: Place</b>
+          </ion-label>
 
+        </ion-item>
+      </ion-col>
     </ion-card-content>
   </ion-card>
 </ion-content>
