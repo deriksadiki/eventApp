@@ -29,15 +29,11 @@ import { RegisterPage } from '../pages/register/register'
     TabsPage,
     BusinessHomePage,
     RegisterBusinessPage,
-<<<<<<< HEAD
-    ViewPage
-=======
     MoreInfoPage,
     LoginPage,
     RegisterPage
 
 
->>>>>>> 7f1550802b05ff565ed1e487df4bdf578fd0458f
   ],
   imports: [
     BrowserModule,
@@ -52,16 +48,12 @@ import { RegisterPage } from '../pages/register/register'
     TabsPage,
     BusinessHomePage,
     RegisterBusinessPage,
-<<<<<<< HEAD
-    ViewPage
-=======
     MoreInfoPage,
 
     LoginPage,
     RegisterPage
 
 
->>>>>>> 7f1550802b05ff565ed1e487df4bdf578fd0458f
   ],
   providers: [
     StatusBar,
