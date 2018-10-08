@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
-import { ModalController } from 'ionic-angular';
 import { MoreInfoPage } from '../more-info/more-info';
 
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, NavParams} from 'ionic-angular';
 import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
+import { LoginPage } from '../login/login';
+
 
 
 @Component({
@@ -13,18 +14,28 @@ import { FirebaseConnectionProvider } from '../../providers/firebase-connection/
   templateUrl: 'home.html'
 })
 export class HomePage {
-  
-  constructor(public navCtrl: NavController,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider , public modalCtrl: ModalController){
 
-  }
+  fetching = [];
 
-  moreinfo=function() {
-    const modal = this.modalCtrl.create(MoreInfoPage);
-    modal.present();
-  }
-=======
   Users = {} as User;
+  plus;
+  constructor(public navCtrl: NavController,public navParams: NavParams ,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider){
 
+  }
+  ionViewDidLoad() {
+    var user = this.navParams.get('user');
+    this.firebaseService.getAlldata().then((data:any) => {
+      this.fetching = data;
+      console.log(data);
+    });
+     }
+
+viewMore(i){
+this.navCtrl.push(MoreInfoPage, {events:i});
+}
+back(){
+  this.navCtrl.push(LoginPage);
+}
 
 
   // reg(){
