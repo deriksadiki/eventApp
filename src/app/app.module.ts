@@ -16,6 +16,7 @@ import { BusinessHomePage } from '../pages/business/business-home/business-home'
 import { RegisterBusinessPage } from '../pages/business/register-business/register-business';
 import { ViewPage } from '../pages/view/view';
 
+
 import { MoreInfoPage } from '../pages/more-info/more-info';
 import { LoginPage } from '../pages/login/login';
 import { CommentsPage } from '../pages/comments/comments';
@@ -23,6 +24,7 @@ import { RegisterPage } from '../pages/register/register'
 
 
 @NgModule({
+
   declarations: [
     MyApp,
     AboutPage,
@@ -67,5 +69,6 @@ import { RegisterPage } from '../pages/register/register'
     SocialSharing,
     LaunchNavigator
   ]
+
 })
 export class AppModule {}
