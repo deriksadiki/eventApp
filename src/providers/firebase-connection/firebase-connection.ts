@@ -68,10 +68,9 @@ this.database.ref('events/').on('value', (data: any) => {
   var users = data.val();
   var userIDs = Object.keys(users);
   for(var i = 0; i < userIDs.length;i++){
-    var k = userIDs[i];
-    var y = 'events/' + k;
+    var k2 = userIDs[i];
+    var y = 'events/' + k2;
     console.log(y)
-
     this.database.ref(y).on('value', (data2:any) =>{
       var events = data2.val();
       console.log(events);
@@ -84,9 +83,12 @@ this.database.ref('events/').on('value', (data: any) => {
           eventDesc: events[k].eventDesc,
           eventName: events[k].eventName,
           fee: events[k].fee,
+          key : k,
+          hostname: k2,
           img: events[k].img,
           location: events[k].location,
-          startTIme: events[k].startTIme
+          startTIme: events[k].startTIme,
+          going: events[k].going
         }
         this.fetch.push(obj)
       }
@@ -100,4 +102,12 @@ this.database.ref('events/').on('value', (data: any) => {
 })
   })
 }
+
+going(key, name, going){
+  var numGoing = going + 1;
+  return new Promise((accpt, rej) =>{
+  this.database.ref('events/' + name + '/' + key).update({going: numGoing})
+})
+}
+
 }
