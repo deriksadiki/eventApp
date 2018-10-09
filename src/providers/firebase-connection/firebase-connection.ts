@@ -70,4 +70,46 @@ export class FirebaseConnectionProvider {
     this.authenticate.signOut();
   }
 
+  getAlldata(user){
+    return new Promise ((accept,reject) => {
+  this.database.ref('events/').on('value', (data: any) => {
+    var users = data.val()
+    var userIDs = Object.keys(users);
+    console.log(userIDs)
+    var things = Object.keys(userIDs);
+    console.log(things)
+    for (var x = 0; x < userIDs.length; x++){
+      var str1 = new String(userIDs[x]);
+      var index = str1.indexOf(":");
+      var username = userIDs[x].substr(0,index);
+     
+  
+      if (user == username){
+        this.database.ref('events/' + userIDs[x]).on('value', (data1: any) => {
+          var userFound = data1.val();
+          var keys:any = Object.keys(userFound);
+  
+          for (var q = 0; q < keys.length; q++){
+            var k = keys[q];
+            let obj = {
+              eventName: userFound[k].name,
+              img: userFound[k].imageURL,
+              eventDesc: userFound[k].desc,
+              location: userFound[k].location,
+              date: userFound[k].date,
+              startTime: userFound[k].startTime,
+              fee: userFound[k].fee,
+              endTime: userFound[k].endTime
+            }
+          };
+        })
+        break;
+      }
+    }
+  }, Error => {
+    reject(Error.message);
+  })
+    })
+  }  
+
 }
