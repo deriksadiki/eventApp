@@ -28,23 +28,12 @@
     "@ionic/pro": "2.0.3",
     "@ionic/storage": "2.2.0",
     "cordova-android": "7.0.0",
-<<<<<<< HEAD
-    "cordova-plugin-actionsheet": "^2.3.3",
     "cordova-plugin-device": "^2.0.2",
-    "cordova-plugin-dialogs": "^2.0.1",
-=======
-    "cordova-plugin-device": "^2.0.2",
->>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
     "cordova-plugin-ionic-keyboard": "^2.1.3",
     "cordova-plugin-ionic-webview": "^2.2.0",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
-<<<<<<< HEAD
-    "cordova-plugin-x-socialsharing": "^5.4.1",
-    "es6-promise-plugin": "^4.2.2",
-=======
->>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
     "firebase": "^5.5.2",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
@@ -61,10 +50,6 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-<<<<<<< HEAD
-      "uk.co.workingedge.phonegap.plugin.launchnavigator": {},
-=======
->>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
@@ -72,12 +57,8 @@
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
-<<<<<<< HEAD
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-x-socialsharing": {}
-=======
-      "cordova-plugin-ionic-keyboard": {}
->>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
+      "uk.co.workingedge.phonegap.plugin.launchnavigator": {}
     },
     "platforms": [
       "android"
