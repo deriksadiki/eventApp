@@ -13,6 +13,9 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 export class MoreInfoPage {
 event = new Array();
 plus;
+url =   '../../assets/imgs/Spring-Fi.jpg';
+color='linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,20)),';
+gatefee;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
   }
@@ -20,6 +23,8 @@ plus;
 ionViewDidLoad() {
   this.event.push(this.navParams.get('events'))
   console.log(this.event )
+  this.url = this.event[0].img;
+  this.gatefee = parseInt(this.event[0].fee ) + 100;
   }
 
   navigate = function(i){
