@@ -4,7 +4,7 @@ page-contact {
     .B{ 
         position: relative;
         bottom: 47px;
-        margin-left: 360px;
+        margin-right: 360px;
     }
 
     
@@ -22,34 +22,17 @@ page-contact {
          margin-top: 70px;
 
     .phot{
+        background-image: url('../../assets/imgs/eventpic.jpg');
+        background-size: cover;
         position: relative;
-      bottom: 65px;
+      bottom: 65px ;
     }
-    .pic{
+    .pic1{
         height: 130px;
         width: 130px;
-
+        border-radius: 70px;
          position: relative;
-         top: 30px;
-
-     }
-            // border: solid 3px rgb(255, 255, 255);
-.dash{
-    background-color: rgba(53, 52, 52, 0.555);
-    color: white;
-    height: 26%;
-    font-size: 50%;
-    // position: relative;
-    // bottom: 40px;
-}
-.space{
-    height: 100px;
-    position: relative;
-    bottom: 4px;
-    font-size: 15px;
-    font-weight: 100;
-}
-
+         margin-top: 70px;
 
     }
     .pic{
@@ -67,6 +50,22 @@ page-contact {
     font-size: 50%;
     // position: relative;
     // bottom: 40px;
+}
+.space{
+    height: 100px;
+    position: relative;
+    bottom: 4px;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.con{
+    height: 10px;
+    width: 10px;
+    bottom: 10px;
+    color: white;
+}
+
 }
 .space{
     height: 100px;

@@ -20,6 +20,7 @@ plus;
 url =   '../../assets/imgs/Spring-Fi.jpg';
 color='linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,20)),';
 gatefee;
+pet;
 
 go;
 state = false;
@@ -74,6 +75,7 @@ text(){
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
+ this.pet = "kittens";
   }
 
 ionViewDidLoad() {
