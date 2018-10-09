@@ -1,0 +1,26 @@
+page-comments {
+    .comments{
+        height:90px;
+        width: 85%;
+        border: 2px solid rgb(255, 0, 140);
+        border-radius: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 15px;
+        font-size: 14px;
+    }
+    .send{
+        height: 60px;
+        width: 60px;
+       
+        bottom: 90px;
+        right: 8px;
+
+    }
+    .foot{
+        bottom: 5px;
+    }
+    .com{
+        border: 2px solid rgb(250, 187, 221);
+    }
+}

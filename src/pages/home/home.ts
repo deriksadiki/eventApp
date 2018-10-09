@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-
 import { MoreInfoPage } from '../more-info/more-info';
-
 import { NavController, AlertController, NavParams} from 'ionic-angular';
 import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
@@ -37,6 +35,10 @@ back(){
   this.navCtrl.push(LoginPage);
 }
 
+  moreinfo(){
+    this.navCtrl.push(MoreInfoPage);
+    
+  }
 
   // reg(){
   //   if(this.Users.email == undefined && this.Users.password && this.Users.userName == undefined){

@@ -1,17 +1,58 @@
 <ion-header>
-  <ion-navbar color="nav">
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
- <button ion-button (click)="test()">take me there</button>
-    </ion-item>
-  </ion-list>
+    <ion-navbar align="center" color="nav">
+<ion-title>Profile</ion-title>
+    </ion-navbar>
+
+</ion-header>
+<br>
+
+
+<ion-content padding>
+ 
+    <div class="B">
+        <button style="color: white" ion-button icon-only clear (click)="Edit()">
+          <ion-icon name="md-create"></ion-icon>
+        </button>
+      </div>
+      <div class="phot" align="center">
+        <img class="pic" src='../../assets/icon/favicon.ico'>
+        <br>
+        <br>
+        <h1 class="h">Username</h1>
+      </div>
+      <ion-title>Events to attend</ion-title>
+      <div align="center">
+          <ion-grid>
+            <ion-row>
+              <ion-col class="space">
+                <img class="pic" src='../../assets/imgs/club_.jpg'>
+              </ion-col>
+              <ion-col class="space">
+                <img class="pic" src='../../assets/imgs/arts.jpg'>
+              </ion-col>
+              <ion-col class="space">
+                <img class="pic" src='../../assets/imgs/IMG-20181002-WA0011.jpg'>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      <br>
+      <br>
+          <ion-grid>
+            <ion-row>
+              <ion-col class="space">
+                <img class="pic" src='../../assets/imgs/Spring-Fi.jpg'>
+              </ion-col>
+              <ion-col class="space">
+                <img class="pic" src='../../assets/imgs/Thumbnail.jpg'>
+              </ion-col>
+              <ion-col class="space">
+                <img class="pic" src='../../assets/imgs/club_.jpg'>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+    
+
 </ion-content>
+

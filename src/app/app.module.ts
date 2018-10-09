@@ -18,6 +18,7 @@ import { ViewPage } from '../pages/view/view';
 
 import { MoreInfoPage } from '../pages/more-info/more-info';
 import { LoginPage } from '../pages/login/login';
+import { CommentsPage } from '../pages/comments/comments';
 import { RegisterPage } from '../pages/register/register'
 
 
@@ -32,6 +33,7 @@ import { RegisterPage } from '../pages/register/register'
     RegisterBusinessPage,
     MoreInfoPage,
     LoginPage,
+    CommentsPage,
     RegisterPage
 
 
@@ -50,9 +52,10 @@ import { RegisterPage } from '../pages/register/register'
     BusinessHomePage,
     RegisterBusinessPage,
     MoreInfoPage,
-
     LoginPage,
+    CommentsPage,
     RegisterPage
+
 
 
   ],
