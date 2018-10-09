@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import moment from 'moment'; 
 
 declare var firebase;
 @Injectable()
@@ -9,6 +10,7 @@ export class FirebaseConnectionProvider {
 
   dbRef;
   currentUserID;
+  state;
 
   constructor() {
   }
@@ -43,6 +45,29 @@ export class FirebaseConnectionProvider {
         console.log(Error.message);
       })
     })
+  }
+
+
+  getUserState(){
+    return new Promise((accpt, rej) =>{
+      this.authenticate.onAuthStateChanged(user =>{
+        if(user != null){
+          this.state = 1;
+        }
+        else{
+          this.state = 0;
+        }
+        accpt(this.state);
+        console.log(this.state);
+      });
+    })
+  }
+
+  logout(){
+    console.log('exit')
+    // var user = firebase.auth().currentUser;
+    // var day = moment().format('MMMM Do YYYY, h:mm:ss a');
+    this.authenticate.signOut();
   }
 
 }
