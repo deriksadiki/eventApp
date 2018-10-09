@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Comments</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding scrollDownOnLoad="true">
+<div class="com">
+  <ion-item  no-lines>
+    
+    <ion-avatar item-start>
+      <img src='../../assets/imgs/eventpic.jpg'>
+    </ion-avatar>
+    <h1>
+      <b>Username</b>
+    </h1>
+ 
+  </ion-item>
+
+  <ion-item  no-lines>
+    <p>Comment</p>
+   
+  </ion-item>
+</div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar claas="foot">
+    <div class="down">
+      <ion-item class="item2">
+        <textarea #text class="comments" #comment type="text" cols="40" rows="5" placeholder="Comment here..."></textarea>
+      </ion-item>
+    </div>
+    <div fixed bottom align=" right">
+      <button item-end class="send" ion-button round color="own" (click)="placeComment(comment.value)">
+        <ion-icon name="md-send"></ion-icon>
+      </button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
