@@ -71,6 +71,10 @@ this.database.ref('events/').on('value', (data: any) => {
     var k2 = userIDs[i];
     var y = 'events/' + k2;
     console.log(y)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
     this.database.ref(y).on('value', (data2:any) =>{
       var events = data2.val();
       console.log(events);
@@ -87,8 +91,12 @@ this.database.ref('events/').on('value', (data: any) => {
           hostname: k2,
           img: events[k].img,
           location: events[k].location,
+<<<<<<< HEAD
           startTIme: events[k].startTIme,
           going: events[k].going
+=======
+          startTIme: events[k].startTIme
+>>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
         }
         this.fetch.push(obj)
       }
@@ -102,6 +110,7 @@ this.database.ref('events/').on('value', (data: any) => {
 })
   })
 }
+<<<<<<< HEAD
 
 going(key, name, going){
   var numGoing = going + 1;
@@ -110,4 +119,6 @@ going(key, name, going){
 })
 }
 
+=======
+>>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
 }

@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import {login} from '../../Modals/login';
 import { HomePage } from '../home/home';
+import { RegisterPage } from '../register/register';
+
 
 
  
@@ -62,6 +64,11 @@ export class LoginPage {
       }
     })
   }
+
+reg(){
+  this.navCtrl.push(RegisterPage);
+}
+
 
   ForgotPassword(){
     const prompt = this.alertCtrl.create({

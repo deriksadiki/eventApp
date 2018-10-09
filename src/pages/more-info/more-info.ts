@@ -2,8 +2,11 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { AboutPage } from '../about/about';
+<<<<<<< HEAD
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { SocialSharing } from '@ionic-native/social-sharing';
+=======
+>>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
 
 @IonicPage()
 @Component({
@@ -13,16 +16,21 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 export class MoreInfoPage {
 event = new Array();
 plus;
+<<<<<<< HEAD
 url =   '../../assets/imgs/Spring-Fi.jpg';
 color='linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,20)),';
 gatefee;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
+=======
+  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider) {
+>>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
   }
 
 ionViewDidLoad() {
   this.event.push(this.navParams.get('events'))
   console.log(this.event )
+<<<<<<< HEAD
   this.url = this.event[0].img;
   this.gatefee = parseInt(this.event[0].fee ) + 100;
   }
@@ -38,6 +46,8 @@ ionViewDidLoad() {
     }).catch(() => {
       // Error!
     });
+=======
+>>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
   }
 
   going(){

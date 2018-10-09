@@ -1,13 +1,18 @@
 page-more-info {
 
     .nav{
+<<<<<<< HEAD
        
+=======
+        background-image:linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,20)), url('../../assets/imgs/Spring-Fi.jpg');
+>>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
         // background-attachment: fixed;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         height: 300px;
     }
+<<<<<<< HEAD
  
     .color{
         background-color: rgb(211, 207, 207);
@@ -43,11 +48,35 @@ page-more-info {
  
     }
  
+=======
+
+    .color{
+        background-color: rgb(211, 207, 207);
+    }
+
+    .dash{
+       position: relative; 
+       top: 50%;
+        
+        
+    }
+
+    .icons{
+        color: white;
+    }
+
+    h1{
+        font-weight: 500;
+        text-align: center;
+    }
+
+>>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
     .img{
         width: 40%;
         margin-left: 55%;
         position: relative;
         bottom: 85px;
+<<<<<<< HEAD
     }
     h3{
         font-weight: 100;
@@ -124,3 +153,135 @@ page-more-info {
  
  
  }
+=======
+    }
+    h3{
+        font-weight: 100;
+    }
+
+    .things{
+        // border: solid 2px white;
+        position: relative;
+        bottom: 25%;
+    }
+
+    p{
+        text-align: center;
+        font-weight: 100;
+        position: relative;
+        bottom: 28%;
+    }
+
+    h2{
+        text-align: center;
+        font-weight: 100;
+        position: relative;
+        bottom: 25%;
+    }
+
+    .btn{
+        position: relative;
+        bottom: 100px;
+    }
+
+    .button{
+        font-weight: 100;
+    
+    }
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//     img{
+//         height: 300px;
+//         width: 300px;
+//         text-align: "center";
+//     }
+//     .theme{
+//         background-color: rgb(245, 236, 236);
+
+//     }
+
+//     .descr{
+//         border: 1px solid #888;
+//     }
+//     .options{
+//         // padding-top:-50px;
+//         border-right: 2px solid #7a4579;
+//         height: 50px;
+//     }
+//     .option{
+//         border-right: 2px solid #7a4579;
+//         height: 30px;
+//     }
+//    .header{
+//     // background-color: #cea3cd;
+//     color: black;
+//     text-align: center;
+//    }
+
+//    .active{
+//     background-color: rgb(16, 1, 22);
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     img{
+//         height: 300px;
+//         width: 300px;
+//         text-align: "center";
+//     }
+//     .theme{
+//         background-color: rgb(245, 236, 236);
+
+//     }
+
+//     .descr{
+//         border: 1px solid #888;
+//     }
+//     .options{
+//         // padding-top:-50px;
+//         border-right: 2px solid #7a4579;
+//         height: 50px;
+//     }
+//     .option{
+//         border-right: 2px solid #7a4579;
+//         height: 30px;
+//     }
+//    .header{
+//     // background-color: #cea3cd;
+//     color: black;
+//     text-align: center;
+//    }
+
+//    .active{
+//     background-color: rgb(16, 1, 22);
+//    }
+>>>>>>> 2e27efb047ffb00a40aa980510372b30d6fb5afb
