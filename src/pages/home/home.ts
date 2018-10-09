@@ -33,9 +33,6 @@ export class HomePage {
 viewMore(i){
 this.navCtrl.push(MoreInfoPage, {events:i});
 }
-back(){
-  this.navCtrl.push(LoginPage);
-}
 
 
   // reg(){

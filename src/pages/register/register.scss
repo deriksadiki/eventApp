@@ -25,6 +25,7 @@ page-register {
         border: solid 2px white;
         font-weight: 100;
         font-size: 1.5em;
+        width: 80%;
 
         ::-webkit-input-placeholder{
             color: rgb(235, 223, 223);
@@ -33,23 +34,23 @@ page-register {
 
     h1{
         color: white;
-        font-size: 3em;
+        font-size: 4em;
         font-weight: 100;
         position: relative;
-        top: 15%;
+        top: 20%;
         text-align: center;
     }
 
     .image{
         position: relative;
-        top: 40px;
+        top: 100px;
     }
 
     p{
         color: white;
         font-weight: 100;
         position: relative;
-        bottom: 7%;
+        top: 2%;
         text-align: center;
 
     }
