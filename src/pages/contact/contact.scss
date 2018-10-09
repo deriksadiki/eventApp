@@ -1,27 +1,32 @@
 page-contact {
     font-family: 'Ubuntu', sans-serif;
-    // .img{
-    //     background-image:linear-gradient(#8b104e,#7a4579), url('../../assets/imgs/video.jpg');
-    //     height: 350px;
- 
-    //     }
     .B{ 
         position: relative;
         bottom: 47px;
         margin-left: 360px;
     }
+    
     .phot{
+        background-image: url('../../assets/imgs/color.jpg');
+        background-size: cover;
         position: relative;
-      bottom: 65px;
+      bottom: 65px ;
     }
-    .pic{
+    .pic1{
         height: 130px;
         width: 130px;
-
+        border-radius: 70px;
          position: relative;
-         top: 30px;
+         margin-top: 70px;
 
-     }
+    }
+    .pic{
+    height: 130px;
+    width: 130px;
+    position: relative;
+    top: 30px;
+
+    }
             // border: solid 3px rgb(255, 255, 255);
 .dash{
     background-color: rgba(53, 52, 52, 0.555);
