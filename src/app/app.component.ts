@@ -6,11 +6,20 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { FirebaseConnectionProvider } from '../providers/firebase-connection/firebase-connection';
 
+import { RegisterPage } from '../pages/register/register';
+
+import {LoginPage} from '../pages/login/login';
+
+// import { HomePage } from '../pages/home/home';
+import { MoreInfoPage } from '../pages/more-info/more-info';
+
+
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any = TabsPage ;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private firebaseService: FirebaseConnectionProvider) {
     
