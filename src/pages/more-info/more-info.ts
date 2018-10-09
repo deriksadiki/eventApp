@@ -16,6 +16,8 @@ plus;
 url =   '../../assets/imgs/Spring-Fi.jpg';
 color='linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,20)),';
 gatefee;
+go;
+state = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
   }
@@ -23,6 +25,7 @@ gatefee;
 ionViewDidLoad() {
   this.event.push(this.navParams.get('events'))
   console.log(this.event )
+  this.go =    this.event[0].going;
   this.url = this.event[0].img;
   this.gatefee = parseInt(this.event[0].fee ) + 100;
   }
@@ -41,7 +44,16 @@ ionViewDidLoad() {
   }
 
   going(){
-    this.firebaseService.going(this.event[0].key,this.event[0].hostname,this.event[0].going )
+    if (this.state == false){
+      this.firebaseService.going(this.event[0].key,this.event[0].hostname,this.event[0].going )
+      this.go += 1;
+      this.state =  true;
+    }
+    else{
+      this.state = false;
+      this.go -= 1;
+    }
+   
   }
 text(){
   console.log('text');
