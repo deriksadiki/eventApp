@@ -1,35 +1,32 @@
 <ion-header >
-  <ion-toolbar color="nav">
-    <ion-title>Upcoming Events</ion-title>
-  </ion-toolbar>
-  </ion-header>
-  
-  <ion-content class="img">
-  
-  
-    <ion-card class="card" *ngFor="let a of fetching;let i of index;">
-        <ion-card-header class="head">
-
-            {{i.eventName}}
-          </ion-card-header>
-  
-      <img class="image" src="{{i.img}}">
-      <ion-card-content>
-        <ion-card-title>
-          {{a.eventDesc}}
-          </ion-card-title>
-        <p>
-          {{a.location}}
-        </p>
-        <br>
-       <div align="left">
-        <button ion-button color="nav" clear (click)="viewMore(i)">View more</button>
-
-      </div>
-        <h2 align="right">{{i.date}}</h2>
-  
-      </ion-card-content>
-    </ion-card>
- 
-  </ion-content>
-
+    <ion-toolbar color="nav">
+      <ion-title>Upcoming Events</ion-title>
+    </ion-toolbar>
+    </ion-header>
+   
+    <ion-content class="img">
+      <ion-card class="card" *ngFor="let a of fetching;let i of index;">
+          <ion-card-header class="head" style="text-align: center">
+              {{i.eventName}}
+            </ion-card-header>
+        <img class="image" src="{{i.img}}">
+        <ion-card-content>
+          <ion-card-title>
+            <p style="display:block;text-overflow: ellipsis;width: 355px;overflow: hidden; white-space: nowrap;" ><b>{{a.eventDesc}}</b></p>
+            </ion-card-title>
+          <p>  <ion-icon ios="ios-pin" md="md-pin"></ion-icon>
+   
+            {{a.location}}
+          </p>
+          <br>
+         <div align="left">
+          <button ion-button color="nav" clear (click)="viewMore(i)">View more</button>
+   
+        </div>
+          <h2 align="right">{{i.date}}</h2>
+   
+        </ion-card-content>
+      </ion-card>
+   
+   
+   </ion-content>
