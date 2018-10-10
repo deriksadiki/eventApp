@@ -25,8 +25,8 @@ pet;
 go;
 state = false;
 buttonActive: boolean =  false;
-color2 = "light"
-pet;
+color2 = "light";
+
 
  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
  }
@@ -37,7 +37,7 @@ ionViewDidLoad() {
  this.go =    this.event[0].going;
  this.url = this.event[0].img;
  this.gatefee = parseInt(this.event[0].fee ) + 100;
- this.pet = 'kittens'
+ this.pet = 'kittens';
  }
 
  navigate = function(i){
@@ -70,39 +70,8 @@ ionViewDidLoad() {
    }
 
  }
-text(){
- //this.navCtrl.push(CommentsPage, {eventObject:this.event});
 
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
- this.pet = "kittens";
-  }
-
-ionViewDidLoad() {
-  this.event.push(this.navParams.get('events'))
-  console.log(this.event )
-  this.url = this.event[0].img;
-  this.gatefee = parseInt(this.event[0].fee ) + 100;
-  }
-
-  navigate = function(i){
-    this.launchNavigator.navigate(i);
-  }
-
-  share(i){
-  var location = 'at ' + this.event[0].location + ', this event was shared from event finder app, please download the app to get more information like this' 
-    this.socialSharing.share(this.event[0].eventName,this.event[0].eventDesc,this.event[0].img, location ) .then(() => {
-      // Success!
-    }).catch(() => {
-      // Error!
-    });
-  }
-
-  going(){
-    this.firebaseService.going(this.event[0].key,this.event[0].hostname,this.event[0].going )
-  }
 text(){
   console.log('text');
-}
 }
 }
