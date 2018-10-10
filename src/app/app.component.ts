@@ -6,11 +6,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { CommentsPage } from '../pages/comments/comments';
 // import { HomePage } from '../pages/home/home';
-// import { MoreInfoPage } from '../pages/more-info/more-info';
 import { ContactPage } from '../pages/contact/contact';
-import { RegisterPage } from '../pages/register/register';
-import {LoginPage} from '../pages/login/login';
-import { MoreInfoPage } from '../pages/more-info/more-info';
+// import { RegisterPage } from '../pages/register/register';
+// import {LoginPage} from '../pages/login/login';
+// import { MoreInfoPage } from '../pages/more-info/more-info';
 
 
 @Component({
@@ -18,7 +17,7 @@ import { MoreInfoPage } from '../pages/more-info/more-info';
 })
 export class MyApp {
 
-  rootPage:any = TabsPage ;
+  rootPage:any = CommentsPage ;
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {

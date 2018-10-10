@@ -25,7 +25,7 @@ pet;
 go;
 state = false;
 buttonActive: boolean =  false;
-color2 = "light"
+color2 = "light";
 
 
  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
@@ -37,7 +37,7 @@ ionViewDidLoad() {
  this.go =    this.event[0].going;
  this.url = this.event[0].img;
  this.gatefee = parseInt(this.event[0].fee ) + 100;
- this.pet = 'kittens'
+ this.pet = 'kittens';
  }
 
  navigate = function(i){
