@@ -29,41 +29,28 @@
 
   </ion-header>
   
-  <ion-content padding class="color">
+  <ion-content padding class="color" *ngFor="let i of event">
   
-     <div class="segments" padding>
-         <ion-segment [(ngModel)]="pet" color="nav">
+     <!-- <div class="segments" padding>
+         <ion-segment [(ngModel)]="pet">
            <ion-segment-button value="kittens">
                Info
            </ion-segment-button>
            <ion-segment-button value="puppies">
-             Line-up
+            
            </ion-segment-button>
          </ion-segment>
-       </div>
+       </div> -->
   
        <div [ngSwitch]="pet">
          <ion-list *ngSwitchCase="'puppies'">
             <div  *ngFor="let i of event">
-             <h4>Line-Up</h4>
-               <h5>Derik, Lebo, Buhle, Thuly, Mdu and Sbu, Derik, Lebo, Buhle, Thuly, Mdu and Sbu
-                   Derik, Lebo, Buhle, Thuly, Mdu and Sbu,Derik, Lebo, Buhle, Thuly, Mdu and Sbu
-               </h5>
+             
+               
   
-               <h4>Tickets<ion-icon name="pricetag"></ion-icon></h4>
+               
   
-               <ion-grid align="center">
-                 <ion-row>
-                   <ion-col>
-  
-                       <p style="color:#7a4579;">Pre-sold<br>R{{i.fee}}</p>
-  
-                   </ion-col>
-                   <ion-col>
-                     <p style="color:#7a4579;">At the gate<br>R{{gatefee}}</p>
-                      </ion-col>
-                 </ion-row>
-               </ion-grid>
+               
   
              <h4><b>{{i.going}} people going</b></h4>
              </div>
@@ -75,16 +62,18 @@
   
              <h3>{{i.eventDesc}}
                </h3>
+
+               <hr>
   
            <ion-grid align="center" class="things">
              <ion-row>
                <ion-col>
-                <ion-icon ios="ios-clock" md="md-clock"></ion-icon><br>
+                <ion-icon class="icons" ios="ios-clock" md="md-clock"></ion-icon><br>
                  {{i.endTIme}} till late
                </ion-col>
   
                <ion-col>
-                <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon><br>
+                <ion-icon class="icons" ios="ios-calendar" md="md-calendar"></ion-icon><br>
                 {{i.date}}
                </ion-col>
              </ion-row>
@@ -92,19 +81,45 @@
   
            <h2>Location</h2>
            <p>{{i.location}}</p>
-  
-           <ion-fab right bottom>
-               <button class="fabzz" ion-fab color="light"><ion-icon name="md-arrow-dropup"></ion-icon></button>
-               <ion-fab-list side="top">
-                 <button  class="fabs" (click)="text()" ion-fab><ion-icon name="text"></ion-icon></button>
-                 <button class="fabs" (click)="share(i)"ion-fab><ion-icon name="md-share"></ion-icon></button>
-                 <button class="fabs" (click)="navigate(i)" ion-fab><ion-icon name="md-compass"></ion-icon></button>
-               </ion-fab-list>
-             </ion-fab>
+
+           
+
+           <div align="center">
+             <button ion-button color="nav" (click)="navigate(i.location)" round>Take me there!</button>
+           </div>
             </div>
+
+            <h4>Line-Up</h4>
+
+            <h5>Derik, Lebo, Buhle, Thuly, Mdu and Sbu, Derik, Lebo, Buhle, Thuly, Mdu and Sbu
+                Derik, Lebo, Buhle, Thuly, Mdu and Sbu,Derik, Lebo, Buhle, Thuly, Mdu and Sbu
+            </h5>
+
+            <h4>Tickets<ion-icon name="pricetag"></ion-icon></h4>
+
+            <ion-grid align="center">
+                <ion-row>
+                  <ion-col>
+ 
+                      <p style="color:#7a4579;">Pre-sold<br>R{{i.fee}}</p>
+ 
+                  </ion-col>
+                  <ion-col>
+                    <p style="color:#7a4579;">At the gate<br>R{{gatefee}}</p>
+                     </ion-col>
+                </ion-row>
+              </ion-grid>
+
          </ion-list>
         
        </div>
-  
-  </ion-content>
 
+       
+  </ion-content>
+  
+  <ion-footer align="center">
+      <ion-toolbar color="trans">
+          <button class="btn1" ion-button  (click)="text()" color="nav">Comment</button>
+          <button class="btn1" ion-button (click)="share(i)" color="nav">Share</button>
+      </ion-toolbar>
+    </ion-footer>

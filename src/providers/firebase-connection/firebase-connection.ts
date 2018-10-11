@@ -131,7 +131,7 @@ going(key, name, going){
 }
 
 getuser(){
- // this.authenticate.signOut();
+ //this.authenticate.signOut();
   this.database.ref('users').on('value', (data: any) => {
     var users =  data.val();
     var user = firebase.auth().currentUser;

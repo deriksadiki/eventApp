@@ -72,6 +72,6 @@ ionViewDidLoad() {
  }
 
 text(){
-  console.log('text');
+  this.navCtrl.push(CommentsPage,{eventObject:this.event})
 }
 }
