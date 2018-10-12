@@ -21,6 +21,7 @@ export class HomePage {
 
   }
   ionViewDidLoad() {
+    this.fetching.length = 0;
     var user = this.navParams.get('user');
     this.firebaseService.getAlldata().then((data:any) => {
       this.fetching = data;
@@ -34,10 +35,8 @@ this.navCtrl.push(MoreInfoPage, {events:i});
 back(){
   this.navCtrl.push(LoginPage);
 }
-
   moreinfo(){
     this.navCtrl.push(MoreInfoPage);
-    
   }
 
   // reg(){

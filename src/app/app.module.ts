@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import {LaunchNavigator} from '@ionic-native/launch-navigator'
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -34,7 +35,8 @@ import { RegisterPage } from '../pages/register/register'
     MoreInfoPage,
     LoginPage,
     CommentsPage,
-    RegisterPage
+    RegisterPage,
+    CommentsPage
 
 
   ],
@@ -65,7 +67,8 @@ import { RegisterPage } from '../pages/register/register'
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseConnectionProvider,
     SocialSharing,
-    LaunchNavigator
+    LaunchNavigator,
+    LocalNotifications
   ]
 })
 export class AppModule {}

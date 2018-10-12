@@ -1,109 +1,94 @@
-<ion-header>
-  <div class="nav" [ngStyle] ="{'background-image':color+'url(' + url + ')'}">
+
+<ion-header *ngFor="let i of event">
+  <div class="top" [ngStyle] ="{'background-image':color+'url(' + url + ')'}">
+      
+  <ion-toolbar color="trans">
+            <ion-icon class="back" name="md-arrow-back" (click)="back()" ></ion-icon>
+          </ion-toolbar>
+<div class="phot">
+<img class="pic" src="../../assets/club-night-free-flyer-template-freepsdflyer-com.jpg" >
+</div>
+<div class="head">
+<h3>{{i.eventName}} </h3> 
+
+<p class="p">
+{{i.location}}
+</p>   
+
+<!-- <b><p>Kwa Le Chaba</p></b> -->
+
+</div>
+<div class="dash1" fixed>
+<ion-grid class="dash" align="center">
+  <ion-row  class="colo" >
+    <ion-col>
+            <ion-label class="lab">{{i.comments}}</ion-label>
+        <!-- <ion-icon class="icons" name="thumbs-up"></ion-icon> -->
+        <ion-icon class="i" name="md-chatboxes"></ion-icon>
+    
+    </ion-col>
+
+    <ion-col>
+            <ion-label class="lab">17</ion-label>
+        <ion-icon class="i" name="md-heart" outline></ion-icon>
+    </ion-col>
+
+    <ion-col>
+            <ion-label class="lab">2k</ion-label>
+        <!-- <ion-icon class="icons" name="thumbs-down"></ion-icon> -->
+        <ion-icon class="i" name="md-thumbs-up"></ion-icon>
+    </ion-col>
+  </ion-row>
+</ion-grid>
    
-   <ion-navbar color="trans">
-  
-     </ion-navbar>
-  
-  
-   <ion-grid class="dash" align="center">
-     <ion-row>
-       <ion-col>
-           <!-- <ion-icon class="icons" name="thumbs-up"></ion-icon> -->
-         <button class="button1" ion-button color="light" (click)="going()" outline>Going</button>
-       </ion-col>
-  
-       <ion-col>
-         <button class="button1" ion-button color="light" outline>Interested</button>
-       </ion-col>
-  
-       <ion-col>
-           <!-- <ion-icon class="icons" name="thumbs-down"></ion-icon> -->
-         <button class="button1" ion-button color="light" outline>Not Interested</button>
-       </ion-col>
-     </ion-row>
-   </ion-grid>
-  
-  </div>
+   <div class= "title" fixed>
+    <b>Posted By : {{i.hostname}}</b>
+    </div>
+</div>
 
-  </ion-header>
-  
-  <ion-content padding class="color">
-  
-     <div class="segments" padding>
-         <ion-segment [(ngModel)]="pet">
-           <ion-segment-button value="kittens">
-               Info
-           </ion-segment-button>
-           <ion-segment-button value="puppies">
-             Line-up
-           </ion-segment-button>
-         </ion-segment>
-       </div>
-  
-       <div [ngSwitch]="pet">
-         <ion-list *ngSwitchCase="'puppies'">
-            <div  *ngFor="let i of event">
-             <h4>Line-Up</h4>
-               <h5>Derik, Lebo, Buhle, Thuly, Mdu and Sbu, Derik, Lebo, Buhle, Thuly, Mdu and Sbu
-                   Derik, Lebo, Buhle, Thuly, Mdu and Sbu,Derik, Lebo, Buhle, Thuly, Mdu and Sbu
-               </h5>
-  
-               <h4>Tickets<ion-icon name="pricetag"></ion-icon></h4>
-  
-               <ion-grid align="center">
-                 <ion-row>
-                   <ion-col>
-  
-                       <p style="color:#7a4579;">Pre-sold<br>R{{i.fee}}</p>
-  
-                   </ion-col>
-                   <ion-col>
-                     <p style="color:#7a4579;">At the gate<br>R{{gatefee}}</p>
-                      </ion-col>
-                 </ion-row>
-               </ion-grid>
-  
-             <h4><b>{{go}} people going</b></h4>
-             </div>
-             </ion-list>
-  
-         <ion-list *ngSwitchCase="'kittens'">
-           <div  *ngFor="let i of event">
-             <h1>{{i.eventName}}</h1>
-  
-             <h3>{{i.eventDesc}}
-               </h3>
-  
-           <ion-grid align="center" class="things">
-             <ion-row>
-               <ion-col>
-                <ion-icon ios="ios-clock" md="md-clock"></ion-icon><br>
-                 {{i.endTIme}} till late
-               </ion-col>
-  
-               <ion-col>
-                <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon><br>
-                {{i.date}}
-               </ion-col>
-             </ion-row>
-           </ion-grid>
-  
-           <h2>Location</h2>
-           <p>{{i.location}}</p>
-  
-           <ion-fab right bottom>
-               <button class="fabzz" ion-fab color="light"><ion-icon name="md-arrow-dropup"></ion-icon></button>
-               <ion-fab-list side="top">
-                 <button  class="fabs" (click)="text()" ion-fab><ion-icon name="text"></ion-icon></button>
-                 <button class="fabs" (click)="share(i)"ion-fab><ion-icon name="md-share"></ion-icon></button>
-                 <button class="fabs" (click)="navigate(i.location)" ion-fab><ion-icon name="md-compass"></ion-icon></button>
-               </ion-fab-list>
-             </ion-fab>
-            </div>
-         </ion-list>
-        
-       </div>
-  
-  </ion-content>
+</div>
 
+</ion-header>
+
+
+<ion-content *ngFor="let i of event">
+<ion-card-content >
+    <ion-list no-line class="content">
+            <ion-item>
+              <ion-thumbnail item-start>
+                    <ion-icon class="ic" name="md-calendar"></ion-icon>
+              </ion-thumbnail>
+              <p>Event Date</p>
+              <h2>{{i.date}} - {{i.enddate}}</h2>
+            </ion-item>
+
+          <ion-item>
+             <ion-thumbnail item-start>
+             <ion-icon class="ic" name="md-clock"></ion-icon>
+            </ion-thumbnail>
+             <p>Event Time</p>
+         <h2>{{i.startTIme}} - {{i.endTIme}}</h2>
+          </ion-item>
+
+     <ion-item>
+       <ion-thumbnail item-start>
+          <ion-icon class="ic" name="logo-usd"></ion-icon>
+             </ion-thumbnail>
+         <p>Admission</p>
+       <h2>R{{i.fee}}</h2>
+      </ion-item>
+                </ion-list>
+
+               <!-- <h4><p>Photos</p></h4>  -->
+ </ion-card-content>
+
+ <ion-fab class="fabi" right end fixed>
+    <button class="faba" ion-fab color="nav" ><ion-icon class="if" name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left" >
+      <button color="dark" ion-fab><ion-icon name="md-locate" (click)="navigate(i.location)"></ion-icon></button>
+      <button color="dark" ion-fab><ion-icon name="md-share" (click)="share(i)"></ion-icon></button>
+      <button color="dark" ion-fab><ion-icon name="md-text" (click)="comment()"></ion-icon></button>
+      <!-- <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button> -->
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

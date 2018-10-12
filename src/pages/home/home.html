@@ -1,38 +1,17 @@
 
 <ion-header >
-  <ion-toolbar color="nav">
+  <ion-toolbar color="dark">
     <ion-title>Upcoming Events</ion-title>
   </ion-toolbar>
   </ion-header>
   
-  <ion-content class="img">
-  
-  
-    <ion-card class="card" *ngFor="let a of fetching;let i of index;">
-        <ion-card-header class="head">
-
+  <ion-content style="background-color: #222">
+    <ion-card class="card" *ngFor="let a of fetching;let i of index;" (click)="viewMore(i)">
+        <ion-card-header class="head" style="text-align: center">
             {{i.eventName}}
           </ion-card-header>
-  
       <img class="image" src="{{i.img}}">
-      <ion-card-content>
-        <ion-card-title>
-          {{a.eventDesc}}
-          </ion-card-title>
-        <p>
-          {{a.location}}
-        </p>
-        <br>
-       <div align="left">
-        <button ion-button color="nav" clear (click)="viewMore(i)">View more</button>
-
-      </div>
-        <h2 align="right">{{i.date}}</h2>
-  
-      </ion-card-content>
     </ion-card>
  
-  </ion-content>
->>>>>>> 8d1c08a376162e9b2793ef65560c0b9fa90de9ef
 
 </ion-content>

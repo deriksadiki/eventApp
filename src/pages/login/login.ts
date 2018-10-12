@@ -4,6 +4,7 @@ import { FirebaseConnectionProvider } from '../../providers/firebase-connection/
 import {login} from '../../Modals/login';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
+import { TabsPage } from '../tabs/tabs';
 
 
 
@@ -23,13 +24,14 @@ export class LoginPage {
   }
   login(){
     this.firebaseService.login(this.logging.email,this.logging.password).then(()=>{
+      this.firebaseService.getuser();
         const alert = this.alertCtrl.create({
           title: 'Welcome',
           message: 'You have successfully logged in',
           buttons: ['OK']
         });
         alert.present();
-        this.navCtrl.push(HomePage);
+        this.navCtrl.push(TabsPage);
     }, Error =>{
       if (this.logging.email == undefined && this.logging.password == undefined){
         const alert = this.alertCtrl.create({
