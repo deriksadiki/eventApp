@@ -15,24 +15,24 @@ newmessage;
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseConnectionProvider) {
   }
 
-  ionViewDidLoad() {
-    this.firebaseService.getComments(this.eventArray[0].key).then((data:any) =>{
-      this.comments = data;
-      var length = this.comments.length;
-      console.log(this.comments)
-    })
-}
+//   ionViewDidLoad() {
+//     this.firebaseService.getComments(this.eventArray[0].key).then((data:any) =>{
+//       this.comments = data;
+//       var length = this.comments.length;
+//       console.log(this.comments)
+//     })
+// }
 
-placeComment(){
-  this.firebaseService.comment(this.newmessage,this.eventArray[0].key).then(() =>{
-    this.comments.length = 0;
-    this.newmessage = "";
-  this.ionViewDidLoad();
-  })
-}
+// placeComment(){
+//   this.firebaseService.comment(this.newmessage,this.eventArray[0].key).then(() =>{
+//     this.comments.length = 0;
+//     this.newmessage = "";
+//   this.ionViewDidLoad();
+//   })
+// }
 
-text(event){
+// text(event){
  
-}
+// }
 
 }

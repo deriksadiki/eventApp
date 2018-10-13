@@ -21,24 +21,16 @@
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/core": "~4.15.0",
-<<<<<<< HEAD
-    "@ionic-native/local-notifications": "^4.15.0",
-=======
     "@ionic-native/launch-navigator": "^4.15.0",
     "@ionic-native/social-sharing": "^4.15.0",
->>>>>>> ee0991f7e951b65c4a34c6ee11dd8d4c1775d05f
     "@ionic-native/splash-screen": "~4.15.0",
     "@ionic-native/status-bar": "~4.15.0",
     "@ionic/pro": "2.0.3",
     "@ionic/storage": "2.2.0",
     "cordova-android": "7.0.0",
-<<<<<<< HEAD
-    "cordova-plugin-badge": "^0.8.7",
-=======
 
 
     "cordova-plugin-actionsheet": "^2.3.3",
->>>>>>> ee0991f7e951b65c4a34c6ee11dd8d4c1775d05f
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-dialogs": "^2.0.1",
 
@@ -80,16 +72,11 @@
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
-<<<<<<< HEAD
-      "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-local-notification": {}
-=======
 
 
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-x-socialsharing": {}
 
->>>>>>> ee0991f7e951b65c4a34c6ee11dd8d4c1775d05f
     },
     "platforms": [
       "android"
