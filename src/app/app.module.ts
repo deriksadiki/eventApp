@@ -2,12 +2,17 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+<<<<<<< HEAD
+import { LocalNotifications } from '@ionic-native/local-notifications';
+=======
+import {LaunchNavigator} from '@ionic-native/launch-navigator';
 
+>>>>>>> ee0991f7e951b65c4a34c6ee11dd8d4c1775d05f
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-
+import { SocialSharing } from '@ionic-native/social-sharing';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseConnectionProvider } from '../providers/firebase-connection/firebase-connection';
@@ -15,12 +20,15 @@ import { BusinessHomePage } from '../pages/business/business-home/business-home'
 import { RegisterBusinessPage } from '../pages/business/register-business/register-business';
 import { ViewPage } from '../pages/view/view';
 
+
 import { MoreInfoPage } from '../pages/more-info/more-info';
 import { LoginPage } from '../pages/login/login';
+import { CommentsPage } from '../pages/comments/comments';
 import { RegisterPage } from '../pages/register/register'
 
 
 @NgModule({
+
   declarations: [
     MyApp,
     AboutPage,
@@ -31,6 +39,7 @@ import { RegisterPage } from '../pages/register/register'
     RegisterBusinessPage,
     MoreInfoPage,
     LoginPage,
+    CommentsPage,
     RegisterPage
 
 
@@ -49,9 +58,10 @@ import { RegisterPage } from '../pages/register/register'
     BusinessHomePage,
     RegisterBusinessPage,
     MoreInfoPage,
-
     LoginPage,
+    CommentsPage,
     RegisterPage
+
 
 
   ],
@@ -59,7 +69,14 @@ import { RegisterPage } from '../pages/register/register'
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FirebaseConnectionProvider
+    FirebaseConnectionProvider,
+<<<<<<< HEAD
+    LocalNotifications
+=======
+    SocialSharing,
+    LaunchNavigator
+>>>>>>> ee0991f7e951b65c4a34c6ee11dd8d4c1775d05f
   ]
+
 })
 export class AppModule {}

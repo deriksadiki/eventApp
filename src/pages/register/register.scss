@@ -11,47 +11,56 @@ page-register {
 
     .button{
         margin-top: 5%;
-        width: 100%;
+        width: 90%;
         color: #7a4579;
-        font-weight: 100;
+        font-weight: 400;
         font-size: 1.3em;
+        height: 50px;
+        background-color: aliceblue;
     }
 
     .item{
-        background-color: #ffffff4b;
+        background-color: rgba(255, 255, 255, 0.171);
         border-radius: 50px;
         color: #ffffff;
-        margin-bottom: 2%;
-        border: solid 2px white;
+        margin-bottom: 3%;
+        // border: solid 2px white;
         font-weight: 100;
-        font-size: 1.5em;
+        font-size: 1.7em;
+        width: 90%;
+        
 
         ::-webkit-input-placeholder{
-            color: rgb(235, 223, 223);
+            color: aliceblue;
         }
     }
 
     h1{
         color: white;
-        font-size: 3em;
+        font-size: 4em;
         font-weight: 100;
         position: relative;
-        top: 15%;
+        top: 20%;
         text-align: center;
     }
 
     .image{
         position: relative;
-        top: 40px;
+        top: 100px;
     }
 
     p{
         color: white;
         font-weight: 100;
         position: relative;
-        bottom: 7%;
+        top: 2%;
         text-align: center;
 
+    }
+
+    .ico{
+        color: white;
+        font-size: 3em;
     }
 
     

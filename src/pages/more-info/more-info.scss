@@ -1,34 +1,49 @@
 page-more-info {
 
     .nav{
-        background-image:linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,20)), url('../../assets/imgs/Spring-Fi.jpg');
+
         // background-attachment: fixed;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         height: 300px;
     }
-
+ 
     .color{
         background-color: rgb(211, 207, 207);
     }
-
+ 
     .dash{
-       position: relative; 
-       top: 50%;
-        
-        
-    }
+       position: relative;
+       top: 60%;
 
+ 
+ 
+    }
+ 
     .icons{
         color: white;
     }
-
+ 
     h1{
         font-weight: 500;
         text-align: center;
+        color: #7a4579;
     }
-
+ 
+    h4{
+        font-weight: 100;
+        text-align: center;
+        color: #7a4579;
+    }
+ 
+    h5{
+        font-weight: 100;
+        text-align: center;
+        font-size: 90%;
+ 
+    }
+ 
     .img{
         width: 40%;
         margin-left: 55%;
@@ -37,130 +52,79 @@ page-more-info {
     }
     h3{
         font-weight: 100;
+        color: #000000;
+        font-size: 90%;
     }
-
-    .things{
-        // border: solid 2px white;
-        position: relative;
-        bottom: 25%;
-    }
-
+ 
+    // .things{
+    //     // border: solid 2px white;
+    //     position: relative;
+    //     bottom: 25%;
+    // }
+ 
     p{
         text-align: center;
         font-weight: 100;
         position: relative;
-        bottom: 28%;
+        bottom: 20px;
+        color: #000000;
+ 
+ 
     }
-
+ 
     h2{
         text-align: center;
         font-weight: 100;
+        color: #7a4579;
         position: relative;
-        bottom: 25%;
+        bottom: 15px;
+    }
+ 
+    .diiv{
+        position: relative;
+        bottom: 6%;
+
     }
 
-    .btn{
-        position: relative;
-        bottom: 100px;
+    .theme{
+        background-color: rgb(245, 236, 236);
+
     }
 
-    .button{
+ 
+    .button1{
+
         font-weight: 100;
-    
+        position: relative;
+        bottom: 20px;
+        border-radius: 50px;
+ 
+    }
+
+ 
+    .segments{
+        position: relative;
+        bottom: 4%;
+ 
+    }
+ 
+    .foot{
+        background-color: #7a4579;
+        height: 10%;
+    }
+ 
+    .fabs{
+        background-color:#52075004;
+        color: #7a4579;
+    }
+    .fabzz{
+        background-color: #7a4579;
+        width: 50px;
+        height: 50px;
+        color: white;
     }
 
 
+ 
+ }
 
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-//     img{
-//         height: 300px;
-//         width: 300px;
-//         text-align: "center";
-//     }
-//     .theme{
-//         background-color: rgb(245, 236, 236);
-
-//     }
-
-//     .descr{
-//         border: 1px solid #888;
-//     }
-//     .options{
-//         // padding-top:-50px;
-//         border-right: 2px solid #7a4579;
-//         height: 50px;
-//     }
-//     .option{
-//         border-right: 2px solid #7a4579;
-//         height: 30px;
-//     }
-//    .header{
-//     // background-color: #cea3cd;
-//     color: black;
-//     text-align: center;
-//    }
-
-//    .active{
-//     background-color: rgb(16, 1, 22);
-//    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//     img{
-//         height: 300px;
-//         width: 300px;
-//         text-align: "center";
-//     }
-//     .theme{
-//         background-color: rgb(245, 236, 236);
-
-//     }
-
-//     .descr{
-//         border: 1px solid #888;
-//     }
-//     .options{
-//         // padding-top:-50px;
-//         border-right: 2px solid #7a4579;
-//         height: 50px;
-//     }
-//     .option{
-//         border-right: 2px solid #7a4579;
-//         height: 30px;
-//     }
-//    .header{
-//     // background-color: #cea3cd;
-//     color: black;
-//     text-align: center;
-//    }
-
-//    .active{
-//     background-color: rgb(16, 1, 22);
-//    }
