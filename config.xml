@@ -3,7 +3,13 @@
     <name>eventApp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<<<<<<< HEAD
     <content src="index.html" />
+=======
+
+    <content original-src="index.html" src="http://192.168.1.81:8101" />
+
+>>>>>>> ee0991f7e951b65c4a34c6ee11dd8d4c1775d05f
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -83,9 +89,16 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <allow-navigation href="http://192.168.1.81:8100" />
+<<<<<<< HEAD
     <allow-navigation href="http://192.168.56.1:8100" />
     <allow-navigation href="http://192.168.1.28:8100" />
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
     <allow-navigation href="http://192.168.61.2:8100" />
+=======
+    <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.1" />
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="^4.2.2" />
+    <allow-navigation href="http://192.168.1.81:8101" />
+>>>>>>> ee0991f7e951b65c4a34c6ee11dd8d4c1775d05f
     <engine name="android" spec="7.0.0" />
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="^4.2.2" />
 </widget>

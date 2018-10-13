@@ -1,17 +1,60 @@
 <ion-header>
-  <ion-navbar color="nav">
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
+  <ion-navbar align="center" color="nav">
+    <ion-title>Profile</ion-title>
+ 
+    <div class="B">
+      <button align-right class="con" ion-button icon-only clear (click)="Edit()">
+        <ion-icon name="md-create"></ion-icon>
+      </button>
+    </div> 
+ </ion-navbar>  
+
+
+</ion-header>
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+  <div class="phot" align="center">
+    <ion-avatar>
+      <img class="pic1" src='../../assets/imgs/girl.jpg'>
+    </ion-avatar>
+
+    <h1>Username</h1>
+ </div>   
+  
+
+  <h1>Events to attend</h1>
+
+  <div align="center">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="space">
+          <img class="pic" src='../../assets/imgs/club_.jpg'>
+        </ion-col>
+        <ion-col class="space">
+          <img class="pic" src='../../assets/imgs/arts.jpg'>
+        </ion-col>
+        <ion-col class="space">
+          <img class="pic" src='../../assets/imgs/IMG-20181002-WA0011.jpg'>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <br>
+    <br>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="space">
+          <img class="pic" src='../../assets/imgs/Spring-Fi.jpg'>
+        </ion-col>
+        <ion-col class="space">
+          <img class="pic" src='../../assets/imgs/Thumbnail.jpg'>
+        </ion-col>
+        <ion-col class="space">
+          <img class="pic" src='../../assets/imgs/club_.jpg'>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
 </ion-content>
+
+

@@ -3,11 +3,10 @@ page-home {
     .img{
          background-color: rgb(240, 240, 240);
     }
-
+ 
     .image{
         height: 330px;
     }
-
     .card{
         // border-radius: 5%;
         background-color: rgb(255, 255, 255)
@@ -15,7 +14,7 @@ page-home {
 
     h2{
         position: relative;
-        bottom: 20px;
+        bottom: 35px;
         font-weight: 100;
     }
     .head{
@@ -23,13 +22,15 @@ page-home {
        font-weight: 100;
        background-color: rgba(0, 0, 0, 0.692);
        color: white;
-
+ 
     }
-
+.fon{
+    font-size: 14px;
+}
 
     p{
         font-weight: 100;
     }
  
-}
 
+}
