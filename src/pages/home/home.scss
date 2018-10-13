@@ -62,7 +62,10 @@ page-home {
         font-size: 5em;
         // padding-left: 20px;
         
-    }   
+    }  
+    ion-card.card{
+        border-radius: 20px;
+    } 
     
     .icon{
        color: #7a4579;
@@ -92,18 +95,19 @@ page-home {
     // }
 
     ion-slide.swiper-slide{
-        right:10%
+        // right:10%
     }
+    
 
     
     .card-background-page {
 
-        ion-card {
-          position: relative;
-          text-align: left;
+        // ion-card {
+        //   position: relative;
+        //   text-align: left;
      
     
-        }
+        // }
       
         img{
             -webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */

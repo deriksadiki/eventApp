@@ -265,35 +265,35 @@ getNewEvents(){
   this.username = name;
   }
 
-  getuser(){
-    // this.authenticate.signOut();
-    return new Promise ((accpt,rej)=>{
-      this.database.ref('users').on('value', (data: any) => {
-        var users =  data.val();
-        var user = firebase.auth().currentUser;
-        var  userIDs = Object.keys(users);
-        for (var x = 0; x < userIDs.length; x++){
-          var str1 = new String( userIDs[x]); 
-          var index = str1.indexOf( ":" ); 
-          var currentUserID = userIDs[x].substr(index + 1);
-          if (user.uid == currentUserID){
-            console.log(user.uid)
-            this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
-              var Userdetails = data.val(); 
-              this.storeUserID(userIDs[x]);
-              var keys2:any = Object.keys(Userdetails);
-              this.storeCurrentUserImage(Userdetails[keys2[0]].img);
-              this.storeCurrentUsername(Userdetails[keys2[0]].Username);
-              this.storeUserKey(Userdetails[keys2[0]].key)
-              this.storeCurrentUserPath(userIDs[x])
-              accpt(Userdetails[keys2])
-            })
-            break
-          }
-        }
-      })
-    })
-   }
+  // getuser(){
+  //   // this.authenticate.signOut();
+  //   return new Promise ((accpt,rej)=>{
+  //     this.database.ref('users').on('value', (data: any) => {
+  //       var users =  data.val();
+  //       var user = firebase.auth().currentUser;
+  //       var  userIDs = Object.keys(users);
+  //       for (var x = 0; x < userIDs.length; x++){
+  //         var str1 = new String( userIDs[x]); 
+  //         var index = str1.indexOf( ":" ); 
+  //         var currentUserID = userIDs[x].substr(index + 1);
+  //         if (user.uid == currentUserID){
+  //           console.log(user.uid)
+  //           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
+  //             var Userdetails = data.val(); 
+  //             this.storeUserID(userIDs[x]);
+  //             var keys2:any = Object.keys(Userdetails);
+  //             this.storeCurrentUserImage(Userdetails[keys2[0]].img);
+  //             this.storeCurrentUsername(Userdetails[keys2[0]].Username);
+  //             this.storeUserKey(Userdetails[keys2[0]].key)
+  //             this.storeCurrentUserPath(userIDs[x])
+  //             accpt(Userdetails[keys2])
+  //           })
+  //           break
+  //         }
+  //       }
+  //     })
+  //   })
+  //  }
    
    storeCurrentUsername(username){
    this.currentUserName =  username;

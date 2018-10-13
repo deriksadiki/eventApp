@@ -7,6 +7,20 @@ page-contact {
         margin-left: 85%;
 
     }
+    .B2{
+        position: relative;
+        top: 150%;
+        margin-right: 85%;
+
+   
+    }
+    .back{
+        position: relative;
+        font-size: 250%;
+        color:whitesmoke;
+    bottom: 40px;
+        margin-left: 4px;
+    }
 
     .more{
         position: relative;
@@ -28,10 +42,10 @@ page-contact {
          margin-top: 70px;
 
     .phot{
-        background-image: url('../../assets/imgs/eventpic.jpg');
+        // background-image: url('../../assets/imgs/eventpic.jpg');
         background-size: cover;
         position: relative;
-      bottom: 65px ;
+    //   margin-top: 20px ;
     }
     .pic1{
         height: 130px;

@@ -11,7 +11,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-// import { SocialSharing } from '@ionic-native/social-sharing';
+import { SocialSharing } from '@ionic-native/social-sharing';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseConnectionProvider } from '../providers/firebase-connection/firebase-connection';
@@ -24,6 +24,8 @@ import { LoginPage } from '../pages/login/login';
 import { CommentsPage } from '../pages/comments/comments';
 import { RegisterPage } from '../pages/register/register'
 import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
+import { MyPopOverPage } from '../pages/my-pop-over/my-pop-over';
+import { PopoverComponent } from '../components/popover/popover';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
     CommentsPage,
     RegisterPage,
     CommentsPage,
-    ProfileUpdatePage
+    ProfileUpdatePage,
+    MyPopOverPage,
+    PopoverComponent
 
 
   ],
@@ -61,7 +65,9 @@ import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
     LoginPage,
     CommentsPage,
     RegisterPage,
-    ProfileUpdatePage
+    ProfileUpdatePage,
+    MyPopOverPage,
+    PopoverComponent
 
 
 

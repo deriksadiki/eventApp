@@ -40,6 +40,12 @@ export class HomePage {
     });
      }
 
+
+pager = [
+  {color:"red"}
+  
+]
+
 viewMore(i){
 this.navCtrl.push(MoreInfoPage, {events:i});
 }

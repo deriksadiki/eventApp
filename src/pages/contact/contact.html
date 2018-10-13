@@ -8,6 +8,10 @@
               <ion-icon name="md-create"></ion-icon>
             </button>
           </div>
+
+          <div class="B2">
+            <ion-icon class="back" name="md-more" (click)="presentPopover($event)" ></ion-icon>
+        </div>
     </ion-navbar>
 
 
@@ -28,7 +32,7 @@
 <br>
 
 
-<ion-content padding>
+<ion-content >
  
     
       <ion-title class="titles">Events to attend</ion-title>
@@ -62,13 +66,13 @@
             </ion-row>
           </ion-grid>
         </div>
-    
+<!--     
         <ion-fab class="fabi" right end fixed>
             <button class="faba" ion-fab color="nav" ><ion-icon class="if" name="arrow-dropleft"></ion-icon></button>
             <ion-fab-list side="left" >
               <button  color="dark" ion-fab><ion-icon name="md-log-out" (click)="logOut()"></ion-icon></button>
             </ion-fab-list>
-          </ion-fab>
+          </ion-fab> -->
 
 </ion-content>
 

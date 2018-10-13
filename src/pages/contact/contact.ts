@@ -4,7 +4,9 @@ import { FirebaseConnectionProvider } from '../../providers/firebase-connection/
 import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
 import { ProfileUpdatePage } from '../profile-update/profile-update';
-
+import { PopoverController } from 'ionic-angular';
+import { MyPopOverPage } from '../my-pop-over/my-pop-over'
+import { PopoverComponent } from '../../components/popover/popover';
 
 
 @Component({
@@ -14,7 +16,7 @@ import { ProfileUpdatePage } from '../profile-update/profile-update';
 export class ContactPage {
   profile = [];
 
-  constructor(public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
+  constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
 
   }
 
@@ -29,33 +31,14 @@ export class ContactPage {
     modal.present();
   }
 
-
-  logOut(){
-
-    const confirm = this.alertCtrl.create({
-      title: 'LOGGING OUT!',
-      message: 'Are you sure you want to log out?',
-      buttons: [
-        {
-          text: 'Disagree',
-          handler: () => {
-            console.log('Disagree clicked');
-            this.navCtrl.push(TabsPage);
-          }
-        },
-        {
-          text: 'Agree',
-          handler: () => {
-            console.log('Agree clicked');
-            this.firebaseService.logout();
-            this.navCtrl.push(LoginPage)
-          }
-        }
-      ]
+  presentPopover(event) {
+    const popover = this.popoverCtrl.create(PopoverComponent);
+    popover.present({
+       ev:event
     });
-    confirm.present();
    
   }
+ 
 
 
 }

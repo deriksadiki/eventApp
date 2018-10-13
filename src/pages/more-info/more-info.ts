@@ -21,7 +21,7 @@ url =   '../../assets/imgs/Spring-Fi.jpg';
 color='linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,20)),';
 gatefee;
 
-
+pet;
 go;
 state = false;
 buttonActive: boolean =  false;
@@ -94,4 +94,5 @@ logOut(){
   });
   confirm.present();
  
+}
 }
