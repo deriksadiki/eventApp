@@ -4,6 +4,7 @@ import { NavController, AlertController, NavParams} from 'ionic-angular';
 import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { LoginPage } from '../login/login';
+import {BusinessHomePage} from '../business/business-home/business-home'
 
 
 
@@ -14,6 +15,11 @@ import { LoginPage } from '../login/login';
 export class HomePage {
 
   fetching = [];
+  fetching2 = [];
+  fetching3 = [];
+  fetching4 = [];
+  fetching5 = [];
+  fetching6 = [];
 
   Users = {} as User;
   plus;
@@ -24,7 +30,13 @@ export class HomePage {
     var user = this.navParams.get('user');
     this.firebaseService.getAlldata().then((data:any) => {
       this.fetching = data;
-      console.log(data);
+        this.fetching2.push(this.fetching[0])
+        this.fetching3.push(this.fetching[1])
+        this.fetching4.push(this.fetching[2])
+        this.fetching5.push(this.fetching[3])
+    
+   
+      console.log(this.fetching[0]);
     });
      }
 
@@ -37,51 +49,13 @@ this.navCtrl.push(MoreInfoPage, {events:i});
     
   }
 
-  // reg(){
-  //   if(this.Users.email == undefined && this.Users.password && this.Users.userName == undefined){
-  //     const alert = this.alertCtrl.create({
-  //       title: 'Warning',
-  //       subTitle: ' Please provide your full details to register!',
-  //       buttons: ['OK']
-  //     });
-  //     alert.present();
-  //   }
-  //   else if(this.Users.email ==undefined){
-  //     const alert = this.alertCtrl.create({
-  //       title: 'Wearning',
-  //       subTitle: 'Please enter a valid email',
-  //       buttons: ['OK']
-  //     });
-  //     alert.present();
-  //   }
-  //   else if(this.Users.password == undefined){
-  //     const alert = this.alertCtrl.create({
-  //       title: 'Wearning',
-  //       subTitle: 'Please enter a password, it cannot be left empty',
-  //       buttons: ['OK']
-  //     });
-  //     alert.present();
-  //   }
-  //   else if(this.Users.userName == undefined){
-  //     const alert = this.alertCtrl.create({
-  //       title: 'Wearning',
-  //       subTitle: 'Please enter a Username, it cannot be left empty',
-  //       buttons: ['OK']
-  //     });
-  //     alert.present();
-  //   }
+  logOut(){
+    this.firebaseService.logout();
+    this.navCtrl.push(LoginPage);
+   }
 
-  //   else {
-  //     this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.userName).then(() =>{
-  //       const alert = this.alertCtrl.create({
-  //         title: 'Welcome',
-  //         subTitle: 'You have successfully Registared',
-  //         buttons: ['OK']
-  //       });
-  //       alert.present();
-  //      })
-  //   }
-  // }
-
+   viewAll(){
+     this.navCtrl.push(BusinessHomePage, {events:this.fetching})
+   }
 
 }
