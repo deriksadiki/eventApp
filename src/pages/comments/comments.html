@@ -1,44 +1,47 @@
 <ion-header>
 
-  <ion-navbar color="nav">
-    <ion-title>Comments</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding scrollDownOnLoad="true">
-<div class="com" *ngFor="let i of comments">
-  <ion-item  no-lines>
+    <ion-navbar color="nav">
+        <ion-title>Comments</ion-title>
+      </ion-navbar>
+    </ion-header>
     
-    <ion-avatar item-start>
-      <img src="{{i.img}}">
-    </ion-avatar>
-    <h1>
-      <b>{{i.name}}</b>
-      <span class="date">{{i.date}}</span>
-    </h1>
- 
-  </ion-item>
+    <ion-content class="all">
+    <ion-list class="com" *ngFor="let i of comments">
+      <div class="cm">
+    
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="{{i.img}}">
+        </ion-avatar>
+        <h1 capitalize>
+          <b>{{i.name}}</b>
+          <span class="date" align="right">{{i.date}}</span>
+        </h1>
+     
+      <div no-lines>
+          <div text-wrap class="text" capitalize>
+        <p>{{i.text}}</p>
+          </div>
+      </div>
+     </ion-item>
 
-  <ion-item  no-lines>
-    <p>{{i.text}}</p>
-   
-  </ion-item>
-</div>
-</ion-content>
-
-<ion-footer>
-  <ion-toolbar claas="foot">
-    <div class="down">
-      <ion-item class="item2">
-        <textarea class="comments" #comment type="text" cols="40" rows="5" placeholder="Comment here..." [(ngModel)]="newmessage"></textarea>
-      </ion-item>
     </div>
-    <div fixed bottom align=" right">
-      <button item-end class="send" ion-button round color="nav" (click)="placeComment()">
-        <ion-icon name="md-send"></ion-icon>
-      </button>
-    </div>
-  </ion-toolbar>
-</ion-footer>
+    </ion-list>
+    
+    
+    </ion-content>
+    
+    <ion-footer>
+     <ion-toolbar class="tool">
+    <ion-textarea textwrap maxlength="50" placeholder="Comment here..." class="comments" [(ngModel)]="newmessage"></ion-textarea>
+     <!-- <ion-buttons ion-fab mini end round color="nav" >
+        <button ion-button   class ="send" icon-only (click)="placeComment()"><ion-icon name="md-send"></ion-icon></button>
+      </ion-buttons>  -->
+      <ion-buttons end  class="send" (click)="placeComment()">
+      <button color="nav" ion-fab mini end icon-only><ion-icon name="md-send"></ion-icon></button>
+    </ion-buttons>
+    </ion-toolbar>
+    </ion-footer>
+    <!-- <ion-buttons end round ">
+        <button ion-button color="nav"  icon-only><ion-icon name="md-send"></ion-icon></button>
+      </ion-buttons>  -->

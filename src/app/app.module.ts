@@ -2,7 +2,10 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-// import {LaunchNavigator} from '@ionic-native/launch-navigator';
+
+import {LaunchNavigator} from '@ionic-native/launch-navigator'
+import {LocalNotifications} from '@ionic-native/local-notifications'
+
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -16,15 +19,14 @@ import { BusinessHomePage } from '../pages/business/business-home/business-home'
 import { RegisterBusinessPage } from '../pages/business/register-business/register-business';
 import { ViewPage } from '../pages/view/view';
 
-
 import { MoreInfoPage } from '../pages/more-info/more-info';
 import { LoginPage } from '../pages/login/login';
 import { CommentsPage } from '../pages/comments/comments';
 import { RegisterPage } from '../pages/register/register'
+import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
 
 
 @NgModule({
-
   declarations: [
     MyApp,
     AboutPage,
@@ -36,7 +38,9 @@ import { RegisterPage } from '../pages/register/register'
     MoreInfoPage,
     LoginPage,
     CommentsPage,
-    RegisterPage
+    RegisterPage,
+    CommentsPage,
+    ProfileUpdatePage
 
 
   ],
@@ -56,7 +60,8 @@ import { RegisterPage } from '../pages/register/register'
     MoreInfoPage,
     LoginPage,
     CommentsPage,
-    RegisterPage
+    RegisterPage,
+    ProfileUpdatePage
 
 
 
@@ -66,9 +71,11 @@ import { RegisterPage } from '../pages/register/register'
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseConnectionProvider,
-    // SocialSharing,
-    // LaunchNavigator
-  ]
 
+    SocialSharing,
+    LaunchNavigator,
+    LocalNotifications
+
+  ]
 })
-export class AppModule {}
+export class AppModule{}
