@@ -14,6 +14,7 @@ export class FirebaseConnectionProvider {
   currentUserPath;
   username;
   userKey;
+  img;
   fetch = new Array();
   comments = new Array();
   newEvents =  new Array();
@@ -23,13 +24,13 @@ export class FirebaseConnectionProvider {
   constructor() {
   }
 
-  registerUser(email,password,userName){
+  registerUser(email,password,Username){
     return new Promise((accpt,rej) =>{
       this.authenticate.createUserWithEmailAndPassword(email,password).then(() =>{
         var user = firebase.auth().currentUser;
-        this.dbRef = 'users/' + userName + ":" + user.uid;
+        this.dbRef = 'users/' + user.uid;
         this.database.ref(this.dbRef).push({
-          Username: userName,
+          Username: Username,
           img : this.defaultImages[Math.floor(Math.random() * 4)],
           userType: "User"
         })
@@ -40,22 +41,16 @@ export class FirebaseConnectionProvider {
     })
   }
 
-  UpdateProfile(userName,img){
-    return new Promise ((accpt,rej) =>{
-      var img;
-      if(img == undefined || img == null){
-        img = this.defaultImages;
-      }   
 
-      if(userName == undefined){
-        userName = ""
-      }
+  UpdateProfile(Username,img){
+    return new Promise ((accpt,rej) =>{
       var path = 'users/' + this.currentUserID + '/' + this.userKey;
       console.log(path)
       this.database.ref(path).update({
-        userName: userName,
+        Username: Username,
         img: img
       })
+      accpt('succes!')
     })
   }
 
@@ -64,6 +59,8 @@ export class FirebaseConnectionProvider {
     console.log('exit')
     this.authenticate.signOut();
   }
+
+
   getALlGoings(){
     return new Promise((accept,reject) => {
       this.fetch.length = 0;
@@ -236,8 +233,9 @@ getNewEvents(){
   }
 
   getuser(){
-    // this.authenticate.signOut();
     return new Promise ((accpt,rej)=>{
+      this.username = "";
+      this.img = "";
       this.database.ref('users').on('value', (data: any) => {
         var users =  data.val();
         var user = firebase.auth().currentUser;
@@ -248,13 +246,15 @@ getNewEvents(){
           var currentUserID = userIDs[x].substr(index + 1);
           if (user.uid == currentUserID){
             console.log(user.uid)
+            this.storeUsername(userIDs[x].substr(0,index));
             this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
               var Userdetails = data.val(); 
               this.storeUserID(userIDs[x]);
               var keys2:any = Object.keys(Userdetails);
+              var user = firebase.auth().currentUser;
               this.storeCurrentUserImage(Userdetails[keys2[0]].img);
               this.storeCurrentUsername(Userdetails[keys2[0]].Username);
-              this.storeUserKey(Userdetails[keys2[0]].key)
+              this.storeUserKey(keys2[0])
               this.storeCurrentUserPath(userIDs[x])
               accpt(Userdetails[keys2])
             })
@@ -263,6 +263,10 @@ getNewEvents(){
         }
       })
     })
+   }
+
+   storeUsername(username){
+     console.log(username)
    }
    
    storeCurrentUsername(username){
@@ -282,9 +286,8 @@ getNewEvents(){
     this.userKey = key
    }
 
-   storeUserID(key){
-    this.currentUserID = key;
-    console.log(this.currentUserID)
+   storeUserID(uid){
+    this.currentUserID = uid;
   }
 
 getProfile(){
@@ -298,10 +301,12 @@ getProfile(){
       console.log(keys)
       for (var x = 0;x < keys.length;x++){
         var k = keys[x];
+        console.log(k)
         let obj ={
           username: details[k].Username,
           img: details[k].img,
           userType: details[k].userType,
+          key: k
         }
         this.profile.push(obj);
       }
@@ -323,7 +328,6 @@ comment(text,key){
     accpt("comment added")
   })
 }
-
 
 getComments(key){
   return new Promise ((accpt,rej) =>{
