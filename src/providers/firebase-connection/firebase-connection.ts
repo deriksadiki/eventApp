@@ -13,12 +13,8 @@ export class FirebaseConnectionProvider {
   currentUserImage;
   currentUserPath;
   fetch = new Array();
-<<<<<<< HEAD
-  newEvents = new Array();
-=======
   comments = new Array();
   defaultImages = ['../../assets/imgs/pic.jpg','../../assets/imgs/pic23.jpg','../../assets/imgs/pic24.jpg', '../../assets/imgs/pic22.jpg','../../assets/imgs/pic25.jpg']
->>>>>>> ee0991f7e951b65c4a34c6ee11dd8d4c1775d05f
   constructor() {
   }
 
@@ -127,31 +123,6 @@ this.database.ref('events/').on('value', (data: any) => {
   })
 }
 
-<<<<<<< HEAD
-getNewEvents(){
-  return new Promise((accpt,rej) =>{
-    this.database.ref('NewEvents/').on('value', (data:any) =>{
-      if (data.val() != null || data.val() != undefined){
-        var events =  data.val();
-        var keys = Object.keys(data.val);
-        for (var x = 0; x < keys.length; x++){
-          var k = keys[x];
-          let obj = {
-            date : events[k].date,
-            name :  events[k].name,
-            eventName : events[k].eventName
-          }
-          this.newEvents.push(obj)
-        }
-        accpt(this.newEvents)
-      }
-      else{
-        rej('no new events')
-      }
-    })
-  })
-}
-=======
 going(key, name, going){
   var numGoing = going + 1;
   return new Promise((accpt, rej) =>{
@@ -240,5 +211,4 @@ addNumComments(key, numComments, user){
   console.log("comment number added")
 }
 
->>>>>>> ee0991f7e951b65c4a34c6ee11dd8d4c1775d05f
 }

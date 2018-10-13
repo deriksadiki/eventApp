@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { AboutPage } from '../about/about';
-import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
-import { SocialSharing } from '@ionic-native/social-sharing';
+// import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
+// import { SocialSharing } from '@ionic-native/social-sharing';
 
 import {CommentsPage}  from '../comments/comments';
 
@@ -28,7 +28,7 @@ buttonActive: boolean =  false;
 color2 = "light";
 
 
- constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
+ constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private firebaseService: FirebaseConnectionProvider) {
  }
 
 ionViewDidLoad() {
@@ -44,14 +44,14 @@ ionViewDidLoad() {
    this.launchNavigator.navigate(i);
  }
 
- share(i){
- var location = 'at ' + this.event[0].location + ', this event was shared from event finder app, please download the app to get more events like this'
-   this.socialSharing.share(this.event[0].eventName,this.event[0].eventDesc,this.event[0].img, location ) .then(() => {
-     // Success!
-   }).catch(() => {
-     // Error!
-   });
- }
+//  share(i){
+//  var location = 'at ' + this.event[0].location + ', this event was shared from event finder app, please download the app to get more events like this'
+//    this.socialSharing.share(this.event[0].eventName,this.event[0].eventDesc,this.event[0].img, location ) .then(() => {
+//      // Success!
+//    }).catch(() => {
+//      // Error!
+//    });
+//  }
 
  going(){
    if (this.state == false && this.buttonActive == false){
