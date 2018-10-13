@@ -1,5 +1,13 @@
 page-login {
 
+    .back{
+        background-image:linear-gradient(#7a4579,rgba(0,0,0,0.5)), url('../../assets/imgs/people.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
+    }
+
     .btn{
         width: 80%;
         position: relative;
@@ -8,6 +16,7 @@ page-login {
         font-weight: 400;
         font-size: 1.3em;
         color: #7a4579;
+        border-radius: 50px;
         height: 45px;
         margin-bottom: 2%;
         background-color: aliceblue;
@@ -43,9 +52,9 @@ page-login {
     position: relative;
     top: 10px;
 }
-.back{
-    background-color:  #7a4579;
-}
+// .back{
+//     background-color:  #7a4579;
+// }
 .image{
     position: relative;
     top: 130px;
@@ -69,4 +78,6 @@ p{
     text-align: center;
     padding-top: 29%;
 }
+
+
 }

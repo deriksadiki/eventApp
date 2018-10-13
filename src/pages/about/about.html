@@ -8,139 +8,17 @@
 
 <ion-content padding class="img">
 
-           
-
-              <ion-item class="item">
-                <ion-avatar class="avatar" item-start>
-                  <img src="../../assets/imgs/eventpic.jpg">
-                </ion-avatar>
-                <h2>Range Records entertainment</h2>
-                <p style="color: black">6 October 2018<br>
-                  Sejesong Pub&Lounge<br>
-                  Klipspruit</p>
-                  <div align="right">
-                  <ion-icon name="arrow-dropright" (click)="moreinfo()"></ion-icon>
-                
-                </div>
-              </ion-item>
-          
-
-            
-           
-
-              <ion-item class="item">
-                <ion-avatar item-start>
-                  <img src="../../assets/imgs/eventpic.jpg">
-                </ion-avatar>
-                <h2>Marty McFly</h2>
-                <p style="color: black">November 5, 1955</p>
-                <div align="right">
-                  <ion-icon name="arrow-dropright" (click)="moreinfo()"></ion-icon>
-                </div>
-              </ion-item>
-            
-        
-            
-
-            
-         
-
-              <ion-item class="item">
-                <ion-avatar item-start>
-                  <img src="../../assets/imgs/eventpic.jpg">
-                </ion-avatar>
-                <h2>Marty McFly</h2>
-                <p style="color: black">November 5, 1955</p>
-                <div align="right">
-                  <ion-icon name="arrow-dropright" (click)="moreinfo()"></ion-icon>
-                </div>
-              </ion-item>
-           
-
-              <ion-item class="item">
-                <ion-avatar item-start>
-                  <img src="../../assets/imgs/eventpic.jpg">
-                </ion-avatar>
-                <h2>Marty McFly</h2>
-                <p style="color: black">November 5, 1955</p>
-                <div align="right">
-                  <ion-icon name="arrow-dropright" (click)="moreinfo()"></ion-icon>
-                </div>
-              </ion-item>
-           
-              
-              <ion-item class="item">
-                <ion-avatar item-start>
-                  <img src="../../assets/imgs/eventpic.jpg">
-                </ion-avatar>
-                <h2>Marty McFly</h2>
-                <p style="color: black">November 5, 1955</p>
-                <div align="right">
-                  <ion-icon name="arrow-dropright" (click)="moreinfo()"></ion-icon>
-                </div>
-              </ion-item>
-            
-     
-
-              <ion-item class="item">
-                <ion-avatar item-start>
-                  <img src="../../assets/imgs/eventpic.jpg">
-                </ion-avatar>
-                <h2>Marty McFly</h2>
-                <p style="color: black">November 5, 1955</p>
-                <div align="right">
-                  <ion-icon name="arrow-dropright"></ion-icon>
-                </div>
-              </ion-item>
-            
-        
-              <ion-item class="item">
-                <ion-avatar item-start>
-                  <img src="../../assets/imgs/eventpic.jpg">
-                </ion-avatar>
-                <h2>Range Records entertainment</h2>
-                <p style="color: black">November 5, 1955</p>
-                <div align="right">
-                  <ion-icon name="arrow-dropright"></ion-icon>
-                </div>
-              </ion-item>
-            
-               <ion-item class="item">
-                <ion-avatar item-start>
-                  <img src="../../assets/imgs/eventpic.jpg">
-                </ion-avatar>
-                <h2>Marty McFly</h2>
-                <p style="color: black">November 5, 1955</p>
-                <div align="right">
-                  <ion-icon name="arrow-dropright"></ion-icon>
-                </div>
-              </ion-item>
-        
-              <ion-item class="item">
-                <ion-avatar item-start>
-                  <img src="../../assets/imgs/eventpic.jpg">
-                </ion-avatar>
-                <h2>Marty McFly</h2>
-                <p style="color: black">November 5, 1955</p>
-                <div align="right">
-                  <ion-icon name="arrow-dropright"></ion-icon>
-                </div>
-              </ion-item>
-     
-              <ion-item class="item">
-                <ion-avatar item-start>
-                  <img src="../../assets/imgs/eventpic.jpg">
-                </ion-avatar>
-                <h2>Marty McFly</h2>
-                <p style="color: black">November 5, 1955</p>
-                <div align="right">
-                  <ion-icon name="arrow-dropright"></ion-icon>
-                </div>
-              </ion-item>
-            
-        
-            
-            
-            
+                    <ion-item (click)="moreinfo(i)" class="item" *ngFor="let a of fetching;let i of index;">
+                      <ion-avatar class="avatar" item-start>
+                        <img src="{{a.img}}">
+                      </ion-avatar>
+                      <h2>{{a.eventName}}</h2>
+                      <p text-wrap style="color:black">{{a.date}}<br>
+                       {{a.location}}</p>
+                        <div align="right">
+                        <ion-icon name="arrow-dropright" ></ion-icon>
+                      
+                      </div>
+                    </ion-item>
 
 </ion-content>
