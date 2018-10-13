@@ -9,6 +9,7 @@ export class FirebaseConnectionProvider {
   dbRef;
   currentUserID;
   fetch = new Array();
+  newEvents = new Array();
   constructor() {
   }
 
@@ -71,7 +72,6 @@ this.database.ref('events/').on('value', (data: any) => {
     var k = userIDs[i];
     var y = 'events/' + k;
     console.log(y)
-
     this.database.ref(y).on('value', (data2:any) =>{
       var events = data2.val();
       console.log(events);
@@ -98,6 +98,30 @@ this.database.ref('events/').on('value', (data: any) => {
 }, Error => {
   reject(Error.message);
 })
+  })
+}
+
+getNewEvents(){
+  return new Promise((accpt,rej) =>{
+    this.database.ref('NewEvents/').on('value', (data:any) =>{
+      if (data.val() != null || data.val() != undefined){
+        var events =  data.val();
+        var keys = Object.keys(data.val);
+        for (var x = 0; x < keys.length; x++){
+          var k = keys[x];
+          let obj = {
+            date : events[k].date,
+            name :  events[k].name,
+            eventName : events[k].eventName
+          }
+          this.newEvents.push(obj)
+        }
+        accpt(this.newEvents)
+      }
+      else{
+        rej('no new events')
+      }
+    })
   })
 }
 }
