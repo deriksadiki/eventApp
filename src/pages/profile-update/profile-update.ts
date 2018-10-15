@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { User } from '../../Modals/User';
+
 import { ContactPage } from '../contact/contact';
+
 
 /**
  * Generated class for the ProfileUpdatePage page.
@@ -48,7 +50,9 @@ export class ProfileUpdatePage {
   saveData(){
     this.fire.UpdateProfile(this.Users.Username,this.pic).then(data=>{
       console.log(data);
+
       this.navCtrl.push(ContactPage);
+
 
     })
   }

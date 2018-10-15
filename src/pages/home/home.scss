@@ -80,6 +80,7 @@ page-home {
     }
     
     .card-background-page {
+
         ion-card {
           position: relative;
           text-align: left;
@@ -89,6 +90,7 @@ page-home {
         }
         // background-color: rgb(236, 230, 230);
         background-color: #f3e8f3;
+
         img{
             -webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
                 filter: blur(0px);

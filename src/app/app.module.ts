@@ -24,8 +24,10 @@ import { LoginPage } from '../pages/login/login';
 import { CommentsPage } from '../pages/comments/comments';
 import { RegisterPage } from '../pages/register/register'
 import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
+
 import { MyPopOverPage } from '../pages/my-pop-over/my-pop-over';
 import { PopoverComponent } from '../components/popover/popover';
+
 
 
 @NgModule({
@@ -43,8 +45,10 @@ import { PopoverComponent } from '../components/popover/popover';
     RegisterPage,
     CommentsPage,
     ProfileUpdatePage,
+
     MyPopOverPage,
     PopoverComponent
+
 
 
   ],
@@ -66,8 +70,10 @@ import { PopoverComponent } from '../components/popover/popover';
     CommentsPage,
     RegisterPage,
     ProfileUpdatePage,
+
     MyPopOverPage,
     PopoverComponent
+
 
 
 

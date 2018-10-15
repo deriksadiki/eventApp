@@ -69,6 +69,7 @@ export class RegisterPage {
 
     else {
 
+
       this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.Username).then(() =>{
         const alert = this.alertCtrl.create({
           title: 'Welcome',
@@ -76,6 +77,7 @@ export class RegisterPage {
           buttons: ['OK']
         });
         alert.present();
+
 
        })
 

@@ -303,6 +303,8 @@ getNewEvents(){
           var index = str1.indexOf( ":" ); 
           var currentUserID = userIDs[x].substr(index + 1);
           if (user.uid == currentUserID){
+
+
             this.storeUsername(userIDs[x].substr(0,index));
             this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
               var Userdetails = data.val(); 
@@ -323,6 +325,8 @@ getNewEvents(){
    }
 
    storeUsername(username){
+
+
    }
    
    storeCurrentUsername(username){
