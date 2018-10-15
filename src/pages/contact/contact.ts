@@ -18,12 +18,18 @@ export class ContactPage {
 
   constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
 
+
+
   }
 
   ionViewDidLoad(){
     this.firebaseService.getProfile().then((data:any)=>{
       this.profile = data;
-    })
+    });
+
+    this.firebaseService.getuser().then(data=>{
+      console.log(data);
+    });
   }
 
   presentModal(){

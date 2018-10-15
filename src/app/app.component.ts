@@ -36,10 +36,14 @@ newEvents =  new Array();
      fire.getUserSatate().then( data =>{
        this.pushNotification();
     if (data == 1){
+      console.log('online')
      this.rootPage =  TabsPage;
-     fire.getuser();
+     fire.getuser().then(data=>{
+       console.log(data)
+     });
     }
     else{
+      console.log('offline')
       this.rootPage = LoginPage;
     }
      })

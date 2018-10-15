@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { Update } from '../../Modals/userUpdate';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
+import { User } from '../../Modals/User';
+import { ContactPage } from '../contact/contact';
 
 /**
  * Generated class for the ProfileUpdatePage page.
@@ -17,9 +18,13 @@ import { FirebaseConnectionProvider } from '../../providers/firebase-connection/
 })
 export class ProfileUpdatePage {
 
-  update = {} as Update
+  Users = {} as User;
+  pic;
+
+  profile = [];
 
   constructor(private fire: FirebaseConnectionProvider,public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
+   
   }
 
   ionViewDidLoad() {
@@ -29,23 +34,23 @@ export class ProfileUpdatePage {
     this.viewCtrl.dismiss();
   }
 
-  pic;
 
   uploadPic(event:any){
     if(event.target.files && event.target.files[0]){
       let reader = new FileReader();
-
       reader.onload = (event:any) =>{
         this.pic = event.target.result;
       }
-
       reader.readAsDataURL(event.target.files[0]);
     }
-    console.log(event);
   }
 
-  saveData(userName,img){
-    this.fire.UpdateProfile(userName,this.pic)
+  saveData(){
+    this.fire.UpdateProfile(this.Users.Username,this.pic).then(data=>{
+      console.log(data);
+      this.navCtrl.push(ContactPage);
+
+    })
   }
 
 }
