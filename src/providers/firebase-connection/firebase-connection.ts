@@ -258,6 +258,7 @@ this.database.ref('events/').on('value', (data: any) => {
 
 
 
+
 getNewEvents(){
   return new Promise((accpt,rej) =>{
     this.database.ref('NewEvents/').on('value', (data:any) =>{

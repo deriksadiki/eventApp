@@ -47,6 +47,7 @@ pager = [
 viewMore(i){
 this.navCtrl.push(MoreInfoPage, {events:i});
 }
+
   moreinfo(){
     this.navCtrl.push(MoreInfoPage);
   }

@@ -4,8 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { CommentsPage } from '../pages/comments/comments';
-import { HomePage } from '../pages/home/home';
 
+import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
 import { RegisterPage } from '../pages/register/register';
 import {LoginPage} from '../pages/login/login';
@@ -19,6 +19,7 @@ import { MyPopOverPage } from '../pages/my-pop-over/my-pop-over';
  templateUrl: 'app.html'
 })
 export class MyApp {
+
 
 public rootPage:any ;
 newEvents =  new Array();
