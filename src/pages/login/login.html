@@ -14,7 +14,7 @@
     <div align = "center">
         <ion-list class="list" no-lines>
             <ion-item>
-              <ion-label><ion-icon name="at" color="light"></ion-icon></ion-label>
+              <ion-label><ion-icon name="mail"></ion-icon></ion-label>
               <ion-input type="email" placeholder="E-mail" [(ngModel)]="logging.email"></ion-input>
             </ion-item>
             <br>
@@ -28,9 +28,9 @@
       
 
       
-          <button class="btn" ion-button color="light" round (click)="login()" >Login</button>
+          <button class="btn" ion-button color="light"  (click)="login()" outline>Login</button>
           <br>
-          <button class="btn" ion-button color="light" (click)="reg()" round>Register</button> 
+          <button class="btn" ion-button color="light" (click)="reg()" outline>Register</button> 
 <br>
           <button (click)="ForgotPassword()" class="btn1" ion-button full clear>Forgot Password?</button> 
 </ion-content>

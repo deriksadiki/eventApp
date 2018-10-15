@@ -1,130 +1,119 @@
 page-more-info {
-
-    .nav{
-
-        // background-attachment: fixed;
+    .top{
+        //background-image:linear-gradient(rgba(0, 0, 0, 0.384)), url('../../assets/65c8306ec56121463aa4f089845408a3.jpg');
+        background-attachment: fixed;
         background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        height: 300px;
+        // background-position: center;
+        height: 50vh;
     }
- 
-    .color{
-        background-color: rgb(211, 207, 207);
-    }
- 
     .dash{
-       position: relative;
-       top: 60%;
-
- 
- 
-    }
- 
-    .icons{
-        color: white;
-    }
- 
-    h1{
-        font-weight: 500;
-        text-align: center;
-        color: #7a4579;
-    }
- 
-    h4{
-        font-weight: 100;
-        text-align: center;
-        color: #7a4579;
-    }
- 
-    h5{
-        font-weight: 100;
-        text-align: center;
-        font-size: 90%;
- 
-    }
- 
-    .img{
-        width: 40%;
-        margin-left: 55%;
         position: relative;
-        bottom: 85px;
+        margin-top: 65%;
+        background-image:linear-gradient(rgba(0,0,0,0.5),#7a4579), url('../../assets/imgs/people.jpg');
+// opacity: 0.90;
+    //    background:linear-gradient(rgba(231, 227, 227, 0),rgba(87, 2, 95, 0.322),#7b298a);
+    //    background-color: #d33e55;
+    }
+    .i{
+        color:whitesmoke;
+        font-size: 250%;
+        z-index: 1;
+        margin-left: 70px;
     }
     h3{
-        font-weight: 100;
-        color: #000000;
-        font-size: 90%;
+        color: whitesmoke;
+       
+        // margin-top: 20px;
+        // position: absolute;
     }
- 
-    // .things{
-    //     // border: solid 2px white;
-    //     position: relative;
-    //     bottom: 25%;
-    // }
- 
-    p{
-        text-align: center;
-        font-weight: 100;
-        position: relative;
-        bottom: 20px;
-        color: #000000;
- 
- 
+    .back{
+        font-size: 250%;
+        color:whitesmoke;
+        margin-left: 10px;
     }
- 
-    h2{
-        text-align: center;
-        font-weight: 100;
-        color: #7a4579;
-        position: relative;
-        bottom: 15px;
+    .ii{
+        font-size: 160%;
+        // font-weight: bold;
+        // font-family: Arial;
     }
- 
-    .diiv{
-        position: relative;
-        bottom: 6%;
-
+    .if{
+        font-size: 35px;
     }
-
-    .theme{
-        background-color: rgb(245, 236, 236);
-
-    }
-
- 
-    .button1{
-
-        font-weight: 100;
-        position: relative;
-        bottom: 20px;
-        border-radius: 50px;
- 
-    }
-
- 
-    .segments{
-        position: relative;
-        bottom: 4%;
- 
-    }
- 
-    .foot{
-        background-color: #7a4579;
-        height: 10%;
-    }
- 
-    .fabs{
-        background-color:#52075004;
-        color: #7a4579;
-    }
-    .fabzz{
-        background-color: #7a4579;
-        width: 50px;
-        height: 50px;
+    .head{
         color: white;
+        position: absolute;
+        margin-left: 10px;
+        margin-top: 10px;
+        text-shadow: 4px 8px 2px black;
+        text-transform: capitalize;
     }
-
-
- 
- }
-
+    .pic{
+        
+        // padding: 5px;
+        height: 100px;
+        width: 100px;
+        border-radius: 80px;
+     
+        // overflow: hidden;
+        // z-index: 1;
+    }
+    ion-fab.fabi{
+        top: 260px;
+    }
+    .lab{
+    position: absolute;
+    margin-left: 110px;
+    color: whitesmoke;
+    }
+    // button.faba{
+    //     // box-shadow: 1px 3px 3px 2px black;
+    // }
+    
+    // .add{
+    //     font-size: 180px;
+    // }
+    .colo{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .phot{
+        border-radius: 80px;
+        background-color: white;
+        top: 93%;
+        padding: 5px;
+        position: absolute;
+        margin-left: 10px;
+        // box-shadow: 1px 1px 2px;
+        z-index: 1;
+        // margin-bottom: 20px;
+        // position: relative;
+    }
+    .title{
+        margin-left: 120px;
+        position: absolute;
+        // color: whitesmoke;
+        top: 105%;
+    }
+    .ic{
+        font-size: 180%;
+        margin-top: 25%;
+    }
+    p{
+        font-size: 90%;
+       
+    
+    }
+    
+    .p{
+        font-size: 1.3em;
+        text-transform: capitalize;
+        
+    }
+    .dash{
+        position: absolute; 
+      
+    }
+    .content{
+        margin-top: 38px;
+    }
+    }
