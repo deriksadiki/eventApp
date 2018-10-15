@@ -30,11 +30,11 @@ export class MyApp {
       splashScreen.hide();
       fire.getUserSatate().then( data =>{
      if (data == 1){
-      this.rootPage =  TabsPage;
+      this.rootPage =  LoginPage;
       fire.getuser();
      }
      else{
-       this.rootPage = LoginPage;
+       this.rootPage = TabsPage;
      }
       })
 
