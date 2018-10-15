@@ -1,22 +1,39 @@
 page-register {
     .img{
+<<<<<<< HEAD
        background-color: #7a4579;
  
+=======
+        background-image:linear-gradient(#7a4579,rgba(0,0,0,0.5)), url('../../assets/imgs/works.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
     }
  
     .list{
         margin-top: 40%;
-        background-color: #7a4579;
+      
     }
  
     .button{
         margin-top: 5%;
         width: 90%;
+<<<<<<< HEAD
         color: #7a4579;
         font-weight: 400;
         font-size: 1.3em;
         height: 50px;
         background-color: aliceblue;
+=======
+        color: #ffffff;
+        font-weight: 400;
+        font-size: 1.3em;
+        height: 50px;
+        border-radius: 50px;
+        // background-color: aliceblue;
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
     }
  
     .item{
@@ -28,8 +45,13 @@ page-register {
         font-weight: 100;
         font-size: 1.7em;
         width: 90%;
+<<<<<<< HEAD
  
  
+=======
+        
+
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
         ::-webkit-input-placeholder{
             color: aliceblue;
         }
@@ -40,20 +62,31 @@ page-register {
         font-size: 3.3em;
         font-weight: 100;
         position: relative;
+<<<<<<< HEAD
         top: 30%;
+=======
+        top: 20%;
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
         text-align: center;
     }
  
     .image{
         position: relative;
+<<<<<<< HEAD
         top: 60px;
+=======
+        top: 80px;
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
     }
  
     p{
         color: white;
         font-weight: 100;
         position: relative;
+<<<<<<< HEAD
         margin-top: 20%;
+=======
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
         text-align: center;
  
     }
@@ -62,9 +95,18 @@ page-register {
         color: white;
         font-size: 3em;
     }
+<<<<<<< HEAD
  .list{
      margin-top: 10px;
  }
  
  
  }
+=======
+
+   
+
+    
+
+}
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e

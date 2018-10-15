@@ -57,7 +57,13 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
+<<<<<<< HEAD
       "uk.co.workingedge.phonegap.plugin.launchnavigator": {},
+=======
+      "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+        "OKHTTP_VERSION": "3.+"
+      },
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},

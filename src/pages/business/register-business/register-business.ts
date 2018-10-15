@@ -4,27 +4,43 @@ import { User } from '../../../Modals/User';
 import { FirebaseConnectionProvider } from '../../../providers/firebase-connection/firebase-connection';
 
 /**
- * Generated class for the RegisterBusinessPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+* Generated class for the RegisterBusinessPage page.
+*
+* See https://ionicframework.com/docs/components/#navigation for more info on
+* Ionic pages and navigation.
+*/
 
 @IonicPage()
 @Component({
-  selector: 'page-register-business',
-  templateUrl: 'register-business.html',
+ selector: 'page-register-business',
+ templateUrl: 'register-business.html',
 })
 export class RegisterBusinessPage {
+<<<<<<< HEAD
   Users = {} as User;
   url;
   constructor(public fire:FirebaseConnectionProvider, public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
   }
+=======
+ Users = {} as User;
+ url;
+ constructor(public fire:FirebaseConnectionProvider, public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
+ }
 
-  ionViewDidLoad() {
+ ionViewDidLoad() {
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
 
-  }
+ }
 
+ insertpic(event:any){
+   if (event.target.files && event.target.files[0]){
+     let reader = new FileReader();
+     reader.onload = (event:any) =>{
+      this.url = event.target.result;
+     }
+     reader.readAsDataURL(event.target.files[0]);
+
+<<<<<<< HEAD
   insertpic(event:any){
     if (event.target.files && event.target.files[0]){
       let reader = new FileReader();
@@ -47,3 +63,19 @@ export class RegisterBusinessPage {
   }
 
 }
+=======
+   }
+ }
+ reg(name,location){
+   this.fire.registerBusiness(this.Users.email,this.Users.password,this.Users.userName ,name,location,this.url).then(() =>{
+     const alert = this.alertCtrl.create({
+       title: 'Congradulations',
+       subTitle: 'Business Profile has been successfully created',
+       buttons: ['OK']
+     });
+     alert.present();
+   })
+ }
+
+}
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e

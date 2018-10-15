@@ -2,21 +2,18 @@
 <div class="section">
 
 </div>
-  <ion-navbar>
+  <ion-navbar color="nav"> 
     <ion-title>businessHome</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
-<ion-content padding>
-    <ion-segment color="secondary">
-        <ion-segment-button value="event">
-          Upload
-        </ion-segment-button>
-        <ion-segment-button value="bookmark">
-          View
-        </ion-segment-button>
-      </ion-segment>
-
-</ion-content>
+<ion-content   class="card-background-page" >
+  <div *ngFor="let i of events">
+      <ion-card (click)="viewMore(i)">
+          <img src="{{i.img}}"/>
+        </ion-card>
+  </div>
+   
+  
+  </ion-content>

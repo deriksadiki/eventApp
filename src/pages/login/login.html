@@ -1,4 +1,5 @@
 <ion-content class="back">
+<<<<<<< HEAD
     <div class="logo" align="center">
       <img class="image" src="../../assets/imgs/fireworks (1).png">
       <p>Event's Finder</p>
@@ -30,3 +31,36 @@
    <br>
             <button (click)="ForgotPassword()" class="btn1" ion-button full clear>Forgot Password?</button>
    </ion-content>
+=======
+  <div align="center">
+    <img class="image" src="../../assets/imgs/fireworks (1).png">
+   </div>
+   <p>Event's Finder</p>
+
+   <h1>Welcome!</h1>
+
+    <div align = "center">
+        <ion-list class="list" no-lines>
+            <ion-item>
+              <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+              <ion-input type="email" placeholder="E-mail" [(ngModel)]="logging.email"></ion-input>
+            </ion-item>
+            <br>
+
+            <ion-item no-lines>
+                <ion-label><ion-icon name="lock"  color="light"></ion-icon></ion-label>
+              <ion-input type="password" placeholder="Password" [(ngModel)]="logging.password" ></ion-input>
+           </ion-item>
+          </ion-list>
+        </div>
+      
+
+      
+          <button class="btn" ion-button color="light"  (click)="login()" outline>Login</button>
+          <br>
+          <button class="btn" ion-button color="light" (click)="reg()" outline>Register</button> 
+<br>
+          <button (click)="ForgotPassword()" class="btn1" ion-button full clear>Forgot Password?</button> 
+</ion-content>
+
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e

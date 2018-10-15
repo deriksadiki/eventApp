@@ -4,6 +4,7 @@ import { HomePage } from '../home/home';
 import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { TabsPage } from '../tabs/tabs';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the RegisterPage page.
@@ -25,6 +26,10 @@ export class RegisterPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+  }
+
+  back(){
+    this.navCtrl.push(LoginPage)
   }
 
   

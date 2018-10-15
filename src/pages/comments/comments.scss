@@ -1,4 +1,5 @@
 page-comments {
+<<<<<<< HEAD
     // .back{
     //   background-color: rgb(117, 114, 114);  
     // }
@@ -12,22 +13,83 @@ page-comments {
         padding-right: 10px;
         padding-top: 15px;
         bottom: 90px;
+=======
+    .all{background-color: #fcedef;}
+    
+    .comments{
+
+        // position: fixed;
+        // bottom: 1vh;
+        width: 98%;
+        height:50px;  
+        border: 2px solid #7a4579;
+        border-radius: 10px;
+        // padding-left: 2px;
+        // padding-right: 2px;
+        padding-top: 2px;
+        // padding-bottom: 2%;
+
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
         font-size: 14px;
+        // margin-left: 8px;
+        // margin-bottom: 10px;
+    }
+
+    .tool{
+        height: 10vh;
+    }
+    .cm{
+        min-height:70px;
+        //  width: 100%;
+        // border: 2px solid #db3951;
+        border-radius: 15px;
+        // margin-top: 20px; 
+
+    }.item{
+        // bottom: 10px;
+        box-shadow: 2px 2px 4px;
+
     }
     .send{
+<<<<<<< HEAD
         height: 60px;
         width: 60px;
         bottom: 90px;
         right: 8px;
+=======
+    // position: fixed;
+    height: 50px;
+    width: 55px;
+    //  margin-right: 25px;
+    border-radius: 50px;
+    // border: 2px solid #db3951;
+    }
+    .date{
+    font-weight: 30;
+    }
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
 
+    .downer{
+        height: 8%;
+         margin-top: 2px;
     }
-    .foot{
-        bottom: 5px;
+    .text{
+        margin-left: 2px;
+        // position: relative;
+        
     }
+<<<<<<< HEAD
     .com{
         border: 2px solid #7a4579;
     }
     .date{
         font-weight: 100;
+=======
+   
+    span { float: right; 
+    font-size: 14px;
+    padding-top:5px;
+>>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
     }
-}
+
+ }
