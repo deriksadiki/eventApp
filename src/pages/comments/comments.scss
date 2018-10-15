@@ -12,8 +12,8 @@ page-comments {
 
         // position: fixed;
         // bottom: 1vh;
-        width: 98%;
-        height:50px;  
+        width: 322px;
+        height:60px;  
         border: 2px solid #7a4579;
         border-radius: 10px;
         padding-left: 8px;
@@ -42,9 +42,11 @@ page-comments {
     // position: fixed;
     height: 50px;
     width: 55px;
-    //  margin-right: 25px;
-    border-radius: 50px;
+    margin-right: 5px;
+    border-radius: 30px;
+    padding-bottom: 2px;
     // border: 2px solid #db3951;
+    float: right;
     }
     .date{
     font-weight: 30;

@@ -32,10 +32,16 @@
     
     <ion-footer>
      <ion-toolbar class="tool">
-    <ion-textarea textwrap maxlength="50" placeholder="Comment here..." class="comments" [(ngModel)]="newmessage"></ion-textarea>
-      <ion-buttons end  class="send" (click)="placeComment()">
-      <button color="nav" ion-fab mini end icon-only><ion-icon name="md-send"></ion-icon></button>
-    </ion-buttons>
+       <ion-row>
+         <ion-col>
+     <ion-textarea textwrap maxlength="50" placeholder="Comment here..." class="comments" [(ngModel)]="newmessage"></ion-textarea>       
+         </ion-col>
+         <ion-col>
+        <button ion-button color="nav" item-end icon-only class="send" (click)="placeComment()">
+        <ion-icon name="md-send"></ion-icon>
+       </button>     
+         </ion-col>
+       </ion-row>
     </ion-toolbar>
     </ion-footer>
 
