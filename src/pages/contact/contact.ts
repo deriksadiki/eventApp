@@ -19,11 +19,14 @@ export class ContactPage {
   fetching = new Array();
   constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
 
+
+
   }
 
   ionViewDidLoad(){
     this.firebaseService.getProfile().then((data:any)=>{
       this.profile = data;
+
     })
     this.fetching.length = 0;
     this.firebaseService.getALlGoings().then((data:any) => {
@@ -31,6 +34,7 @@ export class ContactPage {
      console.log(data);
     }, Error =>{
      console.log(Error)
+
     });
   }
 
