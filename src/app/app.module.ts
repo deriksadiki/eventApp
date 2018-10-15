@@ -4,12 +4,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import {LaunchNavigator} from '@ionic-native/launch-navigator'
-<<<<<<< HEAD
-import { LocalNotifications } from '@ionic-native/local-notifications';
-=======
 import {LocalNotifications} from '@ionic-native/local-notifications'
 
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -45,14 +41,10 @@ import { PopoverComponent } from '../components/popover/popover';
     LoginPage,
     CommentsPage,
     RegisterPage,
-<<<<<<< HEAD
-    CommentsPage
-=======
     CommentsPage,
     ProfileUpdatePage,
     MyPopOverPage,
     PopoverComponent
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
 
 
   ],
@@ -89,10 +81,6 @@ import { PopoverComponent } from '../components/popover/popover';
     SocialSharing,
     LaunchNavigator,
     LocalNotifications
-<<<<<<< HEAD
-=======
-
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
   ]
 })
 export class AppModule{}

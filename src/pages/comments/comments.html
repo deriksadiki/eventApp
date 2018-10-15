@@ -1,48 +1,5 @@
 <ion-header>
 
-<<<<<<< HEAD
-  <ion-navbar color="nav">
-    <ion-title>Comments</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content class="back">
-<div class="com" *ngFor="let i of comments">
-  <ion-item  no-lines>
-    
-    <ion-avatar item-start>
-      <img src="{{i.img}}">
-    </ion-avatar>
-    <h1>
-      <b>{{i.name}}</b>
-      <span class="date">{{i.date}}</span>
-    </h1>
- 
-  </ion-item>
-
-  <ion-item  no-lines>
-    <p>{{i.text}}</p>
-   
-  </ion-item>
-</div>
-</ion-content>
-
-<ion-footer>
-  <ion-toolbar class="foot">
-    <div class="down">
-        <textarea #comment placeholder="Comment here..." [(ngModel)]="newmessage"></textarea>
-    </div>
-
-    <div fixed bottom align=" right">
-      <button item-end class="send" ion-button round color="nav" (click)="placeComment()">
-        <ion-icon name="md-send"></ion-icon>
-      </button>
-    </div>
-  </ion-toolbar>
-</ion-footer>
-=======
     <ion-navbar color="nav">
         <ion-title>Comments</ion-title>
       </ion-navbar>
@@ -88,4 +45,3 @@
     <!-- <ion-buttons end round ">
         <button ion-button color="nav"  icon-only><ion-icon name="md-send"></ion-icon></button>
       </ion-buttons>  -->
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e

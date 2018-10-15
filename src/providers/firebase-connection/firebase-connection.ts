@@ -12,40 +12,27 @@ export class FirebaseConnectionProvider {
   currentUserName;
   currentUserImage;
   currentUserPath;
-<<<<<<< HEAD
-  fetch = new Array();
-  comments = new Array();
-  newEvents =  new Array();
-=======
-
   username;
   userKey;
+  img;
   fetch = new Array();
   comments = new Array();
   newEvents =  new Array();
   profile = new Array();
   currentUserID;
-
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
   defaultImages = ['../../assets/imgs/pic.jpg','../../assets/imgs/pic23.jpg','../../assets/imgs/pic24.jpg', '../../assets/imgs/pic22.jpg','../../assets/imgs/pic25.jpg']
   constructor() {
   }
 
-  registerUser(email,password,userName){
+  registerUser(email,password,Username){
     return new Promise((accpt,rej) =>{
       this.authenticate.createUserWithEmailAndPassword(email,password).then(() =>{
         var user = firebase.auth().currentUser;
-
-        this.dbRef = 'users/' + userName + ":" + user.uid;
+        this.dbRef = 'users/' + user.uid;
         this.database.ref(this.dbRef).push({
-          Username: userName,
-<<<<<<< HEAD
-          img : this.defaultImages[Math.floor(Math.random() * 4)]
-=======
+          Username: Username,
           img : this.defaultImages[Math.floor(Math.random() * 4)],
           userType: "User"
-
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
         })
         accpt("user Registered")
       },Error => {
@@ -54,25 +41,16 @@ export class FirebaseConnectionProvider {
     })
   }
 
-<<<<<<< HEAD
-=======
 
-  UpdateProfile(userName,img){
+  UpdateProfile(Username,img){
     return new Promise ((accpt,rej) =>{
-      var img;
-      if(img == undefined || img == null){
-        img = this.defaultImages;
-      }   
-
-      if(userName == undefined){
-        userName = ""
-      }
       var path = 'users/' + this.currentUserID + '/' + this.userKey;
       console.log(path)
       this.database.ref(path).update({
-        userName: userName,
+        Username: Username,
         img: img
       })
+      accpt('succes!')
     })
   }
 
@@ -81,6 +59,8 @@ export class FirebaseConnectionProvider {
     console.log('exit')
     this.authenticate.signOut();
   }
+
+
   getALlGoings(){
     return new Promise((accept,reject) => {
       this.fetch.length = 0;
@@ -121,7 +101,6 @@ export class FirebaseConnectionProvider {
   }
   
 
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
   registerBusiness(email,password,userName,companyName,location, img){
     return new Promise((accpt,rej) =>{
       this.authenticate.createUserWithEmailAndPassword(email,password).then(() =>{
@@ -140,7 +119,6 @@ export class FirebaseConnectionProvider {
       })
     })
   }
-
 
   forgotPassword(email:any){
     return this.authenticate.sendPasswordResetEmail(email);
@@ -199,10 +177,7 @@ this.database.ref('events/').on('value', (data: any) => {
           startTIme: events[k].startTIme,
           going: events[k].going,
           comments: events[k].comments,
-<<<<<<< HEAD
-=======
           hostimg : events[k].hostImg,
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
           enddate : moment(events[k].endDate).format('MMM Do, YYYY')
         }
         this.fetch.push(obj)
@@ -225,33 +200,6 @@ going(key, name, going){
 })
 }
 
-<<<<<<< HEAD
-=======
-getuser(){
- // this.authenticate.signOut();
-  this.database.ref('users').on('value', (data: any) => {
-    var users =  data.val();
-    var user = firebase.auth().currentUser;
-    var  userIDs = Object.keys(users);
-    for (var x = 0; x < userIDs.length; x++){
-      var str1 = new String( userIDs[x]); 
-      var index = str1.indexOf( ":" ); 
-      var currentUserID = userIDs[x].substr(index + 1);
-      if (user.uid == currentUserID){
-        this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
-          var Userdetails = data.val(); 
-          var keys2:any = Object.keys(Userdetails);
-          this.storeCurrentUserImage(Userdetails[keys2[0]].img);
-          this.storeCurrentUsername(Userdetails[keys2[0]].Username);
-          this.storeCurrentUserPath(userIDs[x])
-        })
-        break;
-      }
-    }
-  })
-}
-
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
 
 getNewEvents(){
   return new Promise((accpt,rej) =>{
@@ -280,75 +228,46 @@ getNewEvents(){
   })
  }
 
-<<<<<<< HEAD
-getuser(){
- //this.authenticate.signOut();
-  this.database.ref('users').on('value', (data: any) => {
-    var users =  data.val();
-    var user = firebase.auth().currentUser;
-    var  userIDs = Object.keys(users);
-    for (var x = 0; x < userIDs.length; x++){
-      var str1 = new String( userIDs[x]); 
-      var index = str1.indexOf( ":" ); 
-      var currentUserID = userIDs[x].substr(index + 1);
-      if (user.uid == currentUserID){
-        this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
-          var Userdetails = data.val(); 
-          var keys2:any = Object.keys(Userdetails);
-          this.storeCurrentUserImage(Userdetails[keys2[0]].img);
-          this.storeCurrentUsername(Userdetails[keys2[0]].Username);
-          this.storeCurrentUserPath(userIDs[x])
-        })
-        break;
-      }
-    }
-  })
-}
-
-storeCurrentUsername(username){
-this.currentUserName =  username;
-}
-
-storeCurrentUserImage(img){
-this.currentUserImage = img;
-}
-
-storeCurrentUserPath(path){
-this.currentUserPath = path;
-=======
  storeUserName(name){
   this.username = name;
   }
 
-  // getuser(){
-  //   // this.authenticate.signOut();
-  //   return new Promise ((accpt,rej)=>{
-  //     this.database.ref('users').on('value', (data: any) => {
-  //       var users =  data.val();
-  //       var user = firebase.auth().currentUser;
-  //       var  userIDs = Object.keys(users);
-  //       for (var x = 0; x < userIDs.length; x++){
-  //         var str1 = new String( userIDs[x]); 
-  //         var index = str1.indexOf( ":" ); 
-  //         var currentUserID = userIDs[x].substr(index + 1);
-  //         if (user.uid == currentUserID){
-  //           console.log(user.uid)
-  //           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
-  //             var Userdetails = data.val(); 
-  //             this.storeUserID(userIDs[x]);
-  //             var keys2:any = Object.keys(Userdetails);
-  //             this.storeCurrentUserImage(Userdetails[keys2[0]].img);
-  //             this.storeCurrentUsername(Userdetails[keys2[0]].Username);
-  //             this.storeUserKey(Userdetails[keys2[0]].key)
-  //             this.storeCurrentUserPath(userIDs[x])
-  //             accpt(Userdetails[keys2])
-  //           })
-  //           break
-  //         }
-  //       }
-  //     })
-  //   })
-  //  }
+  getuser(){
+    return new Promise ((accpt,rej)=>{
+      this.username = "";
+      this.img = "";
+      this.database.ref('users').on('value', (data: any) => {
+        var users =  data.val();
+        var user = firebase.auth().currentUser;
+        var  userIDs = Object.keys(users);
+        for (var x = 0; x < userIDs.length; x++){
+          var str1 = new String( userIDs[x]); 
+          var index = str1.indexOf( ":" ); 
+          var currentUserID = userIDs[x].substr(index + 1);
+          if (user.uid == currentUserID){
+            console.log(user.uid)
+            this.storeUsername(userIDs[x].substr(0,index));
+            this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
+              var Userdetails = data.val(); 
+              this.storeUserID(userIDs[x]);
+              var keys2:any = Object.keys(Userdetails);
+              var user = firebase.auth().currentUser;
+              this.storeCurrentUserImage(Userdetails[keys2[0]].img);
+              this.storeCurrentUsername(Userdetails[keys2[0]].Username);
+              this.storeUserKey(keys2[0])
+              this.storeCurrentUserPath(userIDs[x])
+              accpt(Userdetails[keys2])
+            })
+            break
+          }
+        }
+      })
+    })
+   }
+
+   storeUsername(username){
+     console.log(username)
+   }
    
    storeCurrentUsername(username){
    this.currentUserName =  username;
@@ -367,9 +286,8 @@ this.currentUserPath = path;
     this.userKey = key
    }
 
-   storeUserID(key){
-    this.currentUserID = key;
-    console.log(this.currentUserID)
+   storeUserID(uid){
+    this.currentUserID = uid;
   }
 
 getProfile(){
@@ -383,10 +301,12 @@ getProfile(){
       console.log(keys)
       for (var x = 0;x < keys.length;x++){
         var k = keys[x];
+        console.log(k)
         let obj ={
           username: details[k].Username,
           img: details[k].img,
           userType: details[k].userType,
+          key: k
         }
         this.profile.push(obj);
       }
@@ -394,8 +314,6 @@ getProfile(){
       console.log(this.profile)
     })
   })
-
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
 }
 
 comment(text,key){
@@ -410,7 +328,6 @@ comment(text,key){
     accpt("comment added")
   })
 }
-
 
 getComments(key){
   return new Promise ((accpt,rej) =>{
@@ -442,23 +359,18 @@ addNumComments(key, numComments, user){
   this.database.ref('events/' + user+ "/"+ key).update({comments: num});
   console.log("comment number added")
 }
-<<<<<<< HEAD
-
-}
-=======
 Goings(eventName,eventDesc,startTIme,endTIme,date,location,img,fee){
   var user = firebase.auth().currentUser;
   firebase.database().ref('goings/' + user.uid).push({
-amount:fee,
-day:date,
-desc: eventDesc,
-name: eventName,
-end: endTIme,
-start: startTIme,
-venue:location,
-image:img
+        amount:fee,
+        day:date,
+        desc: eventDesc,
+        name: eventName,
+        end: endTIme,
+        start: startTIme,
+        venue:location,
+        image:img
   });
 } 
 
 }
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e

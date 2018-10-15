@@ -16,19 +16,12 @@ import { FirebaseConnectionProvider } from '../../../providers/firebase-connecti
  templateUrl: 'register-business.html',
 })
 export class RegisterBusinessPage {
-<<<<<<< HEAD
-  Users = {} as User;
-  url;
-  constructor(public fire:FirebaseConnectionProvider, public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
-  }
-=======
  Users = {} as User;
  url;
  constructor(public fire:FirebaseConnectionProvider, public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
  }
 
  ionViewDidLoad() {
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
 
  }
 
@@ -40,30 +33,6 @@ export class RegisterBusinessPage {
      }
      reader.readAsDataURL(event.target.files[0]);
 
-<<<<<<< HEAD
-  insertpic(event:any){
-    if (event.target.files && event.target.files[0]){
-      let reader = new FileReader();
-      reader.onload = (event:any) =>{
-       this.url = event.target.result;
-      }
-      reader.readAsDataURL(event.target.files[0]);
-  
-    }
-  }
-  reg(name,location){
-    this.fire.registerBusiness(this.Users.email,this.Users.password,this.Users.userName ,name,location,this.url).then(() =>{
-      const alert = this.alertCtrl.create({
-        title: 'Congradulations',
-        subTitle: 'Business Profile has been successfully created',
-        buttons: ['OK']
-      });
-      alert.present();
-    })
-  }
-
-}
-=======
    }
  }
  reg(name,location){
@@ -78,4 +47,3 @@ export class RegisterBusinessPage {
  }
 
 }
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e

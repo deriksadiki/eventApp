@@ -1,88 +1,3 @@
-<<<<<<< HEAD
-
-<ion-header *ngFor="let i of event">
-  <div class="top" [ngStyle] ="{'background-image':color+'url(' + url + ')'}">
-      
-  <ion-toolbar color="trans">
-            <ion-icon class="back" name="md-arrow-back" (click)="back()" ></ion-icon>
-          </ion-toolbar>
-<div class="phot">
-<img class="pic" src="../../assets/club-night-free-flyer-template-freepsdflyer-com.jpg" >
-</div>
-<div class="head">
-<h3>{{i.eventName}} </h3> 
-
-<p class="p">
-{{i.location}}
-</p>   
-
-<!-- <b><p>Kwa Le Chaba</p></b> -->
-
-</div>
-<div class="dash1" fixed>
-<ion-grid class="dash" align="center">
-  <ion-row  class="colo" >
-    <ion-col>
-            <ion-label class="lab">{{i.comments}}</ion-label>
-        <!-- <ion-icon class="icons" name="thumbs-up"></ion-icon> -->
-        <ion-icon class="i" name="md-chatboxes"></ion-icon>
-    
-    </ion-col>
-
-    <ion-col>
-            <ion-label class="lab">17</ion-label>
-        <ion-icon class="i" name="md-heart" outline></ion-icon>
-    </ion-col>
-
-    <ion-col>
-            <ion-label class="lab">2k</ion-label>
-        <!-- <ion-icon class="icons" name="thumbs-down"></ion-icon> -->
-        <ion-icon class="i" name="md-thumbs-up"></ion-icon>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-   
-   <div class= "title" fixed>
-    <b>Posted By : {{i.hostname}}</b>
-    </div>
-</div>
-
-</div>
-
-</ion-header>
-
-
-<ion-content *ngFor="let i of event">
-<ion-card-content >
-    <ion-list no-line class="content">
-            <ion-item>
-              <ion-thumbnail item-start>
-                    <ion-icon class="ic" name="md-calendar"></ion-icon>
-              </ion-thumbnail>
-              <p>Event Date</p>
-              <h2>{{i.date}} - {{i.enddate}}</h2>
-            </ion-item>
-
-          <ion-item>
-             <ion-thumbnail item-start>
-             <ion-icon class="ic" name="md-clock"></ion-icon>
-            </ion-thumbnail>
-             <p>Event Time</p>
-         <h2>{{i.startTIme}} - {{i.endTIme}}</h2>
-          </ion-item>
-
-     <ion-item>
-       <ion-thumbnail item-start>
-          <ion-icon class="ic" name="logo-usd"></ion-icon>
-             </ion-thumbnail>
-         <p>Admission</p>
-       <h2>R{{i.fee}}</h2>
-      </ion-item>
-                </ion-list>
-
-               <!-- <h4><p>Photos</p></h4>  -->
- </ion-card-content>
-=======
 <ion-header *ngFor="let i of event;let i = index">
     <div class="top" [ngStyle] ="{'background-image':color+'url(' + url + ')'}">
    
@@ -177,7 +92,6 @@
       </ion-fab-list>
     </ion-fab>
    </ion-content>
->>>>>>> d724316a0628770b72789eb9e4c056895d92d40e
 
  <ion-fab class="fabi" right end fixed>
     <button class="faba" ion-fab color="nav" ><ion-icon class="if" name="arrow-dropleft"></ion-icon></button>
