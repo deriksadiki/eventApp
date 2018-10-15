@@ -35,14 +35,16 @@ export class FirebaseConnectionProvider {
     })
   }
 
-  registerBusiness(email,password,userName,companyName,location){
+  registerBusiness(email,password,userName,companyName,location, img){
     return new Promise((accpt,rej) =>{
       this.authenticate.createUserWithEmailAndPassword(email,password).then(() =>{
         var user = firebase.auth().currentUser;
-        this.dbRef = 'users/' + userName + ":" + user.uid;
+        this.dbRef = 'users/' + user.uid;
         this.database.ref(this.dbRef).push({
           CompanyName: companyName,
-          Location: location
+          companyOwner : userName,
+          location: location,
+          img : img
         })
         accpt("success!");
       },Error =>{

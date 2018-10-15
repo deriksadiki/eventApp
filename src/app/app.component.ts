@@ -49,20 +49,21 @@ export class MyApp {
   pushNotification(){
     this.fire.getNewEvents().then((data:any) =>{
       this.newEvents = data;
-      console.log(this.newEvents);
-      this.localNotifications.schedule({
-        id : 1,
-        title: 'New Event added by \n',
-        text: this.newEvents[0].name + ', are you going?',
-        vibrate: true,
-        foreground: true,
-        icon  :'https://firebasestorage.googleapis.com/v0/b/eventapp-a1624.appspot.com/o/fireworks%20(1).png?alt=media&token=6dee6a87-300e-4477-95f8-6d42b53ad9f5'  ,   
-        actions: [
-          { id: 'yes', title: 'Yes' },
-          { id: 'no',  title: 'No' }
-      ],
-        trigger: {at: new Date(new Date().getTime() + 5 * 1000)},
-     });
+      if ( this.newEvents != undefined ||  this.newEvents != null){
+        this.localNotifications.schedule({
+          id : 1,
+          title: 'New Event added by \n',
+          text: this.newEvents[0].name + ', are you going?',
+          vibrate: true,
+          foreground: true,
+          icon  :'https://firebasestorage.googleapis.com/v0/b/eventapp-a1624.appspot.com/o/fireworks%20(1).png?alt=media&token=6dee6a87-300e-4477-95f8-6d42b53ad9f5'  ,   
+          actions: [
+            { id: 'yes', title: 'Yes' },
+            { id: 'no',  title: 'No' }
+        ],
+          trigger: {at: new Date(new Date().getTime() + 5 * 1000)},
+       });
+      }
     })
   }
 }
