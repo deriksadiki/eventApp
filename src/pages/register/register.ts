@@ -69,15 +69,15 @@ export class RegisterPage {
 
     else {
 
-      this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.userName).then(() =>{
-        this.firebaseService.getuser()
-          const alert = this.alertCtrl.create({
-            title: 'Welcome',
-            subTitle: 'You have successfully Registared',
-            buttons: ['OK']
-          });
-          alert.present();
-          this.navCtrl.push(TabsPage);  
+
+      this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.Username).then(() =>{
+        const alert = this.alertCtrl.create({
+          title: 'Welcome',
+          subTitle: 'You have successfully Registared',
+          buttons: ['OK']
+        });
+        alert.present();
+
 
        })
 
