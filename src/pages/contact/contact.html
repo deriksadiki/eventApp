@@ -2,31 +2,32 @@
 
   <div class="thenav">
 
-    <ion-navbar color="trans" align="center" > 
+    <ion-navbar color="trans"  > 
         <div class="B">
-            <button style="color: white" ion-button icon-only clear (click)="presentModal()">
-              <ion-icon name="md-create"></ion-icon>
+            <button style="color: white" ion-button icon-only clear  >
+                 <ion-icon class="more" name="md-more" ></ion-icon>
             </button>
           </div>
+
+          <div class="B2">
+            <ion-icon class="back"  name="md-create" (click)="presentModal()"></ion-icon>
+        </div>
     </ion-navbar>
-
-
     <div *ngFor="let i of profile" class="phot" align="center">
       <ion-avatar>
-        <img class="pic1" src='{{i.img}}'>
+        <img class="image" src='{{i.img}}'>
       </ion-avatar>
       <br>
       <br>
       <h1>{{i.username}}</h1>
     </div>
-
-   
   </div>
 </ion-header>
-<br>
 
 
-<ion-content padding>
+
+
+<ion-content >
  
     
       <ion-title class="titles">Events to attend</ion-title>
@@ -60,13 +61,12 @@
             </ion-row>
           </ion-grid>
         </div>
-    
+<!--     
         <ion-fab class="fabi" right end fixed>
             <button class="faba" ion-fab color="nav" ><ion-icon class="if" name="arrow-dropleft"></ion-icon></button>
             <ion-fab-list side="left" >
               <button  color="dark" ion-fab><ion-icon name="md-log-out" (click)="logOut()"></ion-icon></button>
             </ion-fab-list>
-          </ion-fab>
+          </ion-fab> -->
+
 </ion-content>
-
-
