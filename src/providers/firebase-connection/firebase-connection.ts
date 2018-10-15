@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment'
+import { unescapeIdentifier } from '@angular/compiler';
 
 declare var firebase;
 @Injectable()
@@ -64,35 +65,37 @@ export class FirebaseConnectionProvider {
   getALlGoings(){
     return new Promise((accept,reject) => {
       this.fetch.length = 0;
-      this.database.ref('goings/').on('value', (data: any) => {
-        var users = data.val();
-        var userIDs = Object.keys(users);
-        for(var i = 0; i < userIDs.length; i++){
-          var k = userIDs[i];
-          var n = 'goings/' + k;
-          console.log(n);
-  
-          this.database.ref(n).on('value', (data2:any) =>{
-            var fav = data2.val();
-            console.log(fav);
-            var keys = Object.keys(fav);
-            for(var a = 0;a < keys.length;a++){
-              var k = keys[a];
-              let obj = {
-                end: fav[k].end,
-                desc: fav[k].desc,
-                eventName: fav[k].name,
-                amount: fav[k].amount,
-                img: fav[k].image,
-                location: fav[k].venue,
-                start: fav[k].start,
-                date: fav[k].day
-              }
-              this.fetch.push(obj)
-            }
-            accept(this.fetch);
-            console.log(this.fetch)
-          })
+      var user = firebase.auth().currentUser;
+      this.database.ref('goings/' + user.uid).on('value', (data: any) => {
+        if (data.val() != undefined){
+          var events =  data.val();
+          var eventKeys = Object.keys(events);
+          for (var i = 0; i < eventKeys.length; i++){
+            var favEventKey = eventKeys[i];
+            this.database.ref('events/' + events[favEventKey].hostname + '/' + events[favEventKey].key).on('value', (data2: any) => {
+              var fav = data2.val();
+              console.log(fav.endTIme)
+                    let obj = {
+                      endTIme: fav.endTIme,
+                      eventDesc: fav.eventDesc,
+                      eventName: fav.eventName,
+                      fee: fav.fee,
+                      img: fav.img,
+                      location: fav.location,
+                      startTIme: fav.startTIme,
+                      date: moment(fav.date).format('MMM Do, YYYY'),
+                      hostimg : fav.hostImg,
+                      key : favEventKey,
+                      hostname : events[favEventKey].hostname,
+                      enddate : moment(fav.endDate).format('MMM Do, YYYY')
+                    }
+                    this.fetch.push(obj)
+                  console.log(this.fetch)
+                  accept(this.fetch);
+            }, Error =>{
+              reject(Error.message);
+            })  
+          }
         }
       }, Error => {
         reject(Error.message);
@@ -149,6 +152,65 @@ login(email,password){
   })
 }
 
+getColourState(key){
+  return new Promise ((accpt,rej) =>{
+    var user = firebase.auth().currentUser;
+    this.database.ref('goings/' + user.uid).on('value', (data2: any) => {
+      var details = data2.val();
+      if (details != null ||  details != undefined){
+        var keys =  Object.keys(details);
+        var size = keys.length;
+        var results = "";
+        for (var x = 0; x < size; x++){
+          this.database.ref('goings/' + user.uid + '/' + keys[x]).on('value', (data: any) => {
+          var events =  data.val();
+          if (events != undefined){
+            if (events.key == key){
+              results = "found";
+              accpt(results);
+            }
+            else{
+              results = "not found";
+            }
+          }
+        })
+          }
+          accpt(results);
+      }
+      else{
+      
+        results = "not found";
+        accpt(results);
+      }
+    })
+  })
+}
+
+removeFromFav(key){
+  console.log('its me')
+  return new Promise ((accpt,rej) =>{
+    var user = firebase.auth().currentUser;
+    this.database.ref('goings/' + user.uid).on('value', (data2: any) => {
+      var details = data2.val();
+      if (details != null ||  details != undefined){
+        var keys =  Object.keys(details);
+        var size = keys.length;
+        for (var x = 0; x < size; x++){
+          this.database.ref('goings/' + user.uid + '/' + keys[x]).on('value', (data: any) => {
+          if (data.val() != undefined){
+            var events =  data.val();
+            if (events.key == key){
+              this.database.ref('goings/' + user.uid + '/' + keys[x]).remove();
+            }
+          }
+          })
+        }
+        accpt('removed');
+      }
+    })
+  })
+}
+
 getAlldata(){
 return new Promise ((accept,reject) => {
 this.fetch.length = 0;
@@ -158,7 +220,6 @@ this.database.ref('events/').on('value', (data: any) => {
   for(var i = 0; i < userIDs.length;i++){
     var k2 = userIDs[i];
     var y = 'events/' + k2;
-    console.log(y)
     this.database.ref(y).on('value', (data2:any) =>{
       var events = data2.val();
       var keys = Object.keys(events);
@@ -193,12 +254,8 @@ this.database.ref('events/').on('value', (data: any) => {
   })
 }
 
-going(key, name, going){
-  var numGoing = going + 1;
-  return new Promise((accpt, rej) =>{
-  this.database.ref('events/' + name + '/' + key).update({going: numGoing})
-})
-}
+
+
 
 
 
@@ -246,7 +303,6 @@ getNewEvents(){
           var index = str1.indexOf( ":" ); 
           var currentUserID = userIDs[x].substr(index + 1);
           if (user.uid == currentUserID){
-            console.log(user.uid)
             this.storeUsername(userIDs[x].substr(0,index));
             this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
               var Userdetails = data.val(); 
@@ -267,7 +323,6 @@ getNewEvents(){
    }
 
    storeUsername(username){
-     console.log(username)
    }
    
    storeCurrentUsername(username){
@@ -283,7 +338,6 @@ getNewEvents(){
    }
 
    storeUserKey(key){
-    console.log(key)
     this.userKey = key
    }
 
@@ -360,17 +414,11 @@ addNumComments(key, numComments, user){
   this.database.ref('events/' + user+ "/"+ key).update({comments: num});
   console.log("comment number added")
 }
-Goings(eventName,eventDesc,startTIme,endTIme,date,location,img,fee){
+Goings(eventName, eventKey){
   var user = firebase.auth().currentUser;
   firebase.database().ref('goings/' + user.uid).push({
-        amount:fee,
-        day:date,
-        desc: eventDesc,
-        name: eventName,
-        end: endTIme,
-        start: startTIme,
-        venue:location,
-        image:img
+        key :  eventKey,
+        hostname :  eventName
   });
 } 
 

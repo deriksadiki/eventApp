@@ -7,6 +7,7 @@ import { ProfileUpdatePage } from '../profile-update/profile-update';
 import { PopoverController } from 'ionic-angular';
 import { MyPopOverPage } from '../my-pop-over/my-pop-over'
 import { PopoverComponent } from '../../components/popover/popover';
+import { MoreInfoPage } from '../more-info/more-info';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { PopoverComponent } from '../../components/popover/popover';
 })
 export class ContactPage {
   profile = [];
-
+  fetching = new Array();
   constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
 
 
@@ -25,10 +26,15 @@ export class ContactPage {
   ionViewDidLoad(){
     this.firebaseService.getProfile().then((data:any)=>{
       this.profile = data;
-    });
 
-    this.firebaseService.getuser().then(data=>{
-      console.log(data);
+    })
+    this.fetching.length = 0;
+    this.firebaseService.getALlGoings().then((data:any) => {
+     this.fetching = data;
+     console.log(data);
+    }, Error =>{
+     console.log(Error)
+
     });
   }
 
@@ -45,6 +51,8 @@ export class ContactPage {
    
   }
  
-
+  more(a){
+    this.navCtrl.push(MoreInfoPage, {events:this.fetching[a], color:true});
+  }
 
 }
