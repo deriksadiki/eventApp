@@ -1,7 +1,17 @@
-    <ion-toolbar color="nav">
-      <ion-title>Upcoming Events</ion-title>
-    </ion-toolbar>
-
+<ion-header >
+  <ion-toolbar color="nav">
+    <ion-title>Upcoming Events</ion-title>
+  </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="hom">
+    <ion-card class="card" *ngFor="let a of fetching;let i of index;" (click)="viewMore(i)">
+        <ion-card-header class="head" style="text-align: center">
+            {{i.eventName}}
+          </ion-card-header>
+      <img class="image" src="{{i.img}}">
+    </ion-card>
+ 
    
     <ion-content  class="card-background-page">
 

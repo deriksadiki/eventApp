@@ -201,6 +201,7 @@ going(key, name, going){
 }
 
 
+
 getNewEvents(){
   return new Promise((accpt,rej) =>{
     this.database.ref('NewEvents/').on('value', (data:any) =>{
