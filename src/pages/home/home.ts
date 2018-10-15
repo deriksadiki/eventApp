@@ -35,9 +35,6 @@ export class HomePage {
         this.fetching3.push(this.fetching[1])
         this.fetching4.push(this.fetching[2])
         this.fetching5.push(this.fetching[3])
-    
-   
-      console.log(this.fetching[0]);
     });
      }
 

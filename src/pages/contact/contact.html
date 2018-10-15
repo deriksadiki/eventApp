@@ -36,23 +36,23 @@
  
     
       <ion-title class="titles">Events to attend</ion-title>
-      <div align="center">
+      <div align="center" >
           <ion-grid>
             <ion-row>
-              <ion-col class="space">
-                <img class="pic" src='../../assets/imgs/club_.jpg'>
+              <ion-col class="space" *ngFor="let i of fetching; let a = index" >
+                <img class="pic" src="{{i.img}}" (click)="more(a)">
               </ion-col>
-              <ion-col class="space">
+              <!-- <ion-col class="space">
                 <img class="pic" src='../../assets/imgs/arts.jpg'>
-              </ion-col>
-              <ion-col class="space">
+              </ion-col> -->
+              <!-- <ion-col class="space">
                 <img class="pic" src='../../assets/imgs/IMG-20181002-WA0011.jpg'>
-              </ion-col>
+              </ion-col> -->
             </ion-row>
           </ion-grid>
       <br>
       <br>
-          <ion-grid>
+          <!-- <ion-grid>
             <ion-row>
               <ion-col class="space">
                 <img class="pic" src='../../assets/imgs/Spring-Fi.jpg'>
@@ -64,7 +64,7 @@
                 <img class="pic" src='../../assets/imgs/club_.jpg'>
               </ion-col>
             </ion-row>
-          </ion-grid>
+          </ion-grid> -->
         </div>
 <!--     
         <ion-fab class="fabi" right end fixed>
