@@ -94,12 +94,15 @@
     </ion-fab>
    </ion-content>
 
-       
-  </ion-content>
-  
-  <ion-footer align="center">
-      <ion-toolbar color="trans">
-          <button class="btn1" ion-button  (click)="text()" color="nav">Comment</button>
-          <button class="btn1" ion-button (click)="share(i)" color="nav">Share</button>
-      </ion-toolbar>
-    </ion-footer>
+
+ <ion-fab class="fabi" right end fixed>
+    <button class="faba" ion-fab color="nav" ><ion-icon class="if" name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left" >
+      <button color="dark" ion-fab><ion-icon name="md-locate" (click)="navigate(i.location)"></ion-icon></button>
+      <button color="dark" ion-fab><ion-icon name="md-share" (click)="share(i)"></ion-icon></button>
+      <button color="dark" ion-fab><ion-icon name="md-text" (click)="comment()"></ion-icon></button>
+      <!-- <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button> -->
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
+

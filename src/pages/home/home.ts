@@ -50,9 +50,7 @@ pager = [
 viewMore(i){
 this.navCtrl.push(MoreInfoPage, {events:i});
 }
-back(){
-  this.navCtrl.push(LoginPage);
-}
+
   moreinfo(){
     this.navCtrl.push(MoreInfoPage);
   }

@@ -81,7 +81,6 @@ import { PopoverComponent } from '../components/popover/popover';
     SocialSharing,
     LaunchNavigator,
     LocalNotifications
-
   ]
 })
 export class AppModule{}
