@@ -27,6 +27,7 @@ export class HomePage {
 
   }
   ionViewDidLoad() {
+    this.fetching.length = 0;
     var user = this.navParams.get('user');
     this.firebaseService.getAlldata().then((data:any) => {
       this.fetching = data;
@@ -34,11 +35,14 @@ export class HomePage {
         this.fetching3.push(this.fetching[1])
         this.fetching4.push(this.fetching[2])
         this.fetching5.push(this.fetching[3])
-    
-   
-      console.log(this.fetching[0]);
     });
      }
+
+
+pager = [
+  {color:"red"}
+  
+]
 
 viewMore(i){
 this.navCtrl.push(MoreInfoPage, {events:i});
@@ -46,7 +50,6 @@ this.navCtrl.push(MoreInfoPage, {events:i});
 
   moreinfo(){
     this.navCtrl.push(MoreInfoPage);
-    
   }
 
   logOut(){

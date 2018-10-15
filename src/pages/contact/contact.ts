@@ -5,8 +5,11 @@ import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
 import { ProfileUpdatePage } from '../profile-update/profile-update';
 import { PopoverController } from 'ionic-angular';
-// import { MyPopOverPage } from '../my-pop-over/my-pop-over'
-// import { PopoverComponent } from '../../components/pop-over/pop-over';
+
+import { MyPopOverPage } from '../my-pop-over/my-pop-over'
+import { PopoverComponent } from '../../components/popover/popover';
+import { MoreInfoPage } from '../more-info/more-info';
+
 
 
 @Component({
@@ -16,6 +19,8 @@ import { PopoverController } from 'ionic-angular';
 export class ContactPage {
   profile = [];
 
+  fetching = new Array();
+
   constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
 
   }
@@ -24,6 +29,13 @@ export class ContactPage {
     this.firebaseService.getProfile().then((data:any)=>{
       this.profile = data;
     })
+    this.fetching.length = 0;
+    this.firebaseService.getALlGoings().then((data:any) => {
+     this.fetching = data;
+     console.log(data);
+    }, Error =>{
+     console.log(Error)
+    });
   }
 
   presentModal(){
@@ -31,13 +43,17 @@ export class ContactPage {
     modal.present();
   }
 
-  // presentPopover(event) {
-  //   const popover = this.popoverCtrl.create(PopoverComponent);
-  //   popover.present({
-  //      ev:event
-  //   });
+
+  presentPopover(event) {
+    const popover = this.popoverCtrl.create(PopoverComponent);
+    popover.present({
+       ev:event
+    });
    
   }
  
+  more(a){
+    this.navCtrl.push(MoreInfoPage, {events:this.fetching[a], color:true});
+  }
 
 

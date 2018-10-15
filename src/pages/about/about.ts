@@ -26,14 +26,15 @@ eve = new Array();
 ​
 ​
  ionViewDidLoad() {
-  var user = this.navParams.get('user');
   this.fetching.length = 0;
   this.firebaseService.getALlGoings().then((data:any) => {
    this.fetching = data;
    console.log(data);
+  }, Error =>{
+   console.log(Error)
   });
   }
   moreinfo(i){
-   this.navCtrl.push(MoreInfoPage, {events:i});
+   this.navCtrl.push(MoreInfoPage, {events:i, color:true});
   }
 }

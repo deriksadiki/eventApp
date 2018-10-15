@@ -2,8 +2,10 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+
 import {LaunchNavigator} from '@ionic-native/launch-navigator'
 import {LocalNotifications} from '@ionic-native/local-notifications'
+
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -22,7 +24,10 @@ import { LoginPage } from '../pages/login/login';
 import { CommentsPage } from '../pages/comments/comments';
 import { RegisterPage } from '../pages/register/register'
 import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
-// import { PopoverComponent } from '../components/pop-over/pop-over';
+
+import { MyPopOverPage } from '../pages/my-pop-over/my-pop-over';
+import { PopoverComponent } from '../components/popover/popover';
+
 
 
 @NgModule({
@@ -40,7 +45,10 @@ import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
     RegisterPage,
     CommentsPage,
     ProfileUpdatePage,
-    // PopoverComponent
+
+    MyPopOverPage,
+    PopoverComponent
+
 
 
   ],
@@ -62,7 +70,10 @@ import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
     CommentsPage,
     RegisterPage,
     ProfileUpdatePage,
-    // PopoverComponent
+
+    MyPopOverPage,
+    PopoverComponent
+
 
 
 
@@ -72,6 +83,7 @@ import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseConnectionProvider,
+
     SocialSharing,
     LaunchNavigator,
     LocalNotifications

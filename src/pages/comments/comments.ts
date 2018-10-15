@@ -9,6 +9,7 @@ import { FirebaseConnectionProvider } from '../../providers/firebase-connection/
 * Ionic pages and navigation.
 */
 
+
 @IonicPage()
 @Component({
  selector: 'page-comments',
@@ -19,6 +20,7 @@ eventArray = this.navParams.get('eventObject');
 comments = new Array();
 sortedComments = new Array();
 newmessage;
+
  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseConnectionProvider) {
  }
 
@@ -42,5 +44,6 @@ placeComment(){
 text(event){
 
 }
+
 
 }

@@ -57,7 +57,9 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
+
       "uk.co.workingedge.phonegap.plugin.launchnavigator": {},
+
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
@@ -66,8 +68,10 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
+
       "cordova-plugin-x-socialsharing": {},
       "cordova-plugin-local-notification": {}
+
     },
     "platforms": [
       "android"
