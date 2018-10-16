@@ -24,6 +24,7 @@ export class ContactPage {
   ionViewDidLoad(){
     this.firebaseService.getProfile().then((data:any)=>{
       this.profile = data;
+      console.log(this.profile)
     })
     this.fetching.length = 0;
     this.firebaseService.getALlGoings().then((data:any) => {

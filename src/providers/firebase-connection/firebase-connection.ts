@@ -215,39 +215,40 @@ getAlldata(){
 return new Promise ((accept,reject) => {
 this.fetch.length = 0;
 this.database.ref('events/').on('value', (data: any) => {
-  var users = data.val();
-  var userIDs = Object.keys(users);
-  for(var i = 0; i < userIDs.length;i++){
-    var k2 = userIDs[i];
-    var y = 'events/' + k2;
-    this.database.ref(y).on('value', (data2:any) =>{
-      var events = data2.val();
-      var keys = Object.keys(events);
-      for(var a = 0;a < keys.length;a++){
-        var k = keys[a];
-        let obj = {
-          date: moment(events[k].date).format('MMM Do, YYYY'),
-          endTIme: events[k].endTIme,
-          eventDesc: events[k].eventDesc,
-          eventName: events[k].eventName,
-          fee: events[k].fee,
-          key : k,
-          hostname: k2,
-          img: events[k].img,
-          location: events[k].location,
-          startTIme: events[k].startTIme,
-          going: events[k].going,
-          comments: events[k].comments,
-          hostimg : events[k].hostImg,
-          enddate : moment(events[k].endDate).format('MMM Do, YYYY')
+  if (data.val() != undefined){
+    var users = data.val();
+    var userIDs = Object.keys(users);
+    for(var i = 0; i < userIDs.length;i++){
+      var k2 = userIDs[i];
+      var y = 'events/' + k2;
+      this.database.ref(y).on('value', (data2:any) =>{
+        var events = data2.val();
+        var keys = Object.keys(events);
+        for(var a = 0;a < keys.length;a++){
+          var k = keys[a];
+          let obj = {
+            date: moment(events[k].date).format('MMM Do, YYYY'),
+            endTIme: events[k].endTIme,
+            eventDesc: events[k].eventDesc,
+            eventName: events[k].eventName,
+            fee: events[k].fee,
+            key : k,
+            hostname: k2,
+            img: events[k].img,
+            location: events[k].location,
+            startTIme: events[k].startTIme,
+            going: events[k].going,
+            comments: events[k].comments,
+            hostimg : events[k].hostImg,
+            enddate : moment(events[k].endDate).format('MMM Do, YYYY')
+          }
+          this.fetch.push(obj)
         }
-        this.fetch.push(obj)
-      }
-      accept(this.fetch);
-      console.log(this.fetch)
-    })
+        accept(this.fetch);
+        console.log(this.fetch)
+      })
+    }
   }
-
 }, Error => {
   reject(Error.message);
 })
