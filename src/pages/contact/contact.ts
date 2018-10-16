@@ -60,4 +60,4 @@ export class ContactPage {
     this.navCtrl.push(MoreInfoPage, {events:this.fetching[a], color:true});
   }
 
-
+}
