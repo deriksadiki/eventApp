@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 import {LaunchNavigator} from '@ionic-native/launch-navigator'
 import {LocalNotifications} from '@ionic-native/local-notifications'
 
-
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -54,6 +54,7 @@ import { PopoverComponent } from '../components/popover/popover';
   ],
   imports: [
     BrowserModule,
+    IonicImageViewerModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

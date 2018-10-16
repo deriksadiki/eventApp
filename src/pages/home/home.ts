@@ -15,11 +15,9 @@ import {BusinessHomePage} from '../business/business-home/business-home'
 export class HomePage {
 
   fetching = [];
-  fetching2 = [];
-  fetching3 = [];
-  fetching4 = [];
-  fetching5 = [];
-  fetching6 = [];
+  fetchingRecentlyAdded = [];
+  fetchingUpcoming = []
+
 
   Users = {} as User;
   plus;
@@ -31,18 +29,19 @@ export class HomePage {
     var user = this.navParams.get('user');
     this.firebaseService.getAlldata().then((data:any) => {
       this.fetching = data;
-      if (this.fetching[0] != undefined){
-        this.fetching2.push(this.fetching[0])
+      var length =  this.fetching.length;
+      var track = 0;
+      var index = 0;
+      for (var x = length - 5; x < length; x++){
+        if (this.fetching[x] != undefined){
+          this.fetchingRecentlyAdded.push(this.fetching[x])
+        }
       }
-      if (this.fetching[1] != undefined){
-        this.fetching3.push(this.fetching[1])
+      for (var x = length - 6; x >= 0; x--){
+        if (this.fetching[x] != undefined){
+          this.fetchingUpcoming.push(this.fetching[x])
+        }
       }
-      if (this.fetching[2] != undefined){
-        this.fetching4.push(this.fetching[2])
-      }
-      if (this.fetching[3] != undefined){
-        this.fetching5.push(this.fetching[3])
-      }  
     });
      }
 

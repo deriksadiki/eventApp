@@ -1,11 +1,11 @@
 <ion-header *ngFor="let i of event;let i = index">
-  <div class="top" [ngStyle] ="{'background-image':color+'url(' + url + ')'}">
+  <div class="top" [ngStyle] ="{'background-image':color+'url(' + url + ')'}"   >
 
   <ion-toolbar color="trans">
             <ion-icon class="back" name="arrow-back" (click)="back()" ></ion-icon>
           </ion-toolbar>
  <div class="phot">
- <img class="pic" src="{{i.hostimg}}" >
+ <img class="pic" src="{{i.hostimg}}"  imageViewer>
  </div>
  <div class="head">
  <h3>{{i.eventName}} </h3>

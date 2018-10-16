@@ -34,12 +34,11 @@ newEvents =  new Array();
 
      splashScreen.hide();
      fire.getUserSatate().then( data =>{
-       this.pushNotification();
     if (data == 1){
       console.log('online')
      this.rootPage =  TabsPage;
      fire.getuser().then(data=>{
-       console.log(data)
+      this.pushNotification();
      });
     }
     else{
