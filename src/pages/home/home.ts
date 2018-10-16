@@ -31,10 +31,18 @@ export class HomePage {
     var user = this.navParams.get('user');
     this.firebaseService.getAlldata().then((data:any) => {
       this.fetching = data;
+      if (this.fetching[0] != undefined){
         this.fetching2.push(this.fetching[0])
+      }
+      if (this.fetching[1] != undefined){
         this.fetching3.push(this.fetching[1])
+      }
+      if (this.fetching[2] != undefined){
         this.fetching4.push(this.fetching[2])
+      }
+      if (this.fetching[3] != undefined){
         this.fetching5.push(this.fetching[3])
+      }
     });
      }
 
