@@ -5,9 +5,11 @@ import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
 import { ProfileUpdatePage } from '../profile-update/profile-update';
 import { PopoverController } from 'ionic-angular';
+
 import { MyPopOverPage } from '../my-pop-over/my-pop-over'
 import { PopoverComponent } from '../../components/popover/popover';
 import { MoreInfoPage } from '../more-info/more-info';
+
 
 
 @Component({
@@ -16,8 +18,12 @@ import { MoreInfoPage } from '../more-info/more-info';
 })
 export class ContactPage {
   profile = [];
+
   fetching = new Array();
+
   constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
+
+
 
   }
 
@@ -32,6 +38,7 @@ export class ContactPage {
      console.log(data);
     }, Error =>{
      console.log(Error)
+
     });
   }
 
@@ -39,6 +46,7 @@ export class ContactPage {
     const modal =this.modalCtrl.create(ProfileUpdatePage);
     modal.present();
   }
+
 
   presentPopover(event) {
     const popover = this.popoverCtrl.create(PopoverComponent);

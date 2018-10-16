@@ -2,12 +2,13 @@
 
   <div class="thenav">
 
-    <ion-navbar color="trans" align="center" > 
+    <ion-navbar color="trans"  > 
         <div class="B">
-            <button style="color: white" ion-button icon-only clear (click)="presentModal()">
-              <ion-icon name="md-create"></ion-icon>
+            <button style="color: white" ion-button icon-only clear  >
+                 <ion-icon class="more" name="md-more" ></ion-icon>
             </button>
           </div>
+
 
           <div class="B2">
             <ion-icon class="back" name="md-more" (click)="presentPopover($event)" ></ion-icon>
@@ -16,20 +17,21 @@
 
 
 
+
     <div *ngFor="let i of profile" class="phot" align="center">
       <ion-avatar>
-        <img class="pic1" src='{{i.img}}'>
+        <img class="image" src='{{i.img}}'>
       </ion-avatar>
       <br>
       <br>
       <h1>{{i.username}}</h1>
     </div>
-
-   
   </div>
 </ion-header>
 
+
 <br>
+
 
 
 <ion-content >
@@ -74,6 +76,8 @@
             </ion-fab-list>
           </ion-fab> -->
 
+
 </ion-content>
+
 
 
