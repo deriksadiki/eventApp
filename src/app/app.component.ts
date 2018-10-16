@@ -4,7 +4,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { CommentsPage } from '../pages/comments/comments';
+<<<<<<< HEAD
+=======
 
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
 import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
 import { RegisterPage } from '../pages/register/register';
@@ -13,7 +16,6 @@ import { MoreInfoPage } from '../pages/more-info/more-info';
 import {FirebaseConnectionProvider} from '../providers/firebase-connection/firebase-connection'
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { removeDebugNodeFromIndex } from '@angular/core/src/debug/debug_node';
-import { MyPopOverPage } from '../pages/my-pop-over/my-pop-over';
 
 @Component({
  templateUrl: 'app.html'
@@ -34,16 +36,19 @@ newEvents =  new Array();
 
      splashScreen.hide();
      fire.getUserSatate().then( data =>{
-       this.pushNotification();
     if (data == 1){
       console.log('online')
      this.rootPage =  TabsPage;
      fire.getuser().then(data=>{
-       console.log(data)
+      this.pushNotification();
      });
     }
+<<<<<<< HEAD
+    else if(data == 0){
+=======
     else{
       console.log('offline')
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
       this.rootPage = LoginPage;
     }
      })
@@ -72,4 +77,3 @@ newEvents =  new Array();
    })
  }
 }
-

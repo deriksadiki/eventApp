@@ -5,7 +5,8 @@ import { User } from '../../Modals/User';
 import { MoreInfoPage } from '../more-info/more-info';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { HomePage } from '../home/home';
-​
+​import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 @Component({
  selector: 'page-about',
  templateUrl: 'about.html'

@@ -2,11 +2,22 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController, ToastController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { AboutPage } from '../about/about';
+<<<<<<< HEAD
+import { PopoverController } from 'ionic-angular';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
+import {CommentsPage}  from '../comments/comments';
+import { TabsPage } from '../tabs/tabs';
+import { PopoverComponent } from '../../components/popover/popover';
+=======
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import {CommentsPage}  from '../comments/comments';
 import { TabsPage } from '../tabs/tabs';
 import { TitleCasePipe } from '@angular/common';
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
 
 @IonicPage()
 @Component({
@@ -26,7 +37,7 @@ pet;
 colorState = "light";
 state = this.navParams.get('color')
 
-  constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
+  constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
   }
 
 ionViewDidLoad() {
@@ -95,4 +106,39 @@ back(){
   this.navCtrl.pop();
 }
 
+<<<<<<< HEAD
+logOut(){
+
+  const confirm = this.alertCtrl.create({
+    title: 'LOGGING OUT!',
+    message: 'Are you sure you want to log out?',
+    buttons: [
+      {
+        text: 'Disagree',
+        handler: () => {
+          console.log('Disagree clicked');
+          this.navCtrl.push(TabsPage);
+        }
+      },
+      {
+        text: 'Agree',
+        handler: () => {
+          console.log('Agree clicked');
+          this.firebaseService.logout();
+        }
+      }
+    ]
+  });
+  confirm.present();
+ 
+}
+
+presentPopover(event) {
+  const popover = this.popoverCtrl.create(PopoverComponent);
+  popover.present({
+     ev:event
+  });
+}
+=======
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
 }

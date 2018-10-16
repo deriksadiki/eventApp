@@ -3,6 +3,8 @@ page-home {
          background-color: rgb(199, 189, 189);
     }
  
+<<<<<<< HEAD
+=======
     // .image{
     //     height: 330px;
     // }
@@ -28,6 +30,7 @@ page-home {
     // p{
     //     font-weight: 100;
     // }
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
     .main{
         height: 40%;
         margin-top: 8%;
@@ -44,6 +47,15 @@ page-home {
         bottom: 3%;
     }
     .image{
+<<<<<<< HEAD
+        height: 180px;
+        width: 100%;
+    }
+    // p{
+    //     text-align: left;
+    //     font-size: 5em;
+    // }   
+=======
            height: 170px;
             width: 100%;
         }
@@ -53,17 +65,28 @@ page-home {
         // padding-left: 20px;
         
     }   
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
     
     .icon{
        color: #7a4579;
     }
+<<<<<<< HEAD
+    .p{
+
+    }
+
+=======
     // .slide1{
     //     box-shadow: 5px 0px 0px 5px #d8d8d8;
     // }
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
     .box{
         border: solid 2px grey;
     
     }
+<<<<<<< HEAD
+
+=======
     // .slide1{
     //  padding-right: 8%
     // }
@@ -75,11 +98,25 @@ page-home {
     //     position: relative;
     //     right: 10%;
     // }
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
     ion-slide.swiper-slide{
         right:10%
     }
     
     .card-background-page {
+<<<<<<< HEAD
+      
+        ion-card {
+         
+            text-align: left;
+            position: relative;
+            top: 20%;
+            // width: 200px;
+          
+        }
+        background-color: rgb(236, 230, 230);
+      
+=======
 
         ion-card {
           position: relative;
@@ -91,6 +128,7 @@ page-home {
         // background-color: rgb(236, 230, 230);
         background-color: #f3e8f3;
 
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
         img{
             -webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
                 filter: blur(0px);
@@ -118,4 +156,53 @@ page-home {
       
       }
       
+<<<<<<< HEAD
+    //   .scrollcontainer{
+    //     //   background: red;
+    //       width: 100vw;
+    //       display: flex;
+    //       flex-direction: row;
+    //       overflow-x: scroll;
+    //       height: 21em;
+    //       margin-top: 1em;
+    //       .cardcontainer{
+    //             height: 20em;  
+    //             // background: blue;
+    //             margin-right: 2em;
+    //             flex: auto 0 0;
+    //             display: flex;
+    //             flex-direction: column;
+    //             box-shadow: 4px 4px 5px rgba(grey, .6);
+    //           .image{
+    //               flex: 3 0 0;
+    //               img{
+    //                   width: 14em;
+    //                   height: 15em;
+    //               }
+    //             }
+
+    //           .content{
+    //               flex: 1 0 0;
+    //               background: whitesmoke;
+    //               height: 100%;
+    //               .heading{
+    //                   margin: 0;
+    //               }
+    //               .text{
+    //                 //   font-size: 1em;
+
+    //               }
+    //           }
+    //       }
+    //       .cardcontainer:first-child{
+    //           margin-left: .5em;
+    //       }
+
+    //   }
 }
+
+
+
+=======
+}
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
