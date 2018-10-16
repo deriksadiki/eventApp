@@ -2,8 +2,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import {LaunchNavigator} from '@ionic-native/launch-navigator';
-
+import {LaunchNavigator} from '@ionic-native/launch-navigator'
+import {LocalNotifications} from '@ionic-native/local-notifications'
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -15,11 +15,12 @@ import { FirebaseConnectionProvider } from '../providers/firebase-connection/fir
 import { BusinessHomePage } from '../pages/business/business-home/business-home';
 import { RegisterBusinessPage } from '../pages/business/register-business/register-business';
 import { ViewPage } from '../pages/view/view';
-
 import { MoreInfoPage } from '../pages/more-info/more-info';
 import { LoginPage } from '../pages/login/login';
+import { CommentsPage } from '../pages/comments/comments';
 import { RegisterPage } from '../pages/register/register'
-
+import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
+import {Camera} from '@ionic-native/camera'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,10 @@ import { RegisterPage } from '../pages/register/register'
     RegisterBusinessPage,
     MoreInfoPage,
     LoginPage,
-    RegisterPage
+    CommentsPage,
+    RegisterPage,
+    CommentsPage,
+    ProfileUpdatePage
 
 
   ],
@@ -50,19 +54,25 @@ import { RegisterPage } from '../pages/register/register'
     BusinessHomePage,
     RegisterBusinessPage,
     MoreInfoPage,
-
     LoginPage,
-    RegisterPage
+    CommentsPage,
+    RegisterPage,
+    ProfileUpdatePage
+
 
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseConnectionProvider,
+
     SocialSharing,
-    LaunchNavigator
+    LaunchNavigator,
+    LocalNotifications
+
   ]
 })
-export class AppModule {}
+export class AppModule{}

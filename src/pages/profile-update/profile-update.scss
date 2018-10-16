@@ -1,0 +1,33 @@
+page-profile-update {
+
+    .thenav{
+        background-image:linear-gradient(rgba(0, 0, 0, 0.473),#7a4579), url('../../assets/imgs/people.jpg');
+        // background-attachment: fixed;
+        // // background-size: cover;
+        // background-repeat: no-repeat;
+        // background-position: center;
+        height: 330px;
+    }
+    .back{
+        color: whitesmoke;
+    }
+    .item{
+        // box-shadow: 1px 3px 2px;
+        margin-bottom: 20px;
+       margin-top: 20px;
+    }
+
+    .name{
+        box-shadow: 2px 3px 4px;
+        margin-left: 20px;
+        padding-right: 20px;
+        width: 90%;
+    }
+
+    .pic2{
+        max-height: 30vh;
+        width: 70%;
+        margin-top: 10%;
+        border-radius: 120%;
+    }
+}

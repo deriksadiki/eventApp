@@ -4,6 +4,7 @@ import { HomePage } from '../home/home';
 import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { TabsPage } from '../tabs/tabs';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the RegisterPage page.
@@ -27,12 +28,24 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
+  back(){
+    this.navCtrl.push(LoginPage)
+  }
+
   
   reg(){
     if(this.Users.email == undefined && this.Users.password && this.Users.userName == undefined){
       const alert = this.alertCtrl.create({
         title: 'Warning',
         subTitle: ' Please provide your full details to register!',
+        buttons: ['OK']
+      });
+      alert.present();
+    }
+    else if(this.Users.userName == undefined){
+      const alert = this.alertCtrl.create({
+        title: 'Wearning',
+        subTitle: 'Please enter a Username, it cannot be left empty',
         buttons: ['OK']
       });
       alert.present();
@@ -53,14 +66,6 @@ export class RegisterPage {
       });
       alert.present();
     }
-    else if(this.Users.userName == undefined){
-      const alert = this.alertCtrl.create({
-        title: 'Wearning',
-        subTitle: 'Please enter a Username, it cannot be left empty',
-        buttons: ['OK']
-      });
-      alert.present();
-    }
 
     else {
       this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.userName).then(() =>{
@@ -70,8 +75,8 @@ export class RegisterPage {
           buttons: ['OK']
         });
         alert.present();
+        this.navCtrl.push(TabsPage);
        })
-       this.navCtrl.push(TabsPage);
     }
   }
 
