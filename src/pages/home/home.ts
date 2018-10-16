@@ -42,7 +42,7 @@ export class HomePage {
       }
       if (this.fetching[3] != undefined){
         this.fetching5.push(this.fetching[3])
-      }
+      }  
     });
      }
 
