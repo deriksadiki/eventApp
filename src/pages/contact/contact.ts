@@ -6,9 +6,15 @@ import { LoginPage } from '../login/login';
 import { ProfileUpdatePage } from '../profile-update/profile-update';
 import { PopoverController } from 'ionic-angular';
 
+<<<<<<< HEAD
 // import { PopoverComponent } from '../../components/popover/popover';
 import { MoreInfoPage } from '../more-info/more-info';
 import { PopOver2Component } from '../../components/pop-over2/pop-over2';
+=======
+import { MyPopOverPage } from '../my-pop-over/my-pop-over'
+import { PopoverComponent } from '../../components/popover/popover';
+import { MoreInfoPage } from '../more-info/more-info';
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
 
 
 
@@ -48,8 +54,13 @@ export class ContactPage {
   }
 
 
+<<<<<<< HEAD
   Log(event) {
     const popover = this.popoverCtrl.create(PopOver2Component);
+=======
+  presentPopover(event) {
+    const popover = this.popoverCtrl.create(PopoverComponent);
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
     popover.present({
        ev:event
     });
@@ -60,4 +71,8 @@ export class ContactPage {
     this.navCtrl.push(MoreInfoPage, {events:this.fetching[a], color:true});
   }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef

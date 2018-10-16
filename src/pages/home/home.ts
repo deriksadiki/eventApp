@@ -16,11 +16,9 @@ import {BusinessHomePage} from '../business/business-home/business-home'
 export class HomePage {
 
   fetching = [];
-  fetching2 = [];
-  fetching3 = [];
-  fetching4 = [];
-  fetching5 = [];
-  fetching6 = [];
+  fetchingRecentlyAdded = [];
+  fetchingUpcoming = []
+
 
   Users = {} as User;
   plus;
@@ -28,16 +26,23 @@ export class HomePage {
     // ​this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
   ionViewDidLoad() {
+    this.fetching.length = 0;
     var user = this.navParams.get('user');
     this.firebaseService.getAlldata().then((data:any) => {
       this.fetching = data;
-        this.fetching2.push(this.fetching[0])
-        this.fetching3.push(this.fetching[1])
-        this.fetching4.push(this.fetching[2])
-        this.fetching5.push(this.fetching[3])
-    
-   
-      console.log(this.fetching[0]);
+      var length =  this.fetching.length;
+      var track = 0;
+      var index = 0;
+      for (var x = length - 5; x < length; x++){
+        if (this.fetching[x] != undefined){
+          this.fetchingRecentlyAdded.push(this.fetching[x])
+        }
+      }
+      for (var x = length - 6; x >= 0; x--){
+        if (this.fetching[x] != undefined){
+          this.fetchingUpcoming.push(this.fetching[x])
+        }
+      }
     });
      }
 
@@ -50,7 +55,6 @@ this.navCtrl.push(MoreInfoPage, {events:i});
 
   moreinfo(){
     this.navCtrl.push(MoreInfoPage);
-    
   }
 
   logOut(){

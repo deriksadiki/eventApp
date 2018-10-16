@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment'
+import { unescapeIdentifier } from '@angular/compiler';
 
 declare var firebase;
 @Injectable()
@@ -12,30 +13,27 @@ export class FirebaseConnectionProvider {
   currentUserName;
   currentUserImage;
   currentUserPath;
-
   username;
   userKey;
+  img;
   fetch = new Array();
   comments = new Array();
   newEvents =  new Array();
   profile = new Array();
   currentUserID;
-
   defaultImages = ['../../assets/imgs/pic.jpg','../../assets/imgs/pic23.jpg','../../assets/imgs/pic24.jpg', '../../assets/imgs/pic22.jpg','../../assets/imgs/pic25.jpg']
   constructor() {
   }
 
-  registerUser(email,password,userName){
+  registerUser(email,password,Username){
     return new Promise((accpt,rej) =>{
       this.authenticate.createUserWithEmailAndPassword(email,password).then(() =>{
         var user = firebase.auth().currentUser;
-
-        this.dbRef = 'users/' + userName + ":" + user.uid;
+        this.dbRef = 'users/' + user.uid;
         this.database.ref(this.dbRef).push({
-          Username: userName,
+          Username: Username,
           img : this.defaultImages[Math.floor(Math.random() * 4)],
           userType: "User"
-
         })
         accpt("user Registered")
       },Error => {
@@ -45,22 +43,15 @@ export class FirebaseConnectionProvider {
   }
 
 
-  UpdateProfile(userName,img){
+  UpdateProfile(Username,img){
     return new Promise ((accpt,rej) =>{
-      var img;
-      if(img == undefined || img == null){
-        img = this.defaultImages;
-      }   
-
-      if(userName == undefined){
-        userName = ""
-      }
       var path = 'users/' + this.currentUserID + '/' + this.userKey;
       console.log(path)
       this.database.ref(path).update({
-        userName: userName,
+        Username: Username,
         img: img
       })
+      accpt('succes!')
     })
   }
 
@@ -69,38 +60,42 @@ export class FirebaseConnectionProvider {
     console.log('exit')
     this.authenticate.signOut();
   }
+
+
   getALlGoings(){
     return new Promise((accept,reject) => {
       this.fetch.length = 0;
-      this.database.ref('goings/').on('value', (data: any) => {
-        var users = data.val();
-        var userIDs = Object.keys(users);
-        for(var i = 0; i < userIDs.length; i++){
-          var k = userIDs[i];
-          var n = 'goings/' + k;
-          console.log(n);
-  
-          this.database.ref(n).on('value', (data2:any) =>{
-            var fav = data2.val();
-            console.log(fav);
-            var keys = Object.keys(fav);
-            for(var a = 0;a < keys.length;a++){
-              var k = keys[a];
-              let obj = {
-                end: fav[k].end,
-                desc: fav[k].desc,
-                eventName: fav[k].name,
-                amount: fav[k].amount,
-                img: fav[k].image,
-                location: fav[k].venue,
-                start: fav[k].start,
-                date: fav[k].day
-              }
-              this.fetch.push(obj)
-            }
-            accept(this.fetch);
-            console.log(this.fetch)
-          })
+      var user = firebase.auth().currentUser;
+      this.database.ref('goings/' + user.uid).on('value', (data: any) => {
+        if (data.val() != undefined){
+          var events =  data.val();
+          var eventKeys = Object.keys(events);
+          for (var i = 0; i < eventKeys.length; i++){
+            var favEventKey = eventKeys[i];
+            this.database.ref('events/' + events[favEventKey].hostname + '/' + events[favEventKey].key).on('value', (data2: any) => {
+              var fav = data2.val();
+              console.log(fav.endTIme)
+                    let obj = {
+                      endTIme: fav.endTIme,
+                      eventDesc: fav.eventDesc,
+                      eventName: fav.eventName,
+                      fee: fav.fee,
+                      img: fav.img,
+                      location: fav.location,
+                      startTIme: fav.startTIme,
+                      date: moment(fav.date).format('MMM Do, YYYY'),
+                      hostimg : fav.hostImg,
+                      key : favEventKey,
+                      hostname : events[favEventKey].hostname,
+                      enddate : moment(fav.endDate).format('MMM Do, YYYY')
+                    }
+                    this.fetch.push(obj)
+                  console.log(this.fetch)
+                  accept(this.fetch);
+            }, Error =>{
+              reject(Error.message);
+            })  
+          }
         }
       }, Error => {
         reject(Error.message);
@@ -127,7 +122,6 @@ export class FirebaseConnectionProvider {
       })
     })
   }
-
 
   forgotPassword(email:any){
     return this.authenticate.sendPasswordResetEmail(email);
@@ -158,80 +152,112 @@ login(email,password){
   })
 }
 
+getColourState(key){
+  return new Promise ((accpt,rej) =>{
+    var user = firebase.auth().currentUser;
+    this.database.ref('goings/' + user.uid).on('value', (data2: any) => {
+      var details = data2.val();
+      if (details != null ||  details != undefined){
+        var keys =  Object.keys(details);
+        var size = keys.length;
+        var results = "";
+        for (var x = 0; x < size; x++){
+          this.database.ref('goings/' + user.uid + '/' + keys[x]).on('value', (data: any) => {
+          var events =  data.val();
+          if (events != undefined){
+            if (events.key == key){
+              results = "found";
+              accpt(results);
+            }
+            else{
+              results = "not found";
+            }
+          }
+        })
+          }
+          accpt(results);
+      }
+      else{
+      
+        results = "not found";
+        accpt(results);
+      }
+    })
+  })
+}
+
+removeFromFav(key){
+  console.log('its me')
+  return new Promise ((accpt,rej) =>{
+    var user = firebase.auth().currentUser;
+    this.database.ref('goings/' + user.uid).on('value', (data2: any) => {
+      var details = data2.val();
+      if (details != null ||  details != undefined){
+        var keys =  Object.keys(details);
+        var size = keys.length;
+        for (var x = 0; x < size; x++){
+          this.database.ref('goings/' + user.uid + '/' + keys[x]).on('value', (data: any) => {
+          if (data.val() != undefined){
+            var events =  data.val();
+            if (events.key == key){
+              this.database.ref('goings/' + user.uid + '/' + keys[x]).remove();
+            }
+          }
+          })
+        }
+        accpt('removed');
+      }
+    })
+  })
+}
+
 getAlldata(){
 return new Promise ((accept,reject) => {
 this.fetch.length = 0;
 this.database.ref('events/').on('value', (data: any) => {
-  var users = data.val();
-  var userIDs = Object.keys(users);
-  for(var i = 0; i < userIDs.length;i++){
-    var k2 = userIDs[i];
-    var y = 'events/' + k2;
-    console.log(y)
-    this.database.ref(y).on('value', (data2:any) =>{
-      var events = data2.val();
-      var keys = Object.keys(events);
-      for(var a = 0;a < keys.length;a++){
-        var k = keys[a];
-        let obj = {
-          date: moment(events[k].date).format('MMM Do, YYYY'),
-          endTIme: events[k].endTIme,
-          eventDesc: events[k].eventDesc,
-          eventName: events[k].eventName,
-          fee: events[k].fee,
-          key : k,
-          hostname: k2,
-          img: events[k].img,
-          location: events[k].location,
-          startTIme: events[k].startTIme,
-          going: events[k].going,
-          comments: events[k].comments,
-          hostimg : events[k].hostImg,
-          enddate : moment(events[k].endDate).format('MMM Do, YYYY')
+  if (data.val() != undefined){
+    var users = data.val();
+    var userIDs = Object.keys(users);
+    for(var i = 0; i < userIDs.length;i++){
+      var k2 = userIDs[i];
+      var y = 'events/' + k2;
+      this.database.ref(y).on('value', (data2:any) =>{
+        var events = data2.val();
+        var keys = Object.keys(events);
+        for(var a = 0;a < keys.length;a++){
+          var k = keys[a];
+          let obj = {
+            date: moment(events[k].date).format('MMM Do, YYYY'),
+            endTIme: events[k].endTIme,
+            eventDesc: events[k].eventDesc,
+            eventName: events[k].eventName,
+            fee: events[k].fee,
+            key : k,
+            hostname: k2,
+            img: events[k].img,
+            location: events[k].location,
+            startTIme: events[k].startTIme,
+            going: events[k].going,
+            comments: events[k].comments,
+            hostimg : events[k].hostImg,
+            enddate : moment(events[k].endDate).format('MMM Do, YYYY')
+          }
+          this.fetch.push(obj)
         }
-        this.fetch.push(obj)
-      }
-      accept(this.fetch);
-      console.log(this.fetch)
-    })
+        accept(this.fetch);
+        console.log(this.fetch)
+      })
+    }
   }
-
 }, Error => {
   reject(Error.message);
 })
   })
 }
 
-going(key, name, going){
-  var numGoing = going + 1;
-  return new Promise((accpt, rej) =>{
-  this.database.ref('events/' + name + '/' + key).update({going: numGoing})
-})
-}
 
-getuser(){
- // this.authenticate.signOut();
-  this.database.ref('users').on('value', (data: any) => {
-    var users =  data.val();
-    var user = firebase.auth().currentUser;
-    var  userIDs = Object.keys(users);
-    for (var x = 0; x < userIDs.length; x++){
-      var str1 = new String( userIDs[x]); 
-      var index = str1.indexOf( ":" ); 
-      var currentUserID = userIDs[x].substr(index + 1);
-      if (user.uid == currentUserID){
-        this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
-          var Userdetails = data.val(); 
-          var keys2:any = Object.keys(Userdetails);
-          this.storeCurrentUserImage(Userdetails[keys2[0]].img);
-          this.storeCurrentUsername(Userdetails[keys2[0]].Username);
-          this.storeCurrentUserPath(userIDs[x])
-        })
-        break;
-      }
-    }
-  })
-}
+
+
 
 
 getNewEvents(){
@@ -265,35 +291,44 @@ getNewEvents(){
   this.username = name;
   }
 
-  // getuser(){
-  //   // this.authenticate.signOut();
-  //   return new Promise ((accpt,rej)=>{
-  //     this.database.ref('users').on('value', (data: any) => {
-  //       var users =  data.val();
-  //       var user = firebase.auth().currentUser;
-  //       var  userIDs = Object.keys(users);
-  //       for (var x = 0; x < userIDs.length; x++){
-  //         var str1 = new String( userIDs[x]); 
-  //         var index = str1.indexOf( ":" ); 
-  //         var currentUserID = userIDs[x].substr(index + 1);
-  //         if (user.uid == currentUserID){
-  //           console.log(user.uid)
-  //           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
-  //             var Userdetails = data.val(); 
-  //             this.storeUserID(userIDs[x]);
-  //             var keys2:any = Object.keys(Userdetails);
-  //             this.storeCurrentUserImage(Userdetails[keys2[0]].img);
-  //             this.storeCurrentUsername(Userdetails[keys2[0]].Username);
-  //             this.storeUserKey(Userdetails[keys2[0]].key)
-  //             this.storeCurrentUserPath(userIDs[x])
-  //             accpt(Userdetails[keys2])
-  //           })
-  //           break
-  //         }
-  //       }
-  //     })
-  //   })
-  //  }
+  getuser(){
+    return new Promise ((accpt,rej)=>{
+      this.username = "";
+      this.img = "";
+      this.database.ref('users').on('value', (data: any) => {
+        var users =  data.val();
+        var user = firebase.auth().currentUser;
+        var  userIDs = Object.keys(users);
+        for (var x = 0; x < userIDs.length; x++){
+          var str1 = new String( userIDs[x]); 
+          var index = str1.indexOf( ":" ); 
+          var currentUserID = userIDs[x].substr(index + 1);
+          if (user.uid == currentUserID){
+
+
+            this.storeUsername(userIDs[x].substr(0,index));
+            this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
+              var Userdetails = data.val(); 
+              this.storeUserID(userIDs[x]);
+              var keys2:any = Object.keys(Userdetails);
+              var user = firebase.auth().currentUser;
+              this.storeCurrentUserImage(Userdetails[keys2[0]].img);
+              this.storeCurrentUsername(Userdetails[keys2[0]].Username);
+              this.storeUserKey(keys2[0])
+              this.storeCurrentUserPath(userIDs[x])
+              accpt(Userdetails[keys2])
+            })
+            break
+          }
+        }
+      })
+    })
+   }
+
+   storeUsername(username){
+
+
+   }
    
    storeCurrentUsername(username){
    this.currentUserName =  username;
@@ -308,13 +343,11 @@ getNewEvents(){
    }
 
    storeUserKey(key){
-    console.log(key)
     this.userKey = key
    }
 
-   storeUserID(key){
-    this.currentUserID = key;
-    console.log(this.currentUserID)
+   storeUserID(uid){
+    this.currentUserID = uid;
   }
 
 getProfile(){
@@ -328,10 +361,12 @@ getProfile(){
       console.log(keys)
       for (var x = 0;x < keys.length;x++){
         var k = keys[x];
+        console.log(k)
         let obj ={
           username: details[k].Username,
           img: details[k].img,
           userType: details[k].userType,
+          key: k
         }
         this.profile.push(obj);
       }
@@ -339,7 +374,6 @@ getProfile(){
       console.log(this.profile)
     })
   })
-
 }
 
 comment(text,key){
@@ -354,7 +388,6 @@ comment(text,key){
     accpt("comment added")
   })
 }
-
 
 getComments(key){
   return new Promise ((accpt,rej) =>{
@@ -386,17 +419,11 @@ addNumComments(key, numComments, user){
   this.database.ref('events/' + user+ "/"+ key).update({comments: num});
   console.log("comment number added")
 }
-Goings(eventName,eventDesc,startTIme,endTIme,date,location,img,fee){
+Goings(eventName, eventKey){
   var user = firebase.auth().currentUser;
   firebase.database().ref('goings/' + user.uid).push({
-amount:fee,
-day:date,
-desc: eventDesc,
-name: eventName,
-end: endTIme,
-start: startTIme,
-venue:location,
-image:img
+        key :  eventKey,
+        hostname :  eventName
   });
 } 
 
