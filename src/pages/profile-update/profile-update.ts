@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 import {Camera,CameraOptions} from '@ionic-native/camera';
 import { Update } from '../../Modals/userUpdate';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
@@ -26,7 +26,7 @@ export class ProfileUpdatePage {
   getProfile = []
   profile;
 
-  constructor(private fire: FirebaseConnectionProvider,public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
+  constructor(public loadingCtrl:LoadingController,private fire: FirebaseConnectionProvider,public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
     
   }
 
@@ -60,10 +60,17 @@ export class ProfileUpdatePage {
   }
 
   saveData(Username){
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Please wait',
+      duration: 17000
+    });
+    loading.present();
       this.fire.UpdateProfile(this.profile,this.pic).then((data:any)=>{
         console.log(data)
         this.navCtrl.setRoot(TabsPage).then(()=>{
           this.navCtrl.setRoot(ContactPage)
+          loading.dismiss();
         });
       })
   }

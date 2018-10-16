@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment'
 import { Camera,CameraOptions } from '@ionic-native/camera';
+import { LoadingController } from 'ionic-angular';
 
 declare var firebase;
 @Injectable()
@@ -25,7 +26,7 @@ export class FirebaseConnectionProvider {
   profile = new Array();
   currentUserID;
   defaultImages = ['../../assets/imgs/pic.jpg','../../assets/imgs/pic23.jpg','../../assets/imgs/pic24.jpg', '../../assets/imgs/pic22.jpg','../../assets/imgs/pic25.jpg']
-  constructor(private camera:Camera) {
+  constructor(private camera:Camera,public loadingCtrl: LoadingController) {
   }
 
   registerUser(email,password,Username){
@@ -56,6 +57,12 @@ uploadPic(username){
 
 
   UpdateProfile(Username, img){
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Please wait',
+      duration: 17000
+    });
+    loading.present();
     return new Promise ((accpt,rej) =>{
       var user = firebase.auth().currentUser;
       var path = 'users/' + this.currentUserID + '/' + this.userKey;
@@ -64,6 +71,7 @@ uploadPic(username){
         Username: Username,
         img: img
       })
+      loading.dismiss();
       accpt('succes!')
     })
   }
