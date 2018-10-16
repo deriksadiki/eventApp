@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { CommentsPage } from '../pages/comments/comments';
 import { HomePage } from '../pages/home/home';
-
 import { ContactPage } from '../pages/contact/contact';
 import { RegisterPage } from '../pages/register/register';
 import {LoginPage} from '../pages/login/login';
@@ -13,7 +12,6 @@ import { MoreInfoPage } from '../pages/more-info/more-info';
 import {FirebaseConnectionProvider} from '../providers/firebase-connection/firebase-connection'
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { removeDebugNodeFromIndex } from '@angular/core/src/debug/debug_node';
-import { MyPopOverPage } from '../pages/my-pop-over/my-pop-over';
 
 @Component({
  templateUrl: 'app.html'
@@ -35,11 +33,11 @@ newEvents =  new Array();
      fire.getUserSatate().then( data =>{
        this.pushNotification();
     if (data == 1){
-     this.rootPage =  LoginPage;
+     this.rootPage =  TabsPage;
      fire.getuser();
     }
-    else{
-      this.rootPage = TabsPage;
+    else if(data == 0){
+      this.rootPage = LoginPage;
     }
      })
 
@@ -67,4 +65,3 @@ newEvents =  new Array();
    })
  }
 }
-

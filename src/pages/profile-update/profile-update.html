@@ -29,16 +29,16 @@
 
 <ion-content >
 <ion-list>
-    <ion-item no-lines>
+    <ion-item class="name" no-lines>
         <ion-label><ion-icon name="profile"  color="primary"></ion-icon></ion-label>
       <ion-input type="text" placeholder="New Username" [(ngModel)]="update.userName" ></ion-input>
    </ion-item>
-
+<br>
    <ion-item>
      <input type="file" (change)="uploadPic($event)">
    </ion-item>
 </ion-list>
-
-<button ion-button (click)="saveData()">Update</button>
-
+<div align = "center">
+<button color = "nav" ion-button (click)="saveData()">Update</button>
+</div>
 </ion-content>

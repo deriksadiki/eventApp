@@ -27,6 +27,9 @@ import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
 import { MyPopOverPage } from '../pages/my-pop-over/my-pop-over';
 import { PopoverComponent } from '../components/popover/popover';
 
+import { IonicImageViewerModule, ImageViewerComponent } from 'ionic-img-viewer';
+import { PopOver2Component } from '../components/pop-over2/pop-over2';
+
 
 @NgModule({
   declarations: [
@@ -45,12 +48,14 @@ import { PopoverComponent } from '../components/popover/popover';
     ProfileUpdatePage,
     MyPopOverPage,
     PopoverComponent,
+    PopOver2Component
 
 
 
   ],
   imports: [
     BrowserModule,
+    IonicImageViewerModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -69,6 +74,7 @@ import { PopoverComponent } from '../components/popover/popover';
     ProfileUpdatePage,
     MyPopOverPage,
     PopoverComponent,
+    PopOver2Component
 
 
 

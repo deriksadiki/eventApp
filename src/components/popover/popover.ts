@@ -47,32 +47,7 @@ constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertControl
   //   this.gatefee = parseInt(this.event[0].fee ) + 100;
   //   this.pet = 'kittens'
   //   }
-  logOut(){
-
-    const confirm = this.alertCtrl.create({
-      title: 'LOGGING OUT!',
-      message: 'Are you sure you want to log out?',
-      buttons: [
-        {
-          text: 'Disagree',
-          handler: () => {
-            console.log('Disagree clicked');
-            this.navCtrl.push(TabsPage);
-          }
-        },
-        {
-          text: 'Agree',
-          handler: () => {
-            console.log('Agree clicked');
-            this.firebaseService.logout();
-            this.navCtrl.push(LoginPage)
-          }
-        }
-      ]
-    });
-    confirm.present();
-   
-  }
+  
 
   navigate = function(i){
     this.launchNavigator.navigate(i);

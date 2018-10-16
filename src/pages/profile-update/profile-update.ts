@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController ,PopoverController} from 'ionic-angular';
 import { Update } from '../../Modals/userUpdate';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
+
+
 
 /**
  * Generated class for the ProfileUpdatePage page.
@@ -20,7 +22,7 @@ export class ProfileUpdatePage {
   update = {} as Update
   profile = [];
    pic;
-  constructor(private fire: FirebaseConnectionProvider,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, public navParams: NavParams,public viewCtrl: ViewController) {
+  constructor(public popoverCtrl: PopoverController,private fire: FirebaseConnectionProvider,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, public navParams: NavParams,public viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
@@ -51,5 +53,10 @@ export class ProfileUpdatePage {
   saveData(userName,img){
     this.fire.UpdateProfile(userName,this.pic)
   }
-
+  // presentPopover(event) {
+  //   const popover = this.popoverCtrl.create(PopOver2Component);
+  //   popover.present({
+  //      ev:event
+  //   });
+  // }
 }
