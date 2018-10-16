@@ -27,6 +27,7 @@ import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
 
 import { MyPopOverPage } from '../pages/my-pop-over/my-pop-over';
 import { PopoverComponent } from '../components/popover/popover';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 
 
@@ -54,7 +55,8 @@ import { PopoverComponent } from '../components/popover/popover';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
