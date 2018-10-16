@@ -7,7 +7,7 @@ page-more-info {
         height: 50vh;
     }
     .dash{
-        position: relative;
+        // position: relative;
         margin-top: 65%;
         background-image:linear-gradient(rgba(0,0,0,0.5),#7a4579), url('../../assets/imgs/people.jpg');
 // opacity: 0.90;
@@ -30,6 +30,27 @@ page-more-info {
         font-size: 250%;
         color:whitesmoke;
         margin-left: 10px;
+        // position: relative;
+        
+    }
+    .butt{
+        float: left;
+        margin-left: 90%;
+        bottom: 49px;
+        // position: relative;
+    }
+    .more{
+        font-size: 250%;
+        color:whitesmoke;
+        // margin-left: 95%;
+     
+        // float: left;
+        // position: relative;
+        // margin-right: 20px;
+        // // margin-top: 10px;
+        // // bottom: 20px;
+        // font-size: 250%;
+        // position: relative;
     }
     .ii{
         font-size: 160%;

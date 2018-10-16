@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController, ToastController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { AboutPage } from '../about/about';
-
+import { PopoverController } from 'ionic-angular';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import {CommentsPage}  from '../comments/comments';
 import { TabsPage } from '../tabs/tabs';
+import { PopoverComponent } from '../../components/popover/popover';
 
 @IonicPage()
 @Component({
@@ -29,7 +31,7 @@ color2 = "light";
 
 
 
-  constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
+  constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
   }
 
 ionViewDidLoad() {
@@ -94,5 +96,12 @@ logOut(){
   });
   confirm.present();
  
+}
+
+presentPopover(event) {
+  const popover = this.popoverCtrl.create(PopoverComponent);
+  popover.present({
+     ev:event
+  });
 }
 }

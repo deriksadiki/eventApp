@@ -44,7 +44,8 @@ import { PopoverComponent } from '../components/popover/popover';
     CommentsPage,
     ProfileUpdatePage,
     MyPopOverPage,
-    PopoverComponent
+    PopoverComponent,
+
 
 
   ],
@@ -67,7 +68,7 @@ import { PopoverComponent } from '../components/popover/popover';
     RegisterPage,
     ProfileUpdatePage,
     MyPopOverPage,
-    PopoverComponent
+    PopoverComponent,
 
 
 

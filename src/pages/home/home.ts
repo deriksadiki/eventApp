@@ -5,6 +5,7 @@ import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { LoginPage } from '../login/login';
 import {BusinessHomePage} from '../business/business-home/business-home'
+// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
 
@@ -23,8 +24,8 @@ export class HomePage {
 
   Users = {} as User;
   plus;
-  constructor(public navCtrl: NavController,public navParams: NavParams ,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider){
-
+  constructor( public navCtrl: NavController,public navParams: NavParams ,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider){
+    // ​this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
   ionViewDidLoad() {
     var user = this.navParams.get('user');
@@ -41,10 +42,7 @@ export class HomePage {
      }
 
 
-pager = [
-  {color:"red"}
-  
-]
+
 
 viewMore(i){
 this.navCtrl.push(MoreInfoPage, {events:i});

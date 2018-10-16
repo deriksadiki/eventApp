@@ -35,11 +35,11 @@ newEvents =  new Array();
      fire.getUserSatate().then( data =>{
        this.pushNotification();
     if (data == 1){
-     this.rootPage =  TabsPage;
+     this.rootPage =  LoginPage;
      fire.getuser();
     }
     else{
-      this.rootPage = LoginPage;
+      this.rootPage = TabsPage;
     }
      })
 

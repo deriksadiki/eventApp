@@ -18,18 +18,22 @@ import { FirebaseConnectionProvider } from '../../providers/firebase-connection/
 export class ProfileUpdatePage {
 
   update = {} as Update
-
-  constructor(private fire: FirebaseConnectionProvider,public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
+  profile = [];
+   pic;
+  constructor(private fire: FirebaseConnectionProvider,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, public navParams: NavParams,public viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfileUpdatePage');
+    this.firebaseService.getProfile().then((data:any)=>{
+      this.profile = data;
+    })
   }
+
   dismiss() {
     this.viewCtrl.dismiss();
   }
 
-  pic;
+ 
 
   uploadPic(event:any){
     if(event.target.files && event.target.files[0]){

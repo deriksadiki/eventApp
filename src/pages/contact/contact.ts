@@ -7,6 +7,7 @@ import { ProfileUpdatePage } from '../profile-update/profile-update';
 import { PopoverController } from 'ionic-angular';
 import { MyPopOverPage } from '../my-pop-over/my-pop-over'
 import { PopoverComponent } from '../../components/popover/popover';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
 @Component({
