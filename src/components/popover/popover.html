@@ -1,6 +1,25 @@
 <!-- Generated template for the PopoverComponent component -->
-<div >
-  <ion-item (click)="logOut()">
-  {{text}} 
-</ion-item>
+<div>
+<ion-item>
+    <button ion-button clear (click)="share(i)">
+        {{text1}} 
+          </button>  </ion-item>
+
+  <ion-item >
+    <button ion-button clear (click)="navigate(i.location)">
+      {{text2}} 
+        </button>
+    </ion-item>
+  
+  <ion-item (click)="comment()">
+      <button ion-button clear>
+          {{text3}} 
+            </button>
+    </ion-item>
+
+    <ion-item (click)="logOut()">
+        <button ion-button clear>
+            {{text4}} 
+              </button>
+      </ion-item>
 </div>

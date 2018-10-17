@@ -1,8 +1,12 @@
 import { Component, } from '@angular/core';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { LoginPage } from '../../pages/login/login';
-import { PopoverController, AlertController, NavController } from 'ionic-angular';
+import { PopoverController, AlertController, NavController ,NavParams,ViewController,ToastController} from 'ionic-angular';
 import { TabsPage } from '../../pages/tabs/tabs';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
+import {CommentsPage}  from '../../pages/comments/comments';
 
 /**
  * Generated class for the PopoverComponent component.
@@ -16,36 +20,54 @@ import { TabsPage } from '../../pages/tabs/tabs';
 })
 export class PopoverComponent {
 
-  text: string;
+  text1: string;
+  text2: string;
+  text3: string;
+  text4: string;
 items:any;
-  constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController) {
-    console.log('Hello PopoverComponent Component');
-    this.text = 'log-Out';
+event = new Array();
+gatefee;
+url =   '../../assets/imgs/Spring-Fi.jpg';
+pet;
+go;
+constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
+  this.text1 = 'Share'
+  this.text2 = 'Location'
+  this.text3 = 'comments'
+  this.text4 = 'log-Out';
+  console.log('Hello PopoverComponent Component');
+  
   }
-  logOut(){
 
-    const confirm = this.alertCtrl.create({
-      title: 'LOGGING OUT!',
-      message: 'Are you sure you want to log out?',
-      buttons: [
-        {
-          text: 'Disagree',
-          handler: () => {
-            console.log('Disagree clicked');
-            this.navCtrl.push(TabsPage);
-          }
-        },
-        {
-          text: 'Agree',
-          handler: () => {
-            console.log('Agree clicked');
-            this.firebaseService.logout();
-            this.navCtrl.push(LoginPage)
-          }
-        }
-      ]
-    });
-    confirm.present();
-   
+  // ionViewDidLoad() {
+  //   this.event.push(this.navParams.get('events'))
+  //   console.log(this.event )
+  //   // this.go =    this.event[0].going;
+  //   this.url = this.event[0].img;
+  //   this.gatefee = parseInt(this.event[0].fee ) + 100;
+  //   this.pet = 'kittens'
+  //   }
+  
+
+  navigate = function(i){
+    this.launchNavigator.navigate(i);
   }
+
+  share(i){
+  var location = 'at ' + this.event[0].location + ', this event was shared from event finder app, please download the app to get more events like this' 
+    this.socialSharing.share(this.event[0].eventName,this.event[0].eventDesc,this.event[0].img, location ) .then(() => {
+      // Success!
+    }).catch(() => {
+      // Error!
+    });
+  }
+
+  comment(){
+  this.navCtrl.push(CommentsPage, {eventObject:this.event});
+
+}
+
+
+
+
 }

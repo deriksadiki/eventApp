@@ -6,6 +6,8 @@ import { User } from '../../Modals/User';
 import { ContactPage } from '../contact/contact';
 
 
+
+
 /**
  * Generated class for the ProfileUpdatePage page.
  *
@@ -30,8 +32,11 @@ export class ProfileUpdatePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfileUpdatePage');
+    this.fire.getProfile().then((data:any)=>{
+      this.profile = data;
+    })
   }
+
   dismiss() {
     this.viewCtrl.dismiss();
   }
@@ -56,5 +61,10 @@ export class ProfileUpdatePage {
 
     })
   }
-
+  // presentPopover(event) {
+  //   const popover = this.popoverCtrl.create(PopOver2Component);
+  //   popover.present({
+  //      ev:event
+  //   });
+  // }
 }
