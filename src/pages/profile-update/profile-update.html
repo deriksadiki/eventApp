@@ -6,41 +6,33 @@
 -->
 <ion-header>
   <div class="thenav">
-  <ion-navbar>
-    <ion-title style="text-align:center;"></ion-title>
+  <ion-navbar color="trans">
     <ion-buttons end>
-    <button end ion-button color="primary"  style="color: white" clear (click)="dismiss()">Back
+    <button end ion-button  style="color: white" clear (click)="dismiss()">Back
         <span ion-text color="primary" showWhen="ios"></span>
         <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
     </button>
    </ion-buttons>
-
   </ion-navbar>
   <div *ngFor="let i of getProfile"  align="center">
-      <ion-avatar >
-        <img class="pic2" src="{{pic}}"> 
-          
-         </ion-avatar>
+    <ion-avatar>
+      <img class="pic2" src="{{pic}}">
+    </ion-avatar>
   </div>
- 
-</div>
 </ion-header>
-
-
-<ion-content padding>
+  
+<ion-content >
 <ion-list>
-
-    <ion-item *ngFor="let i of getProfile" class="item" no-lines  >
+    <ion-item class="name" *ngFor="let i of getProfile" class="item" no-lines  >
         <ion-label><ion-icon name="profile"  color="primary"></ion-icon></ion-label>
       <ion-input type="text" placeholder="New Username" [(ngModel)]="profile" ></ion-input>
    </ion-item>
-
+<br>
    <ion-item>
      <input accept="image/png image/jpeg" type="file" (change)="picInsert($event)">
    </ion-item>
 </ion-list>
-
-
-<button ion-button (click)="saveData()"></button>
-
+<div align = "center">
+<button color = "nav" ion-button (click)="saveData()">Update</button>
+</div>
 </ion-content>

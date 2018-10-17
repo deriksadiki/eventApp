@@ -5,7 +5,8 @@ import { User } from '../../Modals/User';
 import { MoreInfoPage } from '../more-info/more-info';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { HomePage } from '../home/home';
-​
+​import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 @Component({
  selector: 'page-about',
  templateUrl: 'about.html'
@@ -26,14 +27,15 @@ eve = new Array();
 ​
 ​
  ionViewDidLoad() {
-  var user = this.navParams.get('user');
   this.fetching.length = 0;
   this.firebaseService.getALlGoings().then((data:any) => {
    this.fetching = data;
    console.log(data);
+  }, Error =>{
+   console.log(Error)
   });
   }
   moreinfo(i){
-   this.navCtrl.push(MoreInfoPage, {events:i});
+   this.navCtrl.push(MoreInfoPage, {events:i, color:true});
   }
 }

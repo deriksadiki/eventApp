@@ -34,7 +34,7 @@ export class RegisterPage {
 
   
   reg(){
-    if(this.Users.email == undefined && this.Users.password && this.Users.userName == undefined){
+    if(this.Users.email == undefined && this.Users.password && this.Users.Username == undefined){
       const alert = this.alertCtrl.create({
         title: 'Warning',
         subTitle: ' Please provide your full details to register!',
@@ -58,7 +58,9 @@ export class RegisterPage {
       });
       alert.present();
     }
+
     else if(this.Users.password == undefined){
+
       const alert = this.alertCtrl.create({
         title: 'Wearning',
         subTitle: 'Please enter a password, it cannot be left empty',
@@ -68,7 +70,9 @@ export class RegisterPage {
     }
 
     else {
-      this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.userName).then(() =>{
+
+
+      this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.Username).then(() =>{
         const alert = this.alertCtrl.create({
           title: 'Welcome',
           subTitle: 'You have successfully Registared',
@@ -77,6 +81,7 @@ export class RegisterPage {
         alert.present();
         this.navCtrl.push(TabsPage);
        })
+
     }
   }
 

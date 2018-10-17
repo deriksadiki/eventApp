@@ -4,6 +4,11 @@ import { FirebaseConnectionProvider } from '../../providers/firebase-connection/
 import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
 import { ProfileUpdatePage } from '../profile-update/profile-update';
+import { PopoverController } from 'ionic-angular';
+
+// import { PopoverComponent } from '../../components/popover/popover';
+import { MoreInfoPage } from '../more-info/more-info';
+import { PopOver2Component } from '../../components/pop-over2/pop-over2';
 
 
 
@@ -14,14 +19,27 @@ import { ProfileUpdatePage } from '../profile-update/profile-update';
 export class ContactPage {
   profile = [];
 
-  constructor(public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
+  fetching = new Array();
+
+  constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
+
+
 
   }
 
   ionViewDidLoad(){
     this.firebaseService.getProfile().then((data:any)=>{
       this.profile = data;
+      console.log(this.profile)
     })
+    this.fetching.length = 0;
+    this.firebaseService.getALlGoings().then((data:any) => {
+     this.fetching = data;
+     console.log(data);
+    }, Error =>{
+     console.log(Error)
+
+    });
   }
 
   presentModal(){
@@ -30,32 +48,16 @@ export class ContactPage {
   }
 
 
-  logOut(){
-
-    const confirm = this.alertCtrl.create({
-      title: 'LOGGING OUT!',
-      message: 'Are you sure you want to log out?',
-      buttons: [
-        {
-          text: 'Disagree',
-          handler: () => {
-            console.log('Disagree clicked');
-            this.navCtrl.push(TabsPage);
-          }
-        },
-        {
-          text: 'Agree',
-          handler: () => {
-            console.log('Agree clicked');
-            this.firebaseService.logout();
-            this.navCtrl.push(LoginPage)
-          }
-        }
-      ]
+  Log(event) {
+    const popover = this.popoverCtrl.create(PopOver2Component);
+    popover.present({
+       ev:event
     });
-    confirm.present();
    
   }
-
+ 
+  more(a){
+    this.navCtrl.push(MoreInfoPage, {events:this.fetching[a], color:true});
+  }
 
 }

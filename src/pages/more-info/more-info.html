@@ -1,11 +1,16 @@
 <ion-header *ngFor="let i of event;let i = index">
     <div class="top" [ngStyle] ="{'background-image':color+'url(' + url + ')'}">
    
-    <ion-toolbar color="trans">
+              <button ion-button clear fixed>
               <ion-icon class="back" name="arrow-back" (click)="back()" ></ion-icon>
-            </ion-toolbar>
+           </button>
+            <!-- <div align="right"> -->
+                <button style="color: white" ion-button icon-only clear fixed class="butt" (click)="presentPopover($event)">
+                    <ion-icon class="more" name="md-more" ></ion-icon>
+               </button>
+                <!-- </div> -->
    <div class="phot">
-   <img class="pic" src="{{i.hostimg}}" >
+   <img class="pic" src="{{i.hostimg}}" imageViewer />
    </div>
    <div class="head">
    <h3>{{i.eventName}} </h3>
@@ -32,11 +37,11 @@
           <ion-icon class="i" name="md-heart" outline (click)="going()"></ion-icon>
       </ion-col>
    
-      <ion-col>
+      <!-- <ion-col>
               <ion-label class="lab">2k</ion-label>
-          <!-- <ion-icon class="icons" name="thumbs-down"></ion-icon> -->
+
           <ion-icon class="i" name="md-thumbs-up"></ion-icon>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
    </ion-grid>
 
@@ -63,11 +68,11 @@
               </ion-item>
    
             <ion-item>
-               <ion-thumbnail item-start>
-               <ion-icon class="ic" name="md-clock"></ion-icon>
+              <ion-thumbnail item-start>
+                    <ion-icon class="ic" name="md-clock"></ion-icon>
               </ion-thumbnail>
-               <p>Event Time</p>
-           <h2>{{i.startTIme}} - {{i.endTIme}}</h2>
+              <p>Event Time</p>
+              <h2>{{i.startTIme}} - {{i.endTIme}}</h2>
             </ion-item>
    
        <ion-item>
@@ -82,14 +87,14 @@
                  <!-- <h4><p>Photos</p></h4>  -->
    </ion-card-content>
    
-   <ion-fab class="fabi" right end fixed>
+   <!-- <ion-fab class="fabi" right end fixed>
       <button class="faba" ion-fab color="nav" ><ion-icon class="if" name="arrow-dropleft"></ion-icon></button>
       <ion-fab-list side="left" >
         <button color="dark" ion-fab><ion-icon name="md-locate" (click)="navigate(i.location)"></ion-icon></button>
         <button color="dark" ion-fab><ion-icon name="md-share" (click)="share(i)"></ion-icon></button>
         <button color="dark" ion-fab><ion-icon name="md-text" (click)="comment()"></ion-icon></button>
-        <!-- <button  color="dark" ion-fab><ion-icon name="md-log-out" (click)="logOut()"></ion-icon></button> -->
+        <button  color="dark" ion-fab><ion-icon name="md-log-out" (click)="logOut()"></ion-icon></button>
       </ion-fab-list>
-    </ion-fab>
+    </ion-fab> -->
    </ion-content>
 

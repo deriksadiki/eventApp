@@ -7,6 +7,7 @@ import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
 import {RegisterBusinessPage} from '../business/register-business/register-business'
 import { BusinessHomePage } from '../business/business-home/business-home';
+// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
 
@@ -19,6 +20,7 @@ import { BusinessHomePage } from '../business/business-home/business-home';
 export class LoginPage {
   logging = {} as login;
   constructor(public navCtrl: NavController, public navParams: NavParams, private firebaseService: FirebaseConnectionProvider, public alertCtrl:AlertController,public loadingCtrl:LoadingController) {
+
   }
 
   ionViewDidLoad() {

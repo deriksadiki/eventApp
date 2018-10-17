@@ -18,6 +18,7 @@ import { removeDebugNodeFromIndex } from '@angular/core/src/debug/debug_node';
 })
 export class MyApp {
 
+
 public rootPage:any ;
 newEvents =  new Array();
 
@@ -31,17 +32,18 @@ newEvents =  new Array();
 
      splashScreen.hide();
      fire.getUserSatate().then( data =>{
-       this.pushNotification();
     if (data == 1){
-    fire.getuser();
+      console.log('online')
      this.rootPage =  TabsPage;
-     
+     fire.getuser().then(data=>{
+      this.pushNotification();
+     });
     }
-    else if(data == 0){
+   else if(data == 0){
+      console.log('offline')
       this.rootPage = LoginPage;
     }
      })
-
    });
  }
 
@@ -66,4 +68,3 @@ newEvents =  new Array();
    })
  }
 }
-

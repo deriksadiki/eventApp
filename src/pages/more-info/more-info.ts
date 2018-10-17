@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController, ToastController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { AboutPage } from '../about/about';
-
+import { PopoverController } from 'ionic-angular';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import {CommentsPage}  from '../comments/comments';
 import { TabsPage } from '../tabs/tabs';
+import { PopoverComponent } from '../../components/popover/popover';
 
 @IonicPage()
 @Component({
@@ -17,27 +19,39 @@ export class MoreInfoPage {
 event = new Array();
 plus;
 url =   '../../assets/imgs/Spring-Fi.jpg';
-color='linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,20)),';
+color='linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,20)),';
 gatefee;
-
-
 go;
-state = false;
 buttonActive: boolean =  false;
-color2 = "light";
+color2 = "light"
+pet;
+colorState = "light";
+state = this.navParams.get('color')
 
-
-
-  constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
+  constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
   }
 
 ionViewDidLoad() {
+  this.event.length = 0;
   this.event.push(this.navParams.get('events'))
   console.log(this.event )
   this.go =    this.event[0].going;
   this.url = this.event[0].img;
   this.gatefee = parseInt(this.event[0].fee ) + 100;
   // this.pet = 'kittens'
+  this.firebaseService.getColourState(this.event[0].key).then(data =>{
+    console.log(data)
+    if (data == "found"){
+      this.colorState = "danger";
+    }
+    else if (data == "not found"){
+      this.colorState = "light";
+    }
+  })
+  if (this.state == true){
+    this.colorState = "danger";
+  }
+  console.log(this.colorState)
   }
 
   navigate = function(i){
@@ -53,17 +67,33 @@ ionViewDidLoad() {
     });
   }
   going(){
-    this.firebaseService.Goings(this.event[0].eventName,this.event[0].desc,this.event[0].start,this.event[0].end,this.event[0].date,this.event[0].location,this.event[0].img,this.event[0].amount)
-    const toast = this.toastCtrl.create({
-     message: 'Event of your choice has been added to your calender',
-     duration: 3000
-   });
-   toast.present();
+    if (this.colorState == "danger"){
+      this.firebaseService.removeFromFav(this.event[0].key).then(data =>{
+        console.log(data);
+        const toast = this.toastCtrl.create({
+          message: 'The event has been removed from your calendar',
+          duration: 3000
+        });
+        toast.present();
+      }  , Error =>{
+        console.log(Error.message)
+      })
+      this.colorState = "light";
+    }
+    else if (this.colorState == "light"){
+      this.firebaseService.Goings(this.event[0].hostname,this.event[0].key)
+      const toast = this.toastCtrl.create({
+       message: 'The event has been added to your calendar',
+       duration: 3000
+     });
+     toast.present();
+      this.colorState = "danger";
+    }
+   
    }
   
   comment(){
   this.navCtrl.push(CommentsPage, {eventObject:this.event});
-
 }
 back(){
   this.navCtrl.pop();
@@ -95,4 +125,10 @@ logOut(){
  
 }
 
+presentPopover(event) {
+  const popover = this.popoverCtrl.create(PopoverComponent);
+  popover.present({
+     ev:event
+  });
+}
 }
