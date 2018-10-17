@@ -5,6 +5,7 @@ import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { LoginPage } from '../login/login';
 import {BusinessHomePage} from '../business/business-home/business-home'
+// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
 
@@ -52,10 +53,7 @@ export class HomePage {
      }
 
 
-pager = [
-  {color:"red"}
-  
-]
+
 
 viewMore(i){
 this.navCtrl.push(MoreInfoPage, {events:i});

@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController, ToastController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { AboutPage } from '../about/about';
+import { PopoverController } from 'ionic-angular';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import {CommentsPage}  from '../comments/comments';
 import { TabsPage } from '../tabs/tabs';
-import { TitleCasePipe } from '@angular/common';
+import { PopoverComponent } from '../../components/popover/popover';
 
 @IonicPage()
 @Component({
@@ -17,7 +19,7 @@ export class MoreInfoPage {
 event = new Array();
 plus;
 url =   '../../assets/imgs/Spring-Fi.jpg';
-color='linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,20)),';
+color='linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,20)),';
 gatefee;
 go;
 buttonActive: boolean =  false;
@@ -26,7 +28,7 @@ pet;
 colorState = "light";
 state = this.navParams.get('color')
 
-  constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
+  constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
   }
 
 ionViewDidLoad() {
@@ -35,6 +37,8 @@ ionViewDidLoad() {
   console.log(this.event )
   this.go =    this.event[0].going;
   this.url = this.event[0].img;
+  this.gatefee = parseInt(this.event[0].fee ) + 100;
+  // this.pet = 'kittens'
   this.firebaseService.getColourState(this.event[0].key).then(data =>{
     console.log(data)
     if (data == "found"){
@@ -95,4 +99,36 @@ back(){
   this.navCtrl.pop();
 }
 
+logOut(){
+
+  const confirm = this.alertCtrl.create({
+    title: 'LOGGING OUT!',
+    message: 'Are you sure you want to log out?',
+    buttons: [
+      {
+        text: 'Disagree',
+        handler: () => {
+          console.log('Disagree clicked');
+          this.navCtrl.push(TabsPage);
+        }
+      },
+      {
+        text: 'Agree',
+        handler: () => {
+          console.log('Agree clicked');
+          this.firebaseService.logout();
+        }
+      }
+    ]
+  });
+  confirm.present();
+ 
+}
+
+presentPopover(event) {
+  const popover = this.popoverCtrl.create(PopoverComponent);
+  popover.present({
+     ev:event
+  });
+}
 }
