@@ -39,6 +39,7 @@ newEvents =  new Array();
       this.pushNotification();
      });
     }
+
    else if(data == 0){
       console.log('offline')
       this.rootPage = LoginPage;

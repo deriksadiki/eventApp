@@ -64,7 +64,6 @@ constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertControl
 
   comment(){
   this.navCtrl.push(CommentsPage, {eventObject:this.event});
-
 }
 
 

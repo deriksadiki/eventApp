@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+
 import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 import { Update } from '../../Modals/userUpdate';
+
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { TabsPage } from '../tabs/tabs';
 import { ContactPage } from '../contact/contact';
@@ -22,12 +24,14 @@ declare var firebase;
 })
 export class ProfileUpdatePage {
 
+
   update = {} as Update
   getProfile = []
   profile;
 
   constructor(public loadingCtrl:LoadingController,private fire: FirebaseConnectionProvider,public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
     
+
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfileUpdatePage');
@@ -36,6 +40,7 @@ export class ProfileUpdatePage {
        this.getProfile = data;
        this.pic =  this.getProfile[0].img;
        this.profile = this.getProfile[0].username;
+
     })
   }
 
@@ -43,7 +48,9 @@ export class ProfileUpdatePage {
     this.viewCtrl.dismiss();
   }
 
+
   pic;
+
 
   picInsert(event:any){
     if(event.target.files && event.target.files[0]){
@@ -72,10 +79,8 @@ export class ProfileUpdatePage {
           loading.dismiss();
         });
       })
-  }
-    
-  
-  //presentPopover(event) {
+    }
+  // presentPopover(event) {
   //   const popover = this.popoverCtrl.create(PopOver2Component);
   //   popover.present({
   //      ev:event
