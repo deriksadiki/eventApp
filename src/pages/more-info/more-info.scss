@@ -9,6 +9,7 @@ page-more-info {
     }
     .dash{
         // position: relative;
+        position: absolute;
         margin-top: 65%;
         background-image:linear-gradient(rgba(0, 0, 0, 0.815),#7a4579), url('../../assets/imgs/people.jpg');
 // opacity: 0.90;
@@ -137,10 +138,7 @@ page-more-info {
         text-transform: capitalize;
         
     }
-    .dash{
-        position: absolute; 
-      
-    }
+    
     .content{
         margin-top: 38px;
     }

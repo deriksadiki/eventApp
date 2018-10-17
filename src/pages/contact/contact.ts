@@ -55,7 +55,9 @@ export class ContactPage {
     });
    
   }
- 
+ Update(){
+   this.navCtrl.push(ProfileUpdatePage);
+ }
   more(a){
     this.navCtrl.push(MoreInfoPage, {events:this.fetching[a], color:true});
   }
