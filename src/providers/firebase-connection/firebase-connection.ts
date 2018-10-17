@@ -468,5 +468,4 @@ storePictureUrl(url){
 
 
 
-
 }

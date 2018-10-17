@@ -79,7 +79,9 @@ export class ProfileUpdatePage {
           loading.dismiss();
         });
       })
+
     }
+
   // presentPopover(event) {
   //   const popover = this.popoverCtrl.create(PopOver2Component);
   //   popover.present({
@@ -87,3 +89,4 @@ export class ProfileUpdatePage {
   //   });
   // }
 }
+
