@@ -26,7 +26,7 @@ export class FirebaseConnectionProvider {
   profile = new Array();
   currentUserID;
   defaultImages = ['../../assets/imgs/pic.jpg','../../assets/imgs/pic23.jpg','../../assets/imgs/pic24.jpg', '../../assets/imgs/pic22.jpg','../../assets/imgs/pic25.jpg']
-  constructor(private camera:Camera,public loadingCtrl: LoadingController) {
+  constructor(public loadingCtrl: LoadingController) {
   }
 
   registerUser(email,password,Username){
@@ -465,20 +465,20 @@ storePictureUrl(url){
   this.imgUrl = url;
 }
 
-async uploadpic(){
-  const options: CameraOptions= {
-  quality : 100,
-  targetWidth: 600,
-  targetHeight: 600,
-  destinationType: this.camera.DestinationType.DATA_URL,
-  encodingType: this.camera.EncodingType.JPEG,
-  mediaType: this.camera.MediaType.PICTURE,
-  correctOrientation: true
-  }
-    const results = await this.camera.getPicture(options);
-    this.img = `data:image/jpeg;base64,${results}`;
-    return this.img;
-}
+// async uploadpic(){
+//   const options: CameraOptions= {
+//   quality : 100,
+//   targetWidth: 600,
+//   targetHeight: 600,
+//   destinationType: this.camera.DestinationType.DATA_URL,
+//   encodingType: this.camera.EncodingType.JPEG,
+//   mediaType: this.camera.MediaType.PICTURE,
+//   correctOrientation: true
+//   }
+//     const results = await this.camera.getPicture(options);
+//     this.img = `data:image/jpeg;base64,${results}`;
+//     return this.img;
+// }
 
 
 

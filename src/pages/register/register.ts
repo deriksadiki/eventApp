@@ -43,7 +43,7 @@ export class RegisterPage {
       alert.present();
     }
 
-    else if(this.Users.userName == undefined){
+    else if(this.Users.Username == undefined){
 
       const alert = this.alertCtrl.create({
         title: 'Wearning',
