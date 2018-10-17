@@ -46,7 +46,7 @@ export class RegisterPage {
     else if(this.Users.Username == undefined){
 =======
 
-    else if(this.Users.userName == undefined){
+    else if(this.Users.Username == undefined){
 
 >>>>>>> 62248d6ec0f1c818a1da3872a0bc025fc69846d8
       const alert = this.alertCtrl.create({
