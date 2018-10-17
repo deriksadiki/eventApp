@@ -14,7 +14,6 @@ import { PopOver2Component } from '../../components/pop-over2/pop-over2';
 
 
 
-
 @Component({
   selector: 'page-contact',
   templateUrl: 'contact.html'
@@ -54,7 +53,6 @@ export class ContactPage {
 
   Log(event) {
     const popover = this.popoverCtrl.create(PopOver2Component);
-
     popover.present({
        ev:event
     });

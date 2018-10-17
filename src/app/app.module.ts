@@ -25,8 +25,6 @@ import { MyPopOverPage } from '../pages/my-pop-over/my-pop-over';
 import { PopoverComponent } from '../components/popover/popover';
 import { IonicImageViewerModule, ImageViewerComponent } from 'ionic-img-viewer';
 import { PopOver2Component } from '../components/pop-over2/pop-over2';
-import { Camera } from '@ionic-native/camera';
-
 
 @NgModule({
   declarations: [
@@ -88,8 +86,7 @@ import { Camera } from '@ionic-native/camera';
 
     SocialSharing,
     LaunchNavigator,
-    LocalNotifications,
-    Camera
+    LocalNotifications
   ]
 })
 export class AppModule{}

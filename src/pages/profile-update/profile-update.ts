@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
-import {Camera,CameraOptions} from '@ionic-native/camera';
 import { Update } from '../../Modals/userUpdate';
 
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
