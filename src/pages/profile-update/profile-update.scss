@@ -1,11 +1,13 @@
 page-profile-update {
+
+
     .thenav{
         background-image:linear-gradient(rgba(0, 0, 0, 0.473),#7a4579), url('../../assets/imgs/people.jpg');
         // background-attachment: fixed;
         // // background-size: cover;
         // background-repeat: no-repeat;
         // background-position: center;
-        height: 320px;
+        height: 330px;
     }
     .back{
         color: whitesmoke;
@@ -15,11 +17,17 @@ page-profile-update {
         margin-bottom: 20px;
        margin-top: 20px;
     }
-
     .name{
         box-shadow: 2px 3px 4px;
         margin-left: 20px;
         padding-right: 20px;
         width: 90%;
+    }
+
+    .pic2{
+        max-height: 30vh;
+        width: 70%;
+        margin-top: 10%;
+        border-radius: 120%;
     }
 }
