@@ -53,13 +53,14 @@ page-contact {
     }
       
     .pic{
-   height: 200px;
-    width: 130px;
+    height: 30vh;
+    width: 80%;
     top: 30px;
     }
+
       .pics{
           border: 2px solid blue;
-      }      // border: solid 3px rgb(255, 255, 255);
+      } 
 .dash{
     background-color: rgba(53, 52, 52, 0.555);
     color: white;
@@ -69,7 +70,7 @@ page-contact {
     // bottom: 40px;
 }
 .space{
-    height: 100px;
+    height: 30vh;
     position: relative;
     bottom: 4px;
     font-size: 15px;
