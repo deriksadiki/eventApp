@@ -42,14 +42,16 @@ export class RegisterPage {
       });
       alert.present();
     }
-      else if(this.Users.Username == undefined){
-        const alert = this.alertCtrl.create({
-          title: 'Wearning',
-          subTitle: 'Please enter a Username, it cannot be left empty',
-          buttons: ['OK']
-        });
-        alert.present();
-      }
+
+    else if(this.Users.userName == undefined){
+
+      const alert = this.alertCtrl.create({
+        title: 'Wearning',
+        subTitle: 'Please enter a Username, it cannot be left empty',
+        buttons: ['OK']
+      });
+      alert.present();
+    }
     else if(this.Users.email ==undefined){
       const alert = this.alertCtrl.create({
         title: 'Wearning',
@@ -58,7 +60,10 @@ export class RegisterPage {
       });
       alert.present();
     }
+
+
     else if(this.Users.password == undefined){
+
       const alert = this.alertCtrl.create({
         title: 'Wearning',
         subTitle: 'Please enter a password, it cannot be left empty',
@@ -66,7 +71,7 @@ export class RegisterPage {
       });
       alert.present();
     }
-    
+
 
     else {
 
@@ -78,7 +83,8 @@ export class RegisterPage {
           buttons: ['OK']
         });
         alert.present();
-        this.navCtrl.setRoot(TabsPage)
+
+        this.navCtrl.push(TabsPage);
 
        })
 

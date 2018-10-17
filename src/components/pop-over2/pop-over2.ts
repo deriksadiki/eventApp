@@ -19,11 +19,11 @@ import { ContactPage } from '../../pages/contact/contact';
 })
 export class PopOver2Component {
 
-  text: string;
+  text1: string;
 
   constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
     console.log('Hello PopOver2Component Component');
-    this.text = 'Log-Out';
+    this.text1 = 'Log-Out'
   }
 
   logOut(){

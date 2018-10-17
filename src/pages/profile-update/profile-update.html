@@ -7,7 +7,6 @@
 <ion-header>
   <div class="thenav">
   <ion-navbar color="trans">
-   
     <ion-buttons end>
     <button end ion-button  style="color: white" clear (click)="dismiss()">Back
         <span ion-text color="primary" showWhen="ios"></span>
@@ -15,30 +14,26 @@
     </button>
    </ion-buttons>
   </ion-navbar>
-  <div *ngFor="let i of profile" class="phot" align="center">
+  <div *ngFor="let i of getProfile"  align="center">
     <ion-avatar>
-      <img class="pic1" src='{{i.img}}'>
+      <img class="pic2" src="{{pic}}">
     </ion-avatar>
-    <br>
-    <br>
-    <h1>{{i.username}}</h1>
   </div>
-</div>
 </ion-header>
-
-
+  
 <ion-content >
 <ion-list>
-    <ion-item class="name" no-lines>
+    <ion-item class="name" *ngFor="let i of getProfile" class="item" no-lines  >
         <ion-label><ion-icon name="profile"  color="primary"></ion-icon></ion-label>
-      <ion-input type="text" placeholder="New Username" [(ngModel)]="update.userName" ></ion-input>
+      <ion-input type="text" placeholder="New Username" [(ngModel)]="profile" ></ion-input>
    </ion-item>
 <br>
    <ion-item>
-     <input type="file" (change)="uploadPic($event)">
+     <input accept="image/png image/jpeg" type="file" (change)="picInsert($event)">
    </ion-item>
 </ion-list>
 
-<button ion-button (click)="saveData()">Update</button>
-
+<div align = "center">
+<button color = "nav" ion-button (click)="saveData()">Update</button>
+</div>
 </ion-content>
