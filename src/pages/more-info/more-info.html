@@ -1,4 +1,5 @@
 <ion-header *ngFor="let i of event;let i = index">
+
     <div class="top" [ngStyle] ="{'background-image':color+'url(' + url + ')'}">
    
               <button ion-button clear fixed>
@@ -67,6 +68,7 @@
                 <h2>{{i.date}} - {{i.enddate}}</h2>
               </ion-item>
    
+
             <ion-item>
               <ion-thumbnail item-start>
                     <ion-icon class="ic" name="md-clock"></ion-icon>
@@ -74,6 +76,7 @@
               <p>Event Time</p>
               <h2>{{i.startTIme}} - {{i.endTIme}}</h2>
             </ion-item>
+
    
        <ion-item>
          <ion-thumbnail item-start>
@@ -97,4 +100,5 @@
       </ion-fab-list>
     </ion-fab> -->
    </ion-content>
+
 
