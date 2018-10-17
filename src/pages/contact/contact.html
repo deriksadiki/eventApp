@@ -3,7 +3,7 @@
     <div class="thenav">
   
       <ion-navbar color="trans"  > 
-          <div class="B">
+          <!-- <div class="B">
               <button style="color: white" ion-button icon-only clear item-end  (click)="Log($event)" >
                      <ion-icon class="more" name="md-more"></ion-icon>
               </button>
@@ -11,9 +11,16 @@
   
   
             <div class="B2">
-                <ion-icon class="back" name="md-create"(click) = "Update()" ></ion-icon>
-          </div>
+                <ion-icon class="back" name="md-create"(click) = "presentModal()" ></ion-icon>
+          </div> -->
 
+          <button ion-button clear fixed>
+            <ion-icon class="back" name="md-create" (click)="presentModal()" ></ion-icon>
+         </button>
+          <!-- <div align="right"> -->
+              <button ion-button clear fixed class="butt" (click)="Log($event)">
+                  <ion-icon class="more" name="md-more" ></ion-icon>
+             </button>
       </ion-navbar>
   
   

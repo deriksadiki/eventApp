@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as moment from 'moment'
 import { LoadingController } from 'ionic-angular';
 import { unescapeIdentifier } from '@angular/compiler';
-
+import { Camera, CameraOptions } from '@ionic-native/camera';
 declare var firebase;
 @Injectable()
 export class FirebaseConnectionProvider {

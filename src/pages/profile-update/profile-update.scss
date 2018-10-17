@@ -12,21 +12,26 @@ page-profile-update {
     .back{
         color: whitesmoke;
     }
-    .item{
-        // box-shadow: 1px 3px 2px;
-        margin-bottom: 20px;
-       margin-top: 20px;
-    }
-    .name{
-        box-shadow: 2px 3px 4px;
-        margin-left: 20px;
-        padding-right: 20px;
-        width: 90%;
+    // .item{
+    //     // box-shadow: 1px 3px 2px;
+    //     margin-bottom: 20px;
+    //    margin-top: 20px;
+    
+    // }
+   .itemi{
+       box-shadow:1px 2px 3px;
+       width: 95%;
+    //    margin: 10px;
+       margin-top: 30px;
+       left: 10px;
+}
+    .upload{
+        margin-top: 60px;
     }
 
     .pic2{
         max-height: 30vh;
-        width: 70%;
+        width: 30%;
         margin-top: 10%;
         border-radius: 120%;
     }

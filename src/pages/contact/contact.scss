@@ -1,36 +1,35 @@
 page-contact {
     .B{ 
-        
+        position: relative;
         top: 150%;
         margin-left: 90%;
     }
     .B2{
         position: relative;
-        margin-bottom: 180%;
+        margin-bottom: 130%;
 
         margin-right: 80%;
    
     }
     .back{
-       
         font-size: 250%;
         color:whitesmoke;
-
-   margin-bottom: 50px;
-        margin-left: 4px;
-
+        margin-left: 10px;
+        position: relative;
+        
+    }
+    .butt{
+        float: left;
+        margin-left: 90%;
+        bottom: 50px;
+        // position: relative;
     }
     .more{
-        position: relative;
         font-size: 250%;
-    
+        color:whitesmoke;
+      
     }
-    // .phot{
-    //     background-image: url('../../assets/imgs/color.jpg');
-    //     background-size: cover;
-    //     position: relative;
-    //   bottom: 65px ;
-    // }
+  
     .pic1{
         height: 130px;
         width: 130px;
@@ -105,10 +104,7 @@ h1{
 }
 .thenav{
     background-image:linear-gradient(rgba(0, 0, 0, 0.514),#7a4579), url('../../assets/imgs/people.jpg');
-    // background-attachment: fixed;
-    // // background-size: cover;
-    // background-repeat: no-repeat;
-    // background-position: center;
+   
     height: 320px;
 }
 .titles{
