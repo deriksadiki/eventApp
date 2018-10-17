@@ -39,12 +39,11 @@ newEvents =  new Array();
       this.pushNotification();
      });
     }
-    else{
+   else if(data == 0){
       console.log('offline')
       this.rootPage = LoginPage;
     }
      })
-
    });
  }
 

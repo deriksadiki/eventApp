@@ -6,7 +6,6 @@ import { PopoverController } from 'ionic-angular';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-
 import {CommentsPage}  from '../comments/comments';
 import { TabsPage } from '../tabs/tabs';
 import { PopoverComponent } from '../../components/popover/popover';
@@ -38,6 +37,8 @@ ionViewDidLoad() {
   console.log(this.event )
   this.go =    this.event[0].going;
   this.url = this.event[0].img;
+  this.gatefee = parseInt(this.event[0].fee ) + 100;
+  // this.pet = 'kittens'
   this.firebaseService.getColourState(this.event[0].key).then(data =>{
     console.log(data)
     if (data == "found"){
