@@ -26,10 +26,10 @@ export class PopoverComponent {
   text4: string;
 items:any;
 event = new Array();
-gatefee;
-url =   '../../assets/imgs/Spring-Fi.jpg';
-pet;
-go;
+// gatefee;
+// url =   '../../assets/imgs/Spring-Fi.jpg';
+// pet;
+// go;
 constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
   this.text1 = 'Share'
   this.text2 = 'Location'

@@ -10,7 +10,7 @@ page-more-info {
     .dash{
         // position: relative;
         margin-top: 65%;
-        background-image:linear-gradient(rgba(0,0,0,0.5),#7a4579), url('../../assets/imgs/people.jpg');
+        background-image:linear-gradient(rgba(0, 0, 0, 0.815),#7a4579), url('../../assets/imgs/people.jpg');
 // opacity: 0.90;
     //    background:linear-gradient(rgba(231, 227, 227, 0),rgba(87, 2, 95, 0.322),#7b298a);
     //    background-color: #d33e55;
@@ -37,13 +37,13 @@ page-more-info {
         font-size: 250%;
         color:whitesmoke;
         margin-left: 10px;
-        // position: relative;
+        position: relative;
         
     }
     .butt{
         float: left;
-        margin-left: 88%;
-        bottom: 55px;
+        margin-left: 90%;
+        bottom: 50px;
         // position: relative;
     }
     .more{
@@ -90,7 +90,7 @@ page-more-info {
     }
     .lab{
     position: absolute;
-    margin-left: 110px;
+    margin-left: 150px;
     color: whitesmoke;
     }
     // button.faba{
@@ -143,5 +143,14 @@ page-more-info {
     }
     .content{
         margin-top: 38px;
+    }
+    @media (min-with:600px){
+        .dash{
+            // position: relative;
+           font-size: 1em;
+           margin-top:20%;
+           padding: 50px;
+           
+        }
     }
     }

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController, ToastController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { AboutPage } from '../about/about';
-<<<<<<< HEAD
 import { PopoverController } from 'ionic-angular';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { SocialSharing } from '@ionic-native/social-sharing';
@@ -11,13 +10,6 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import {CommentsPage}  from '../comments/comments';
 import { TabsPage } from '../tabs/tabs';
 import { PopoverComponent } from '../../components/popover/popover';
-=======
-import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
-import { SocialSharing } from '@ionic-native/social-sharing';
-import {CommentsPage}  from '../comments/comments';
-import { TabsPage } from '../tabs/tabs';
-import { TitleCasePipe } from '@angular/common';
->>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
 
 @IonicPage()
 @Component({
@@ -28,7 +20,7 @@ export class MoreInfoPage {
 event = new Array();
 plus;
 url =   '../../assets/imgs/Spring-Fi.jpg';
-color='linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,20)),';
+color='linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,20)),';
 gatefee;
 go;
 buttonActive: boolean =  false;
@@ -106,7 +98,6 @@ back(){
   this.navCtrl.pop();
 }
 
-<<<<<<< HEAD
 logOut(){
 
   const confirm = this.alertCtrl.create({
@@ -139,6 +130,4 @@ presentPopover(event) {
      ev:event
   });
 }
-=======
->>>>>>> 97bd24bb548dc3d9363356b26305d0f959ca24ef
 }
