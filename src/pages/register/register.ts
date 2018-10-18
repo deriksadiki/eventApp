@@ -42,7 +42,17 @@ export class RegisterPage {
       });
       alert.present();
     }
+<<<<<<< HEAD
     else if(this.Users.Username == undefined){
+=======
+<<<<<<< HEAD
+    else if(this.Users.Username == undefined){
+=======
+
+    else if(this.Users.Username == undefined){
+
+>>>>>>> 62248d6ec0f1c818a1da3872a0bc025fc69846d8
+>>>>>>> 8955f5060cb0a29715def1d7aebd2b0ff400194c
       const alert = this.alertCtrl.create({
         title: 'Wearning',
         subTitle: 'Please enter a Username, it cannot be left empty',
@@ -59,6 +69,7 @@ export class RegisterPage {
       alert.present();
     }
 
+
     else if(this.Users.password == undefined){
 
       const alert = this.alertCtrl.create({
@@ -68,6 +79,7 @@ export class RegisterPage {
       });
       alert.present();
     }
+
 
     else {
 
@@ -79,7 +91,9 @@ export class RegisterPage {
           buttons: ['OK']
         });
         alert.present();
+
         this.navCtrl.push(TabsPage);
+
        })
 
     }

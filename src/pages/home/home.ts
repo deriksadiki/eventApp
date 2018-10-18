@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MoreInfoPage } from '../more-info/more-info';
-import { NavController, AlertController, NavParams} from 'ionic-angular';
+import { NavController, AlertController, NavParams, LoadingController} from 'ionic-angular';
 import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { LoginPage } from '../login/login';
@@ -22,17 +22,22 @@ export class HomePage {
 
   Users = {} as User;
   plus;
-  constructor( public navCtrl: NavController,public navParams: NavParams ,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider){
-    // ​this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController,public navParams: NavParams ,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider){
+
   }
   ionViewDidLoad() {
+      let loading = this.loadingCtrl.create({
+        spinner: 'bubbles',
+        content: 'Please Wait.',
+        duration: 12000
+      });
+  
+      loading.present();
     this.fetching.length = 0;
     var user = this.navParams.get('user');
     this.firebaseService.getAlldata().then((data:any) => {
       this.fetching = data;
       var length =  this.fetching.length;
-      var track = 0;
-      var index = 0;
       for (var x = length - 5; x < length; x++){
         if (this.fetching[x] != undefined){
           this.fetchingRecentlyAdded.push(this.fetching[x])
@@ -43,6 +48,7 @@ export class HomePage {
           this.fetchingUpcoming.push(this.fetching[x])
         }
       }
+      loading.dismiss()
     });
      }
 
