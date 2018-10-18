@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import {LaunchNavigator} from '@ionic-native/launch-navigator'
 import {LocalNotifications} from '@ionic-native/local-notifications'
+
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -20,7 +21,6 @@ import { LoginPage } from '../pages/login/login';
 import { CommentsPage } from '../pages/comments/comments';
 import { RegisterPage } from '../pages/register/register'
 import { ProfileUpdatePage } from '../pages/profile-update/profile-update';
-import {Camera} from '@ionic-native/camera'
 import { MyPopOverPage } from '../pages/my-pop-over/my-pop-over';
 import { PopoverComponent } from '../components/popover/popover';
 import { IonicImageViewerModule, ImageViewerComponent } from 'ionic-img-viewer';
@@ -81,7 +81,6 @@ import { PopOver2Component } from '../components/pop-over2/pop-over2';
   providers: [
     StatusBar,
     SplashScreen,
-    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseConnectionProvider,
 
