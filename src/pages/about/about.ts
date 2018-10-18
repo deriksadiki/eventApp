@@ -27,9 +27,15 @@ eve = new Array();
 ​
 ​
  ionViewDidLoad() {
+
   this.fetching.length = 0;
   this.firebaseService.getALlGoings().then((data:any) => {
-   this.fetching = data;
+    if(data == null || data == undefined){
+      alert("There are no events that you have selected!")
+    }
+    else{
+      this.fetching = data;
+    }
    console.log(data);
   }, Error =>{
    console.log(Error)
