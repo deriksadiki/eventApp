@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, ViewController, AlertController, T
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { AboutPage } from '../about/about';
 
-import { PopoverController } from 'ionic-angular';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
