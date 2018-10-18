@@ -30,8 +30,12 @@
    </ion-item>
 <br>
    <ion-item class="upload">
-     <input accept="image/png image/jpeg" type="file" (change)="picInsert($event)">
-   </ion-item>
+     <button class="butt" ion-button color="nav">
+     <ion-icon name="camera" color = "primary">
+     <input accept="image/png image/jpeg" type="file" (change)="picInsert($event)"/>
+    </ion-icon>
+  </button>
+    </ion-item>
 </ion-list>
 
 <div align = "center">
