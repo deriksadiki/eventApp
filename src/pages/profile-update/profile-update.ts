@@ -79,14 +79,9 @@ export class ProfileUpdatePage {
           loading.dismiss();
         });
       })
-<<<<<<< HEAD
-  }
-  
-=======
 
     }
 
->>>>>>> 8955f5060cb0a29715def1d7aebd2b0ff400194c
   // presentPopover(event) {
   //   const popover = this.popoverCtrl.create(PopOver2Component);
   //   popover.present({
