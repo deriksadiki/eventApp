@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as moment from 'moment'
 import { LoadingController } from 'ionic-angular';
 import { unescapeIdentifier } from '@angular/compiler';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+
 declare var firebase;
 @Injectable()
 export class FirebaseConnectionProvider {
@@ -26,7 +26,7 @@ export class FirebaseConnectionProvider {
   profile = new Array();
   currentUserID;
   defaultImages = ['../../assets/imgs/pic.jpg','../../assets/imgs/pic23.jpg','../../assets/imgs/pic24.jpg', '../../assets/imgs/pic22.jpg','../../assets/imgs/pic25.jpg']
-  constructor(private camera:Camera,public loadingCtrl: LoadingController) {
+  constructor(public loadingCtrl: LoadingController) {
   }
 
   registerUser(email,password,Username){
@@ -89,35 +89,37 @@ uploadPic(username){
       this.fetch.length = 0;
       var user = firebase.auth().currentUser;
       this.database.ref('goings/' + user.uid).on('value', (data: any) => {
-        if (data.val() != undefined){
+        if (data.val() != undefined || data.val() != null){
           var events =  data.val();
           var eventKeys = Object.keys(events);
           for (var i = 0; i < eventKeys.length; i++){
             var favEventKey = eventKeys[i];
             this.database.ref('events/' + events[favEventKey].hostname + '/' + events[favEventKey].key).on('value', (data2: any) => {
-              var fav = data2.val();
-              console.log(fav.endTIme)
-                    let obj = {
-                      endTIme: fav.endTIme,
-                      eventDesc: fav.eventDesc,
-                      eventName: fav.eventName,
-                      fee: fav.fee,
-                      img: fav.img,
-                      location: fav.location,
-                      startTIme: fav.startTIme,
-                      date: moment(fav.date).format('MMM Do, YYYY'),
-                      hostimg : fav.hostImg,
-                      key : favEventKey,
-                      hostname : events[favEventKey].hostname,
-                      enddate : moment(fav.endDate).format('MMM Do, YYYY')
-                    }
-                    this.fetch.push(obj)
-                  console.log(this.fetch)
-                  accept(this.fetch);
+                var fav = data2.val();
+                let obj = {
+                  endTIme: fav.endTIme,
+                  eventDesc: fav.eventDesc,
+                  eventName: fav.eventName,
+                  fee: fav.fee,
+                  img: fav.img,
+                  location: fav.location,
+                  startTIme: fav.startTIme,
+                  date: moment(fav.date).format('MMM Do, YYYY'),
+                  hostimg : fav.hostImg,
+                  key : favEventKey,
+                  hostname : events[favEventKey].hostname,
+                  enddate : moment(fav.endDate).format('MMM Do, YYYY')
+                }
+                this.fetch.push(obj)
+              console.log(this.fetch)
+              accept(this.fetch);  
             }, Error =>{
               reject(Error.message);
             })  
           }
+        }
+        else{
+          accept("no data")
         }
       }, Error => {
         reject(Error.message);
@@ -465,20 +467,6 @@ storePictureUrl(url){
   this.imgUrl = url;
 }
 
-async uploadpic(){
-  const options: CameraOptions= {
-  quality : 100,
-  targetWidth: 600,
-  targetHeight: 600,
-  destinationType: this.camera.DestinationType.DATA_URL,
-  encodingType: this.camera.EncodingType.JPEG,
-  mediaType: this.camera.MediaType.PICTURE,
-  correctOrientation: true
-  }
-    const results = await this.camera.getPicture(options);
-    this.img = `data:image/jpeg;base64,${results}`;
-    return this.img;
-}
 
 
 

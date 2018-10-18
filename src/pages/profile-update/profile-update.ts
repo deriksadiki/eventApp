@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
-import {Camera,CameraOptions} from '@ionic-native/camera';
 import { Update } from '../../Modals/userUpdate';
 
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
@@ -80,7 +79,9 @@ export class ProfileUpdatePage {
           loading.dismiss();
         });
       })
+
     }
+
   // presentPopover(event) {
   //   const popover = this.popoverCtrl.create(PopOver2Component);
   //   popover.present({
@@ -88,3 +89,4 @@ export class ProfileUpdatePage {
   //   });
   // }
 }
+

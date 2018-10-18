@@ -9,8 +9,6 @@
                      <ion-icon class="more" name="md-more"></ion-icon>
               </button>
             </div>
-  
-  
             <div class="B2">
                 <ion-icon class="back" name="md-create"(click) = "presentModal()" ></ion-icon>
           </div> -->
@@ -29,7 +27,7 @@
   
       <div *ngFor="let i of profile" class="phot" align="center">
         <ion-avatar>
-          <img class="image" src='{{i.img}}'>
+          <img class="image" src='{{i.img}}' imageViewer>
         </ion-avatar>
         <br>
         <br>

@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController, ToastController, PopoverController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { AboutPage } from '../about/about';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 445d7c038009470bebdc6c2a16d57f8cd54d420d
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import {CommentsPage}  from '../comments/comments';
 import { TabsPage } from '../tabs/tabs';
 import { PopoverComponent } from '../../components/popover/popover';
@@ -134,4 +136,3 @@ presentPopover(event) {
   });
 }
 }
-
