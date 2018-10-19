@@ -99,6 +99,9 @@
     <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
     <allow-navigation href="http://192.168.56.1:8100" />
     <allow-navigation href="http://192.168.1.28:8100" />
+<<<<<<< HEAD
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <allow-navigation href="http://192.168.1.28:8101" />
+=======
+>>>>>>> b87481c9b7af60de3f2e82a33650e873f1ef6a91
 </widget>

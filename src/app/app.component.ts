@@ -20,7 +20,7 @@ import { TestPage } from '../pages/test/test';
 export class MyApp {
 
 
-public rootPage:any;
+ rootPage:any = TabsPage;
 newEvents =  new Array();
 
 
@@ -32,20 +32,7 @@ newEvents =  new Array();
      statusBar.styleDefault();
 
      splashScreen.hide();
-     fire.getUserSatate().then( data =>{
-    if (data == 1){
-      console.log('online')
-     this.rootPage =  TabsPage;
-     fire.getuser().then(data=>{
-      this.pushNotification();
-     });
-    }
-
-   else if(data == 0){
-      console.log('offline')
-      this.rootPage = LoginPage;
-    }
-     })
+     this.pushNotification();
    });
  }
 
