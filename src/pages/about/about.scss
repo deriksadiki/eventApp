@@ -53,19 +53,12 @@ page-about {
          color: rgb(255, 255, 255);
      }
 
-     .avatars{
-        //  height: 20px;
-     }
-
-     .message{
-         color: rgb(58, 32, 32);
-         font-size: 20px;
-     }
 
      h1{
-         text-align: center;
-         
-     }
-    
-
+        text-align: center;
+        font-weight: 100;
+        color: grey;
+        font-size: 3em;
+        padding-top: 50%;
+    }
 }

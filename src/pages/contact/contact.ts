@@ -36,7 +36,9 @@ export class ContactPage {
     })
     this.fetching.length = 0;
     this.firebaseService.getALlGoings().then((data:any) => {
-     this.fetching = data;
+      if (data != "no data"){
+        this.fetching = data;
+      }
      console.log(data);
     }, Error =>{
      console.log(Error)

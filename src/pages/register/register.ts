@@ -5,6 +5,7 @@ import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
+import { MoreInfoPage } from '../more-info/more-info';
 
 /**
  * Generated class for the RegisterPage page.
@@ -20,12 +21,13 @@ import { LoginPage } from '../login/login';
 })
 export class RegisterPage {
   Users = {} as User;
-
+  event = this.navParams.get('event');
+  action =   this.navParams.get('action2')
   constructor(private firebaseService: FirebaseConnectionProvider,public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+    console.log(this.event);
   }
 
   back(){
@@ -34,6 +36,7 @@ export class RegisterPage {
 
   
   reg(){
+
     if(this.Users.email == undefined && this.Users.password && this.Users.Username == undefined){
       const alert = this.alertCtrl.create({
         title: 'Warning',
@@ -84,7 +87,7 @@ export class RegisterPage {
         });
         alert.present();
 
-        this.navCtrl.push(TabsPage);
+        this.navCtrl.push(MoreInfoPage,{events:this.event, action:this.action});
 
        })
 
