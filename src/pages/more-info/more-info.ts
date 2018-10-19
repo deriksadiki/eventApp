@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController, ToastController, PopoverController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { AboutPage } from '../about/about';
-
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import {CommentsPage}  from '../comments/comments';
 import { TabsPage } from '../tabs/tabs';
 import { PopoverComponent } from '../../components/popover/popover';
@@ -35,7 +33,7 @@ state = this.navParams.get('color')
 ionViewDidLoad() {
   this.event.length = 0;
   this.event.push(this.navParams.get('events'))
-  console.log(this.event )
+  console.log(this.event );
   this.go =    this.event[0].going;
   this.url = this.event[0].img;
   this.gatefee = parseInt(this.event[0].fee ) + 100;
@@ -46,7 +44,7 @@ ionViewDidLoad() {
       this.colorState = "danger";
     }
     else if (data == "not found"){
-      this.colorState = "light";
+      this.colorState = "danger";
     }
   })
   if (this.state == true){
@@ -79,7 +77,7 @@ ionViewDidLoad() {
       }  , Error =>{
         console.log(Error.message)
       })
-      this.colorState = "light";
+      this.colorState = "denger";
     }
     else if (this.colorState == "light"){
       this.firebaseService.Goings(this.event[0].hostname,this.event[0].key)
@@ -134,4 +132,3 @@ presentPopover(event) {
   });
 }
 }
-

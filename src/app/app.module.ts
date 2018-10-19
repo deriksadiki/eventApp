@@ -26,6 +26,7 @@ import { PopoverComponent } from '../components/popover/popover';
 import { IonicImageViewerModule, ImageViewerComponent } from 'ionic-img-viewer';
 import { PopOver2Component } from '../components/pop-over2/pop-over2';
 import { Camera } from '@ionic-native/camera';
+import { SecondPage } from '../pages/second/second';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { Camera } from '@ionic-native/camera';
 
     MyPopOverPage,
     PopoverComponent,
-    PopOver2Component
+    PopOver2Component,
+    SecondPage
 
 
 
@@ -73,7 +75,8 @@ import { Camera } from '@ionic-native/camera';
 
     MyPopOverPage,
     PopoverComponent,
-    PopOver2Component
+    PopOver2Component,
+    SecondPage
 
 
 
