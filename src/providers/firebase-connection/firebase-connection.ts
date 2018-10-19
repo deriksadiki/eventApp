@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment'
+import { LoadingController } from 'ionic-angular';
 import { unescapeIdentifier } from '@angular/compiler';
-
+import { Camera, CameraOptions } from '@ionic-native/camera';
 declare var firebase;
 @Injectable()
 export class FirebaseConnectionProvider {
   database = firebase.database();
   authenticate = firebase.auth();
+  storageRef = firebase.storage();
   state ;
 
   dbRef;
@@ -16,13 +18,15 @@ export class FirebaseConnectionProvider {
   username;
   userKey;
   img;
+  imgUrl;
+  image;
   fetch = new Array();
   comments = new Array();
   newEvents =  new Array();
   profile = new Array();
   currentUserID;
   defaultImages = ['../../assets/imgs/pic.jpg','../../assets/imgs/pic23.jpg','../../assets/imgs/pic24.jpg', '../../assets/imgs/pic22.jpg','../../assets/imgs/pic25.jpg']
-  constructor() {
+  constructor(private camera:Camera,public loadingCtrl: LoadingController) {
   }
 
   registerUser(email,password,Username){
@@ -42,15 +46,33 @@ export class FirebaseConnectionProvider {
     })
   }
 
+  
+uploadPic(username){
+  return new Promise((accpt,rej)=>{
+    
+    this.storageRef.ref('pictures/' + username + ".jgp").putString(this.img,'data_url');
+    accpt("image added to storage")
+  })
+}
 
-  UpdateProfile(Username,img){
+
+
+  UpdateProfile(Username, img){
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Please wait',
+      duration: 17000
+    });
+    loading.present();
     return new Promise ((accpt,rej) =>{
+      var user = firebase.auth().currentUser;
       var path = 'users/' + this.currentUserID + '/' + this.userKey;
       console.log(path)
       this.database.ref(path).update({
         Username: Username,
         img: img
       })
+      loading.dismiss();
       accpt('succes!')
     })
   }
@@ -215,48 +237,45 @@ getAlldata(){
 return new Promise ((accept,reject) => {
 this.fetch.length = 0;
 this.database.ref('events/').on('value', (data: any) => {
-  var users = data.val();
-  var userIDs = Object.keys(users);
-  for(var i = 0; i < userIDs.length;i++){
-    var k2 = userIDs[i];
-    var y = 'events/' + k2;
-    this.database.ref(y).on('value', (data2:any) =>{
-      var events = data2.val();
-      var keys = Object.keys(events);
-      for(var a = 0;a < keys.length;a++){
-        var k = keys[a];
-        let obj = {
-          date: moment(events[k].date).format('MMM Do, YYYY'),
-          endTIme: events[k].endTIme,
-          eventDesc: events[k].eventDesc,
-          eventName: events[k].eventName,
-          fee: events[k].fee,
-          key : k,
-          hostname: k2,
-          img: events[k].img,
-          location: events[k].location,
-          startTIme: events[k].startTIme,
-          going: events[k].going,
-          comments: events[k].comments,
-          hostimg : events[k].hostImg,
-          enddate : moment(events[k].endDate).format('MMM Do, YYYY')
+  if (data.val() != undefined){
+    var users = data.val();
+    var userIDs = Object.keys(users);
+    for(var i = 0; i < userIDs.length;i++){
+      var k2 = userIDs[i];
+      var y = 'events/' + k2;
+      this.database.ref(y).on('value', (data2:any) =>{
+        var events = data2.val();
+        var keys = Object.keys(events);
+        for(var a = 0;a < keys.length;a++){
+          var k = keys[a];
+          let obj = {
+            date: moment(events[k].date).format('MMM Do, YYYY'),
+            endTIme: events[k].endTIme,
+            eventDesc: events[k].eventDesc,
+            eventName: events[k].eventName,
+            fee: events[k].fee,
+            key : k,
+            hostname: k2,
+            img: events[k].img,
+            location: events[k].location,
+            startTIme: events[k].startTIme,
+            going: events[k].going,
+            comments: events[k].comments,
+            hostimg : events[k].hostImg,
+            enddate : moment(events[k].endDate).format('MMM Do, YYYY')
+          }
+          this.fetch.push(obj)
         }
-        this.fetch.push(obj)
-      }
-      accept(this.fetch);
-      console.log(this.fetch)
-    })
+        accept(this.fetch);
+        console.log(this.fetch)
+      })
+    }
   }
-
 }, Error => {
   reject(Error.message);
 })
   })
 }
-
-
-
-
 
 
 getNewEvents(){
@@ -303,6 +322,7 @@ getNewEvents(){
           var index = str1.indexOf( ":" ); 
           var currentUserID = userIDs[x].substr(index + 1);
           if (user.uid == currentUserID){
+            console.log(user.uid)
             this.storeUsername(userIDs[x].substr(0,index));
             this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
               var Userdetails = data.val(); 
@@ -323,6 +343,7 @@ getNewEvents(){
    }
 
    storeUsername(username){
+     console.log(username)
    }
    
    storeCurrentUsername(username){
@@ -421,5 +442,44 @@ Goings(eventName, eventKey){
         hostname :  eventName
   });
 } 
+
+
+addImage(username){
+  return new Promise((accpt,rej)=>{
+    this.storageRef.ref('pictures').putString(this.img,'data_url');
+    accpt("image added to storage");
+  })
+
+}
+
+getImageProfilePic(username){
+    return new Promise((accpt,rej)=>{
+      var storageRef = firebase.storage().ref('pictures/' + username + "jpg");
+      storageRef.getDownloadURL().then(url=>{
+        this.storePictureUrl(url)
+      })
+    })
+}
+
+storePictureUrl(url){
+  this.imgUrl = url;
+}
+
+async uploadpic(){
+  const options: CameraOptions= {
+  quality : 100,
+  targetWidth: 600,
+  targetHeight: 600,
+  destinationType: this.camera.DestinationType.DATA_URL,
+  encodingType: this.camera.EncodingType.JPEG,
+  mediaType: this.camera.MediaType.PICTURE,
+  correctOrientation: true
+  }
+    const results = await this.camera.getPicture(options);
+    this.img = `data:image/jpeg;base64,${results}`;
+    return this.img;
+}
+
+
 
 }
