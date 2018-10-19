@@ -7,13 +7,8 @@ import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
 import {RegisterBusinessPage} from '../business/register-business/register-business'
 import { BusinessHomePage } from '../business/business-home/business-home';
-<<<<<<< HEAD
 import { CommentsPage } from '../comments/comments';
 import { MoreInfoPage } from '../more-info/more-info';
-=======
-import { SecondPage } from '../second/second';
-
->>>>>>> 38a44b0e7dbc6ea6c8071fcf45a06fa5a7aaed32
 // import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
@@ -26,26 +21,13 @@ import { SecondPage } from '../second/second';
 })
 export class LoginPage {
   logging = {} as login;
-<<<<<<< HEAD
   event = this.navParams.get('event');
   action =   this.navParams.get('action')
-=======
-
-  splash = true;
-  secomndPage = SecondPage;
-
->>>>>>> 38a44b0e7dbc6ea6c8071fcf45a06fa5a7aaed32
   constructor(public navCtrl: NavController, public navParams: NavParams, private firebaseService: FirebaseConnectionProvider, public alertCtrl:AlertController,public loadingCtrl:LoadingController) {
 
   }
 
   ionViewDidLoad() {
-<<<<<<< HEAD
-    console.log(this.event)
-=======
-    setTimeout(()=> this.splash = false , 3000);
-
->>>>>>> 38a44b0e7dbc6ea6c8071fcf45a06fa5a7aaed32
   }
 
   login(){
