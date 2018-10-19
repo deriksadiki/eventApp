@@ -57,7 +57,7 @@ page-login {
 // }
 .image{
     position: relative;
-    top: 130px;
+    top: 100px;
 }
 
 
@@ -72,20 +72,29 @@ h1{
 
 
 }
+.butts{
+    bottom: 25px;
+}
 
 p{
     color: white;
     text-align: center;
     padding-top: 29%;
 }
+.logos{
+    height: 100px;
+    position: relative;
+    width: 100px;
+    border-radius: 20px;
+}
 
 // splash screen
 .flb {
-    background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
-    background-size: cover;
+    background-image:linear-gradient(#7a4579,rgba(0,0,0,0.5)), url('../../assets/imgs/people.jpg');    background-size: cover;
     height:100%;
     width:100%;
-    animation: pulse 1s linear forwards;
+
+    animation: pulse 2s linear forwards;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,11 +126,11 @@ p{
     animation: animation 4100ms linear infinite both ;
     animation-delay: 6s;
   }
-#main{
-background: linear-gradient(rgba(0, 0, 0, 0.432)), url('../../assets/3f6b0af2345776f5f225a3f030e88726.jpg');
-background-size: cover;
-
-}
+  #main{
+    background: linear-gradient(rgba(0, 0, 0, 0.432)), url('../../assets/3f6b0af2345776f5f225a3f030e88726.jpg');
+    background-size: cover;
+  
+  }
 
 
 }

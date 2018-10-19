@@ -18,7 +18,7 @@ export class MoreInfoPage {
 event = new Array();
 plus;
 url =   '../../assets/imgs/Spring-Fi.jpg';
-color='linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,20)),';
+color='linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,.8)),';
 gatefee;
 go;
 buttonActive: boolean =  false;
