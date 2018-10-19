@@ -78,17 +78,17 @@ else{
       this.url = this.event[0].img;
       this.gatefee = parseInt(this.event[0].fee ) + 100;
       this.firebaseService.getColourState(this.event[0].key).then(data =>{
-        console.log(data)
-        if (data == "found"){
+        if (this.state == true){
+          this.colorState = "danger";
+        }
+        else if (data == "found"){
           this.colorState = "danger";
         }
         else if (data == "not found"){
           this.colorState = "light";
         }
       })
-      if (this.state == true){
-        this.colorState = "danger";
-      }
+   
       console.log(this.colorState)
     }
     else if(data2 == 0){
