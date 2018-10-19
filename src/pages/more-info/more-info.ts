@@ -60,6 +60,7 @@ test = [];
 ionView() {
 return new Promise((accpt,rej) =>{
   this.event.length = 0;
+<<<<<<< HEAD
   this.eventsDetails.length = 0;
   if (this.getActions != undefined){
     this.saveAction = this.getActions;
@@ -96,6 +97,21 @@ else{
       this.url = this.event[0].img;
       this.gatefee = parseInt(this.event[0].fee ) + 100;
      this.changeLoginStatus(false);
+=======
+  this.event.push(this.navParams.get('events'))
+  console.log(this.event );
+  this.go =    this.event[0].going;
+  this.url = this.event[0].img;
+  this.gatefee = parseInt(this.event[0].fee ) + 100;
+  // this.pet = 'kittens'
+  this.firebaseService.getColourState(this.event[0].key).then(data =>{
+    console.log(data)
+    if (data == "found"){
+      this.colorState = "danger";
+    }
+    else if (data == "not found"){
+      this.colorState = "danger";
+>>>>>>> 38a44b0e7dbc6ea6c8071fcf45a06fa5a7aaed32
     }
     accpt('done running')
   })
@@ -172,12 +188,23 @@ else{
       else if (this.colorState == "light"){
         this.firebaseService.Goings(this.event[0].hostname,this.event[0].key)
         const toast = this.toastCtrl.create({
+<<<<<<< HEAD
          message: 'The event has been added to your calendar',
          duration: 3000
        });
        toast.present();
         this.colorState = "danger";
       }
+=======
+          message: 'The event has been removed from your calendar',
+          duration: 3000
+        });
+        toast.present();
+      }  , Error =>{
+        console.log(Error.message)
+      })
+      this.colorState = "denger";
+>>>>>>> 38a44b0e7dbc6ea6c8071fcf45a06fa5a7aaed32
     }
     else{
       this.saveAction = "going";

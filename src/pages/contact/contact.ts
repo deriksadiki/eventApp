@@ -6,9 +6,7 @@ import { LoginPage } from '../login/login';
 import { ProfileUpdatePage } from '../profile-update/profile-update';
 import { PopoverController } from 'ionic-angular';
 
-
-import { MyPopOverPage } from '../my-pop-over/my-pop-over'
-import { PopoverComponent } from '../../components/popover/popover';
+// import { PopoverComponent } from '../../components/popover/popover';
 import { MoreInfoPage } from '../more-info/more-info';
 import { PopOver2Component } from '../../components/pop-over2/pop-over2';
 
@@ -50,7 +48,6 @@ export class ContactPage {
     const modal =this.modalCtrl.create(ProfileUpdatePage);
     modal.present();
   }
-
 
 
   Log(event) {

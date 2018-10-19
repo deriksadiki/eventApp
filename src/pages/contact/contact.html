@@ -27,7 +27,7 @@
   
       <div *ngFor="let i of profile" class="phot" align="center">
         <ion-avatar>
-          <img class="image" src='{{i.img}}'>
+          <img class="image" src='{{i.img}}' imageViewer>
         </ion-avatar>
         <br>
         <br>
@@ -49,7 +49,7 @@
             <ion-grid>
               <ion-row>
                 <ion-col class="space" *ngFor="let i of fetching; let a = index" >
-                  <img class="pic" src="{{i.img}}" (click)="more(a)">
+                  <img class="pic" src="{{i.img}}" (click)="more(a)"imageViewer />
                 </ion-col>
                 <!-- <ion-col class="space">
                   <img class="pic" src='../../assets/imgs/arts.jpg'>
