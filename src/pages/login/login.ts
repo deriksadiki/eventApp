@@ -7,6 +7,9 @@ import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
 import {RegisterBusinessPage} from '../business/register-business/register-business'
 import { BusinessHomePage } from '../business/business-home/business-home';
+import { SecondPage } from '../second/second';
+
+// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
 
@@ -18,12 +21,19 @@ import { BusinessHomePage } from '../business/business-home/business-home';
 })
 export class LoginPage {
   logging = {} as login;
+
+  splash = true;
+  secomndPage = SecondPage;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private firebaseService: FirebaseConnectionProvider, public alertCtrl:AlertController,public loadingCtrl:LoadingController) {
+
   }
 
   ionViewDidLoad() {
-    
+    setTimeout(()=> this.splash = false , 3000);
+
   }
+
   login(){
     if (this.logging.email == "Admin" && this.logging.password =="123456"){
         this.navCtrl.push(RegisterBusinessPage)

@@ -8,9 +8,10 @@ page-more-info {
         height: 50vh;
     }
     .dash{
-        position: relative;
+        // position: relative;
+        position: absolute;
         margin-top: 65%;
-        background-image:linear-gradient(rgba(0,0,0,0.5),#7a4579), url('../../assets/imgs/people.jpg');
+        background-image:linear-gradient(rgba(0, 0, 0, 0.815),#7a4579), url('../../assets/imgs/people.jpg');
 // opacity: 0.90;
     //    background:linear-gradient(rgba(231, 227, 227, 0),rgba(87, 2, 95, 0.322),#7b298a);
     //    background-color: #d33e55;
@@ -25,7 +26,7 @@ page-more-info {
         color:whitesmoke;
         font-size: 250%;
         z-index: 1;
-        margin-left: 70px;
+        margin-left: 95px;
     }
     h3{
         color: whitesmoke;
@@ -37,6 +38,25 @@ page-more-info {
         font-size: 250%;
         color:whitesmoke;
         margin-left: 10px;
+        top: 5px;
+        position: relative;
+        
+    }
+    .butt{
+        float: left;
+        margin-left: 90%;
+        bottom: 50px;
+        // position: relative;
+    }
+    .co{
+        font-size: 250%;
+    }
+    .more{
+        // font-size: 280px;
+        color:whitesmoke;
+        top: 1px;
+        margin-left: 320px;
+     
     }
     .ii{
         font-size: 160%;
@@ -69,7 +89,7 @@ page-more-info {
     }
     .lab{
     position: absolute;
-    margin-left: 110px;
+    margin-left: 150px;
     color: whitesmoke;
     }
     // button.faba{
@@ -83,6 +103,7 @@ page-more-info {
         padding-left: 30px;
         padding-right: 30px;
     }
+   
     .phot{
         border-radius: 80px;
         background-color: white;
@@ -122,5 +143,14 @@ page-more-info {
     }
     .content{
         margin-top: 38px;
+    }
+    @media (min-with:600px){
+        .dash{
+            // position: relative;
+           font-size: 1em;
+           margin-top:20%;
+           padding: 50px;
+           
+        }
     }
     }

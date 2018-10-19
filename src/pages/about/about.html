@@ -6,7 +6,11 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="img">
+<ion-content  class="img">
+  <br>
+
+  <h1 class="message">{{message}}</h1>
+<ion-list >
 
                     <ion-item (click)="moreinfo(i)" class="item" *ngFor="let a of fetching;let i of index;">
                       <ion-avatar class="avatar" item-start>
@@ -17,9 +21,8 @@
                        {{a.location}}</p>
                         <div align="right">
                         <ion-icon name="arrow-dropright" ></ion-icon>
-                      
                       </div>
                     </ion-item>
-
+                  </ion-list>
 </ion-content>
 
