@@ -30,14 +30,11 @@
    </ion-item>
 <br>
    <ion-item class="upload">
-     <button class="butt" ion-button color="nav">
-     <ion-icon name="camera" color = "primary">
-     <input accept="image/png image/jpeg" type="file" (change)="picInsert($event)"/>
-    </ion-icon>
-  </button>
+     <input accept="image/png image/jpeg" type="file" (change)="picInsert($event)" class="tohide">
+    
     </ion-item>
 </ion-list>
-
+<button color = "nav" ion-button (click)="ImageCapture()">Take Picture</button>
 <div align = "center">
 <button color = "nav" ion-button (click)="saveData()">Update</button>
 </div>

@@ -37,14 +37,18 @@ page-profile-update {
         border: solid 10px #cec2ce81;
         border-radius: 100px;
     }
-    input[type='file']::-webkit-file-upload-button
-    {
-        padding: 20 30;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.473);
-        border: none;
-    }
+    // input[type='file']::-webkit-file-upload-button
+    // {
+    //     padding: 20 30;
+    //     color: white;
+    //     background-color: rgba(0, 0, 0, 0.473);
+    //     border: none;
+    // }
     .butt{
        background-color: block ;
     }
+
+    // .tohide{
+    //     visibility: hidden;
+    // }
 }

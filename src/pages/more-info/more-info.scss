@@ -23,12 +23,6 @@ page-more-info {
         margin-left: 70px;
     }
     .i{
-     
-        font-size: 250%;
-        z-index: 1;
-        margin-left: 70px;
-    }
-    .i2{
         color:whitesmoke;
         font-size: 250%;
         z-index: 1;
@@ -44,6 +38,7 @@ page-more-info {
         font-size: 250%;
         color:whitesmoke;
         margin-left: 10px;
+        top: 5px;
         position: relative;
         
     }
@@ -53,18 +48,15 @@ page-more-info {
         bottom: 50px;
         // position: relative;
     }
-    .more{
+    .co{
         font-size: 250%;
+    }
+    .more{
+        // font-size: 280px;
         color:whitesmoke;
-        // margin-left: 95%;
+        top: 1px;
+        margin-left: 350px;
      
-        // float: left;
-        // position: relative;
-        // margin-right: 20px;
-        // // margin-top: 10px;
-        // // bottom: 20px;
-        // font-size: 250%;
-        // position: relative;
     }
     .ii{
         font-size: 160%;
@@ -111,6 +103,7 @@ page-more-info {
         padding-left: 30px;
         padding-right: 30px;
     }
+   
     .phot{
         border-radius: 80px;
         background-color: white;
@@ -144,7 +137,10 @@ page-more-info {
         text-transform: capitalize;
         
     }
-    
+    .dash{
+        position: absolute; 
+      
+    }
     .content{
         margin-top: 38px;
     }

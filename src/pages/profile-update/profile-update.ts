@@ -66,6 +66,7 @@ export class ProfileUpdatePage {
 
 
   saveData(Username){
+    this.getProfile.length = 0;
     let loading = this.loadingCtrl.create({
       spinner: 'bubbles',
       content: 'Please wait',
@@ -80,6 +81,26 @@ export class ProfileUpdatePage {
         });
       })
 
+    }
+
+    ImageCapture(){
+      this.getProfile.length = 0;
+      let loading = this.loadingCtrl.create({
+        spinner: 'bubbles',
+        content: 'Please wait',
+        duration: 17000
+      });
+      loading.present();
+      this.fire.uploadpic().then((data:any)=>{
+        this.pic = data;
+        this.getProfile.length = 0;
+        this.fire.UpdateProfile(this.profile,this.pic).then(()=>{
+          this.navCtrl.setRoot(TabsPage).then(()=>{
+            this.navCtrl.push(ProfileUpdatePage)
+            loading.dismiss();
+          });
+        })
+      });
     }
 
   // presentPopover(event) {
