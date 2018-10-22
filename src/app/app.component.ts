@@ -12,6 +12,7 @@ import { MoreInfoPage } from '../pages/more-info/more-info';
 import {FirebaseConnectionProvider} from '../providers/firebase-connection/firebase-connection'
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { removeDebugNodeFromIndex } from '@angular/core/src/debug/debug_node';
+import { TestPage } from '../pages/test/test';
 
 @Component({
  templateUrl: 'app.html'
