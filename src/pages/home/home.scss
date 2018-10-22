@@ -91,8 +91,7 @@ page-home {
     //     }
       
     //   }
-      
-      .scrollcontainer{
+    .scrollcontainer2{
         //   background: red;
           width: 100vw;
           display: flex;
@@ -100,6 +99,55 @@ page-home {
           overflow-x: scroll;
           height: 19em;
           margin-top: .5em;
+          .cardcontainer{
+            height: 14em;  
+            // background: blue;
+            margin-right: 2em;
+            flex: auto 0 0;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 4px 9px 5px rgba(grey, .6);
+          .image{
+              height:10em;
+              width:10em;
+              flex: 3 0 0;
+              img{
+                  width: 13em;
+                  height: 10em;
+              }
+            }
+
+          .content{
+              flex: 1 0 0;
+              background: whitesmoke;
+              height: 100%;
+              .heading{
+                  margin: 0;
+              }
+              .text{
+                //   font-size: 1em;
+                color: #7a4579;
+
+              }
+          }
+      }
+      .cardcontainer:first-child{
+          margin-left: .5em;
+      }
+      .cardcontainer:last-child{
+          margin-right: 2rem;
+      }
+
+  
+    }
+      .scrollcontainer{
+        //   background: red;
+          width: 100vw;
+          display: flex;
+          flex-direction: row;
+          overflow-x: scroll;
+          height: 19em;
+          margin-top: .7em;
           .cardcontainer{
                 height: 18em;  
                 // background: blue;
