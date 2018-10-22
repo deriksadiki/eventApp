@@ -37,9 +37,9 @@ export class RegisterPage {
   
   reg(){
 
-    if(this.Users.email == undefined && this.Users.password && this.Users.Username == undefined){
+    if(this.Users.email == undefined && this.Users.password == undefined && this.Users.Username == undefined){
       const alert = this.alertCtrl.create({
-        title: 'Warning',
+        title: 'Error,',
         subTitle: ' Please provide your full details to register!',
         buttons: ['OK']
       });
@@ -49,7 +49,7 @@ export class RegisterPage {
     else if(this.Users.Username == undefined){
 
       const alert = this.alertCtrl.create({
-        title: 'Wearning',
+        title: 'Error,',
         subTitle: 'Please enter a Username, it cannot be left empty',
         buttons: ['OK']
       });
@@ -57,7 +57,7 @@ export class RegisterPage {
     }
     else if(this.Users.email ==undefined){
       const alert = this.alertCtrl.create({
-        title: 'Wearning',
+        title: 'Error,',
         subTitle: 'Please enter a valid email',
         buttons: ['OK']
       });
@@ -68,7 +68,7 @@ export class RegisterPage {
     else if(this.Users.password == undefined){
 
       const alert = this.alertCtrl.create({
-        title: 'Wearning',
+        title: 'Error,',
         subTitle: 'Please enter a password, it cannot be left empty',
         buttons: ['OK']
       });
@@ -77,16 +77,7 @@ export class RegisterPage {
 
 
     else {
-
-
       this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.Username).then(() =>{
-        const alert = this.alertCtrl.create({
-          title: 'Welcome',
-          subTitle: 'You have successfully Registared',
-          buttons: ['OK']
-        });
-        alert.present();
-
         this.navCtrl.push(MoreInfoPage,{events:this.event, action:this.action});
 
        })
