@@ -229,8 +229,8 @@ back(){
 }
 
 
-presentPopover(event) {
-  const popover = this.popoverCtrl.create(PopoverComponent);
+presentPopover() {
+  const popover = this.popoverCtrl.create(PopoverComponent,{testing:"news"});
   popover.present({
      ev:event,
   });

@@ -26,6 +26,7 @@ export class PopoverComponent {
   text4: string;
 items:any;
 event = new Array();
+test = this.navParams.get('testing')
 // gatefee;
 // url =   '../../assets/imgs/Spring-Fi.jpg';
 // pet;
@@ -35,7 +36,7 @@ constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertControl
   this.text2 = 'Location'
   this.text3 = 'comments'
   this.text4 = 'log-Out';
-  console.log('Hello PopoverComponent Component');
+  console.log(this.test);
   
   }
 
