@@ -33,17 +33,11 @@ export class LoginPage {
     else{
       this.firebaseService.login(this.logging.email,this.logging.password).then(()=>{
         this.firebaseService.getuser();
-          const alert = this.alertCtrl.create({
-            title: 'Welcome',
-            message: 'You have successfully logged in',
-            buttons: ['OK']
-          });
-          alert.present();
           this.navCtrl.push(TabsPage);
       }, Error =>{
         if (this.logging.email == undefined && this.logging.password == undefined){
           const alert = this.alertCtrl.create({
-            title: 'Warning!',
+            title: 'Error,',
             subTitle: 'Please provide your log in details to log in!',
             buttons: ['Ok']
           });
@@ -51,14 +45,14 @@ export class LoginPage {
         }
         else if (this.logging.email == undefined){
           const alert = this.alertCtrl.create({
-            title: 'Warning!',
+            title: 'Error,',
             subTitle: 'Email cannot be left out!',
             buttons: ['Ok']
           });
           alert.present();
         }else if (this.logging.password == undefined ){
           const alert = this.alertCtrl.create({
-            title: 'Warning!',
+            title: 'Error,',
             subTitle: 'Password cannot be left out!',
             buttons: ['Ok']
           });
@@ -66,7 +60,7 @@ export class LoginPage {
         }
         else{
           const alert = this.alertCtrl.create({
-            title: 'Warning!',
+            title: 'Error,',
             message: Error,
             buttons: ['OK']
           });

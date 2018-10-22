@@ -26,7 +26,7 @@ export class ProfileUpdatePage {
 
 
   update = {} as Update
-  getProfile = []
+  getProfile = [];
   profile;
 
   constructor(public loadingCtrl:LoadingController,private fire: FirebaseConnectionProvider,public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
@@ -66,20 +66,19 @@ export class ProfileUpdatePage {
 
 
   saveData(Username){
-    let loading = this.loadingCtrl.create({
-      spinner: 'bubbles',
-      content: 'Please wait',
-      duration: 17000
-    });
-    loading.present();
+ 
       this.fire.UpdateProfile(this.profile,this.pic).then((data:any)=>{
         console.log(data)
-        this.navCtrl.setRoot(TabsPage).then(()=>{
-          this.navCtrl.setRoot(ContactPage)
-          loading.dismiss();
-        });
+       this.navCtrl.pop();
       })
 
+    }
+    
+    ImageCapture(){
+      this.fire.uploadpic().then((data:any)=>{
+        this.pic = data;
+        this.fire.UpdateProfile(this.profile,this.pic);
+      });
     }
 
   // presentPopover(event) {

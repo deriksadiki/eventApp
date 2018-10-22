@@ -34,26 +34,26 @@ export class RegisterPage {
 
   
   reg(){
-    if(this.Users.email == undefined && this.Users.password && this.Users.Username == undefined){
+    if(this.Users.email == undefined && this.Users.password == undefined && this.Users.Username == undefined || this.Users.email == "" && this.Users.password == "" && this.Users.Username == "" ){
       const alert = this.alertCtrl.create({
-        title: 'Warning',
+        title: 'Error,',
         subTitle: ' Please provide your full details to register!',
         buttons: ['OK']
       });
       alert.present();
     }
-    else if(this.Users.Username == undefined){
+    else if(this.Users.Username == undefined || this.Users.Username == "" ){
 
       const alert = this.alertCtrl.create({
-        title: 'Wearning',
+        title: 'Error,',
         subTitle: 'Please enter a Username, it cannot be left empty',
         buttons: ['OK']
       });
       alert.present();
     }
-    else if(this.Users.email ==undefined){
+    else if(this.Users.email ==undefined || this.Users.email == "" ){
       const alert = this.alertCtrl.create({
-        title: 'Wearning',
+        title: 'Error,',
         subTitle: 'Please enter a valid email',
         buttons: ['OK']
       });
@@ -61,30 +61,19 @@ export class RegisterPage {
     }
 
 
-    else if(this.Users.password == undefined){
+    else if(this.Users.password == undefined || this.Users.password == "" ){
 
       const alert = this.alertCtrl.create({
-        title: 'Wearning',
+        title: 'Error',
         subTitle: 'Please enter a password, it cannot be left empty',
         buttons: ['OK']
       });
       alert.present();
     }
 
-
     else {
-
-
       this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.Username).then(() =>{
-        const alert = this.alertCtrl.create({
-          title: 'Welcome',
-          subTitle: 'You have successfully Registared',
-          buttons: ['OK']
-        });
-        alert.present();
-
-        this.navCtrl.push(TabsPage);
-
+        this.navCtrl.setRoot(TabsPage);
        })
 
     }
