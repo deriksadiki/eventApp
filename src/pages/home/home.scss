@@ -100,6 +100,7 @@ page-home {
           height: 19em;
           margin-top: .5em;
           .cardcontainer{
+            margin-top: .7em;
             height: 14em;  
             // background: blue;
             margin-right: 2em;
@@ -113,7 +114,7 @@ page-home {
               flex: 3 0 0;
               img{
                   width: 13em;
-                  height: 10em;
+                  height: 13em;
               }
             }
 
@@ -146,7 +147,7 @@ page-home {
           display: flex;
           flex-direction: row;
           overflow-x: scroll;
-          height: 19em;
+          height: 21em;
           margin-top: .7em;
           .cardcontainer{
                 height: 18em;  
@@ -159,8 +160,8 @@ page-home {
               .image{
                   flex: 3 0 0;
                   img{
-                      width: 13em;
-                      height: 12em;
+                      width: 12em;
+                      height: 14em;
                   }
                 }
 
