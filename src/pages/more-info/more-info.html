@@ -17,9 +17,9 @@
   </div>
   <div class="menu">
     <img src="../../assets/2f799e852f68b677e4b9a4ecf867a6cd.jpg" alt="image here">
-    <ion-icon class="i" name="md-chatboxes" style="zoom: 1.5"></ion-icon>
-    <ion-icon class="i" name="md-heart" style="zoom: 1.5"></ion-icon>
-    <ion-icon class="i" name="md-share" style="zoom: 1.5"></ion-icon>  
+    <ion-icon class="i" name="md-chatboxes" (click)="comment()" style="zoom: 1.5"></ion-icon>
+    <ion-icon color={{colorState}} class="ii" name="md-heart" (click)="going()" style="zoom: 1.5"></ion-icon>
+    <ion-icon class="i" (click)="share(i)" name="md-share" style="zoom: 1.5"></ion-icon>  
   </div>
   <p class="posted">Posted by: {{i.hostname}}</p>
 
@@ -58,7 +58,9 @@
         <h2>R{{i.fee}}</h2>
       </ion-item>
     </ion-list>
-
+<button ion-button block color="nav">
+  <ion-icon class="back" name="md-locate" style="zoom: 1.5"> Location</ion-icon>
+</button>
     <!-- <h4><p>Photos</p></h4>  -->
   </ion-card-content>
 

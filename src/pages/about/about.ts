@@ -46,7 +46,7 @@ message;
       });
     }
      else if(data == 0){
-      this.message = "you must Sign in first before you can view your calendar"
+      this.message = "you must Sign in first before you can view your calendar";
      } 
   })
 
