@@ -38,13 +38,15 @@ page-more-info {
             box-shadow: 2px 5px 6px rgba(grey, .6);
         }
 
-        ion-icon{
+        .i{
             display: block;
             padding: .68em;
             color: white;
             &:last-child{
                 margin-right: 1em;
             }
+            
+            
         }
 
     }
@@ -130,4 +132,12 @@ page-more-info {
     // .content{
     //     margin-top: 38px;
     // }
+    .ii{
+        display: block;
+        padding: .68em;
+        // color: white;
+        &:last-child{
+            margin-right: 1em;
+        }
+    }
     }
