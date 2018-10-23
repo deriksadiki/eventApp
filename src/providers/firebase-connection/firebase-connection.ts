@@ -6,9 +6,13 @@ export class FirebaseConnectionProvider {
   database = firebase.database();
   authenticate = firebase.auth();
 
+  username;
   dbRef;
+  goings = new Array();
   currentUserID;
   fetch = new Array();
+  go = new Array();
+  image;
   constructor() {
   }
 
@@ -44,11 +48,26 @@ export class FirebaseConnectionProvider {
     })
   }
 
+
   forgotPassword(email:any){
     return this.authenticate.sendPasswordResetEmail(email);
   }
 
-  
+  Goings(eventName,eventDesc,startTIme,endTIme,date,location,img,fee){
+    var user = firebase.auth().currentUser;
+    firebase.database().ref('goings/' + user.uid).push({
+  amount:fee,
+  day:date,
+  desc: eventDesc,
+  name: eventName,
+  end: endTIme,
+  start: startTIme,
+  venue:location,
+  image:img
+
+
+    });
+  } 
 
 login(email,password){
   return new Promise((accept,reject) =>{
@@ -63,7 +82,7 @@ login(email,password){
 
 getAlldata(){
 return new Promise ((accept,reject) => {
-this.fetch.length = 0;
+this.go.length = 0;
 this.database.ref('events/').on('value', (data: any) => {
   var users = data.val();
   var userIDs = Object.keys(users);
@@ -80,24 +99,71 @@ this.database.ref('events/').on('value', (data: any) => {
         var k = keys[a];
         let obj = {
           date: events[k].date,
-          endTIme: events[k].endTIme,
-          eventDesc: events[k].eventDesc,
+          end: events[k].endTIme,
+          desc: events[k].eventDesc,
           eventName: events[k].eventName,
-          fee: events[k].fee,
+          amount: events[k].fee,
           img: events[k].img,
           location: events[k].location,
-          startTIme: events[k].startTIme
+          start: events[k].startTIme
         }
-        this.fetch.push(obj)
+        this.go.push(obj)
       }
-      accept(this.fetch);
-      console.log(this.fetch)
+      accept(this.go);
+      console.log(this.go)
     })
   }
 
 }, Error => {
   reject(Error.message);
 })
+  })
+}
+
+going(key, name, going){
+  var numGoing = going + 1;
+  return new Promise((accpt, rej) =>{
+  this.database.ref('events/' + name + '/' + key).update({going: numGoing})
+ })
+ }
+
+getALlGoings(){
+  return new Promise((accept,reject) => {
+    this.fetch.length = 0;
+    this.database.ref('goings/').on('value', (data: any) => {
+      var users = data.val();
+      var userIDs = Object.keys(users);
+      for(var i = 0; i < userIDs.length; i++){
+        var k = userIDs[i];
+        var n = 'goings/' + k;
+        console.log(n);
+
+        this.database.ref(n).on('value', (data2:any) =>{
+          var fav = data2.val();
+          console.log(fav);
+          var keys = Object.keys(fav);
+          for(var a = 0;a < keys.length;a++){
+            var k = keys[a];
+
+            let obj = {
+              end: fav[k].end,
+              desc: fav[k].desc,
+              eventName: fav[k].name,
+              amount: fav[k].amount,
+              img: fav[k].image,
+              location: fav[k].venue,
+              start: fav[k].start,
+              date: fav[k].day
+            }
+            this.fetch.push(obj)
+          }
+          accept(this.fetch);
+          console.log(this.fetch)
+        })
+      }
+    }, Error => {
+      reject(Error.message);
+    })
   })
 }
 }

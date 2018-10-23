@@ -8,9 +8,9 @@
     
       <ion-grid class="dash" align="center">
         <ion-row>
-          <ion-col>
+          <ion-col *ngFor="let a of event;let i of index">
               <!-- <ion-icon class="icons" name="thumbs-up"></ion-icon> -->
-            <button class="button" ion-button color="light" outline>Going</button>
+            <button class="button" ion-button color="light" outline (click)="goings()">Going</button>
           </ion-col>
     
           <ion-col>
@@ -27,34 +27,40 @@
     </div>
     </ion-header>
     
-    <ion-content padding class="color">
-      <div *ngFor="let i of event">
+    <ion-content padding class="color" *ngFor="let a of event;">
+      <div>
     
-      <h1>{{i.eventName}}</h1>
-      <h3>{{i.eventDesc}}</h3>
+      <h1>{{a.eventName}}</h1>
+      <h3>{{a.desc}}</h3>
     
       <!-- <img class="img" src="../../assets/imgs/Spring-Fi.jpg"> -->
     
     <ion-grid align="center" class="things">
       <ion-row>
         <ion-col>
-          <img src="{{i.img}}"><br>
-          {{i.startTIme}} till {{i.endTIme}}
+          <img src="../../assets/imgs/clock (1).png"><br>
+        start @:  {{a.start}} till: {{a.end}}
         </ion-col>
     
         <ion-col>
           <img src="../../assets/imgs/calendar.png"><br>
-          {{i.date}}
+       Day: {{a.date}}
         </ion-col>
       </ion-row>
     </ion-grid>
-    
+
     <h2>Location</h2>
-    <p>{{i.location}}</p>
+    <p>{{a.location}}</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div align="center">
       <button class="btn" ion-button color="dark"><ion-icon name="compass"></ion-icon></button>
     </div>
-  </div>
+
+    </div>
     </ion-content>
     
 

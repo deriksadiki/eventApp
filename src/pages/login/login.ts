@@ -4,6 +4,7 @@ import { FirebaseConnectionProvider } from '../../providers/firebase-connection/
 import {login} from '../../Modals/login';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
+import { TabsPage } from '../tabs/tabs';
 
 
 
@@ -29,7 +30,7 @@ export class LoginPage {
           buttons: ['OK']
         });
         alert.present();
-        this.navCtrl.push(HomePage);
+        this.navCtrl.push(TabsPage);
     }, Error =>{
       if (this.logging.email == undefined && this.logging.password == undefined){
         const alert = this.alertCtrl.create({
