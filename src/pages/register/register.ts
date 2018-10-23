@@ -24,48 +24,6 @@ export class RegisterPage {
 
   
   reg(){
-<<<<<<< HEAD
-    
-    if ( this.Users.email == undefined && this.Users.password == undefined && this.Users.Username == undefined){
-    const alert = this.alertCtrl.create({
-      title: 'Warning',
-      subTitle: ' Please provide your full details to register!',
-      buttons: ['OK']
-    });
-    alert.present();
-    } else if (this.Users.Username == undefined){
-    const alert = this.alertCtrl.create({
-      title: 'Wearning',
-      subTitle: 'Username cannot be left out',
-      buttons: ['OK']
-    });
-    alert.present();
-    } else if (this.Users.email == undefined){
-    const alert = this.alertCtrl.create({
-      title: 'Warning',
-      subTitle: 'Email cannot be left out',
-      buttons: ['OK']
-    });
-    alert.present();
-    } else if (this.Users.password == undefined){
-    const alert = this.alertCtrl.create({
-      title: 'Warning',
-      subTitle: 'Password cannot be left out',
-      buttons: ['OK']
-    });
-    alert.present();
-    }
-    else {
-    this.firebaseService.registerUser(this.Users.email, this.Users.password,this.Users.Username).then(() => {
-       const alert = this.alertCtrl.create({
-         title: 'Welcome',
-         subTitle: 'You have successfully Registared',
-         buttons: ['OK']
-       });
-       this.navCtrl.push(TabsPage);
-       alert.present();
-    },Error =>{
-=======
 
     if(this.Users.email == undefined && this.Users.password == undefined && this.Users.Username == undefined || this.Users.email == "" && this.Users.password == "" && this.Users.Username == "" ){
       const alert = this.alertCtrl.create({
@@ -85,7 +43,6 @@ export class RegisterPage {
       alert.present();
     }
     else if(this.Users.email ==undefined || this.Users.email == "" ){
->>>>>>> 2c6cbde21365a296feeb341f5974326f8957c039
       const alert = this.alertCtrl.create({
         title: 'Error,',
         subTitle: 'Please enter a valid email',
@@ -102,15 +59,17 @@ export class RegisterPage {
         subTitle: 'Please enter a password, it cannot be left empty',
         buttons: ['OK']
       });
-      alert.present();
-    })
+      alert.present()
     }
 
     else {
       this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.Username).then(() =>{
-        this.navCtrl.setRoot(TabsPage);
+        this.firebaseService.getuser().then(() =>{
+          this.navCtrl.setRoot(TabsPage);
+        })
        })
 
 
     }
-}
+  }
+  }
