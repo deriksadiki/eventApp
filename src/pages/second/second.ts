@@ -20,7 +20,7 @@ export class SecondPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SecondPage');
+
   }
 
 }

@@ -24,35 +24,15 @@ export class TabsPage {
   checkLogInState(){
     this.fire.getUserSatate().then( data =>{
       if (data == 1){
-        console.log('online')
        this.status =  true;
        this.fire.getuser().then(data=>{
        });
       }
   
      else if(data == 0){
-        console.log('offline')
         this.status =  false;
       }
        })
   }
 
-  // checkLogInState(){
-  //   this.fire.getUserSatate().then( data =>{
-  //     if (data == 1){
-  //       console.log('online')
-  //       this.tab1Root = HomePage;
-  //       this.tab2Root = AboutPage;
-  //       this.tab3Root  = ContactPage;
-  //      this.fire.getuser().then(data=>{
-  //      });
-  //     }
-  
-  //    else if(data == 0){
-  //       console.log('offline')
-  //       this.tab1Root = HomePage;
-  //       this.tab2Root = AboutPage;
-  //     }
-  //      })
-  // }
 }

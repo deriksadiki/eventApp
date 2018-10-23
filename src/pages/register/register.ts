@@ -20,18 +20,12 @@ export class RegisterPage {
   constructor(private firebaseService: FirebaseConnectionProvider,public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
   }
 
-  ionViewDidLoad() {
-    console.log(this.event);
-  }
 
-  back(){
-    this.navCtrl.push(LoginPage)
-  }
 
   
   reg(){
 
-    if(this.Users.email == undefined && this.Users.password == undefined && this.Users.Username == undefined){
+    if(this.Users.email == undefined && this.Users.password == undefined && this.Users.Username == undefined || this.Users.email == "" && this.Users.password == "" && this.Users.Username == "" ){
       const alert = this.alertCtrl.create({
         title: 'Error,',
         subTitle: ' Please provide your full details to register!',
@@ -39,8 +33,7 @@ export class RegisterPage {
       });
       alert.present();
     }
-
-    else if(this.Users.Username == undefined){
+    else if(this.Users.Username == undefined || this.Users.Username == "" ){
 
       const alert = this.alertCtrl.create({
         title: 'Error,',
@@ -49,7 +42,7 @@ export class RegisterPage {
       });
       alert.present();
     }
-    else if(this.Users.email ==undefined){
+    else if(this.Users.email ==undefined || this.Users.email == "" ){
       const alert = this.alertCtrl.create({
         title: 'Error,',
         subTitle: 'Please enter a valid email',
@@ -59,26 +52,22 @@ export class RegisterPage {
     }
 
 
-    else if(this.Users.password == undefined){
+    else if(this.Users.password == undefined || this.Users.password == "" ){
 
       const alert = this.alertCtrl.create({
-        title: 'Error,',
+        title: 'Error',
         subTitle: 'Please enter a password, it cannot be left empty',
         buttons: ['OK']
       });
       alert.present();
+    })
     }
-
 
     else {
       this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.Username).then(() =>{
-    this.firebaseService.getuser().then(() =>{
-  this.navCtrl.push(MoreInfoPage,{events:this.event, action:this.action});
-})
-
+        this.navCtrl.setRoot(TabsPage);
        })
 
-    }
-  }
 
+    }
 }

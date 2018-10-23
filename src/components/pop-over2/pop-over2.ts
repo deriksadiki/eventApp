@@ -33,14 +33,13 @@ export class PopOver2Component {
         {
           text: 'Disagree',
           handler: () => {
-            console.log('Disagree clicked');
+
             this.navCtrl.push(TabsPage);
           }
         },
         {
           text: 'Agree',
           handler: () => {
-            console.log('Agree clicked');
             this.firebaseService.logout();
             this.navCtrl.push(LoginPage)
           }

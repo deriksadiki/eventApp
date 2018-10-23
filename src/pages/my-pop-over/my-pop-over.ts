@@ -22,7 +22,6 @@ export class MyPopOverPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MyPopOverPage');
   }
 
 }

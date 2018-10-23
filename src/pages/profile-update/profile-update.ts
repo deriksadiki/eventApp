@@ -4,8 +4,7 @@ import { IonicPage, NavController, NavParams, ViewController, LoadingController 
 import { Update } from '../../Modals/userUpdate';
 
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
-import { TabsPage } from '../tabs/tabs';
-import { ContactPage } from '../contact/contact';
+
 
 
 /**
@@ -14,6 +13,8 @@ import { ContactPage } from '../contact/contact';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+
+declare var firebase;
 
 @IonicPage()
 @Component({
@@ -24,21 +25,22 @@ export class ProfileUpdatePage {
 
 
   update = {} as Update
-  getProfile = []
+  getProfile = [];
   profile;
 
   constructor(public loadingCtrl:LoadingController,private fire: FirebaseConnectionProvider,public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
     
+  }
+
+
+  ionViewDidEnter(){
 
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfileUpdatePage');
     this.fire.getProfile().then((data:any)=>{
-      console.log(data)
        this.getProfile = data;
        this.pic =  this.getProfile[0].img;
        this.profile = this.getProfile[0].username;
-
     })
   }
 
@@ -55,58 +57,32 @@ export class ProfileUpdatePage {
       let reader = new FileReader();
       reader.onload = (event:any) =>{
         this.pic = event.target.result;
-
       };
       reader.readAsDataURL(event.target.files[0]);
-      console.log(event.target.files);
     }
+    
   }
 
 
   saveData(Username){
-
-      this.fire.UpdateProfile(this.profile).then((data:any)=>{
-        console.log(data)
-       this.navCtrl.pop().then((data:any)=>{
-         this.navCtrl.setRoot(TabsPage).then((data:any)=>{
-           this.navCtrl.setRoot(ContactPage)
-         })
-       });
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Please wait',
+      duration: 17000
+    });
+    loading.present();
+    
+    this.fire.UpdateProfile(this.profile,this.pic).then((data:any)=>{
+        this.navCtrl.pop()
+        loading.dismiss();
       })
-
-    }
-
-    updatePic(username){
-      this.fire.updatePic(this.pic).then((data:any)=>{
-        console.log(data);
-      })
-    }
-
+  }
+    
     ImageCapture(){
-      this.getProfile.length = 0;
-      let loading = this.loadingCtrl.create({
-        spinner: 'bubbles',
-        content: 'Please wait',
-        duration: 17000
-      });
-      loading.present();
       this.fire.uploadpic().then((data:any)=>{
         this.pic = data;
-        this.getProfile.length = 0;
-        this.fire.updatePic(this.pic).then(()=>{
-          this.navCtrl.setRoot(TabsPage).then(()=>{
-            this.navCtrl.push(ProfileUpdatePage)
-            loading.dismiss();
-          });
-        })
+        this.fire.UpdateProfile(this.profile,this.pic);
       });
     }
-
-  // presentPopover(event) {
-  //   const popover = this.popoverCtrl.create(PopOver2Component);
-  //   popover.present({
-  //      ev:event
-  //   });
-  // }
 }
 

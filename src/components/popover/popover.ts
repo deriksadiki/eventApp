@@ -36,7 +36,6 @@ constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertControl
   this.text2 = 'Location'
   this.text3 = 'comments'
   this.text4 = 'log-Out';
-  console.log(this.test);
   
   }
 
