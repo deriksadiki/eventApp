@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, ModalController, NavParams } from 'ionic-angular';
+import { NavController, AlertController, ModalController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
@@ -18,33 +18,30 @@ import { PopOver2Component } from '../../components/pop-over2/pop-over2';
 })
 export class ContactPage {
   profile = [];
+  pic;
+  username;
 
   fetching = new Array();
-  temp = new Array();
 
-  constructor(public navParams: NavParams, public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
-    this.profile.length = 0;
-    this.fetching.length = 0;
+  constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
+
   }
-
-  ​ionViewDidEnter(){
-this.profile.length = 0;
-this.fetching.length = 0;
-    this.ionViewDidLoad();
+  ionViewDidEnter(){
+    this.ionViewDidLoad()
   }
 
   ionViewDidLoad(){
-    console.log(this.navParams.get('proflie2'))
-    console.log(this.profile)
+    this.profile.length = 0;
     this.firebaseService.getProfile().then((data:any)=>{
       this.profile = data;
-      this.temp = data;
+      this.pic = this.profile[0].img
+      this.username = this.profile[0].Username
     })
+    this.fetching.length = 0;
     this.firebaseService.getALlGoings().then((data:any) => {
       if (data != "no data"){
         this.fetching = data;
       }
-     console.log(data);
     }, Error =>{
      console.log(Error)
 
@@ -52,7 +49,7 @@ this.fetching.length = 0;
   }
 
   presentModal(){
-    this.navCtrl.push(ProfileUpdatePage,{profile:this.profile});
+   this.navCtrl.push(ProfileUpdatePage);
   }
 
 

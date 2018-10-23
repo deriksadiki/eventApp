@@ -107,7 +107,6 @@ else{
 
   changeLoginStatus(status){
     this.loginStatus =  status;
-    console.log(this.loginStatus)
   }
 
   navigate(i){
@@ -161,7 +160,6 @@ else{
     if (this.loginStatus ==  true){
       if (this.colorState == "danger"){
         this.firebaseService.removeFromFav(this.event[0].key).then(data =>{
-          console.log(data);
           const toast = this.toastCtrl.create({
             message: 'The event has been removed from your calendar',
             duration: 3000

@@ -36,7 +36,6 @@ ionViewDidLoad() {
     if (data == 1){
       this.message = "you do not have any events on your calendar";
       this.firebaseService.getALlGoings().then((data2:any) => {
-        console.log(data)
        if ( data2 == "no data"){
         this.message = "you do not have any events on your calendar";
        }
@@ -52,7 +51,6 @@ ionViewDidLoad() {
       this.message = "you must Sign in first before you can view your calendar";
      } 
   })
-
   }
   moreinfo(i){
    this.navCtrl.push(MoreInfoPage, {events:i, color:true});
