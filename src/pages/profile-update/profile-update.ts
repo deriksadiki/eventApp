@@ -32,7 +32,9 @@ export class ProfileUpdatePage {
     
   }
 
+
   ionViewDidEnter(){
+
   }
   ionViewDidLoad() {
     this.fire.getProfile().then((data:any)=>{
@@ -74,8 +76,7 @@ export class ProfileUpdatePage {
         this.navCtrl.pop()
         loading.dismiss();
       })
-      
-    }
+  }
     
     ImageCapture(){
       this.fire.uploadpic().then((data:any)=>{
@@ -84,3 +85,4 @@ export class ProfileUpdatePage {
       });
     }
 }
+
