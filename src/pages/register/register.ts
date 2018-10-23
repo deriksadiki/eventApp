@@ -7,12 +7,6 @@ import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
 import { MoreInfoPage } from '../more-info/more-info';
 
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -78,7 +72,9 @@ export class RegisterPage {
 
     else {
       this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.Username).then(() =>{
-        this.navCtrl.push(MoreInfoPage,{events:this.event, action:this.action});
+    this.firebaseService.getuser().then(() =>{
+  this.navCtrl.push(MoreInfoPage,{events:this.event, action:this.action});
+})
 
        })
 

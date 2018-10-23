@@ -25,14 +25,16 @@ message;
 ​
  // Users = {} as User;
 ​ionViewDidEnter(){
-  this.ionView();
+  this.ionViewDidLoad();
 }
 ​
- ionView() {
+ionViewDidLoad() {
   this.message = "";
   this.fetching.length = 0;
+  this.message = "you must Sign in first before you can view your calendar";
   this.firebaseService.getUserSatate().then( data =>{
     if (data == 1){
+      this.message = "you do not have any events on your calendar";
       this.firebaseService.getALlGoings().then((data2:any) => {
         console.log(data)
        if ( data2 == "no data"){
@@ -40,6 +42,7 @@ message;
        }
        else{
         this.fetching = data2;
+        this.message = "";
        }
       }, Error =>{
        console.log(Error)
