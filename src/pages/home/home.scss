@@ -104,10 +104,10 @@ page-home {
           flex-direction: row;
           overflow-x: scroll;
           height: 19em;
-          margin-top: .5em;
+          margin-top: .8em;
           .cardcontainer{
-            margin-top: .7em;
-            height: 14em;  
+            margin-top: 2em;
+            height: 12em;  
             // background: blue;
             margin-right: 2em;
             flex: auto 0 0;
@@ -154,7 +154,7 @@ page-home {
           flex-direction: row;
           overflow-x: scroll;
           height: 21em;
-          margin-top: .7em;
+          margin-top: .3em;
           .cardcontainer{
                 height: 20em;  
                 // background: blue;
@@ -196,5 +196,6 @@ page-home {
 
       }
 }
+
 
 

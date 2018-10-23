@@ -18,26 +18,30 @@ import { PopOver2Component } from '../../components/pop-over2/pop-over2';
 })
 export class ContactPage {
   profile = [];
+  pic;
+  username;
 
   fetching = new Array();
 
   constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
 
-
-
+  }
+  ionViewDidEnter(){
+    this.ionViewDidLoad()
   }
 
   ionViewDidLoad(){
+    this.profile.length = 0;
     this.firebaseService.getProfile().then((data:any)=>{
       this.profile = data;
-      console.log(this.profile)
+      this.pic = this.profile[0].img
+      this.username = this.profile[0].Username
     })
     this.fetching.length = 0;
     this.firebaseService.getALlGoings().then((data:any) => {
       if (data != "no data"){
         this.fetching = data;
       }
-     console.log(data);
     }, Error =>{
      console.log(Error)
 
@@ -45,8 +49,7 @@ export class ContactPage {
   }
 
   presentModal(){
-    const modal =this.modalCtrl.create(ProfileUpdatePage);
-    modal.present();
+   this.navCtrl.push(ProfileUpdatePage);
   }
 
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController, ToastController, PopoverController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { AboutPage } from '../about/about';
@@ -10,6 +10,7 @@ import { PopoverComponent } from '../../components/popover/popover';
 import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
 import { CommentStmt } from '@angular/compiler';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 
@@ -36,13 +37,14 @@ saveAction;
 getActions = this.navParams.get('action');
 tempArray = this.navParams.get('events');
 test = [];
-
-  constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
+actionState;
+  constructor(private zone: NgZone, public popoverCtrl: PopoverController,public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
   }
 
   ​ionViewDidEnter(){
+    this.zone.run;
     this.loginStatus = null;
-    this.ionView().then(() =>{
+    this.ionViewDidLoad().then(() =>{
       if (this.saveAction != undefined){
         if (this.saveAction == "navigate" ){
           this.navigate(this.event[0].location)
@@ -54,10 +56,12 @@ test = [];
           this.going();
         }
       }
+      this.saveAction = undefined;
+      this.getActions =  undefined;
     })
   }
 
-ionView() {
+  ionViewDidLoad() {
 return new Promise((accpt,rej) =>{
   this.event.length = 0;
   this.eventsDetails.length = 0;
@@ -67,6 +71,7 @@ return new Promise((accpt,rej) =>{
     this.test = this.event[0];
     this.event.length = 0;
     this.event.push(this.test)
+    this.actionState = "there is one";
   }
 else{
   this.event.push(this.navParams.get('events'));
@@ -88,8 +93,6 @@ else{
           this.colorState = "light";
         }
       })
-   
-      console.log(this.colorState)
     }
     else if(data2 == 0){
       this.go =    this.event[0].going;
@@ -104,7 +107,6 @@ else{
 
   changeLoginStatus(status){
     this.loginStatus =  status;
-    console.log(this.loginStatus)
   }
 
   navigate(i){
@@ -158,7 +160,6 @@ else{
     if (this.loginStatus ==  true){
       if (this.colorState == "danger"){
         this.firebaseService.removeFromFav(this.event[0].key).then(data =>{
-          console.log(data);
           const toast = this.toastCtrl.create({
             message: 'The event has been removed from your calendar',
             duration: 3000
@@ -220,7 +221,8 @@ else{
 
 }
 back(){
-  if (this.getActions != undefined){
+  if (this.actionState != undefined){
+    this.actionState =  undefined;
     this.navCtrl.push(HomePage)
   }else{
     this.navCtrl.pop();
@@ -235,7 +237,4 @@ presentPopover() {
      ev:event,
   });
 }
-// comments(){
-//   this.navCtrl.push(CommentsPage);
-// }
 }
