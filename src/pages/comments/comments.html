@@ -1,7 +1,7 @@
 <ion-header>
 
     <ion-navbar color="nav">
-        <ion-title>Comments</ion-title>
+        <ion-title align="center">Comments</ion-title>
       </ion-navbar>
     </ion-header>
     
@@ -12,7 +12,7 @@
         <ion-avatar item-start>
           <img src="{{i.img}}">
         </ion-avatar>
-        <h1 capitalize>
+        <h1 capitalize class="naam">
           <b>{{i.name}}</b>
           <span class="date" align="right">{{i.date}}</span>
         </h1>
@@ -36,6 +36,7 @@
          <ion-col>
      <ion-textarea textwrap maxlength="50" placeholder="Comment here..." class="comments" [(ngModel)]="newmessage"></ion-textarea>       
          </ion-col>
+
          <ion-col>
         <button ion-button color="nav" item-end icon-only class="send" (click)="placeComment()">
         <ion-icon name="md-send"></ion-icon>
