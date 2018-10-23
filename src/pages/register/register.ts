@@ -25,14 +25,14 @@ export class RegisterPage {
   
   reg(){
     
-    if ( this.Users.email == undefined && this.Users.password == undefined && this.Users.userName == undefined){
+    if ( this.Users.email == undefined && this.Users.password == undefined && this.Users.Username == undefined){
     const alert = this.alertCtrl.create({
       title: 'Warning',
       subTitle: ' Please provide your full details to register!',
       buttons: ['OK']
     });
     alert.present();
-    } else if (this.Users.userName == undefined){
+    } else if (this.Users.Username == undefined){
     const alert = this.alertCtrl.create({
       title: 'Wearning',
       subTitle: 'Username cannot be left out',
@@ -55,7 +55,7 @@ export class RegisterPage {
     alert.present();
     }
     else {
-    this.firebaseService.registerUser(this.Users.email, this.Users.password,this.Users.userName).then(() => {
+    this.firebaseService.registerUser(this.Users.email, this.Users.password,this.Users.Username).then(() => {
        const alert = this.alertCtrl.create({
          title: 'Welcome',
          subTitle: 'You have successfully Registared',

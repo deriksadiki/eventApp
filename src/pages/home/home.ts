@@ -37,6 +37,7 @@ export class HomePage {
     var user = this.navParams.get('user');
     this.firebaseService.getAlldata().then((data:any) => {
       this.fetching = data;
+      console.log(data)
       var length =  this.fetching.length;
       for (var x = length - 5; x < length; x++){
         if (this.fetching[x] != undefined){

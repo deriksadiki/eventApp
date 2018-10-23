@@ -5,6 +5,8 @@ import {login} from '../../Modals/login';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
+import { RegisterBusinessPage } from '../business/register-business/register-business';
+import { SecondPage } from '../second/second';
 
 
 
@@ -18,55 +20,63 @@ export class LoginPage {
   logging = {} as login;
   event = this.navParams.get('event');
   action =   this.navParams.get('action')
+  splash = true;
+  secomndPage = SecondPage;
   constructor(public navCtrl: NavController, public navParams: NavParams, private firebaseService: FirebaseConnectionProvider, public alertCtrl:AlertController,public loadingCtrl:LoadingController) {
 
   }
 
   ionViewDidLoad() {
+    setTimeout(()=> this.splash = false , 3000);
   }
 
   login(){
-    this.firebaseService.login(this.logging.email,this.logging.password).then(()=>{
-        const alert = this.alertCtrl.create({
-          title: 'Welcome',
-          message: 'You have successfully logged in',
-          buttons: ['OK']
-        });
-        alert.present();
-        this.navCtrl.push(TabsPage);
-    }, Error =>{
-      if (this.logging.email == undefined && this.logging.password == undefined){
-        const alert = this.alertCtrl.create({
-          title: 'Warning!',
-          subTitle: 'Please provide your log in details to log in!',
-          buttons: ['Ok']
-        });
-        alert.present();
-      }
-      else if (this.logging.email == undefined){
-        const alert = this.alertCtrl.create({
-          title: 'Warning!',
-          subTitle: 'Email cannot be left out!',
-          buttons: ['Ok']
-        });
-        alert.present();
-      }else if (this.logging.password == undefined ){
-        const alert = this.alertCtrl.create({
-          title: 'Warning!',
-          subTitle: 'Password cannot be left out!',
-          buttons: ['Ok']
-        });
-        alert.present();
-      }
-      else{
-        const alert = this.alertCtrl.create({
-          title: 'Warning!',
-          message: Error,
-          buttons: ['OK']
-        });
-        alert.present();
-      }
-    })
+    if (this.logging.email == "Admin" && this.logging.password == "123456"){
+        this.navCtrl.push(RegisterBusinessPage)
+    }
+else{
+  this.firebaseService.login(this.logging.email,this.logging.password).then(()=>{
+    const alert = this.alertCtrl.create({
+      title: 'Welcome',
+      message: 'You have successfully logged in',
+      buttons: ['OK']
+    });
+    alert.present();
+    this.navCtrl.push(TabsPage);
+}, Error =>{
+  if (this.logging.email == undefined && this.logging.password == undefined){
+    const alert = this.alertCtrl.create({
+      title: 'Warning!',
+      subTitle: 'Please provide your log in details to log in!',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+  else if (this.logging.email == undefined){
+    const alert = this.alertCtrl.create({
+      title: 'Warning!',
+      subTitle: 'Email cannot be left out!',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }else if (this.logging.password == undefined ){
+    const alert = this.alertCtrl.create({
+      title: 'Warning!',
+      subTitle: 'Password cannot be left out!',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+  else{
+    const alert = this.alertCtrl.create({
+      title: 'Warning!',
+      message: Error,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+})
+}
   }
 
 reg(){
