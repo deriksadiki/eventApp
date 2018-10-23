@@ -86,8 +86,9 @@ export class RegisterPage {
           buttons: ['OK']
         });
         alert.present();
-
-        this.navCtrl.push(MoreInfoPage,{events:this.event, action:this.action});
+    this.firebaseService.getuser().then(() =>{
+  this.navCtrl.push(MoreInfoPage,{events:this.event, action:this.action});
+})
 
        })
 

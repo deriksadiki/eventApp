@@ -1,3 +1,4 @@
+
 <ion-header *ngFor="let i of event;let i = index">
 
 
@@ -16,28 +17,24 @@
     </div>
   </div>
   <div class="menu">
-    <img src="../../assets/2f799e852f68b677e4b9a4ecf867a6cd.jpg" alt="image here">
+    <img src="{{i.hostimg}}" alt="image here">
     <ion-icon class="i" name="md-chatboxes" (click)="comment()" style="zoom: 1.5"></ion-icon>
     <ion-icon color={{colorState}} class="ii" name="md-heart" (click)="going()" style="zoom: 1.5"></ion-icon>
     <ion-icon class="i" (click)="share(i)" name="md-share" style="zoom: 1.5"></ion-icon>  
   </div>
   <p class="posted">Posted by: {{i.hostname}}</p>
-
-  
-
 </ion-header>
 
 
-<ion-content *ngFor="let i of event">
+<ion-content *ngFor="let b of event">
   <ion-card-content>
-
     <ion-list no-line class="content">
       <ion-item>
         <ion-thumbnail item-start>
           <ion-icon class="ic" name="md-calendar"></ion-icon>
         </ion-thumbnail>
         <p>Event Date</p>
-        <h2>{{i.date}} - {{i.enddate}}</h2>
+        <h2>{{b.date}} - {{b.enddate}}</h2>
       </ion-item>
 
 
@@ -46,7 +43,7 @@
           <ion-icon class="ic" name="md-clock"></ion-icon>
         </ion-thumbnail>
         <p>Event Time</p>
-        <h2>{{i.startTIme}} - {{i.endTIme}}</h2>
+        <h2>{{b.startTIme}} - {{b.endTIme}}</h2>
       </ion-item>
 
 
@@ -55,10 +52,10 @@
           <ion-icon class="ic" name="logo-usd"></ion-icon>
         </ion-thumbnail>
         <p>Admission</p>
-        <h2>R{{i.fee}}</h2>
+        <h2>R{{b.fee}}</h2>
       </ion-item>
     </ion-list>
-<button ion-button block color="nav"  (click)="navigate(i.location)">
+<button ion-button block color="nav"  (click)="navigate(b.location)">
   <ion-icon class="back" name="md-locate" style="zoom: 1.5"> Location</ion-icon>
 </button>
     <!-- <h4><p>Photos</p></h4>  -->
