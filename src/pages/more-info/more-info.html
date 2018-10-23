@@ -35,12 +35,16 @@
    <ion-grid class="dash" align="center">
     <ion-row  class="colo" >
       <ion-col>
-              <ion-label class="lab">{{i.comments}}</ion-label>
+              <ion-label class="lab" (click)="comments()">{{i.comments}}</ion-label>
           <!-- <ion-icon class="icons" name="thumbs-up"></ion-icon> -->
           <ion-icon class="i" name="md-chatboxes"></ion-icon>
    
       </ion-col>
    
+      <!-- <ion-col>
+        <button (click)="share(i)" clear icon-only><ion-icon name="md-share"></ion-icon></button>
+      </ion-col> -->
+
       <ion-col>
               <ion-label class="lab"></ion-label>
           <ion-icon color={{colorState}} class="i" name="md-heart" outline (click)="going()"></ion-icon>
@@ -54,7 +58,7 @@
       </ion-col> -->
     </ion-row>
    </ion-grid>
-
+br
    
      <div class= "title" fixed>
       <b>Posted By : {{i.hostname}}</b>
