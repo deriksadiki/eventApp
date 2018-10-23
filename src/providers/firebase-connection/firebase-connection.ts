@@ -11,7 +11,6 @@ export class FirebaseConnectionProvider {
   authenticate = firebase.auth();
   storageRef = firebase.storage();
   state ;
-
   dbRef;
   currentUserName;
   currentUserImage;
@@ -48,17 +47,6 @@ export class FirebaseConnectionProvider {
     })
   }
 
-  
-// uploadPic(username){
-//   return new Promise((accpt,rej)=>{
-    
-//     this.storageRef.ref('pictures/' + username + ".jgp").putString(this.img,'data_url');
-//     accpt("image added to storage")
-//   })
-// }
-
-
-
   UpdateProfile(Username,img){
     this.profile.length = 0;
     let loading = this.loadingCtrl.create({
@@ -91,12 +79,10 @@ export class FirebaseConnectionProvider {
     })
   }
 
-
   logout(){
     console.log('exit')
     this.authenticate.signOut();
   }
-
 
   getALlGoings(){
     return new Promise((accept,reject) => {
@@ -140,7 +126,6 @@ export class FirebaseConnectionProvider {
       })
     })
   }
-  
 
   registerBusiness(email,password,userName,companyName,location, img){
     return new Promise((accpt,rej) =>{

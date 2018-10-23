@@ -39,12 +39,10 @@ export class ProfileUpdatePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfileUpdatePage');
     this.fire.getProfile().then((data:any)=>{
-      console.log(data)
        this.getProfile = data;
        this.pic =  this.getProfile[0].img;
-       console.log(this.pic)
        this.profile = this.getProfile[0].username;
-       console.log(this.profile)
+       
     })
   }
 
@@ -63,8 +61,7 @@ export class ProfileUpdatePage {
         this.pic = event.target.result;
       };
       reader.readAsDataURL(event.target.files[0]);
-      console.log(this.pic); 
-      // this.fire.uploadPic(this.pic)
+
     }
     
   }
