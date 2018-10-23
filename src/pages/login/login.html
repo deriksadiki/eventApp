@@ -1,7 +1,7 @@
 <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
   <div class="flb">
     <div class="Aligner-item Aligner-itemtop"></div>
-    <div class="log"  ><img class="logo" src="../../assets/imgs/fireworks (1).png">
+    <div class="log"  ><img class="logos" src="../../assets/imgs/fireworks (1).png">
       <h1 class="head">Event's Finder</h1></div>
     <div class="Aligner-item Aligner-itembottom"></div>
   </div>
@@ -17,7 +17,7 @@
     <div align = "center">
         <ion-list class="list" no-lines>
             <ion-item>
-              <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+              <ion-label><ion-icon   color="light" name="mail"></ion-icon></ion-label>
               <ion-input type="email" placeholder="E-mail" [(ngModel)]="logging.email"></ion-input>
             </ion-item>
             <br>
@@ -30,11 +30,11 @@
         </div>
       
 
-      
+      <div class="butts">
           <button class="btn" ion-button color="light"  (click)="login()" outline>Login</button>
           <br>
           <button class="btn" ion-button color="light" (click)="reg()" outline>Register</button> 
-<br>
+</div>
           <button (click)="ForgotPassword()" class="btn1" ion-button full clear>Forgot Password?</button> 
 </ion-content>
 

@@ -7,8 +7,8 @@ import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
 import {RegisterBusinessPage} from '../business/register-business/register-business'
 import { BusinessHomePage } from '../business/business-home/business-home';
-import { SecondPage } from '../second/second';
-
+import { CommentsPage } from '../comments/comments';
+import { MoreInfoPage } from '../more-info/more-info';
 // import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
@@ -21,37 +21,33 @@ import { SecondPage } from '../second/second';
 })
 export class LoginPage {
   logging = {} as login;
-
-  splash = true;
-  secomndPage = SecondPage;
-
+  event = this.navParams.get('event');
+  action =   this.navParams.get('action')
   constructor(public navCtrl: NavController, public navParams: NavParams, private firebaseService: FirebaseConnectionProvider, public alertCtrl:AlertController,public loadingCtrl:LoadingController) {
 
   }
 
   ionViewDidLoad() {
-    setTimeout(()=> this.splash = false , 3000);
-
   }
 
   login(){
+
     if (this.logging.email == "Admin" && this.logging.password =="123456"){
         this.navCtrl.push(RegisterBusinessPage)
     } 
     else{
       this.firebaseService.login(this.logging.email,this.logging.password).then(()=>{
         this.firebaseService.getuser();
-          const alert = this.alertCtrl.create({
-            title: 'Welcome',
-            message: 'You have successfully logged in',
-            buttons: ['OK']
-          });
-          alert.present();
-          this.navCtrl.push(TabsPage);
+        if (this.action == "comment" || this.action == "navigate" || this.action == "share" || this.action == "going"){
+          // this.navCtrl.setRoot(TabsPage).then(() =>{
+          //   this.navCtrl.push(MoreInfoPage,{action:this.action, events:this.event})
+          // })
+          this.navCtrl.pop();
+          }
       }, Error =>{
         if (this.logging.email == undefined && this.logging.password == undefined){
           const alert = this.alertCtrl.create({
-            title: 'Warning!',
+            title: 'Error,',
             subTitle: 'Please provide your log in details to log in!',
             buttons: ['Ok']
           });
@@ -59,14 +55,14 @@ export class LoginPage {
         }
         else if (this.logging.email == undefined){
           const alert = this.alertCtrl.create({
-            title: 'Warning!',
+            title: 'Error,',
             subTitle: 'Email cannot be left out!',
             buttons: ['Ok']
           });
           alert.present();
         }else if (this.logging.password == undefined ){
           const alert = this.alertCtrl.create({
-            title: 'Warning!',
+            title: 'Error,',
             subTitle: 'Password cannot be left out!',
             buttons: ['Ok']
           });
@@ -74,7 +70,7 @@ export class LoginPage {
         }
         else{
           const alert = this.alertCtrl.create({
-            title: 'Warning!',
+            title: 'Error,',
             message: Error,
             buttons: ['OK']
           });
@@ -82,11 +78,11 @@ export class LoginPage {
         }
       })
     }
-   
+
   }
 
 reg(){
-  this.navCtrl.push(RegisterPage);
+  this.navCtrl.push(RegisterPage, {action2:this.action, event:this.event});
 }
 
 

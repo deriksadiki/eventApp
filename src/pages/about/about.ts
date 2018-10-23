@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { User } from '../../Modals/User';
 import { MoreInfoPage } from '../more-info/more-info';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
@@ -14,7 +14,7 @@ export class AboutPage {
 fetching = new Array();
 eve = new Array();
 message;
- constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseService: FirebaseConnectionProvider) {
+ constructor(public alertCtrl:AlertController,public navCtrl: NavController, public navParams: NavParams, public firebaseService: FirebaseConnectionProvider) {
 ​ 
  }
 ​
@@ -31,17 +31,25 @@ message;
  ionView() {
   this.message = "";
   this.fetching.length = 0;
-  this.firebaseService.getALlGoings().then((data:any) => {
-    console.log(data)
-   if ( data == "no data"){
-    this.message = "you do not have any event on your calendar";
-   }
-   else{
-    this.fetching = data;
-   }
-  }, Error =>{
-   console.log(Error)
-  });
+  this.firebaseService.getUserSatate().then( data =>{
+    if (data == 1){
+      this.firebaseService.getALlGoings().then((data2:any) => {
+        console.log(data)
+       if ( data2 == "no data"){
+        this.message = "you do not have any events on your calendar";
+       }
+       else{
+        this.fetching = data2;
+       }
+      }, Error =>{
+       console.log(Error)
+      });
+    }
+     else if(data == 0){
+      this.message = "you must Sign in first before you can view your calendar";
+     } 
+  })
+
   }
   moreinfo(i){
    this.navCtrl.push(MoreInfoPage, {events:i, color:true});

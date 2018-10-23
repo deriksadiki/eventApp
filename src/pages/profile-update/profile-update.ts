@@ -66,19 +66,10 @@ export class ProfileUpdatePage {
 
 
   saveData(Username){
-    this.getProfile.length = 0;
-    let loading = this.loadingCtrl.create({
-      spinner: 'bubbles',
-      content: 'Please wait',
-      duration: 17000
-    });
-    loading.present();
+
       this.fire.UpdateProfile(this.profile,this.pic).then((data:any)=>{
         console.log(data)
-        this.navCtrl.setRoot(TabsPage).then(()=>{
-          this.navCtrl.setRoot(ContactPage)
-          loading.dismiss();
-        });
+       this.viewCtrl.dismiss();
       })
 
     }
