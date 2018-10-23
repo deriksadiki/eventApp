@@ -6,6 +6,7 @@ page-about {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        margin-top:30px;
         }
     
 
@@ -51,22 +52,14 @@ page-about {
 
      p{
          color: rgb(255, 255, 255);
+         padding-right: 30px;
      }
 
-    .list{
-        position: relative;
-        bottom: 2%;
-    }
-
-     .message{
-         color: rgb(58, 32, 32);
-         font-size: 20px;
-     }
 
      h1{
-         text-align: center;
-         
-     }
-    
-
+        text-align: center;
+        font-weight: 100;
+        color: grey;
+        font-size: 2.1em;
+    }
 }

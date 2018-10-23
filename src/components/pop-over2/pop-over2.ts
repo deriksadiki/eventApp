@@ -19,11 +19,9 @@ import { ContactPage } from '../../pages/contact/contact';
 })
 export class PopOver2Component {
 
-  text1: string;
+  text1 = 'Log-Out';
 
   constructor(public popoverCtrl: PopoverController,public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private toastCtrl: ToastController, private firebaseService: FirebaseConnectionProvider,private launchNavigator: LaunchNavigator, private socialSharing: SocialSharing) {
-    console.log('Hello PopOver2Component Component');
-    this.text1 = 'Log-Out'
   }
 
   logOut(){
@@ -35,14 +33,13 @@ export class PopOver2Component {
         {
           text: 'Disagree',
           handler: () => {
-            console.log('Disagree clicked');
+
             this.navCtrl.push(TabsPage);
           }
         },
         {
           text: 'Agree',
           handler: () => {
-            console.log('Agree clicked');
             this.firebaseService.logout();
             this.navCtrl.push(LoginPage)
           }

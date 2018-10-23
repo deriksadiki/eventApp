@@ -4,8 +4,7 @@ import { IonicPage, NavController, NavParams, ViewController, LoadingController 
 import { Update } from '../../Modals/userUpdate';
 
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
-import { TabsPage } from '../tabs/tabs';
-import { ContactPage } from '../contact/contact';
+
 
 
 /**
@@ -33,16 +32,15 @@ export class ProfileUpdatePage {
     
   }
 
-  ​ionViewDidEnter(){
-    console.log('works')
+
+  ionViewDidEnter(){
+
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfileUpdatePage');
     this.fire.getProfile().then((data:any)=>{
        this.getProfile = data;
        this.pic =  this.getProfile[0].img;
        this.profile = this.getProfile[0].username;
-       
     })
   }
 
@@ -61,7 +59,6 @@ export class ProfileUpdatePage {
         this.pic = event.target.result;
       };
       reader.readAsDataURL(event.target.files[0]);
-
     }
     
   }
@@ -79,8 +76,7 @@ export class ProfileUpdatePage {
         this.navCtrl.pop()
         loading.dismiss();
       })
-      
-    }
+  }
     
     ImageCapture(){
       this.fire.uploadpic().then((data:any)=>{

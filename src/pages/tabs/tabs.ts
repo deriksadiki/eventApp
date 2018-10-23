@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {FirebaseConnectionProvider} from '../../providers/firebase-connection/firebase-connection'
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
@@ -14,7 +14,25 @@ export class TabsPage {
   tab2Root = AboutPage;
   tab3Root = ContactPage;
   logg = LoginPage;
-  constructor() {
+  status;
+  constructor(public fire:FirebaseConnectionProvider) {
 
   }
+  ​ionViewDidEnter(){
+    this.checkLogInState();
+  }
+  checkLogInState(){
+    this.fire.getUserSatate().then( data =>{
+      if (data == 1){
+       this.status =  true;
+       this.fire.getuser().then(data=>{
+       });
+      }
+  
+     else if(data == 0){
+        this.status =  false;
+      }
+       })
+  }
+
 }

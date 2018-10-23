@@ -27,7 +27,6 @@ export class ContactPage {
 
   }
   ionViewDidEnter(){
-    console.log('works')
     this.ionViewDidLoad()
   }
 
@@ -43,7 +42,6 @@ export class ContactPage {
       if (data != "no data"){
         this.fetching = data;
       }
-     console.log(data);
     }, Error =>{
      console.log(Error)
 

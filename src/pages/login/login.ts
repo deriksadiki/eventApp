@@ -5,9 +5,6 @@ import {login} from '../../Modals/login';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
-import {RegisterBusinessPage} from '../business/register-business/register-business'
-import { BusinessHomePage } from '../business/business-home/business-home';
-// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
 
@@ -19,13 +16,15 @@ import { BusinessHomePage } from '../business/business-home/business-home';
 })
 export class LoginPage {
   logging = {} as login;
+  event = this.navParams.get('event');
+  action =   this.navParams.get('action')
   constructor(public navCtrl: NavController, public navParams: NavParams, private firebaseService: FirebaseConnectionProvider, public alertCtrl:AlertController,public loadingCtrl:LoadingController) {
 
   }
 
   ionViewDidLoad() {
-    
   }
+
   login(){
     if (this.logging.email == "Admin" && this.logging.password =="123456"){
         this.navCtrl.push(RegisterBusinessPage)
@@ -72,7 +71,7 @@ export class LoginPage {
   }
 
 reg(){
-  this.navCtrl.push(RegisterPage);
+  this.navCtrl.push(RegisterPage, {action2:this.action, event:this.event});
 }
 
 
@@ -90,7 +89,6 @@ reg(){
         {
           text: 'Cancel',
           handler: data => {
-            console.log('Cancel clicked');
           }
         },
         {

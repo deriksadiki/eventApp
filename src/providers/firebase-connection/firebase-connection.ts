@@ -58,7 +58,6 @@ export class FirebaseConnectionProvider {
     return new Promise ((accpt,rej) =>{
       var user = firebase.auth().currentUser;
       var path = 'users/' + this.currentUserID + '/' + this.userKey;
-      console.log(path)
       this.database.ref(path).update({
         Username: Username,
         img: img
@@ -80,7 +79,6 @@ export class FirebaseConnectionProvider {
   }
 
   logout(){
-    console.log('exit')
     this.authenticate.signOut();
   }
 
@@ -111,7 +109,6 @@ export class FirebaseConnectionProvider {
                   enddate : moment(fav.endDate).format('MMM Do, YYYY')
                 }
                 this.fetch.push(obj)
-              console.log(this.fetch)
               accept(this.fetch);  
             }, Error =>{
               reject(Error.message);
@@ -141,7 +138,6 @@ export class FirebaseConnectionProvider {
         accpt("success!");
       },Error =>{
         rej(Error.message);
-        console.log(Error.message);
       })
     })
   }
@@ -170,7 +166,6 @@ login(email,password){
       accept("Success")
     }, Error =>{
       reject(Error.message);
-      console.log(Error.message);
     })
   })
 }
@@ -210,7 +205,6 @@ getColourState(key){
 }
 
 removeFromFav(key){
-  console.log('its me')
   return new Promise ((accpt,rej) =>{
     var user = firebase.auth().currentUser;
     this.database.ref('goings/' + user.uid).on('value', (data2: any) => {
@@ -268,7 +262,6 @@ this.database.ref('events/').on('value', (data: any) => {
           this.fetch.push(obj)
         }
         accept(this.fetch);
-        console.log(this.fetch)
       })
     }
   }
@@ -296,7 +289,6 @@ getNewEvents(){
           }
           this.newEvents.push(obj)
         }
-        console.log(this.newEvents)
         accpt(this.newEvents)
       }
       else{
@@ -323,7 +315,6 @@ getNewEvents(){
           var index = str1.indexOf( ":" ); 
           var currentUserID = userIDs[x].substr(index + 1);
           if (user.uid == currentUserID){
-            console.log(user.uid)
             this.storeUsername(userIDs[x].substr(0,index));
             this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
               var Userdetails = data.val(); 
@@ -344,7 +335,6 @@ getNewEvents(){
    }
 
    storeUsername(username){
-     console.log(username)
    }
    
    storeCurrentUsername(username){
@@ -370,14 +360,10 @@ getNewEvents(){
   getProfile(){
     this.profile.length = 0;
     return new Promise((accpt,rej)=>{
-      console.log(this.currentUserID);
-      this.database.ref('users/' + this.currentUserID ).on('value',(data2:any)=>{
+        this.database.ref('users/' + this.currentUserID ).on('value',(data2:any)=>{
         var details = data2.val();
-        console.log(details)
         var keys = Object.keys(details);
-        console.log(keys)
           var k = keys[0];
-          console.log(k)
           let obj ={
             username: details[k].Username,
             img: details[k].img,
@@ -386,7 +372,6 @@ getNewEvents(){
           }
           this.profile.push(obj);
         accpt(this.profile)
-        console.log(this.profile)
       })
       this.profile = [];
     })
@@ -424,7 +409,7 @@ getComments(key){
           this.comments.push(obj)
         }
           accpt(this.comments);
-          console.log(this.comments);
+
       }
       })
   })
@@ -433,7 +418,6 @@ getComments(key){
 addNumComments(key, numComments, user){
   var num =  numComments  + 1;
   this.database.ref('events/' + user+ "/"+ key).update({comments: num});
-  console.log("comment number added")
 }
 Goings(eventName, eventKey){
   var user = firebase.auth().currentUser;

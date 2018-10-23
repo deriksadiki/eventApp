@@ -12,16 +12,17 @@ page-contact {
    
     }
     .back{
-        font-size: 250%;
+        font-size: 200%;
         color:whitesmoke;
+        top:4px;
         margin-left: 10px;
         position: relative;
         
     }
     .butt{
         float: left;
-        margin-left: 90%;
-        bottom: 50px;
+        margin-left: 88%;
+        bottom: 49px;
         // position: relative;
     }
     .more{
@@ -43,17 +44,19 @@ page-contact {
     //   margin-top: 20px ;
     }
 
-    .pic1{
-        height: 30vh;
-        width: 45%;
-        border-radius: 70px;
-         position: relative;
-         margin-top: 70px;
-    }
+    // .pic1{
+    //     height: 30vh;
+    //     width: 45%;
+    //     border-radius: 70px;
+    //      position: relative;
+    //      margin-top: 70px;
+    // }
       
     .pic{
+
     height: 30vh;
     width: 80%;
+
     top: 30px;
     }
 
@@ -82,13 +85,7 @@ page-contact {
     color: white;
 }
 }
-.space{
-    height: 100px;
-    position: relative;
-    bottom: 4px;
-    font-size: 15px;
-    font-weight: 100;
-}
+
 .picture{
     height: 140px;
     width: 140px;
@@ -101,21 +98,22 @@ h1{
     color: white;
     font-weight: 100;
     position: relative;
-    bottom: 30px;
+    bottom: 45px;
 }
 .thenav{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.514),#7a4579), url('../../assets/imgs/people.jpg');
+    background-image:linear-gradient(rgba(0, 0, 0, 0.808),#7a4579), url('../../assets/imgs/people.jpg');
    
     height: 320px;
 }
 .titles{
     font-size: 4em;
+    margin-top: 10px;
 }
 .image{
     height: 140px;
     width: 140px;
     position: relative;
-    bottom: 6px;
+    bottom: 15px;
     border-radius: 100px;
     border: solid 10px #cec2ce81,
 

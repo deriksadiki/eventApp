@@ -22,7 +22,6 @@ newmessage;
    this.firebaseService.getComments(this.eventArray[0].key).then((data:any) =>{
      this.comments = data;
      var length = this.comments.length;
-     console.log(this.eventArray[0].comments)
    })
 }
 
