@@ -1,41 +1,63 @@
 page-login {
 
+    .back{
+        background-image:linear-gradient(#7a4579,rgba(0,0,0,0.5)), url('../../assets/imgs/people.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
+    }
+
     .btn{
         width: 80%;
         position: relative;
-        left: 10%;
-        top: 50px;
-        // padding:3px;
-        font-weight: 100;
+        left: 9%;
+        top: 80px;
+        font-weight: 400;
         font-size: 1.3em;
-        color: black;
+        color: #7a4579;
+        border-radius: 50px;
+        height: 45px;
+        margin-bottom: 2%;
+        background-color: aliceblue;
 
     }
+
+    .btn1{
+        color: white;
+        position: relative;
+        top: 90px;
+
+    }
+
     .item{
         background-color: rgba(255, 255, 255, 0.171);
         color: rgb(255, 255, 255);
         width: 80%;
         position: relative;
-
-        left: 2%;
-        top: 50px;
-
+        // left: 2%;
+        height: 45px;
+        top: 40px;
         border-radius: 30px;
         padding-left: 7%;
-        font-size: 1.3em;
+        font-size: 1.7em;
         font-weight: 100;
+
+        ::-webkit-input-placeholder{
+            color: aliceblue;
+        }
 
   }
   .list{
     position: relative;
-    top: 8%;
+    top: 10px;
 }
-.back{
-    background-color:  #7a4579;
-}
+// .back{
+//     background-color:  #7a4579;
+// }
 .image{
     position: relative;
-    top: 40px;
+    top: 100px;
 }
 
 
@@ -43,9 +65,72 @@ h1{
     color: white;
     font-weight: 100;
     text-align: center;
-    margin-top: 130px;
-    font-size: 3em;
+    // position: relative;
+    // top: 100px;
+    font-size: 4em;
+    padding-top: 10%;
 
 
 }
+.butts{
+    bottom: 25px;
+}
+
+p{
+    color: white;
+    text-align: center;
+    padding-top: 20%;
+}
+.logos{
+    height: 100px;
+    position: relative;
+    width: 100px;
+    border-radius: 20px;
+}
+
+// splash screen
+.flb {
+    background-image:linear-gradient(#7a4579,rgba(0,0,0,0.5)), url('../../assets/imgs/people.jpg');    background-size: cover;
+    height:100%;
+    width:100%;
+
+    animation: pulse 2s linear forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Aligner-item {
+    max-width: 50%;
+  }
+  .Aligner-item--top {
+    align-self: flex-start;
+  }
+  .Aligner-item--bottom {
+    align-self: flex-end;
+  }
+  #custom-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100000;
+    width:100%;
+    background-color: #002a3e;
+  }
+  #custom-overlay img {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+    animation: animation 4100ms linear infinite both ;
+    animation-delay: 6s;
+  }
+  #main{
+    background: linear-gradient(rgba(0, 0, 0, 0.432)), url('../../assets/3f6b0af2345776f5f225a3f030e88726.jpg');
+    background-size: cover;
+  
+  }
+
+
 }

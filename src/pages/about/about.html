@@ -6,6 +6,7 @@
   </ion-navbar>
 </ion-header>
 
+<<<<<<< HEAD
 <ion-content class="img" >
               <ion-item class="item" *ngFor="let a of fetching;let i of index;">
                 <ion-avatar class="avatar" item-start>
@@ -21,4 +22,25 @@
               </ion-item>
           
 
+=======
+<ion-content  class="img">
+  <br>
+
+  <h1 class="message">{{message}}</h1>
+<ion-list >
+
+                    <ion-item (click)="moreinfo(i)" class="item" *ngFor="let a of fetching;let i of index;">
+                      <ion-avatar class="avatar" item-start>
+                        <img src="{{a.img}}">
+                      </ion-avatar>
+                      <h2>{{a.eventName}}</h2>
+                      <p text-wrap style="color:black">{{a.date}}<br>
+                       {{a.location}}</p>
+                        <div align="right">
+                        <ion-icon name="arrow-dropright" ></ion-icon>
+                      </div>
+                    </ion-item>
+                  </ion-list>
+>>>>>>> 3fcffc746fe85daea04cba8d109d190268a372c6
 </ion-content>
+

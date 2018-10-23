@@ -1,15 +1,13 @@
-<ion-header >
+<ion-header>
   <ion-toolbar color="nav">
-    <ion-title>Upcoming Events</ion-title>
+    <ion-title align="center"> Events</ion-title>
   </ion-toolbar>
-  </ion-header>
-  
-  <ion-content class="img">
-  
-  
-    <ion-card class="card" *ngFor="let a of fetching;let i of index;">
-        <ion-card-header class="head">
+</ion-header>
 
+<ion-content>
+
+
+<<<<<<< HEAD
             {{i.eventName}}
           </ion-card-header>
   
@@ -24,12 +22,68 @@
         <br>
        <div align="left">
         <button ion-button color="nav" clear (click)="viewMore(i)">View More</button>
+=======
+>>>>>>> 3fcffc746fe85daea04cba8d109d190268a372c6
 
+ <h1>Upcoming events</h1>
+
+  <!-- <ion-slides  class="main" slidesPerView="2">
+        <div *ngFor="let a of fetchingRecentlyAdded;let i of index;" class="main">
+        <ion-slide class="slide1" >
+              <ion-card class="carrd" >
+                <img class="image" src="{{a.img}}" imageViewer />
+                <ion-card-content class="cont" (click)="viewMore(i)">
+                  <p >{{i.eventName}}</p>
+                    <div align="left">
+                    <p style=" color: rgb(139, 82, 139)">View more</p>
+                    </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-slide>
+          </div>
+    </ion-slides> -->
+
+  <div class="scrollcontainer">
+      <div class="cardcontainer" *ngFor="let a of fetchingUpcoming;let i of index;">
+        <div class="image">
+          <img class="image" src="{{a.img}}" imageViewer />
+        </div>
+        <div class="content">
+          <p>{{i.eventName}}</p>
+          <p class="text" (click)="viewMore(i)">View
+          </p>
+        </div>
       </div>
-        <h2 align="right">{{i.date}}</h2>
-  
-      </ion-card-content>
-    </ion-card>
- 
-  </ion-content>
+    </div>
 
+    <h1>Recently Added</h1>
+<!-- 
+    <ion-slides class="main" slidesPerView="2">
+      <div *ngFor="let a of fetchingUpcoming;let i of index;" class="main">
+        <ion-slide class="slide1">
+          <ion-card class="carrd">
+            <img class="image" src="{{a.img}}" imageViewer />
+            <ion-card-content class="cont" (click)="viewMore(i)">
+              <p>{{i.eventName}}</p>
+              <div align="left">
+                <p style="color: rgb(139, 82, 139)">View more</p>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </div>
+    </ion-slides> -->
+  
+    <div class="scrollcontainer2">
+        <div class="cardcontainer" *ngFor="let a of fetchingRecentlyAdded;let i of index;">
+          <!-- <div class="image"> -->
+            <img class="image" src="{{a.img}}" (click)="viewMore(i)">
+          <!-- </div> -->
+          <!-- <div class="content">
+            <p>{{i.eventName}}</p>
+            <p class="text">View
+            </p>
+          </div> -->
+        </div>
+      </div>
+</ion-content>
