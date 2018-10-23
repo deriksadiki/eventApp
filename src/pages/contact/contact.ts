@@ -6,9 +6,7 @@ import { LoginPage } from '../login/login';
 import { ProfileUpdatePage } from '../profile-update/profile-update';
 import { PopoverController } from 'ionic-angular';
 
-
-import { MyPopOverPage } from '../my-pop-over/my-pop-over'
-import { PopoverComponent } from '../../components/popover/popover';
+// import { PopoverComponent } from '../../components/popover/popover';
 import { MoreInfoPage } from '../more-info/more-info';
 import { PopOver2Component } from '../../components/pop-over2/pop-over2';
 
@@ -20,23 +18,32 @@ import { PopOver2Component } from '../../components/pop-over2/pop-over2';
 })
 export class ContactPage {
   profile = [];
+  pic;
+  username;
 
   fetching = new Array();
 
   constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
 
-
-
+  }
+  ionViewDidEnter(){
+    console.log('works')
+    this.ionViewDidLoad()
   }
 
   ionViewDidLoad(){
+    this.profile.length = 0;
     this.firebaseService.getProfile().then((data:any)=>{
       this.profile = data;
+      this.pic = this.profile[0].img
+      this.username = this.profile[0].Username
       console.log(this.profile)
     })
     this.fetching.length = 0;
     this.firebaseService.getALlGoings().then((data:any) => {
-     this.fetching = data;
+      if (data != "no data"){
+        this.fetching = data;
+      }
      console.log(data);
     }, Error =>{
      console.log(Error)
@@ -45,10 +52,8 @@ export class ContactPage {
   }
 
   presentModal(){
-    const modal =this.modalCtrl.create(ProfileUpdatePage);
-    modal.present();
+   this.navCtrl.push(ProfileUpdatePage);
   }
-
 
 
   Log(event) {
@@ -61,15 +66,6 @@ export class ContactPage {
 
    more(a){
     this.navCtrl.push(MoreInfoPage, {events:this.fetching[a], color:true});
-  }
-
-  doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
-
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      refresher.complete();
-    }, 2000);
   }
 
 }

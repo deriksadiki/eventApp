@@ -31,7 +31,10 @@ export class ProfileUpdatePage {
 
   constructor(public loadingCtrl:LoadingController,private fire: FirebaseConnectionProvider,public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
     
+  }
 
+  ​ionViewDidEnter(){
+    console.log('works')
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfileUpdatePage');
@@ -39,8 +42,9 @@ export class ProfileUpdatePage {
       console.log(data)
        this.getProfile = data;
        this.pic =  this.getProfile[0].img;
+       console.log(this.pic)
        this.profile = this.getProfile[0].username;
-
+       console.log(this.profile)
     })
   }
 
@@ -57,21 +61,28 @@ export class ProfileUpdatePage {
       let reader = new FileReader();
       reader.onload = (event:any) =>{
         this.pic = event.target.result;
-
       };
       reader.readAsDataURL(event.target.files[0]);
-      console.log(event.target.files);
+      console.log(this.pic); 
+      // this.fire.uploadPic(this.pic)
     }
+    
   }
 
 
   saveData(Username){
- 
-      this.fire.UpdateProfile(this.profile,this.pic).then((data:any)=>{
-        console.log(data)
-       this.navCtrl.pop();
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Please wait',
+      duration: 17000
+    });
+    loading.present();
+    
+    this.fire.UpdateProfile(this.profile,this.pic).then((data:any)=>{
+        this.navCtrl.pop()
+        loading.dismiss();
       })
-
+      
     }
     
     ImageCapture(){
@@ -80,12 +91,5 @@ export class ProfileUpdatePage {
         this.fire.UpdateProfile(this.profile,this.pic);
       });
     }
-
-  // presentPopover(event) {
-  //   const popover = this.popoverCtrl.create(PopOver2Component);
-  //   popover.present({
-  //      ev:event
-  //   });
-  // }
 }
 

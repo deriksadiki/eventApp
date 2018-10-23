@@ -25,6 +25,7 @@ export class FirebaseConnectionProvider {
   comments = new Array();
   newEvents =  new Array();
   profile = new Array();
+  profile2 = new Array();
   currentUserID;
   defaultImages = ['../../assets/imgs/pic.jpg','../../assets/imgs/pic23.jpg','../../assets/imgs/pic24.jpg', '../../assets/imgs/pic22.jpg','../../assets/imgs/pic25.jpg']
   constructor(private camera:Camera,public loadingCtrl: LoadingController) {
@@ -48,17 +49,18 @@ export class FirebaseConnectionProvider {
   }
 
   
-uploadPic(username){
-  return new Promise((accpt,rej)=>{
+// uploadPic(username){
+//   return new Promise((accpt,rej)=>{
     
-    this.storageRef.ref('pictures/' + username + ".jgp").putString(this.img,'data_url');
-    accpt("image added to storage")
-  })
-}
+//     this.storageRef.ref('pictures/' + username + ".jgp").putString(this.img,'data_url');
+//     accpt("image added to storage")
+//   })
+// }
 
 
 
-  UpdateProfile(Username, img){
+  UpdateProfile(Username,img){
+    this.profile.length = 0;
     let loading = this.loadingCtrl.create({
       spinner: 'bubbles',
       content: 'Please wait',
@@ -75,6 +77,17 @@ uploadPic(username){
       })
       loading.dismiss();
       accpt('succes!')
+    })
+  }
+
+  uploadPic(img){
+
+    return new Promise((accpt,rej)=>{
+      var user = firebase.auth().currentUser;
+      var path = 'users/' + this.currentUserID + '/' + this.userKey;
+      this.database.ref(path).update({
+        img: img
+      }) 
     })
   }
 
@@ -369,31 +382,30 @@ getNewEvents(){
     this.currentUserID = uid;
   }
 
-getProfile(){
-  return new Promise((accpt,rej)=>{
+  getProfile(){
     this.profile.length = 0;
-    console.log(this.currentUserID);
-    this.database.ref('users/' + this.currentUserID ).on('value',(data2:any)=>{
-      var details = data2.val();
-      console.log(details)
-      var keys = Object.keys(details);
-      console.log(keys)
-      for (var x = 0;x < keys.length;x++){
-        var k = keys[x];
-        console.log(k)
-        let obj ={
-          username: details[k].Username,
-          img: details[k].img,
-          userType: details[k].userType,
-          key: k
-        }
-        this.profile.push(obj);
-      }
-      accpt(this.profile)
-      console.log(this.profile)
+    return new Promise((accpt,rej)=>{
+      console.log(this.currentUserID);
+      this.database.ref('users/' + this.currentUserID ).on('value',(data2:any)=>{
+        var details = data2.val();
+        console.log(details)
+        var keys = Object.keys(details);
+        console.log(keys)
+          var k = keys[0];
+          console.log(k)
+          let obj ={
+            username: details[k].Username,
+            img: details[k].img,
+            userType: details[k].userType,
+            key: k
+          }
+          this.profile.push(obj);
+        accpt(this.profile)
+        console.log(this.profile)
+      })
+      this.profile = [];
     })
-  })
-}
+  }
 
 comment(text,key){
   return new Promise((accpt, rej) =>{
@@ -421,7 +433,7 @@ getComments(key){
           let obj = {
             date :moment( details[key].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
             text :  details[key].text,
-            name : details[key].username,
+            name : details[key].Username,
             img: details[key].img
           }
           this.comments.push(obj)
