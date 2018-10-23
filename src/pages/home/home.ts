@@ -26,6 +26,7 @@ export class HomePage {
 
   }
   ionViewDidLoad() {
+    setTimeout(()=> {
       let loading = this.loadingCtrl.create({
         spinner: 'bubbles',
         content: 'Please Wait.',
@@ -51,6 +52,8 @@ export class HomePage {
       }
       loading.dismiss()
     });
+    }, 3100);
+     
      }
 
 

@@ -28,6 +28,8 @@ export class ContactPage {
 
   }
   ionViewDidEnter(){
+    this.fetching.length = 0;
+    this.profile.length = 0;
     this.ionViewDidLoad()
   }
 

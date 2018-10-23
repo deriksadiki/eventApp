@@ -337,6 +337,7 @@ getNewEvents(){
    }
 
    storeUsername(username){
+     console.log(username)
    }
    
    storeCurrentUsername(username){
@@ -381,6 +382,7 @@ getNewEvents(){
 
 comment(text,key){
   return new Promise((accpt, rej) =>{
+    console.log(this.camera)
     var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('comments/' +  key).push({
       text:text,

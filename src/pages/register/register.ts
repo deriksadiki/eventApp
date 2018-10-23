@@ -64,12 +64,9 @@ export class RegisterPage {
 
     else {
       this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.Username).then(() =>{
-        this.firebaseService.getuser().then(() =>{
-          this.navCtrl.setRoot(TabsPage);
-        })
+        this.firebaseService.getuser();
+          this.navCtrl.push(TabsPage);
        })
-
-
     }
   }
   }

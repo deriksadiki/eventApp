@@ -25,19 +25,15 @@ export class LoginPage {
   logging = {} as login;
   event = this.navParams.get('event');
   action =   this.navParams.get('action')
-  
-splash = true;
-secomndPage = SecondPage;
   constructor(public navCtrl: NavController, public navParams: NavParams, private firebaseService: FirebaseConnectionProvider, public alertCtrl:AlertController,public loadingCtrl:LoadingController) {
 
   }
 
   ionViewDidLoad() {
-    setTimeout(()=> this.splash = false , 3000);
+
   }
 
   login(){
-
     if (this.logging.email == "Admin" && this.logging.password =="123456"){
         this.navCtrl.push(RegisterBusinessPage)
     } 
@@ -48,7 +44,10 @@ secomndPage = SecondPage;
           // this.navCtrl.setRoot(TabsPage).then(() =>{
           //   this.navCtrl.push(MoreInfoPage,{action:this.action, events:this.event})
           // })
-          this.navCtrl.pop();
+            this.navCtrl.pop();
+          }
+          else{
+            this.navCtrl.push(TabsPage)
           }
       }, Error =>{
         if (this.logging.email == undefined && this.logging.password == undefined){
