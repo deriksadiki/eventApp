@@ -30,6 +30,5 @@ ionViewDidLoad() {
   toast.present();
   }
 
-
-
+  
 }
