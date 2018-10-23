@@ -47,17 +47,20 @@ export class FirebaseConnectionProvider {
   }
 
   
-uploadPic(username){
+updatePic(img){
   return new Promise((accpt,rej)=>{
-    
-    this.storageRef.ref('pictures/' + username + ".jgp").putString(this.img,'data_url');
-    accpt("image added to storage")
+    var user = firebase.auth().currentUser;
+    var path = 'users/' + this.currentUserID + '/' + this.userKey;
+    this.database.ref(path).update({
+      img: img,
+    })
+    accpt('picture changed')
   })
 }
 
 
 
-  UpdateProfile(Username, img){
+  UpdateProfile(Username){
     let loading = this.loadingCtrl.create({
       spinner: 'bubbles',
       content: 'Please wait',
@@ -70,7 +73,6 @@ uploadPic(username){
       console.log(path)
       this.database.ref(path).update({
         Username: Username,
-        img: img
       })
       loading.dismiss();
       accpt('succes!')

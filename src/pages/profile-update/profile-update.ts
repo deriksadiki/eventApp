@@ -15,8 +15,6 @@ import { ContactPage } from '../contact/contact';
  * Ionic pages and navigation.
  */
 
-declare var firebase;
-
 @IonicPage()
 @Component({
   selector: 'page-profile-update',
@@ -67,11 +65,21 @@ export class ProfileUpdatePage {
 
   saveData(Username){
 
-      this.fire.UpdateProfile(this.profile,this.pic).then((data:any)=>{
+      this.fire.UpdateProfile(this.profile).then((data:any)=>{
         console.log(data)
-       this.viewCtrl.dismiss();
+       this.navCtrl.pop().then((data:any)=>{
+         this.navCtrl.setRoot(TabsPage).then((data:any)=>{
+           this.navCtrl.setRoot(ContactPage)
+         })
+       });
       })
 
+    }
+
+    updatePic(username){
+      this.fire.updatePic(this.pic).then((data:any)=>{
+        console.log(data);
+      })
     }
 
     ImageCapture(){
@@ -85,7 +93,7 @@ export class ProfileUpdatePage {
       this.fire.uploadpic().then((data:any)=>{
         this.pic = data;
         this.getProfile.length = 0;
-        this.fire.UpdateProfile(this.profile,this.pic).then(()=>{
+        this.fire.updatePic(this.pic).then(()=>{
           this.navCtrl.setRoot(TabsPage).then(()=>{
             this.navCtrl.push(ProfileUpdatePage)
             loading.dismiss();

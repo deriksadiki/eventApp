@@ -26,18 +26,18 @@
   
 
 </ion-header>
+<br>
 
+  <ion-content >
+  <ion-card-content *ngFor="let a of event">
 
-<ion-content *ngFor="let i of event">
-  <ion-card-content>
-
-    <ion-list no-line class="content">
+    <ion-list no-lines class="content">
       <ion-item>
         <ion-thumbnail item-start>
           <ion-icon class="ic" name="md-calendar"></ion-icon>
         </ion-thumbnail>
         <p>Event Date</p>
-        <h2>{{i.date}} - {{i.enddate}}</h2>
+        <h2>{{a.date}} - {{a.enddate}}</h2>
       </ion-item>
 
 
@@ -46,7 +46,7 @@
           <ion-icon class="ic" name="md-clock"></ion-icon>
         </ion-thumbnail>
         <p>Event Time</p>
-        <h2>{{i.startTIme}} - {{i.endTIme}}</h2>
+        <h2>{{a.startTIme}} - {{a.endTIme}}</h2>
       </ion-item>
 
 
@@ -55,7 +55,7 @@
           <ion-icon class="ic" name="logo-usd"></ion-icon>
         </ion-thumbnail>
         <p>Admission</p>
-        <h2>R{{i.fee}}</h2>
+        <h2>R{{a.fee}}</h2>
       </ion-item>
     </ion-list>
 <button ion-button block color="nav"  (click)="navigate(i.location)">
@@ -74,3 +74,4 @@
       </ion-fab-list>
     </ion-fab> -->
 </ion-content>
+
