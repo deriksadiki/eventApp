@@ -65,7 +65,6 @@ uploadPic(username){
     });
     loading.present();
     return new Promise ((accpt,rej) =>{
-      var user = firebase.auth().currentUser;
       var path = 'users/' + this.currentUserID + '/' + this.userKey;
       console.log(path)
       this.database.ref(path).update({
@@ -343,7 +342,6 @@ getNewEvents(){
    }
 
    storeUsername(username){
-     console.log(username)
    }
    
    storeCurrentUsername(username){
@@ -372,12 +370,8 @@ getProfile(){
     console.log(this.currentUserID);
     this.database.ref('users/' + this.currentUserID ).on('value',(data2:any)=>{
       var details = data2.val();
-      console.log(details)
       var keys = Object.keys(details);
-      console.log(keys)
-      for (var x = 0;x < keys.length;x++){
-        var k = keys[x];
-        console.log(k)
+      var k = keys[0]
         let obj ={
           username: details[k].Username,
           img: details[k].img,
@@ -385,9 +379,8 @@ getProfile(){
           key: k
         }
         this.profile.push(obj);
-      }
-      accpt(this.profile)
-      console.log(this.profile)
+        console.log(this.profile)
+     accpt(this.profile)
     })
   })
 }

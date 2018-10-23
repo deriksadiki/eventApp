@@ -239,7 +239,4 @@ presentPopover() {
      ev:event,
   });
 }
-// comments(){
-//   this.navCtrl.push(CommentsPage);
-// }
 }

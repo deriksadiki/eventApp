@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, ModalController } from 'ionic-angular';
+import { NavController, AlertController, ModalController, NavParams } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
@@ -20,19 +20,26 @@ export class ContactPage {
   profile = [];
 
   fetching = new Array();
+  temp = new Array();
 
-  constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
+  constructor(public navParams: NavParams, public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
+    this.profile.length = 0;
+    this.fetching.length = 0;
+  }
 
-
-
+  ​ionViewDidEnter(){
+this.profile.length = 0;
+this.fetching.length = 0;
+    this.ionViewDidLoad();
   }
 
   ionViewDidLoad(){
+    console.log(this.navParams.get('proflie2'))
+    console.log(this.profile)
     this.firebaseService.getProfile().then((data:any)=>{
       this.profile = data;
-      console.log(this.profile)
+      this.temp = data;
     })
-    this.fetching.length = 0;
     this.firebaseService.getALlGoings().then((data:any) => {
       if (data != "no data"){
         this.fetching = data;
@@ -45,8 +52,7 @@ export class ContactPage {
   }
 
   presentModal(){
-    const modal =this.modalCtrl.create(ProfileUpdatePage);
-    modal.present();
+    this.navCtrl.push(ProfileUpdatePage,{profile:this.profile});
   }
 
 

@@ -28,29 +28,20 @@ export class ProfileUpdatePage {
   update = {} as Update
   getProfile = []
   profile;
-
+  getUserProfile = this.navParams.get('profile');
+  pic;
   constructor(public loadingCtrl:LoadingController,private fire: FirebaseConnectionProvider,public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
     
 
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfileUpdatePage');
-    this.fire.getProfile().then((data:any)=>{
-      console.log(data)
-       this.getProfile = data;
-       this.pic =  this.getProfile[0].img;
-       this.profile = this.getProfile[0].username;
-
-    })
+       this.pic =  this.getUserProfile[0].img;
+       this.profile = this.getUserProfile[0].username;
   }
 
   dismiss() {
     this.viewCtrl.dismiss();
   }
-
-
-  pic;
-
 
   picInsert(event:any){
     if(event.target.files && event.target.files[0]){
@@ -60,39 +51,46 @@ export class ProfileUpdatePage {
 
       };
       reader.readAsDataURL(event.target.files[0]);
-      console.log(event.target.files);
     }
   }
 
 
-  saveData(Username){
-
+  saveData(){
+    let loading = this.loadingCtrl.create({
+          spinner: 'bubbles',
+          content: 'Please wait',
+          duration: 17000
+        });
+        loading.present();
       this.fire.UpdateProfile(this.profile,this.pic).then((data:any)=>{
-        console.log(data)
-       this.viewCtrl.dismiss();
-      })
+        setTimeout(() => {
+          loading.dismiss();
+          this.navCtrl.pop();
+        }, 1500);
+
+     })
 
     }
 
-    ImageCapture(){
-      this.getProfile.length = 0;
-      let loading = this.loadingCtrl.create({
-        spinner: 'bubbles',
-        content: 'Please wait',
-        duration: 17000
-      });
-      loading.present();
-      this.fire.uploadpic().then((data:any)=>{
-        this.pic = data;
-        this.getProfile.length = 0;
-        this.fire.UpdateProfile(this.profile,this.pic).then(()=>{
-          this.navCtrl.setRoot(TabsPage).then(()=>{
-            this.navCtrl.push(ProfileUpdatePage)
-            loading.dismiss();
-          });
-        })
-      });
-    }
+    // ImageCapture(){
+    //   this.getProfile.length = 0;
+    //   let loading = this.loadingCtrl.create({
+    //     spinner: 'bubbles',
+    //     content: 'Please wait',
+    //     duration: 17000
+    //   });
+    //   loading.present();
+    //   this.fire.uploadpic().then((data:any)=>{
+    //     this.pic = data;
+    //     this.getProfile.length = 0;
+    //     this.fire.UpdateProfile(this.profile,this.pic).then(()=>{
+    //       this.navCtrl.setRoot(TabsPage).then(()=>{
+    //         this.navCtrl.push(ProfileUpdatePage)
+    //         loading.dismiss();
+    //       });
+    //     })
+    //   });
+    //}
 
   // presentPopover(event) {
   //   const popover = this.popoverCtrl.create(PopOver2Component);
