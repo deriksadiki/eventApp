@@ -92,6 +92,9 @@ page-home {
     //     }
       
     //   }
+    p.texts{
+      word-wrap:  break-word;
+    }
     .scrollcontainer2{
         //   background: red;
           width: 100vw;
@@ -111,7 +114,7 @@ page-home {
             box-shadow: 4px 9px 5px rgba(grey, .6);
           .image{
               height:10em;
-              width:10em;
+              width:12em;
               flex: 3 0 0;
               img{
                   width: 13em;
@@ -161,7 +164,7 @@ page-home {
               .image{
                   flex: 3 0 0;
                   img{
-                      width: 12em;
+                      width: 13em;
                       height: 14em;
                   }
                 }
