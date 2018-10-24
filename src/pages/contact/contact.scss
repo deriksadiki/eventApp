@@ -63,7 +63,10 @@ page-contact {
     height: 100px;
     width: 100px;
 }
-     
+    ion-card.card{
+        border-radius: 30px;
+        box-shadow: 2px 3px 4px ;
+    } 
 .dash{
     background-color: rgba(53, 52, 52, 0.555);
     color: white;
@@ -124,6 +127,16 @@ h1{
     bottom: 15px;
     border-radius: 100px;
     border: solid 10px #cec2ce81,
+
+}
+.images{
+    height: 180px;
+    width: 180px;
+    box-shadow: 2px 2px 1px;
+    // position: relative;
+    // bottom: 15px;
+    // border-radius: 100px;
+    // border: solid 10px #cec2ce81,
 
 }
 

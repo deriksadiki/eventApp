@@ -47,9 +47,11 @@
           <ion-grid>
             <ion-row>
               <ion-col class="space" *ngFor="let i of fetching; let a = index" >
-                <div class="cont" (click)="more(a)">
-                  <img id="pic" src="{{i.img}}" >
-                </div>
+                <!-- <ion-card (click)="more(a)"> -->
+                  <ion-card-content>
+                      <img class="images" src="{{i.img}}" >
+                  </ion-card-content>
+                <!-- </ion-card> -->
               </ion-col>
             </ion-row>
           </ion-grid>
