@@ -368,6 +368,7 @@ getNewEvents(){
         var keys = Object.keys(details);
           var k = keys[0];
           let obj ={
+          
             username: details[k].Username,
             img: details[k].img,
             userType: details[k].userType,
