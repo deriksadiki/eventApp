@@ -47,6 +47,11 @@ page-home {
         border: solid 2px grey;
     
     }
+   
+    .shade1{
+        background-color: #666; 
+        height: 19em;
+    }
     // ion-slide.swiper-slide{
     //     right:10%
     // }
@@ -165,7 +170,11 @@ page-home {
               .image{
                   flex: 3 0 0;
                   img{
+<<<<<<< HEAD
                       width: 15em;
+=======
+                      width: 14em;
+>>>>>>> 7282b5ea6672a21e979d5cf86efc57c564200fa7
                       height: 14em;
                   }
                 }

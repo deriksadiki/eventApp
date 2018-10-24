@@ -20,6 +20,7 @@ export class ContactPage {
   profile = [];
   pic;
   username;
+  message;
 
   fetching = new Array();
 
@@ -27,20 +28,26 @@ export class ContactPage {
 
   }
   ionViewDidEnter(){
+    this.fetching.length = 0;
+    this.profile.length = 0;
     this.ionViewDidLoad()
   }
 
   ionViewDidLoad(){
     this.profile.length = 0;
+    this.message = "";
     this.firebaseService.getProfile().then((data:any)=>{
       this.profile = data;
       this.pic = this.profile[0].img
-      this.username = this.profile[0].Username
+      this.username = this.profile[0].Username;
     })
     this.fetching.length = 0;
     this.firebaseService.getALlGoings().then((data:any) => {
       if (data != "no data"){
         this.fetching = data;
+      }
+      else{
+        this.message = "You currently do not have any events to attend"
       }
     }, Error =>{
      console.log(Error)
