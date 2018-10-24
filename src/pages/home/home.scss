@@ -97,6 +97,9 @@ page-home {
     //     }
       
     //   }
+    p.texts{
+      word-wrap:  break-word;
+    }
     .scrollcontainer2{
         //   background: red;
           width: 100vw;
@@ -116,7 +119,7 @@ page-home {
             box-shadow: 4px 9px 5px rgba(grey, .6);
           .image{
               height:10em;
-              width:10em;
+              width:12em;
               flex: 3 0 0;
               img{
                   width: 13em;
@@ -162,11 +165,16 @@ page-home {
                 flex: auto 0 0;
                 display: flex;
                 flex-direction: column;
+                
                 box-shadow: 4px 9px 5px rgba(grey, .6);
               .image{
                   flex: 3 0 0;
                   img{
+<<<<<<< HEAD
+                      width: 15em;
+=======
                       width: 14em;
+>>>>>>> 7282b5ea6672a21e979d5cf86efc57c564200fa7
                       height: 14em;
                   }
                 }
