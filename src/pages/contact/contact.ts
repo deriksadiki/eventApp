@@ -22,7 +22,7 @@ export class ContactPage {
   username;
   message;
   email;
-
+  
   fetching = new Array();
 
   constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
