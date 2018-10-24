@@ -59,15 +59,10 @@ export class RegisterPage {
         subTitle: 'Please enter a password, it cannot be left empty',
         buttons: ['OK']
       });
-<<<<<<< HEAD
       alert.present();
     
 
 }
-=======
-      alert.present()
-    }
->>>>>>> 7282b5ea6672a21e979d5cf86efc57c564200fa7
 
     else {
       this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.Username).then(() =>{
@@ -75,10 +70,5 @@ export class RegisterPage {
           this.navCtrl.push(TabsPage);
        })
     }
-<<<<<<< HEAD
 }
 }
-=======
-  }
-  }
->>>>>>> 7282b5ea6672a21e979d5cf86efc57c564200fa7
