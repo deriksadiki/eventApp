@@ -403,7 +403,7 @@ getComments(key){
           let obj = {
             date :moment( details[key].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
             text :  details[key].text,
-            name : details[key].Username,
+            name : details[key].username,
             img: details[key].img
           }
           this.comments.push(obj)
