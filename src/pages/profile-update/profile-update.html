@@ -33,13 +33,14 @@
       
      <input accept="image/png image/jpeg" type="file" (change)="picInsert($event)">
      <div class="butt1" align="center">
-        <button class="btn" ion-button color="own" round (click)="ImageCapture()">Take Picture</button>
+        
       </div>
    </ion-item>
    
 </ion-list>
 
 <div align = "center">
+    <button class="btn" ion-button color="nav" (click)="ImageCapture()">Take Picture</button>
 <button color = "nav" ion-button (click)="saveData()">Update</button>
 </div>
 </ion-content>
