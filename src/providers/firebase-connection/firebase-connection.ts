@@ -82,6 +82,55 @@ export class FirebaseConnectionProvider {
     this.authenticate.signOut();
   }
 
+  getPastEvents(){
+    return new Promise((accept,reject) => {
+      this.fetch.length = 0;
+      var user = firebase.auth().currentUser;
+      this.database.ref('goings/' + user.uid).on('value', (data: any) => {
+        if (data.val() != undefined || data.val() != null){
+          var events =  data.val();
+          var eventKeys = Object.keys(events);
+          for (var i = 0; i < eventKeys.length; i++){
+            var favEventKey = eventKeys[i];
+            var today = moment().format('L');
+            this.database.ref('events/' + events[favEventKey].hostname + '/' + events[favEventKey].key).on('value', (data2: any) => {
+                var fav = data2.val();
+               var eventDate = moment(fav.date).format('L');
+                if (today > eventDate){
+                  console.log(moment(fav.date).format('MMM Do, YYYY'))
+                  console.log(today)
+                  let obj = {
+                    endTIme: fav.endTIme,
+                    eventDesc: fav.eventDesc,
+                    eventName: fav.eventName,
+                    fee: fav.fee,
+                    img: fav.img,
+                    location: fav.location,
+                    startTIme: fav.startTIme,
+                    date: moment(fav.date).format('MMM Do, YYYY'),
+                    hostimg : fav.hostImg,
+                    key : favEventKey,
+                    hostname : events[favEventKey].hostname,
+                    enddate : moment(fav.endDate).format('MMM Do, YYYY')
+                  }
+                  this.fetch.push(obj)
+                }
+            
+            }, Error =>{
+              reject(Error.message);
+            })  
+          }
+          accept(this.fetch); 
+        }
+        else{
+          accept("no data")
+        }
+      }, Error => {
+        reject(Error.message);
+      })
+    })
+  }
+
   getALlGoings(){
     return new Promise((accept,reject) => {
       this.fetch.length = 0;
@@ -94,26 +143,27 @@ export class FirebaseConnectionProvider {
             var favEventKey = eventKeys[i];
             this.database.ref('events/' + events[favEventKey].hostname + '/' + events[favEventKey].key).on('value', (data2: any) => {
                 var fav = data2.val();
-                let obj = {
-                  endTIme: fav.endTIme,
-                  eventDesc: fav.eventDesc,
-                  eventName: fav.eventName,
-                  fee: fav.fee,
-                  img: fav.img,
-                  location: fav.location,
-                  startTIme: fav.startTIme,
-                  date: moment(fav.date).format('MMM Do, YYYY'),
-                  hostimg : fav.hostImg,
-                  key : favEventKey,
-                  hostname : events[favEventKey].hostname,
-                  enddate : moment(fav.endDate).format('MMM Do, YYYY')
-                }
-                this.fetch.push(obj)
-              accept(this.fetch);  
+                  let obj = {
+                    endTIme: fav.endTIme,
+                    eventDesc: fav.eventDesc,
+                    eventName: fav.eventName,
+                    fee: fav.fee,
+                    img: fav.img,
+                    location: fav.location,
+                    startTIme: fav.startTIme,
+                    date: moment(fav.date).format('MMM Do, YYYY'),
+                    hostimg : fav.hostImg,
+                    key : favEventKey,
+                    hostname : events[favEventKey].hostname,
+                    enddate : moment(fav.endDate).format('MMM Do, YYYY')
+                  }
+                  this.fetch.push(obj)
+               
             }, Error =>{
               reject(Error.message);
             })  
           }
+          accept(this.fetch); 
         }
         else{
           accept("no data")
@@ -365,6 +415,7 @@ getNewEvents(){
     return new Promise((accpt,rej)=>{
         this.database.ref('users/' + this.currentUserID ).on('value',(data2:any)=>{
         var details = data2.val();
+        var user = firebase.auth().currentUser;
         var keys = Object.keys(details);
           var k = keys[0];
           let obj ={
@@ -372,7 +423,8 @@ getNewEvents(){
             username: details[k].Username,
             img: details[k].img,
             userType: details[k].userType,
-            key: k
+            key: k,
+            email : user.email
           }
           this.profile.push(obj);
         accpt(this.profile)
