@@ -31,7 +31,7 @@ export class ContactPage {
   ionViewDidEnter(){
     this.fetching.length = 0;
     this.profile.length = 0;
-    this.ionViewDidLoad()
+    this.ionViewDidLoad();
   }
 
   ionViewDidLoad(){
@@ -51,12 +51,15 @@ export class ContactPage {
   
     })
     this.fetching.length = 0;
-    this.firebaseService.getALlGoings().then((data:any) => {
+    this.firebaseService.getPastEvents().then((data:any) => {
       if (data != "no data"){
         this.fetching = data;
+      if (this.fetching.length == 0){
+        this.message = "Currently you have not went to any event"
+      }
       }
       else{
-        this.message = "You currently do not have any events to attend"
+        this.message = "Currently you have not went to any event"
       }
     }, Error =>{
      console.log(Error)
