@@ -20,9 +20,10 @@ export class RegisterPage {
   constructor(private firebaseService: FirebaseConnectionProvider,public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
   }
 
+  back(){
+    this.navCtrl.pop()
+  }
 
-
-  
   reg(){
 
     if(this.Users.email == undefined && this.Users.password == undefined && this.Users.Username == undefined || this.Users.email == "" && this.Users.password == "" && this.Users.Username == "" ){
@@ -61,9 +62,11 @@ export class RegisterPage {
       });
       alert.present();
 
+
     
 
 }
+
 
 
     else {
@@ -72,6 +75,7 @@ export class RegisterPage {
           this.navCtrl.push(TabsPage);
        })
     }
+  }
 }
 
 }

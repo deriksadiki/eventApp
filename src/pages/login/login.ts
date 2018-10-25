@@ -5,6 +5,7 @@ import {login} from '../../Modals/login';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
+
 import {RegisterBusinessPage} from '../business/register-business/register-business'
 import { BusinessHomePage } from '../business/business-home/business-home';
 import { CommentsPage } from '../comments/comments';
@@ -12,6 +13,7 @@ import { MoreInfoPage } from '../more-info/more-info';
 import { SecondPage } from '../second/second' ;
 
 // import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 
 
 
