@@ -124,8 +124,6 @@ export class FirebaseConnectionProvider {
     })
   }
 
-
-
   registerBusiness(email,password,userName,companyName,location, img, cellno){
     return new Promise((accpt,rej) =>{
       this.authenticate.createUserWithEmailAndPassword(email,password).then(() =>{
@@ -367,7 +365,6 @@ getNewEvents(){
     return new Promise((accpt,rej)=>{
         this.database.ref('users/' + this.currentUserID ).on('value',(data2:any)=>{
         var details = data2.val();
-        var user = firebase.auth().currentUser;
         var keys = Object.keys(details);
           var k = keys[0];
           let obj ={
@@ -375,8 +372,7 @@ getNewEvents(){
             username: details[k].Username,
             img: details[k].img,
             userType: details[k].userType,
-            key: k,
-            email: user.email
+            key: k
           }
           this.profile.push(obj);
         accpt(this.profile)
