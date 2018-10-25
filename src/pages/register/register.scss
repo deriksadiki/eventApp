@@ -13,7 +13,7 @@ page-register {
     }
  
     .button{
-        margin-top: 5%;
+        // margin-top: 5%;
         width: 90%;
         color: #ffffff;
         font-weight: 400;
@@ -21,6 +21,9 @@ page-register {
         height: 50px;
         border-radius: 50px;
         // background-color: aliceblue;
+    }
+    .logo{
+margin-top: 10px;
     }
  
     .item{
@@ -41,16 +44,16 @@ page-register {
  
     h1{
         color: white;
-        font-size: 3.3em;
+        font-size: 3.0em;
         font-weight: 100;
         position: relative;
-        top: 20%;
+        top: 10%;
         text-align: center;
     }
  
     .image{
         position: relative;
-        top: 80px;
+        top: 19px;
     }
  
     p{
@@ -64,6 +67,9 @@ page-register {
     .ico{
         color: white;
         font-size: 3em;
+    }
+    .content{
+        margin-bottom: 10px;
     }
 
    
