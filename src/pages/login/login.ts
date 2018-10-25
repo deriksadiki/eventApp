@@ -34,22 +34,33 @@ export class LoginPage {
   }
 
   login(){
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Please Wait.',
+      duration: 17000
+    });
+      
+    loading.present();
     if (this.logging.email == "Admin" && this.logging.password =="123456"){
         this.navCtrl.push(RegisterBusinessPage)
     } 
     else{
+  
       this.firebaseService.login(this.logging.email,this.logging.password).then(()=>{
         this.firebaseService.getuser();
         if (this.action == "comment" || this.action == "navigate" || this.action == "share" || this.action == "going"){
           // this.navCtrl.setRoot(TabsPage).then(() =>{
           //   this.navCtrl.push(MoreInfoPage,{action:this.action, events:this.event})
           // })
+          loading.dismiss()
             this.navCtrl.pop();
           }
           else{
+            loading.dismiss()
             this.navCtrl.push(TabsPage)
           }
       }, Error =>{
+        loading.dismiss()
         if (this.logging.email == undefined && this.logging.password == undefined){
           const alert = this.alertCtrl.create({
             title: 'Error,',

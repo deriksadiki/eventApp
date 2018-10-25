@@ -30,7 +30,7 @@ export class HomePage {
       let loading = this.loadingCtrl.create({
         spinner: 'bubbles',
         content: 'Please Wait.',
-        duration: 1000
+        duration: 17000
       });
   
       loading.present();
