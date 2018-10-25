@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MoreInfoPage } from '../more-info/more-info';
-import { NavController, AlertController, NavParams, LoadingController} from 'ionic-angular';
+import { NavController, AlertController, NavParams, LoadingController, ModalController} from 'ionic-angular';
 import { User } from '../../Modals/User';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { LoginPage } from '../login/login';
@@ -22,8 +22,32 @@ export class HomePage {
 
   Users = {} as User;
   plus;
-  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController,public navParams: NavParams ,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider){
+  constructor(public modalCtrl: ModalController,public loadingCtrl: LoadingController,public navCtrl: NavController,public navParams: NavParams ,public alertCtrl:AlertController,private firebaseService: FirebaseConnectionProvider){
+    setTimeout(()=> {    
+      this.firebaseService.getUserSatate().then( data2 =>{
+        if (data2 != 1){
+          let alert = this.alertCtrl.create({
+            title: 'Friendly reminder',
+            message: 'some of the app features wont be available since you are not logged in, so do you want to login now?',
+            buttons: [
+              {
+                text: 'No',
+                role: 'cancel',
+                handler: () => {
 
+                }
+              },
+              {
+                text: 'Yes',
+                handler: () => {
+               this.navCtrl.push(LoginPage)
+                }
+              }
+            ]
+          });
+          alert.present();
+        }})
+    }, 10000);
   }
   ionViewDidLoad() {
     setTimeout(()=> {
@@ -53,7 +77,9 @@ export class HomePage {
       loading.dismiss()
     });
     }, 3100);
-     
+    
+
+
      }
 
 
