@@ -48,6 +48,7 @@ export class ContactPage {
       this.profile = data;
       this.pic = this.profile[0].img
       this.username = this.profile[0].Username;
+  
     })
     this.fetching.length = 0;
     this.firebaseService.getALlGoings().then((data:any) => {

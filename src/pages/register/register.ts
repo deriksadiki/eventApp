@@ -60,9 +60,11 @@ export class RegisterPage {
         buttons: ['OK']
       });
       alert.present();
+
     
 
 }
+
 
     else {
       this.firebaseService.registerUser(this.Users.email,this.Users.password,this.Users.Username).then(() =>{
@@ -71,4 +73,5 @@ export class RegisterPage {
        })
     }
 }
+
 }
