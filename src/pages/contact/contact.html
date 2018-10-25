@@ -22,32 +22,34 @@
         <img class="image" src='{{i.img}}' imageViewer>
       </ion-avatar>
       <br>
-      <br>
       <h1>{{i.username}}</h1>
+      <h2 class="mail">{{i.email}}</h2>
+       <!-- <b class="mail"></b> -->
     </div>
   </div>
 </ion-header>
-
-
 <br>
-
-
 
 <ion-content >
  
     
       <ion-title class="titles">Events to attend</ion-title>
+      <h2 class="message">{{message}}</h2>
       <div align="center" >
           <ion-grid>
             <ion-row>
               <ion-col class="space" *ngFor="let i of fetching; let a = index" >
-                <img class="pic" src="{{i.img}}" (click)="more(a)">
+                <!-- <ion-card (click)="more(a)"> -->
+                  <ion-card-content>
+                      <img class="images" src="{{i.img}}" >
+                  </ion-card-content>
+                <!-- </ion-card> -->
               </ion-col>
             </ion-row>
           </ion-grid>
-      <br>
-      <br>
-       
+
+     
+
         </div>
 
 
