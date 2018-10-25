@@ -101,8 +101,11 @@ page-contact {
 h1{
     color: white;
     font-weight: 100;
+    font-size: 2.3em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     position: relative;
     bottom: 45px;
+    margin-top: 27px;
 }
 .mail{
     color: white;
@@ -121,8 +124,9 @@ h1{
     margin-top: 10px;
 }
 .image{
-    height: 140px;
-    width: 140px;
+    height: 28vh;
+    width: 50%;
+    margin-top: -10%;
     position: relative;
     bottom: 15px;
     border-radius: 100px;
