@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, ModalController } from 'ionic-angular';
+import { NavController, AlertController, ModalController,LoadingController } from 'ionic-angular';
 import { FirebaseConnectionProvider } from '../../providers/firebase-connection/firebase-connection';
 import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
@@ -25,7 +25,7 @@ export class ContactPage {
   
   fetching = new Array();
 
-  constructor(public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
+  constructor(public loadingCtrl: LoadingController,public popoverCtrl: PopoverController,public navCtrl: NavController,private firebaseService: FirebaseConnectionProvider, private alertCtrl : AlertController,public modalCtrl:ModalController) {
 
   }
   ionViewDidEnter(){
@@ -35,6 +35,13 @@ export class ContactPage {
   }
 
   ionViewDidLoad(){
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Please Wait.',
+      duration: 17000
+    });
+
+    loading.present();
     this.profile.length = 0;
     this.message = "";
     this.firebaseService.getProfile().then((data:any)=>{
@@ -55,6 +62,7 @@ export class ContactPage {
      console.log(Error)
 
     });
+    loading.dismiss()
   }
 
   presentModal(){
