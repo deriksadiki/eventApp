@@ -5,6 +5,7 @@ import {login} from '../../Modals/login';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
+import { RegisterBusinessPage } from '../business/register-business/register-business';
 
 
 
