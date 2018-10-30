@@ -10,10 +10,10 @@
   </ion-navbar>
   <div *ngFor="let i of getProfile"  align="center">
     <ion-avatar>
-      <img class="pic2" src="{{pic}}">
+      <img id="pic2" src="{{pic}}" class="animated fadeIn delay-2s">
     </ion-avatar>
 
-    
+
   </div>
   </div>
 </ion-header>
@@ -29,7 +29,7 @@
       
      
      <div class="butt1" align="center">
-
+        <ion-input type="file" (click)="picInsert($event)"></ion-input>
       </div>
    </ion-item>
    
