@@ -43,7 +43,7 @@ page-contact {
         border-radius: 70px;
          position: relative;
          margin-top: 70px;
-    .phot{
+    #phot{
         // background-image: url('../../assets/imgs/eventpic.jpg');
         background-size: cover;
         position: relative;
@@ -117,11 +117,11 @@ h1{
 .thenav{
     background-image:linear-gradient(rgba(0, 0, 0, 0.808),#7a4579), url('../../assets/imgs/people.jpg');
    
-    height: 320px;
+    height: 340px;
 }
 .titles{
     font-size: 4em;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .image{
     height: 28vh;

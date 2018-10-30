@@ -26,7 +26,7 @@ page-more-info {
     // bottom: 16px;
     padding-right: 40px;
 }
-    .menu{
+    #menu{
         height: 4em;
         display: flex;
         overflow: visible;
@@ -49,7 +49,7 @@ page-more-info {
             background-color: white;
             box-shadow: 2px 5px 6px rgba(grey, .6);
         }
-        .im{
+        #im{
             background-color: white;
             z-index: 1;
         }
@@ -67,7 +67,7 @@ page-more-info {
 
     }
 
-    .posted{
+    #posted{
         margin-left: 8.5em;
         font-weight: bold;
         font-size: 1em;

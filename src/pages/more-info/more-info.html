@@ -16,18 +16,18 @@
       <h3 class="subheading">{{i.location}}</h3>
     </div>
   </div>
-  <div class="menu">
-    <img class="im" src="{{i.hostimg}}" alt="image here">
+  <div id="menu" class="animated slideInDown delay=-2s">
+    <img class="animated rollIn delay-2s" id="im" src="{{i.hostimg}}" alt="image here">
     <ion-icon class="i" name="md-chatboxes" (click)="comment()" style="zoom: 1.5"></ion-icon>
     <ion-icon color={{colorState}} class="ii" name="md-heart" (click)="going()" style="zoom: 1.5"></ion-icon>
     <ion-icon class="i" (click)="share(i)" name="md-share" style="zoom: 1.5"></ion-icon>  
   </div>
-  <p class="posted">Posted by: {{i.hostname}} <br>Contact: {{i.cellno}}</p>
+  <p class="animated slideInRight delay-3" id="posted">Posted by: {{i.hostname}} <br>Contact: {{i.cellno}}</p>
 </ion-header>
 
 
-<ion-content *ngFor="let b of event">
-  <ion-card-content>
+<ion-content *ngFor="let b of event" >
+  <ion-card-content class="animated slideInUp delay-2s">
     <ion-list no-line class="content">
       <ion-item>
         <ion-thumbnail item-start>

@@ -7,14 +7,14 @@
 
 
 
-<ion-content class="cont">
+<ion-content id="cont" class="animated fadeIn delay-1s" >
 
  <h1><b>Upcoming events</b></h1>
  <div class="shade">
    <span ></span>
  </div>
 
-<div class="scrollcontainer">
+<div id="scrollcontainer" class="animated fadeInLeft delay-2s" >
       <div class="cardcontainer" *ngFor="let a of fetchingUpcoming;let i of index;">
         <div class="image">
           <img class="image" src="{{a.img}}" imageViewer />
@@ -43,7 +43,7 @@
       </div>
     </ion-slides> -->
   
-    <div class="scrollcontainer2">
+    <div id="scrollcontainer2" class="animated fadeInRight delay-2s">
         <div class="cardcontainer" *ngFor="let a of fetchingRecentlyAdded;let i of index;">
             <div class="image">
             <img class="image" src="{{a.img}}" (click)="viewMore(i)" imageViewer />
