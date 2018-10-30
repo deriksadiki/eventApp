@@ -12,7 +12,8 @@ page-home {
         letter-spacing: .1em;
         font-weight: 400;
         margin-left: .5em;
-        color: rgba(#666, 1);
+        // color: rgba(#666, 1);
+        color: whitesmoke;
         text-transform: capitalize;
     }
     .h2{
@@ -154,11 +155,11 @@ page-home {
     // }
       .scrollcontainer{
         //   background: red;
-          width: 100vw;
+          width:99vw;
           display: flex;
           flex-direction: row;
           overflow-x: scroll;
-          height: 22em;
+          height: 24em;
           margin-top: .3em;
           .cardcontainer{
                 height: 21em;  
@@ -167,30 +168,50 @@ page-home {
                 flex: auto 0 0;
                 display: flex;
                 flex-direction: column;
-                border-radius: 45px;
-                box-shadow: 4px 9px 5px rgba(rgb(78, 78, 78), .6);
+                border-radius: 10px;
+                box-shadow: 4px 9px 5px rgba(rgb(0, 0, 0), .6);
               .image{
                   flex: 3 0 0;
                   img{
-                    border-top-left-radius: 40px;
-                    border-top-right-radius: 40px;
+                      background-image: linear-gradient(rgba(206, 192, 192, 0.8),rgba(0,56,70,0.77));
+                    // border-top-left-radius: 10px;
+                    // border-top-right-radius: 10px;
+                    border-radius: 10px;
                       width: 15em;
-                      height: 15em;
+                      height: 21em;
                   }
                 }
 
 
               .content{
-                  flex: 1 0 0;
-                  background: whitesmoke;
-                  height: 100%;
+                  background-color: rgba(24, 24, 24, 0.61);
+                //   flex: 3 0 0;
+                //   background: whitesmoke;
+                //   height: 100%;
+                 bottom: 50px;
+                //  bottom: 0;
+                 left: 0;
+                 right: 0;
+                 overflow: hidden;
+                  position: absolute;
+                  transition: .5s ease;
+                  border-bottom-left-radius: 10px;
+                  border-bottom-right-radius: 10px;
+                //   box-shadow: 2px 3px 5px;
+                .cardcontainer:hover .overlay {
+                    width: 100%;
+                  }
                   .heading{
                       margin: 0;
                   }
                   .text{
-                    //   font-size: 1em;
+                      font-size: 1.2em;
                     color: #7a4579;
-
+                    text-shadow: 2px 3px 5px black;
+                  }
+                  .texts{
+                      color: whitesmoke;
+                      text-shadow: 2px 3px 5px black;
                   }
               }
           }
@@ -205,12 +226,16 @@ page-home {
       }
 
       .cont{
-          background-color: rgb(222, 226, 230);
-      }
+        background-image:linear-gradient(#838383,rgba(0, 0, 0, 0.644)), url('../../assets/imgs/works.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
+    }
 
       .scrollcontainer2{
         //   background: red;
-          width: 100vw;
+          width: 99vw;
           display: flex;
           flex-direction: row;
           overflow-x: scroll;
@@ -223,15 +248,16 @@ page-home {
                 flex: auto 0 0;
                 display: flex;
                 flex-direction: column;
-                border-radius: 45px;
-                box-shadow: 4px 9px 5px rgba(rgb(78, 78, 78), .6);
+                border-radius: 10px;
+                box-shadow: 4px 9px 5px rgba(rgba(7, 7, 7, 0.685), .6);
               .image{
                   flex: 3 0 0;
                   img{
-                    border-top-left-radius: 40px;
-                    border-top-right-radius: 40px;
-                     border-bottom-left-radius: 40px;
-                    border-bottom-right-radius: 40px;
+                    // border-top-left-radius: 40px;
+                    // border-top-right-radius: 40px;
+                    //  border-bottom-left-radius: 40px;
+                    // border-bottom-right-radius: 40px;
+                    border-radius: 10px;
                       width: 15em;
                       height: 17em;
                   }
@@ -239,17 +265,28 @@ page-home {
 
 
               .content{
-                  flex: 1 0 0;
-                  background: whitesmoke;
-                  height: 100%;
+                background-color: rgba(24, 24, 24, 0.61);
+                //   flex: 3 0 0;
+                //   background: whitesmoke;
+                //   height: 100%;
+                 bottom: 89px;
+                  position: relative;
+                  border-bottom-left-radius: 10px;
+                  border-bottom-right-radius: 10px;
+                //   box-shadow: 2px 3px 5px;
                   .heading{
                       margin: 0;
                   }
                   .text{
-                    //   font-size: 1em;
+                    font-size: 1.2em;
                     color: #7a4579;
+                    text-shadow: 2px 3px 5px black;
 
                   }
+                  .texts{
+                    color: whitesmoke;
+                    text-shadow: 2px 3px 5px black;
+                }
               }
           }
           .cardcontainer:first-child{

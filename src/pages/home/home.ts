@@ -18,7 +18,7 @@ export class HomePage {
   fetching = [];
   fetchingRecentlyAdded = [];
   fetchingUpcoming = []
-
+  color='linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,.8)),';
 
   Users = {} as User;
   plus;

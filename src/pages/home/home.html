@@ -1,12 +1,13 @@
+
 <ion-header>
   <ion-toolbar color="nav">
     <ion-title align="center"> Events</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content class="cont">
-
-
 
  <h1><b>Upcoming events</b></h1>
  <div class="shade">
@@ -45,7 +46,12 @@
     <div class="scrollcontainer2">
         <div class="cardcontainer" *ngFor="let a of fetchingRecentlyAdded;let i of index;">
             <div class="image">
-            <img class="image" src="{{a.img}}" (click)="viewMore(i)">
+            <img class="image" src="{{a.img}}" (click)="viewMore(i)" imageViewer />
+            </div>
+            <div class="content">
+              <p class="texts" text-wrap>{{i.eventName}}</p>
+              <p class="text" (click)="viewMore(i)">View
+              </p>
             </div>
         </div>
       </div>
