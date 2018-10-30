@@ -11,13 +11,13 @@
         <ion-icon class="more" name="more"></ion-icon>
       </button> -->
     </div>
-    <div class="headings">
+    <div id="headings" class="animated slideInDown delay-2s">
       <h1 class="heading">{{i.eventName}}</h1>
       <h3 class="subheading">{{i.location}}</h3>
     </div>
   </div>
-  <div id="menu" class="animated slideInDown delay=-2s">
-    <img class="animated rollIn delay-2s" id="im" src="{{i.hostimg}}" alt="image here">
+  <div id="menu" class="animated slideInDown delay-2s">
+    <img  class="im" class="animated rollIn delay-2s" src="{{i.hostimg}}" alt="image here">
     <ion-icon class="i" name="md-chatboxes" (click)="comment()" style="zoom: 1.5"></ion-icon>
     <ion-icon color={{colorState}} class="ii" name="md-heart" (click)="going()" style="zoom: 1.5"></ion-icon>
     <ion-icon class="i" (click)="share(i)" name="md-share" style="zoom: 1.5"></ion-icon>  
