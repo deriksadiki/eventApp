@@ -24,15 +24,16 @@
         <ion-label><ion-icon name="profile"  color="primary"></ion-icon></ion-label>
       <ion-input type="text" placeholder="New Username" [(ngModel)]="profile" ></ion-input>
    </ion-item>
-<br>
-   <ion-item class="upload">
-      
-     
-     <div class="butt1" align="center">
-        <ion-input type="file" (click)="picInsert($event)"></ion-input>
-      </div>
-   </ion-item>
-   
+<br>  <div  align = "center">
+<ion-item class="upload">
+    
+  <input accept="image/png image/jpeg" type="file" (change)="picInsert($event)">
+
+  <!-- <div class="butt1" align="center"> -->
+     <!-- <button class="btn" ion-button color="own" round (click)="ImageCapture()">Take Picture</button> -->
+   <!-- </div> -->
+</ion-item>
+   </div>
 </ion-list>
 
 <div align = "center">

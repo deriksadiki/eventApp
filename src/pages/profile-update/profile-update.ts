@@ -44,11 +44,6 @@ export class ProfileUpdatePage {
     })
   }
 
-  dismiss() {
-    this.viewCtrl.dismiss();
-  }
-
-
   pic;
 
 
@@ -85,4 +80,3 @@ export class ProfileUpdatePage {
       });
     }
 }
-

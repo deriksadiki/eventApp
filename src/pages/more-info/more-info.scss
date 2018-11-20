@@ -31,10 +31,10 @@ page-more-info {
         height: 4em;
         display: flex;
         overflow: visible;
-
+        // z-index: 1;
         flex-flow: row nowrap;
         justify-content: space-between;
-        box-shadow: 2px 5px 6px rgba(grey, .6);
+        // box-shadow: 2px 5px 6px rgba(grey, .6);
         border-bottom-left-radius: .5em;
         border-bottom-right-radius: .5em;
         background-image:linear-gradient(360deg,#7a4579,rgba(0,0,0,0.5)), url('../../assets/imgs/people.jpg');
@@ -47,12 +47,14 @@ page-more-info {
             position: relative;
             left: 1em;
             top: 1.3em;
+            // z-index: -1;
             background-color: white;
             box-shadow: 2px 5px 6px rgba(grey, .6);
         }
         .im{
             background-color: white;
-            z-index: 1;
+             z-index: 999;
+             overflow: hidden;
         }
 
         .i{
